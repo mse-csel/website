@@ -1,0 +1,13 @@
+# action.yml
+name: 'Mkdocs edu builder'
+description: 'Builds a Mkdocs website for HEIA-FR'
+inputs:
+  site-dir:
+    description: 'public build directory'
+    required: false
+    default: 'public'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.site-dir }}

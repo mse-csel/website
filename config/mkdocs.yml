@@ -1,0 +1,12 @@
+INHERIT: base-fr.yml
+site_url: https://se1.isc.heia-fr.ch/
+site_name: Construction de systèmes embarqués sous Linux
+site_description:  Construction de systèmes embarqués sous Linux
+
+
+extra:
+  variant: rs
+  teacher_name: "Jacques Supcik"
+  class_names:
+    - ISC-2-RS
+          
