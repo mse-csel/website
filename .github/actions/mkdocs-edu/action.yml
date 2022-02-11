@@ -5,9 +5,14 @@ inputs:
   site-dir:
     description: 'public build directory'
     required: false
-    default: 'public'
+    default: '../public'
+  config-file:
+    description: 'config file'
+    required: false
+    default: 'config/mkdocs.yml'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.site-dir }}
+    - ${{ inputs.config-file }}
