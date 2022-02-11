@@ -1,7 +1,7 @@
-site_name: Embedded Systems
-site_description:  Embedded Systems Lecture
-copyright: "Copyright &copy; 2021 Haute école d'ingénierie et d'architecture of Fribourg"
-site_url: https://heia-fr.github.io/embsys-lecture/
+site_name: CSEL1
+site_description: Construction de systèmes embarqués sous Linux
+copyright: "Copyright &copy; 2022 Haute école d'ingénierie et d'architecture of Fribourg"
+site_url: https://mse-csel.github.io/website/
 
 docs_dir: '../docs/'
 site_dir: '../public/'
@@ -72,4 +72,4 @@ extra:
   year: '2021-2022'
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/heia-fr/embsys-lecture
+      link: https://github.com/mse-csel/website
