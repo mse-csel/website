@@ -15,8 +15,6 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __root="$(cd "$(dirname "${__dir}")" && pwd)"
 
-. $__dir/lib.sh
-
 while getopts "w:s:" opt; do
     case ${opt} in
     w)
@@ -36,5 +34,10 @@ while getopts "w:s:" opt; do
     esac
 done
 
-filter_pages $SELECT_WEEK
+# Filter pages
+for i in $(find docs -name pages.j2); do
+    jinja2 -D week=$SELECT_WEEK -o $(dirname $i)/.pages $i
+done
+
+# Serve MkDocs
 mkdocs serve -f config/mkdocs.yml

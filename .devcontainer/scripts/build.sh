@@ -36,5 +36,10 @@ while getopts "w:s:" opt; do
     esac
 done
 
-filter_pages $SELECT_WEEK
+# Filter pages
+for i in $(find docs -name .pages.j2); do
+    jinja2 -D week=$SELECT_WEEK -o $(dirname $i)/.pages $i
+done
+
+# Build pages
 mkdocs build -f config/mkdocs.yml -d ../public

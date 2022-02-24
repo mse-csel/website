@@ -19,9 +19,9 @@ python --version
 mkdocs --version
 
 echo "Filtering pages"
-for i in $(find docs -name .pages.j2); do
+for i in $(find docs -name pages.j2); do
     echo "Processing $i"
-    jinja2 -D week=$week -o $(dirname $i)/$(basename $i .j2) $i
+    jinja2 -D week=$week -o $(dirname $i)/.pages $i
 done
 
 echo "Building site"

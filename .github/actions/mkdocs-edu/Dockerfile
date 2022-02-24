@@ -9,9 +9,8 @@ RUN pip install poetry
 RUN poetry config virtualenvs.create false
 
 WORKDIR /app
-COPY ../../../.devcontainer/pyproject.toml .
-COPY ../../../.devcontainer/poetry.lock .
-
+RUN git clone --depth 1 --branch v0.1.0 https://github.com/heia-fr/mkdocs-edu-poetry.git mkdocs-edu
+WORKDIR /app/mkdocs-edu
 RUN poetry install
 
 COPY entrypoint.sh /entrypoint.sh
