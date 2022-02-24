@@ -1,7 +1,7 @@
 site/
 public/
-public_*/
 settings.json
 /.archive
 *.pyc
 __mkdocs_*.yml
+.DS_Store

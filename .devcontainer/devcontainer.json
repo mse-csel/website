@@ -1,0 +1,9 @@
+{
+    "name": "MkDocs-Edu",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [],
+    "settings": {},
+    "extensions": [],
+}

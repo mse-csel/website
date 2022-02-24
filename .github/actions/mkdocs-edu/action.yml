@@ -10,9 +10,20 @@ inputs:
     description: 'config file'
     required: false
     default: 'config/mkdocs.yml'
+  published-week:
+    description: 'Published Week'
+    required: false
+    default: '999'
+  published-solutions:
+    description: 'Published Solutions'
+    required: false
+    default: '999'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.site-dir }}
     - ${{ inputs.config-file }}
+    - ${{ inputs.published-week }}
+    - ${{ inputs.published-solutions }}

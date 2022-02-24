@@ -1,15 +1,15 @@
 INHERIT: base.yml
 
 plugins:
-  - awesome-pages
-  - i18n:
-      default_language: fr
-      default_language_only: true
-      languages:
-        fr: Français
-        en: English
-  - macros
-  - pdf-export:
-      enabled_if_env: ENABLE_PDF_EXPORT
-      combined: true
-      combined_output_path: pdf/prog1-2020-2021.pdf
+  awesome-pages: {}
+  i18n:
+    default_language: fr
+    default_language_only: true
+    languages:
+      fr: Français
+      en: English
+  macros: {}
+  pdf-export:
+    enabled_if_env: ENABLE_PDF_EXPORT
+    combined: true
+    combined_output_path: pdf/prog1-2020-2021.pdf

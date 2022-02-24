@@ -21,41 +21,41 @@ theme:
     - navigation.sections
 
 markdown_extensions:
-  - admonition
-  - extra
-  - smarty:
+  admonition: {}
+  extra: {}
+  smarty:
       smart_angled_quotes: true
       substitutions:
         left-angle-quote: "&laquo;&#xA0;"
         right-angle-quote: "&#xA0;&raquo;"
-  - mkdcomments
-  - footnotes
-  - codehilite
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.tabbed
-  - pymdownx.highlight
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.keys
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.magiclink
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-  - mdx_math
-  - pymdown_include
-  - attr_list
-  - md_in_html
+  mkdcomments: {}
+  footnotes: {}
+  codehilite: {}
+  pymdownx.arithmatex:
+    generic: true
+  pymdownx.betterem:
+    smart_enable: all
+  pymdownx.tabbed: {}
+  pymdownx.highlight: {}
+  pymdownx.caret: {}
+  pymdownx.critic: {}
+  pymdownx.details: {}
+  pymdownx.keys: {}
+  pymdownx.emoji:
+    emoji_index: !!python/name:materialx.emoji.twemoji
+    emoji_generator: !!python/name:materialx.emoji.to_svg
+  pymdownx.inlinehilite: {}
+  pymdownx.magiclink: {}
+  pymdownx.mark: {}
+  pymdownx.smartsymbols: {}
+  pymdownx.superfences: {}
+  pymdownx.tasklist:
+    custom_checkbox: true
+  pymdownx.tilde: {}
+  mdx_math: {}
+  pymdown_include: {}
+  attr_list: {}
+  md_in_html: {}
 
 extra_css:
   - 'stylesheets/extra.css'
