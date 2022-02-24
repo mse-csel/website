@@ -76,37 +76,51 @@ le(s) professeur(s) avec au minimum le rôle "Triage".
 
 Chaque membre de l'équipe peut maintenant faire un "Clone" du projet _csel-workspace_ sur son ordinateur. 
 
-
-
-ouvrez avec vscode
-
-trust
-
-install ext
-
-open terminal
-
-get-buildroot.sh 
-
-make
-
-
 #### Configuration de l'environnement de développement
+
+Ouvrez le projet avec VSCode. Le système vous demandera probablement si vous faites confiance
+aux auteurs de ce dossier et vous pouvez cliquer sur le bouton correspondant.
+
+Si le système vous propose de ré-ouvrir le dossier dans un container, acceptez cette
+proposition en cliquant sur "Reopen in Container"
 
 Lorsque vous ouvrez le projet avec VSCode, le système vous proposera probablement d'installer des extensions.
 Acceptez-les toutes et cliquez sur le bouton "Install".
 
-#### Génération et installation de l'environnement
-
-Si vous effectuez des modifications de la configuration du noyau ou du rootfs, il faut régénérer les
-différents packages et recréer les images. Pour cela, il suffit d'effectuer les commandes suivantes :
+Ouvrez maintenant un terminal dans VSCode et téléchargez "buildroot" avec la commande suivante:
 
 ```bash
+get-buildroot.sh 
+```
+
+#### Génération et installation de l'environnement
+
+Vous pouvez modifier la configuration du noyau ou du rootfs avec la commande suivante :
+
+``` bash
+cd /buildroot
+make menuconfig
+```
+Générez ensuite les différents packages et créez les images. 
+
+``` bash
 cd /buildroot
 make
+```
+
+!!! attention "Attention"
+    La construction du système peut prendre plus d'une heure sur un PC de milieu de gamme.
+
+Actualisez maintenant le "root filesystem":
+
+``` bash
 rm -Rf /rootfs/*
 tar xf /buildroot/output/images/rootfs.tar -C /rootfs
 ```
+
+!!! note "Note"
+    Vous pouvez aussi utiliser les script `/usr/local/bin/delete-rootfs.sh` 
+    et `/usr/local/bin/extract-rootfs.sh` présents dans l'image Docker.
 
 #### Gravure de la carte SD
 
