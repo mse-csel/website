@@ -18,9 +18,12 @@ solutions="${4:-999}"
 python --version
 mkdocs --version
 
+echo "Filtering pages"
 for i in $(find docs -name .pages.j2); do
+    echo "Processing $i"
     jinja2 -D week=$week -o $(dirname $i)/$(basename $i .j2) $i
 done
 
+echo "Building site"
 export SHOW_SOLUTION=$solutions
 mkdocs build --clean --config-file ${config} --site-dir ${site_dir}
