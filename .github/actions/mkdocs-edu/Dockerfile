@@ -9,8 +9,8 @@ RUN pip install poetry
 RUN poetry config virtualenvs.create false
 
 WORKDIR /app
-COPY pyproject.toml .
-COPY poetry.lock .
+COPY ../../../.devcontainer/pyproject.toml .
+COPY ../../../.devcontainer/poetry.lock .
 
 RUN poetry install
 
