@@ -7,17 +7,18 @@ title: "01 : Introduction"
 - Titre : MA-CSEL1 - Construction de Systèmes Embarqués sous Linux
 - Intervenant
     - Jacques Supcik (HEIA-FR / ISC)
-- 14 étudiants inscrits
-    - X étudiants TIC
-    - X étudiants TIN
-    - X plein temps
-    - X temps partiel
+- 18 étudiants inscrits
+    - 10 étudiants CS
+    - 6 étudiants TIC
+    - 2 étudiants TIN
+    - 5 plein temps
+    - 13 temps partiel
 
 
 ## Communication
 
 e-mail : jacques.supcik@hefr.ch
-Telegram : TBD
+Telegram/Discord : TBD
 
 
 ## Programme des cours
