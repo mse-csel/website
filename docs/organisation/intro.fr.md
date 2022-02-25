@@ -8,9 +8,8 @@ title: "01 : Introduction"
 - Intervenant
     - Jacques Supcik (HEIA-FR / ISC)
 - 18 étudiants inscrits
-    - 10 étudiants CS
-    - 6 étudiants TIC
-    - 2 étudiants TIN
+    - 16 étudiants CS/TIC
+    - 2 étudiants EIE/TIN
     - 5 plein temps
     - 13 temps partiel
 
@@ -121,9 +120,9 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 ### Rapport
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
-    - _TBD_ : Environnement Linux embarqué et programmation noyau Linux 
-    - _TBD_ : Programmation système Linux et optimisation système Linux
-    - _TBD_ : Mini projet intégré
+    - 8.4.2022 : Environnement Linux embarqué et programmation noyau Linux 
+    - 3.6.2022 : Programmation système Linux et optimisation système Linux
+    - 17.6.2022 : Mini projet intégré
 - Format : fichier PDF avec les annexes dans un fichier .tar
 - Langue : français, allemand ou anglais
 
