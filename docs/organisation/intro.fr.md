@@ -18,7 +18,7 @@ title: "01 : Introduction"
 ## Communication
 
 - e-mail : jacques.supcik@hefr.ch
-- Teams/Telegram/Discord : TBD
+- Teams : **uegn9h2**
 
 
 ## Programme des cours
