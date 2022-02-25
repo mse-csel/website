@@ -17,8 +17,8 @@ title: "01 : Introduction"
 
 ## Communication
 
-e-mail : jacques.supcik@hefr.ch
-Telegram/Discord : TBD
+- e-mail : jacques.supcik@hefr.ch
+- Teams/Telegram/Discord : TBD
 
 
 ## Programme des cours
@@ -121,9 +121,9 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 ### Rapport
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
-    - 30.10.2020 : Environnement Linux embarqué et programmation noyau Linux 
-    - 11.12.2020 : Programmation système Linux et optimisation système Linux
-    - 08.01.2021 : Mini projet intégré
+    - _TBD_ : Environnement Linux embarqué et programmation noyau Linux 
+    - _TBD_ : Programmation système Linux et optimisation système Linux
+    - _TBD_ : Mini projet intégré
 - Format : fichier PDF avec les annexes dans un fichier .tar
 - Langue : français, allemand ou anglais
 
@@ -154,7 +154,7 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 ### Note finale du cours
 
 - Examen théorique oral 65%
-- Le rapport de laboratoire 35%
+- Les rapports de laboratoire 35%
 
 
 ## Littérature
