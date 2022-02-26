@@ -93,6 +93,8 @@ Ouvrez maintenant un terminal dans VSCode et téléchargez "buildroot" avec la c
 get-buildroot.sh 
 ```
 
+Pour votre culture génlrale, étudiez le script `get-buildroot.sh` dans `/usr/local/bin/`.
+
 #### Génération et installation de l'environnement
 
 Vous pouvez modifier la configuration du noyau ou du rootfs avec la commande suivante :
@@ -109,7 +111,9 @@ make
 ```
 
 !!! attention "Attention"
-    La construction du système peut prendre plus d'une heure sur un PC de milieu de gamme.
+    La construction du système prend entre 30 et 60 minutes selon la
+    performance de votre PC. Assurez-vous aussi d'avoir au moins **20GiB
+    de libre** sur votre disque dur (ou ssd).
 
 Actualisez maintenant le "root filesystem":
 
@@ -166,7 +170,6 @@ Lorsque la séquece de boot termine, vous pouvez vous connecter avec le login `r
 ![Boot fin](img/boot_end.png)
 <figcaption>Fin de la séquence de boot</figcaption>
 </figure>
-
 
 ### Mise en place de l'infrastructure réseau
 
