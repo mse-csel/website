@@ -17,7 +17,7 @@ title: "01 : Introduction"
 ## Communication
 
 - e-mail : jacques.supcik@hefr.ch
-- Teams : **uegn9h2**
+- MS-Teams : [Groupe MSE-CSEL1](https://teams.microsoft.com/l/team/19%3a8c0T003imo0cNfBkutblbtt4frLvQuT57QncCpbgd5I1%40thread.tacv2/conversations?groupId=849f5561-f450-415b-92a9-3b50931c353b&tenantId=a372f724-c0b2-4ea0-abfb-0eb8c6f84e40)
 
 
 ## Programme des cours
