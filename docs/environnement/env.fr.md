@@ -279,7 +279,7 @@ Pour attacher manuellement l'espace de travail de la machine hôte sur la cible 
   ```
 - Attacher le workspace de la machine hôte sur la cible :
   ```plain
-  mount -t cifs -o username=root,password=toor,port=1445,noserverino //192.168.0.4/workspace /workspace
+  mount -t cifs -o vers=1.0,username=root,password=toor,port=1445,noserverino //192.168.0.4/workspace /workspace
   ```
 - Détacher le workspace de la cible :
   ``` plain
@@ -294,7 +294,7 @@ Pour attacher automatiquement l'espace de travail de la machine hôte sur la cib
   ```
 - Editer le ficher "/etc/fstab" (avec vi) et ajouter la ligne ci-dessous :
   ``` plain
-  //192.168.0.4/workspace /workspace cifs username=root,password=toor,port=1445,noserverino
+  //192.168.0.4/workspace /workspace cifs vers=1.0,username=root,password=toor,port=1445,noserverino
   ```
 - Activer la configuration :
   ```plain
