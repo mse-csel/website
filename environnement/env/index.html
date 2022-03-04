@@ -921,7 +921,7 @@ Il est possible d&rsquo;attacher l&rsquo;espace de travail soit manuellement soi
   <div class="highlight"><pre><span></span><code>mkdir -p /workspace
 </code></pre></div></li>
 <li>Attacher le workspace de la machine hôte sur la cible :
-  <div class="highlight"><pre><span></span><code>mount -t cifs -o username=root,password=toor,port=1445,noserverino //192.168.0.4/workspace /workspace
+  <div class="highlight"><pre><span></span><code>mount -t cifs -o vers=1.0,username=root,password=toor,port=1445,noserverino //192.168.0.4/workspace /workspace
 </code></pre></div></li>
 <li>Détacher le workspace de la cible :
   <div class="highlight"><pre><span></span><code>umount /workspace
@@ -933,7 +933,7 @@ Il est possible d&rsquo;attacher l&rsquo;espace de travail soit manuellement soi
   <div class="highlight"><pre><span></span><code>mkdir -p /workspace
 </code></pre></div></li>
 <li>Editer le ficher &ldquo;/etc/fstab&rdquo; (avec vi) et ajouter la ligne ci-dessous :
-  <div class="highlight"><pre><span></span><code>//192.168.0.4/workspace /workspace cifs username=root,password=toor,port=1445,noserverino
+  <div class="highlight"><pre><span></span><code>//192.168.0.4/workspace /workspace cifs vers=1.0,username=root,password=toor,port=1445,noserverino
 </code></pre></div></li>
 <li>Activer la configuration :
   <div class="highlight"><pre><span></span><code>mount -a
