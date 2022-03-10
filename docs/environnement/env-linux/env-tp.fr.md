@@ -1,14 +1,11 @@
 ---
-title: "02 : Environnement Linux embarqué"
+title: "Travaux pratiques"
 ---
 
-## Slides
+# Environnement Linux embarqué / Travaux pratiques
 
-[02 Environnement Linux embarqué](assets/sp.02.1_mas_csel_environnement_linux_embarque.pdf)
 
-## Exercices / Travaux pratiques
-
-### Objectifs
+## Objectifs
 
 Ce travail pratique vise les objectifs suivants :
 
@@ -17,7 +14,7 @@ Ce travail pratique vise les objectifs suivants :
 - Debugging d'applications sous Linux embarqué
 - Mise en production d'un système embarqué sous Linux
 
-### Activités
+## Activités
 
 Il comprendra les activités suivantes :
 
@@ -39,11 +36,11 @@ Il comprendra les activités suivantes :
     2. Génération du rootfs avec l'application
     3. Test et validation du produit
 
-### Informations pratiques
+## Informations pratiques
 
 Ce paragraphe donne quelques informations utiles pour la réalisation de ce travail pratique.
 
-#### Installation de la machine	hôte (votre PC)
+### Installation de la machine	hôte (votre PC)
 
 Pour les exercices, nous utilisons des conteneurs Docker. Si vous n'avez pas encore installé Docker Desktop,
 téléchargez-le depuis le [site officiel de Docker](https://www.docker.com/products/docker-desktop) et installez-le.
@@ -66,7 +63,7 @@ git config --global user.email user.name@master.hes-so.ch
 
 Installez aussi [Visual Studio Code](https://code.visualstudio.com/) si ce n'est pas déjà fait.
 
-### Création de l'espace de travail (workspace) sur la machine hôte personnelle
+## Création de l'espace de travail (workspace) sur la machine hôte personnelle
 
 Avec notre browser, rendez vous sur le dépôt [csel-workspace](https://github.com/supcik/csel-workspace)
 et faites un _fork_ dans l'espace de travail personnel de github d'un membre du groupe.
@@ -76,7 +73,7 @@ le(s) professeur(s) avec au minimum le rôle "Triage".
 
 Chaque membre de l'équipe peut maintenant faire un "Clone" du projet _csel-workspace_ sur son ordinateur. 
 
-#### Configuration de l'environnement de développement
+### Configuration de l'environnement de développement
 
 Ouvrez le projet avec VSCode. Le système vous demandera probablement si vous faites confiance
 aux auteurs de ce dossier et vous pouvez cliquer sur le bouton correspondant.
@@ -95,7 +92,7 @@ get-buildroot.sh
 
 Pour votre culture génlrale, étudiez le script `get-buildroot.sh` dans `/usr/local/bin/`.
 
-#### Génération et installation de l'environnement
+### Génération et installation de l'environnement
 
 Vous pouvez modifier la configuration du noyau ou du rootfs avec la commande suivante :
 
@@ -126,7 +123,7 @@ tar xf /buildroot/output/images/rootfs.tar -C /rootfs
     Vous pouvez aussi utiliser les script `/usr/local/bin/delete-rootfs.sh` 
     et `/usr/local/bin/extract-rootfs.sh` présents dans l'image Docker.
 
-#### Gravure de la carte SD
+### Gravure de la carte SD
 
 Avant de pouvoir graver la carte SD, vous devez copier les images dans le répertoire synchronisé avec votre ordinateur.
 Vous pouvez utiliser la commande `rsync` :
@@ -264,7 +261,7 @@ Vous êtes maintenant connecté! Tapez la commande `uname -a` pour voir le syst�
 Linux csel 5.15.21 #1 SMP PREEMPT Sat Feb 12 19:26:27 UTC 2022 aarch64 GNU/Linux
 ```
 
-### Mise en place de l'espace de travail (_workspace_) sous CIFS/SMB
+## Mise en place de l'espace de travail (_workspace_) sous CIFS/SMB
 
 Il est possible d'augmenter le confort de travail et l'efficacité en attachant l'espace de travail de la machine de développement hôte directement sur la cible.
 Ceci permet en effet d'accéder directement depuis la cible les fichiers et applications générés sur la machine hôte, évitant ainsi des copies inutiles de fichiers.
@@ -301,7 +298,7 @@ Pour attacher automatiquement l'espace de travail de la machine hôte sur la cib
   mount -a
   ```
 
-### Génération d'applications sur la machine de développement hôte
+## Génération d'applications sur la machine de développement hôte
 
 Pour la génération d'applications sur la machine hôte (compilation croisée),
 il est recommandé de développer ces propres `Makefile`.
@@ -319,7 +316,7 @@ AR=$(TOOLCHAIN)ar
 CFLAGS+=-Wall -Wextra -g -c -mcpu=cortex-a53 -O0 -MD -std=gnu11
 ```
 
-### Debugging de l'application sur la cible (VS-Code)
+## Debugging de l'application sur la cible (VS-Code)
 
 Le debugging d'application peut être effectué de deux manières :
 
@@ -340,7 +337,7 @@ Ces fichiers sont déjà configurés dans votre workspace.
 
 Les fichiers “task” (task.json) et “launcher” (launch.json) se trouvent du répertoire .vscode de chaque projet, soit dans les répertoires /workspace/src/samples/tp.01/debug/.vscode et /workspace/src/samples/tp.01/coredump/.vscode.
 
-### Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
+## Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
 
 Pour le développement de modules et de pilotes de périphériques devant fonctionner dans le noyau Linux, il est généralement plus commode de charger le noyau de la machine hôte sur la cible et d'accéder le _rootfs_ fraîchement généré ou modifié directement via le réseau. 
 
@@ -350,11 +347,11 @@ Pour ce faire, il faut créer un nouveau fichier de configuration (p.ex. `boot.c
 - Ouvrir/créer le fichier de commandes `boot_cifs.cmd` et l'ouvrir avec VS-Code
 - Entrer le contenu suivant :
   ``` plain
-  {!docs/environnement/inc/boot_cifs.cmd!>}
+  {!docs/environnement/env-linux/inc/boot_cifs.cmd!>}
   ```
 - Ecrire aussi le `Makefile` suivant:
   ``` makefile
-  {!docs/environnement/inc/makefile!>}
+  {!docs/environnement/env-linux/inc/makefile!>}
   ```
 - Dans un terminal, entrer dans le dossier `boot-scripts` et taper la command `make`
   Vous devriez obtenir le fichier `boot.cifs` dans le dossier `boot-scripts`
@@ -384,7 +381,7 @@ chmod go= /etc/ssh/*_key
 
 Redémarrez avec un `reboot` et vérifiez que vous pouvez maintenant vous connecter avec SSH.
 
-### Travail
+## Travail
 1. Installez l'environnement de développement sur la machine hôte, selon les instructions ci-dessus, et configurez la cible en mode de développement avec CIFS/SMB.
 1. Installez/configurez SSH pour un accès à distance.
 1. Créez un script permettant de générer la carte SD.
@@ -394,7 +391,7 @@ Redémarrez avec un `reboot` et vérifiez que vous pouvez maintenant vous connec
   Démarrez ensuite automatiquement (mode production) un petit programme que vous aurez préalablement placé dans `/opt`.
 1. Répondez aux questions 
 
-### Questions
+## Questions
 
 1. Comment faut-il procéder pour générer l'U-Boot ?
 1. Comment peut-on ajouter et générer un package supplémentaire dans le Buildroot ?
@@ -402,14 +399,3 @@ Redémarrez avec un `reboot` et vérifiez que vous pouvez maintenant vous connec
 1. Comment faut-il faire pour générer son propre rootfs ?
 1. Comment faudrait-il procéder pour utiliser la carte eMMC en lieu et place de la carte SD ?
 1. Dans le support de cours, on trouve différentes configurations de l'environnement de développement. Qu'elle serait la configuration optimale pour le développement uniquement d'applications en espace utilisateur ?
-
-## Documentation
-
-- [Bootargs: Linux kernel boot command-line](assets/sp.02.4_mas_cesl_linux_boot_commands_arguments.pdf)
-- [Filesystems for embedded systems](assets/sp.02.5_mas_csel_filesystem_considerations_for_embedded_devices.pdf)
-
----
-
-!!! note "Archives 2021/2022"
-    - [Exercices](assets/sp.02.2_mas_csel_environnement_linux_embarque_exercices.pdf)
-    - [Code](assets/sp.02.3_mas_csel_examples.tar)

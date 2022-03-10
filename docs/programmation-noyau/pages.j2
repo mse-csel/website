@@ -1,4 +1,8 @@
 title: Programmation Noyau
 nav:
-    - ... | modules.*.md
-    - ... | pilotes.*.md
+{%- if week | int >= 3 %}
+    - modules
+{%- endif %}
+{%- if week | int >= 5 %}
+    - pilotes
+{%- endif %}
