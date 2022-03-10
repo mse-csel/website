@@ -10,21 +10,21 @@
       
       
       
-        <link rel="canonical" href="https://mse-csel.github.io/website/environnement/env/">
+        <link rel="canonical" href="https://mse-csel.github.io/website/environnement/env-linux/env-tp/">
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
-        <title>02 : Environnement Linux embarqué - Construction de systèmes embarqués sous Linux</title>
+        <title>Travaux pratiques - Construction de systèmes embarqués sous Linux</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -38,9 +38,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slides" class="md-skip">
+        <a href="#environnement-linux-embarque-travaux-pratiques" class="md-skip">
           Aller au contenu
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="../.." title="Construction de systèmes embarqués sous Linux" class="md-header__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
+    <a href="../../.." title="Construction de systèmes embarqués sous Linux" class="md-header__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02 : Environnement Linux embarqué
+              Travaux pratiques
             
           </span>
         </div>
@@ -131,7 +131,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Construction de systèmes embarqués sous Linux" class="md-nav__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
+    <a href="../../.." title="Construction de systèmes embarqués sous Linux" class="md-nav__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
@@ -150,7 +150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Accueil
       </a>
     </li>
@@ -193,7 +193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../organisation/intro/" class="md-nav__link">
+      <a href="../../../organisation/intro/" class="md-nav__link">
         01 : Introduction
       </a>
     </li>
@@ -207,7 +207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../organisation/exam/" class="md-nav__link">
+      <a href="../../../organisation/exam/" class="md-nav__link">
         Examens Oraux
       </a>
     </li>
@@ -257,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/tools/" class="md-nav__link">
+      <a href="../../../documentation/tools/" class="md-nav__link">
         Tools
       </a>
     </li>
@@ -271,7 +271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/microprocessor/" class="md-nav__link">
+      <a href="../../../documentation/microprocessor/" class="md-nav__link">
         Microprocesseur
       </a>
     </li>
@@ -285,7 +285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/nanopi/" class="md-nav__link">
+      <a href="../../../documentation/nanopi/" class="md-nav__link">
         NanoPi NEO Plus2
       </a>
     </li>
@@ -338,19 +338,63 @@
     
   
   
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Environnement Linux embarqué
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Environnement Linux embarqué" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Environnement Linux embarqué
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../env-le/" class="md-nav__link">
+        Leçon / Slides
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          02 : Environnement Linux embarqué
+          Travaux pratiques
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        02 : Environnement Linux embarqué
+        Travaux pratiques
       </a>
       
         
@@ -358,6 +402,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table des matières">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -367,35 +413,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slides" class="md-nav__link">
-    Slides
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercices-travaux-pratiques" class="md-nav__link">
-    Exercices / Travaux pratiques
-  </a>
-  
-    <nav class="md-nav" aria-label="Exercices / Travaux pratiques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#objectifs" class="md-nav__link">
     Objectifs
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#activites" class="md-nav__link">
     Activités
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#informations-pratiques" class="md-nav__link">
     Informations pratiques
   </a>
@@ -405,7 +436,7 @@
         
           <li class="md-nav__item">
   <a href="#installation-de-la-machine-hote-votre-pc" class="md-nav__link">
-    Installation de la machine hôte (votre PC)
+    Installation de la machine  hôte (votre PC)
   </a>
   
 </li>
@@ -414,8 +445,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#creation-de-lespace-de-travail-workspace-sur-la-machine-hote-personnelle" class="md-nav__link">
     Création de l'espace de travail (workspace) sur la machine hôte personnelle
   </a>
@@ -444,56 +475,9 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#mise-en-place-de-linfrastructure-reseau" class="md-nav__link">
     Mise en place de l'infrastructure réseau
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mise-en-place-de-lespace-de-travail-workspace-sous-cifssmb" class="md-nav__link">
-    Mise en place de l'espace de travail (workspace) sous CIFS/SMB
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generation-dapplications-sur-la-machine-de-developpement-hote" class="md-nav__link">
-    Génération d'applications sur la machine de développement hôte
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debugging-de-lapplication-sur-la-cible-vs-code" class="md-nav__link">
-    Debugging de l'application sur la cible (VS-Code)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mise-en-place-de-lenvironnement-pour-le-developpement-du-noyau-sous-cifssmb" class="md-nav__link">
-    Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#travail" class="md-nav__link">
-    Travail
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
-    Questions
   </a>
   
 </li>
@@ -504,8 +488,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
+  <a href="#mise-en-place-de-lespace-de-travail-workspace-sous-cifssmb" class="md-nav__link">
+    Mise en place de l'espace de travail (workspace) sous CIFS/SMB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-dapplications-sur-la-machine-de-developpement-hote" class="md-nav__link">
+    Génération d'applications sur la machine de développement hôte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-de-lapplication-sur-la-cible-vs-code" class="md-nav__link">
+    Debugging de l'application sur la cible (VS-Code)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-place-de-lenvironnement-pour-le-developpement-du-noyau-sous-cifssmb" class="md-nav__link">
+    Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travail" class="md-nav__link">
+    Travail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    Questions
   </a>
   
 </li>
@@ -514,6 +533,110 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Programmation Noyau
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programmation Noyau" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Programmation Noyau
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Modules noyaux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modules noyaux" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Modules noyaux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programmation-noyau/modules/modules-le/" class="md-nav__link">
+        Leçon / Slides
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programmation-noyau/modules/modules-tp/" class="md-nav__link">
+        Travaux pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -542,6 +665,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -550,35 +675,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slides" class="md-nav__link">
-    Slides
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercices-travaux-pratiques" class="md-nav__link">
-    Exercices / Travaux pratiques
-  </a>
-  
-    <nav class="md-nav" aria-label="Exercices / Travaux pratiques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#objectifs" class="md-nav__link">
     Objectifs
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#activites" class="md-nav__link">
     Activités
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#informations-pratiques" class="md-nav__link">
     Informations pratiques
   </a>
@@ -588,7 +698,7 @@
         
           <li class="md-nav__item">
   <a href="#installation-de-la-machine-hote-votre-pc" class="md-nav__link">
-    Installation de la machine hôte (votre PC)
+    Installation de la machine  hôte (votre PC)
   </a>
   
 </li>
@@ -597,8 +707,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#creation-de-lespace-de-travail-workspace-sur-la-machine-hote-personnelle" class="md-nav__link">
     Création de l'espace de travail (workspace) sur la machine hôte personnelle
   </a>
@@ -627,56 +737,9 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#mise-en-place-de-linfrastructure-reseau" class="md-nav__link">
     Mise en place de l'infrastructure réseau
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mise-en-place-de-lespace-de-travail-workspace-sous-cifssmb" class="md-nav__link">
-    Mise en place de l'espace de travail (workspace) sous CIFS/SMB
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generation-dapplications-sur-la-machine-de-developpement-hote" class="md-nav__link">
-    Génération d'applications sur la machine de développement hôte
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debugging-de-lapplication-sur-la-cible-vs-code" class="md-nav__link">
-    Debugging de l'application sur la cible (VS-Code)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mise-en-place-de-lenvironnement-pour-le-developpement-du-noyau-sous-cifssmb" class="md-nav__link">
-    Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#travail" class="md-nav__link">
-    Travail
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
-    Questions
   </a>
   
 </li>
@@ -687,8 +750,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
+  <a href="#mise-en-place-de-lespace-de-travail-workspace-sous-cifssmb" class="md-nav__link">
+    Mise en place de l'espace de travail (workspace) sous CIFS/SMB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-dapplications-sur-la-machine-de-developpement-hote" class="md-nav__link">
+    Génération d'applications sur la machine de développement hôte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-de-lapplication-sur-la-cible-vs-code" class="md-nav__link">
+    Debugging de l'application sur la cible (VS-Code)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mise-en-place-de-lenvironnement-pour-le-developpement-du-noyau-sous-cifssmb" class="md-nav__link">
+    Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travail" class="md-nav__link">
+    Travail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    Questions
   </a>
   
 </li>
@@ -707,12 +805,8 @@
                 
 
 
-  <h1>02 : Environnement Linux embarqué</h1>
-
-<h2 id="slides">Slides</h2>
-<p><a href="../assets/sp.02.1_mas_csel_environnement_linux_embarque.pdf">02 Environnement Linux embarqué</a></p>
-<h2 id="exercices-travaux-pratiques">Exercices / Travaux pratiques</h2>
-<h3 id="objectifs">Objectifs</h3>
+<h1 id="environnement-linux-embarque-travaux-pratiques">Environnement Linux embarqué / Travaux pratiques</h1>
+<h2 id="objectifs">Objectifs</h2>
 <p>Ce travail pratique vise les objectifs suivants :</p>
 <ul>
 <li>Mise en œuvre d&rsquo;un système embarqué sous Linux</li>
@@ -720,7 +814,7 @@
 <li>Debugging d&rsquo;applications sous Linux embarqué</li>
 <li>Mise en production d&rsquo;un système embarqué sous Linux</li>
 </ul>
-<h3 id="activites">Activités</h3>
+<h2 id="activites">Activités</h2>
 <p>Il comprendra les activités suivantes :</p>
 <ol>
 <li>Mise œuvre de l&rsquo;environnement de développement sous Linux (avec Docker)<ol>
@@ -749,9 +843,9 @@
 </ol>
 </li>
 </ol>
-<h3 id="informations-pratiques">Informations pratiques</h3>
+<h2 id="informations-pratiques">Informations pratiques</h2>
 <p>Ce paragraphe donne quelques informations utiles pour la réalisation de ce travail pratique.</p>
-<h4 id="installation-de-la-machine-hote-votre-pc">Installation de la machine hôte (votre PC)</h4>
+<h3 id="installation-de-la-machine-hote-votre-pc">Installation de la machine  hôte (votre PC)</h3>
 <p>Pour les exercices, nous utilisons des conteneurs Docker. Si vous n&rsquo;avez pas encore installé Docker Desktop,
 téléchargez-le depuis le <a href="https://www.docker.com/products/docker-desktop">site officiel de Docker</a> et installez-le.</p>
 <p>Installez <a href="https://git-scm.com/downloads">git</a> sur votre machine si ce n&rsquo;est pas déjà fait. Configurez aussi l&rsquo;utilisateur
@@ -767,13 +861,13 @@ car les scripts &ldquo;bash&rdquo; n&rsquo;autorisant pas le &ldquo;line ending&
 </code></pre></div>
 </div>
 <p>Installez aussi <a href="https://code.visualstudio.com/">Visual Studio Code</a> si ce n&rsquo;est pas déjà fait.</p>
-<h3 id="creation-de-lespace-de-travail-workspace-sur-la-machine-hote-personnelle">Création de l&rsquo;espace de travail (workspace) sur la machine hôte personnelle</h3>
+<h2 id="creation-de-lespace-de-travail-workspace-sur-la-machine-hote-personnelle">Création de l&rsquo;espace de travail (workspace) sur la machine hôte personnelle</h2>
 <p>Avec notre browser, rendez vous sur le dépôt <a href="https://github.com/supcik/csel-workspace">csel-workspace</a>
 et faites un <em>fork</em> dans l&rsquo;espace de travail personnel de github d&rsquo;un membre du groupe.</p>
 <p>Ajoutez les autres membres du groupe avec le rôle &ldquo;Write&rdquo;, &ldquo;Maintain&rdquo; ou &ldquo;Admin&rdquo;. Ajouter aussi
 le(s) professeur(s) avec au minimum le rôle &ldquo;Triage&rdquo;.</p>
 <p>Chaque membre de l&rsquo;équipe peut maintenant faire un &ldquo;Clone&rdquo; du projet <em>csel-workspace</em> sur son ordinateur. </p>
-<h4 id="configuration-de-lenvironnement-de-developpement">Configuration de l&rsquo;environnement de développement</h4>
+<h3 id="configuration-de-lenvironnement-de-developpement">Configuration de l&rsquo;environnement de développement</h3>
 <p>Ouvrez le projet avec VSCode. Le système vous demandera probablement si vous faites confiance
 aux auteurs de ce dossier et vous pouvez cliquer sur le bouton correspondant.</p>
 <p>Si le système vous propose de ré-ouvrir le dossier dans un container, acceptez cette
@@ -784,7 +878,7 @@ Acceptez-les toutes et cliquez sur le bouton &ldquo;Install&rdquo;.</p>
 <div class="highlight"><pre><span></span><code>get-buildroot.sh 
 </code></pre></div>
 <p>Pour votre culture génlrale, étudiez le script <code>get-buildroot.sh</code> dans <code>/usr/local/bin/</code>.</p>
-<h4 id="generation-et-installation-de-lenvironnement">Génération et installation de l&rsquo;environnement</h4>
+<h3 id="generation-et-installation-de-lenvironnement">Génération et installation de l&rsquo;environnement</h3>
 <p>Vous pouvez modifier la configuration du noyau ou du rootfs avec la commande suivante :</p>
 <p><div class="highlight"><pre><span></span><code><span class="nb">cd</span> /buildroot
 make menuconfig
@@ -808,7 +902,7 @@ tar xf /buildroot/output/images/rootfs.tar -C /rootfs
 <p>Vous pouvez aussi utiliser les script <code>/usr/local/bin/delete-rootfs.sh</code> 
 et <code>/usr/local/bin/extract-rootfs.sh</code> présents dans l&rsquo;image Docker.</p>
 </div>
-<h4 id="gravure-de-la-carte-sd">Gravure de la carte SD</h4>
+<h3 id="gravure-de-la-carte-sd">Gravure de la carte SD</h3>
 <p>Avant de pouvoir graver la carte SD, vous devez copier les images dans le répertoire synchronisé avec votre ordinateur.
 Vous pouvez utiliser la commande <code>rsync</code> :</p>
 <div class="highlight"><pre><span></span><code>rsync -rlt --progress --delete /buildroot/output/images/ /workspace/buildroot-images
@@ -910,7 +1004,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 <div class="highlight"><pre><span></span><code># uname -a
 Linux csel 5.15.21 #1 SMP PREEMPT Sat Feb 12 19:26:27 UTC 2022 aarch64 GNU/Linux
 </code></pre></div>
-<h3 id="mise-en-place-de-lespace-de-travail-workspace-sous-cifssmb">Mise en place de l&rsquo;espace de travail (<em>workspace</em>) sous CIFS/SMB</h3>
+<h2 id="mise-en-place-de-lespace-de-travail-workspace-sous-cifssmb">Mise en place de l&rsquo;espace de travail (<em>workspace</em>) sous CIFS/SMB</h2>
 <p>Il est possible d&rsquo;augmenter le confort de travail et l&rsquo;efficacité en attachant l&rsquo;espace de travail de la machine de développement hôte directement sur la cible.
 Ceci permet en effet d&rsquo;accéder directement depuis la cible les fichiers et applications générés sur la machine hôte, évitant ainsi des copies inutiles de fichiers.
 Il est possible d&rsquo;attacher l&rsquo;espace de travail soit manuellement soit automatiquement. </p>
@@ -939,7 +1033,7 @@ Il est possible d&rsquo;attacher l&rsquo;espace de travail soit manuellement soi
   <div class="highlight"><pre><span></span><code>mount -a
 </code></pre></div></li>
 </ul>
-<h3 id="generation-dapplications-sur-la-machine-de-developpement-hote">Génération d&rsquo;applications sur la machine de développement hôte</h3>
+<h2 id="generation-dapplications-sur-la-machine-de-developpement-hote">Génération d&rsquo;applications sur la machine de développement hôte</h2>
 <p>Pour la génération d&rsquo;applications sur la machine hôte (compilation croisée),
 il est recommandé de développer ces propres <code>Makefile</code>.
 Quelques infos utiles pour trouver la <em>toolchain</em> et éditer le <code>Makefile</code> :</p>
@@ -953,7 +1047,7 @@ Quelques infos utiles pour trouver la <em>toolchain</em> et éditer le <code>Mak
 <span class="nv">AR</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>ar
 <span class="nv">CFLAGS</span><span class="o">+=</span>-Wall -Wextra -g -c -mcpu<span class="o">=</span>cortex-a53 -O0 -MD -std<span class="o">=</span>gnu11
 </code></pre></div>
-<h3 id="debugging-de-lapplication-sur-la-cible-vs-code">Debugging de l&rsquo;application sur la cible (VS-Code)</h3>
+<h2 id="debugging-de-lapplication-sur-la-cible-vs-code">Debugging de l&rsquo;application sur la cible (VS-Code)</h2>
 <p>Le debugging d&rsquo;application peut être effectué de deux manières :</p>
 <ul>
 <li>directement sur la cible avec &ldquo;gdb&rdquo;</li>
@@ -969,7 +1063,7 @@ et un debugger de qualité pour le debugging de vos applications. Pour configure
 </ul>
 <p>Ces fichiers sont déjà configurés dans votre workspace.</p>
 <p>Les fichiers “task” (task.json) et “launcher” (launch.json) se trouvent du répertoire .vscode de chaque projet, soit dans les répertoires /workspace/src/samples/tp.01/debug/.vscode et /workspace/src/samples/tp.01/coredump/.vscode.</p>
-<h3 id="mise-en-place-de-lenvironnement-pour-le-developpement-du-noyau-sous-cifssmb">Mise en place de l&rsquo;environnement pour le développement du noyau sous CIFS/SMB</h3>
+<h2 id="mise-en-place-de-lenvironnement-pour-le-developpement-du-noyau-sous-cifssmb">Mise en place de l&rsquo;environnement pour le développement du noyau sous CIFS/SMB</h2>
 <p>Pour le développement de modules et de pilotes de périphériques devant fonctionner dans le noyau Linux, il est généralement plus commode de charger le noyau de la machine hôte sur la cible et d&rsquo;accéder le <em>rootfs</em> fraîchement généré ou modifié directement via le réseau. </p>
 <p>Pour ce faire, il faut créer un nouveau fichier de configuration (p.ex. <code>boot.cifs</code>) pour l&rsquo;U-Boot, et le copier sur la carte SD dans la partition vfat <code>boot</code>. Pour créer ce fichier, il faut tout d&rsquo;abord éditer un fichier avec les variables et commandes nécessaire à l&rsquo;U-Boot :</p>
 <ul>
@@ -1014,7 +1108,7 @@ This private key will be ignored.
 <div class="highlight"><pre><span></span><code>chmod go= /etc/ssh/*_key
 </code></pre></div>
 <p>Redémarrez avec un <code>reboot</code> et vérifiez que vous pouvez maintenant vous connecter avec SSH.</p>
-<h3 id="travail">Travail</h3>
+<h2 id="travail">Travail</h2>
 <ol>
 <li>Installez l&rsquo;environnement de développement sur la machine hôte, selon les instructions ci-dessus, et configurez la cible en mode de développement avec CIFS/SMB.</li>
 <li>Installez/configurez SSH pour un accès à distance.</li>
@@ -1025,7 +1119,7 @@ This private key will be ignored.
   Démarrez ensuite automatiquement (mode production) un petit programme que vous aurez préalablement placé dans <code>/opt</code>.</li>
 <li>Répondez aux questions </li>
 </ol>
-<h3 id="questions">Questions</h3>
+<h2 id="questions">Questions</h2>
 <ol>
 <li>Comment faut-il procéder pour générer l&rsquo;U-Boot ?</li>
 <li>Comment peut-on ajouter et générer un package supplémentaire dans le Buildroot ?</li>
@@ -1034,19 +1128,6 @@ This private key will be ignored.
 <li>Comment faudrait-il procéder pour utiliser la carte eMMC en lieu et place de la carte SD ?</li>
 <li>Dans le support de cours, on trouve différentes configurations de l&rsquo;environnement de développement. Qu&rsquo;elle serait la configuration optimale pour le développement uniquement d&rsquo;applications en espace utilisateur ?</li>
 </ol>
-<h2 id="documentation">Documentation</h2>
-<ul>
-<li><a href="../assets/sp.02.4_mas_cesl_linux_boot_commands_arguments.pdf">Bootargs: Linux kernel boot command-line</a></li>
-<li><a href="../assets/sp.02.5_mas_csel_filesystem_considerations_for_embedded_devices.pdf">Filesystems for embedded systems</a></li>
-</ul>
-<hr />
-<div class="admonition note">
-<p class="admonition-title">Archives 2021/2022</p>
-<ul>
-<li><a href="../assets/sp.02.2_mas_csel_environnement_linux_embarque_exercices.pdf">Exercices</a></li>
-<li><a href="../assets/sp.02.3_mas_csel_examples.tar">Code</a></li>
-</ul>
-</div>
 
               
             </article>
@@ -1060,7 +1141,7 @@ This private key will be ignored.
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../../documentation/nanopi/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: NanoPi NEO Plus2" rel="prev">
+        <a href="../env-le/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Leçon / Slides" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1069,11 +1150,26 @@ This private key will be ignored.
               <span class="md-footer__direction">
                 Précédent
               </span>
-              NanoPi NEO Plus2
+              Leçon / Slides
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../../../programmation-noyau/modules/modules-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Leçon / Slides
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
@@ -1114,12 +1210,12 @@ This private key will be ignored.
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
