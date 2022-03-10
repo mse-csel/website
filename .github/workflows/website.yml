@@ -25,7 +25,7 @@ jobs:
       - name: Build mkdocs site
         uses: ./.github/actions/mkdocs-edu
         with:
-          published-week: "1"
+          published-week: "3"
           published-solutions: "0"
 
       - name: Deploy
