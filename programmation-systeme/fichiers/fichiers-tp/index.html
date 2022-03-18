@@ -10,21 +10,21 @@
       
       
       
-        <link rel="canonical" href="https://mse-csel.github.io/website/programmation-systeme/ordonnanceur/">
+        <link rel="canonical" href="https://mse-csel.github.io/website/programmation-systeme/fichiers/fichiers-tp/">
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
-        <title>06 : Ordonnanceur - Construction de systèmes embarqués sous Linux</title>
+        <title>Travaux pratiques - Construction de systèmes embarqués sous Linux</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -38,9 +38,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#systeme-de-fichiers-travaux-pratiques" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="../.." title="Construction de systèmes embarqués sous Linux" class="md-header__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
+    <a href="../../.." title="Construction de systèmes embarqués sous Linux" class="md-header__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
@@ -92,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              06 : Ordonnanceur
+              Travaux pratiques
             
           </span>
         </div>
@@ -126,7 +131,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Construction de systèmes embarqués sous Linux" class="md-nav__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
+    <a href="../../.." title="Construction de systèmes embarqués sous Linux" class="md-nav__button md-logo" aria-label="Construction de systèmes embarqués sous Linux" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
@@ -145,7 +150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Accueil
       </a>
     </li>
@@ -188,7 +193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../organisation/intro/" class="md-nav__link">
+      <a href="../../../organisation/intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -202,7 +207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../organisation/exam/" class="md-nav__link">
+      <a href="../../../organisation/exam/" class="md-nav__link">
         Examens Oraux
       </a>
     </li>
@@ -252,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/tools/" class="md-nav__link">
+      <a href="../../../documentation/tools/" class="md-nav__link">
         Tools
       </a>
     </li>
@@ -266,7 +271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/microprocessor/" class="md-nav__link">
+      <a href="../../../documentation/microprocessor/" class="md-nav__link">
         Microprocesseur
       </a>
     </li>
@@ -280,7 +285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/nanopi/" class="md-nav__link">
+      <a href="../../../documentation/nanopi/" class="md-nav__link">
         NanoPi NEO Plus2
       </a>
     </li>
@@ -356,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../environnement/env-linux/env-le/" class="md-nav__link">
+      <a href="../../../environnement/env-linux/env-le/" class="md-nav__link">
         Leçon / Slides
       </a>
     </li>
@@ -370,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../environnement/env-linux/env-tp/" class="md-nav__link">
+      <a href="../../../environnement/env-linux/env-tp/" class="md-nav__link">
         Travaux pratiques
       </a>
     </li>
@@ -453,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programmation-noyau/modules/modules-le/" class="md-nav__link">
+      <a href="../../../programmation-noyau/modules/modules-le/" class="md-nav__link">
         Leçon / Slides
       </a>
     </li>
@@ -467,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programmation-noyau/modules/modules-tp/" class="md-nav__link">
+      <a href="../../../programmation-noyau/modules/modules-tp/" class="md-nav__link">
         Travaux pratiques
       </a>
     </li>
@@ -495,6 +500,24 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -502,15 +525,15 @@
                 
 
 
-  <h1>06 : Ordonnanceur</h1>
-
+<h1 id="systeme-de-fichiers-travaux-pratiques">Système de fichiers / Travaux pratiques</h1>
+<p>TODO</p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Archives 2021/2022</p>
 <ul>
-<li><a href="../assets/sp.06.1_mas_csel_multiprocessing.pdf">Théorie</a></li>
-<li><a href="../assets/signaux.pdf">Signaux</a></li>
-<li><a href="../assets/sp.06.3_mas_csel_daemon.tar">Daemon</a></li>
-<li><a href="../assets/sp.06.4_mas_csel_threads.tar">Thread</a></li>
-<li><a href="../assets/sp.06.2_mas_csel_mulitprocessing_exercices.pdf">Exercices</a></li>
+<li><a href="../assets/sp.05.2_mas_csel_prog_systeme_fichiers_exercices.pdf">Exercices</a></li>
 </ul>
+</div>
 
               
             </article>
@@ -524,7 +547,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../fichiers/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: 05 : Système de fichiers" rel="prev">
+        <a href="../fichiers-le/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Leçon / Slides" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -533,11 +556,26 @@
               <span class="md-footer__direction">
                 Précédent
               </span>
-              05 : Système de fichiers
+              Leçon / Slides
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../../ordonnanceur/ordonnanceur-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Leçon / Slides
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
@@ -578,12 +616,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

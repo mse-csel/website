@@ -659,8 +659,8 @@
 <h2 id="module-noyau">Module noyau</h2>
 <p>Générez un module noyau <em>out of tree</em> pour la cible NanoPi :</p>
 <ol>
-<li>Créez le squelette d’un module noyau et générez-le en dehors des sources du noyau à l’aide
-    d’un Makefile. Le module devra afficher un message lors de son enregistrement et lors de sa
+<li>Créez le squelette d&rsquo;un module noyau et générez-le en dehors des sources du noyau à l&rsquo;aide
+    d&rsquo;un Makefile. Le module devra afficher un message lors de son enregistrement et lors de sa
     désinstallation.</li>
 <li>Testez sur la machine hôte la commande <code>modinfo</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> sur votre squelette de module et
     comparez les informations retournées avec celles du code source.</li>
@@ -668,66 +668,240 @@
 <li>Comparez les résultats obtenus par la commande <code>lsmod</code> avec ceux obtenus avec la
     commande <code>cat /proc/modules</code></li>
 <li>Désinstallez le module (<code>rmmod</code>).</li>
-<li>Adaptez le Makefile du module pour autoriser l’installation du module avec les autres
-    modules du noyau permettant l’utilisation de la commande <code>modprobe</code>. Le module devra
+<li>Adaptez le Makefile du module pour autoriser l&rsquo;installation du module avec les autres
+    modules du noyau permettant l&rsquo;utilisation de la commande <code>modprobe</code>. Le module devra
     être installé dans le root filesystem utilisé en <em>cifs</em> par la cible.</li>
 </ol>
-<p>Adaptez le module de l’exercice précédent afin qu’il puisse recevoir deux ou trois paramètres de
+<p>Adaptez le module de l&rsquo;exercice précédent afin qu&rsquo;il puisse recevoir deux ou trois paramètres de
 votre choix. Ces paramètres seront affichés dans la console. Adaptez également le <em>rootfs</em> afin de
 pouvoir utiliser la commande <code>modprobe</code>.</p>
-<p>Trouvez la signification des 4 valeurs affichées lorsque l’on tape la commande
+<details class="success">
+<summary>Solution</summary>
+<p><div class="highlight"><span class="filename">/workspace/src/kernel_settings</span><pre><span></span><code>CVER     := aarch64-buildroot-linux-gnu-
+KVER     := 5.15.21
+CPU      := arm64
+
+KDIR     := /buildroot/output/build/linux-$(KVER)/
+TOOLS    := /buildroot/output/host/usr/bin/$(CVER)
+MODPATH  := /rootfs
+#MODPATH := /buildroot/output/target
+</code></pre></div>
+<div class="highlight"><span class="filename">/workspace/src/exercice01/Makefile</span><pre><span></span><code><span class="k">export </span><span class="nv">PATH</span> <span class="o">:=</span> /buildroot/output/host/usr/sbin$<span class="se">\</span>
+	:/buildroot/output/host/usr/bin/$<span class="se">\</span>
+	:/buildroot/output/host/sbin$<span class="se">\</span>
+	:/buildroot/output/host/bin/$<span class="se">\</span>
+	:<span class="k">$(</span>PATH<span class="k">)</span>
+
+<span class="c"># Part executed when called from kernel build system:</span>
+<span class="cp">ifneq ($(KERNELRELEASE),)</span>
+<span class="nv">obj-m</span> <span class="o">+=</span> mymodule.o		<span class="c1">## name of the generated module</span>
+
+<span class="nv">mymodule-objs</span> <span class="o">:=</span> skeleton.o	<span class="c1">## list of objects needed for that module</span>
+<span class="nv">CFLAGS_skeleton.o</span> <span class="o">:=</span> -DDEBUG
+
+<span class="c"># Part executed when called from standard make in module source directory:</span>
+<span class="cp">else</span>
+<span class="cp">include ../../kernel_settings</span>
+<span class="nv">PWD</span> <span class="o">:=</span> <span class="k">$(</span>shell <span class="nb">pwd</span><span class="k">)</span>
+
+<span class="nf">all</span><span class="o">:</span>
+	<span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>KDIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="k">$(</span>PWD<span class="k">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="k">$(</span>CPU<span class="k">)</span> <span class="nv">CROSS_COMPILE</span><span class="o">=</span><span class="k">$(</span>TOOLS<span class="k">)</span> modules
+
+<span class="nf">clean</span><span class="o">:</span>
+	<span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>KDIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="k">$(</span>PWD<span class="k">)</span> clean
+
+<span class="nf">install</span><span class="o">:</span>
+	<span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>KDIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="k">$(</span>PWD<span class="k">)</span> <span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span><span class="k">$(</span>MODPATH<span class="k">)</span> modules_install
+
+<span class="cp">endif</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">/workspace/src/exercice01/skeleton.c</span><pre><span></span><code><span class="c1">// skeleton.c</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">	// needed by all modules</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">		// needed for macros</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">	// needed for debugging</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/moduleparam.h&gt;</span><span class="c1">	// needed for module parameters</span><span class="cp"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dummy text&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">charp</span><span class="p">,</span><span class="w"> </span><span class="mo">0664</span><span class="p">);</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">skeleton_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module 01 skeleton loaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_debug</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;  text: %s</span><span class="se">\n</span><span class="s">  elements: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">elements</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">skeleton_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module skeleton unloaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">module_init</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_init</span><span class="p">);</span><span class="w"></span>
+<span class="n">module_exit</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_exit</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">MODULE_AUTHOR</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Daniel Gachet &lt;daniel.gachet@hefr.ch&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_DESCRIPTION</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<p>Trouvez la signification des 4 valeurs affichées lorsque l&rsquo;on tape la commande
 <code>cat /proc/sys/kernel/printk</code></p>
 <h2 id="gestion-de-la-memoire-bibliotheque-et-fonction-utile">Gestion de la mémoire, bibliothèque et fonction utile</h2>
-<p>Créez dynamiquement des éléments dans le noyau. Adaptez un module noyau, afin que l’on
-puisse lors de son installation spécifier un nombre d’éléments à créer ainsi qu’un texte initial à
+<p>Créez dynamiquement des éléments dans le noyau. Adaptez un module noyau, afin que l&rsquo;on
+puisse lors de son installation spécifier un nombre d&rsquo;éléments à créer ainsi qu&rsquo;un texte initial à
 stocker dans les éléments précédemment alloués. Chaque élément contiendra également un
-numéro unique. Les éléments seront créés lors de l’installation du module et chaînés dans l’une
+numéro unique. Les éléments seront créés lors de l&rsquo;installation du module et chaînés dans l&rsquo;une
 liste. Ces éléments seront détruits lors de la désinstallation du module. Des messages
-d’information seront émis afin de permettre le debugging du module.</p>
+d&rsquo;information seront émis afin de permettre le debugging du module.</p>
+<details class="success">
+<summary>Solution</summary>
+<p><div class="highlight"><span class="filename">/workspace/src/exercice04/Makefile</span><pre><span></span><code><span class="k">export </span><span class="nv">PATH</span> <span class="o">:=</span> /buildroot/output/host/usr/sbin$<span class="se">\</span>
+	:/buildroot/output/host/usr/bin/$<span class="se">\</span>
+	:/buildroot/output/host/sbin$<span class="se">\</span>
+	:/buildroot/output/host/bin/$<span class="se">\</span>
+	:<span class="k">$(</span>PATH<span class="k">)</span>
+
+<span class="c"># Part executed when called from kernel build system:</span>
+<span class="cp">ifneq ($(KERNELRELEASE),)</span>
+<span class="nv">obj-m</span> <span class="o">+=</span> mymodule.o		<span class="c1">## name of the generated module</span>
+
+<span class="nv">mymodule-objs</span> <span class="o">:=</span> skeleton.o	<span class="c1">## list of objects needed for that module</span>
+
+<span class="c"># Part executed when called from standard make in module source directory:</span>
+<span class="cp">else</span>
+<span class="cp">include ../../kernel_settings</span>
+<span class="nv">PWD</span> <span class="o">:=</span> <span class="k">$(</span>shell <span class="nb">pwd</span><span class="k">)</span>
+
+<span class="nf">all</span><span class="o">:</span>
+	<span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>KDIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="k">$(</span>PWD<span class="k">)</span> <span class="nv">ARCH</span><span class="o">=</span><span class="k">$(</span>CPU<span class="k">)</span> <span class="nv">CROSS_COMPILE</span><span class="o">=</span><span class="k">$(</span>TOOLS<span class="k">)</span> modules
+
+<span class="nf">clean</span><span class="o">:</span>
+	<span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>KDIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="k">$(</span>PWD<span class="k">)</span> clean
+
+<span class="nf">install</span><span class="o">:</span>
+	<span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>KDIR<span class="k">)</span> <span class="nv">M</span><span class="o">=</span><span class="k">$(</span>PWD<span class="k">)</span> <span class="nv">INSTALL_MOD_PATH</span><span class="o">=</span><span class="k">$(</span>MODPATH<span class="k">)</span> modules_install
+
+<span class="cp">endif</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">/workspace/src/exercice04/skeleton.c</span><pre><span></span><code><span class="cm">/* skeleton.c */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">	/* needed by all modules */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">		/* needed for macros */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">	/* needed for debugging */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/moduleparam.h&gt;</span><span class="c1">	/* needed for module parameters */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/slab.h&gt;</span><span class="c1">		/* needed for dynamic memory allocation */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/list.h&gt;</span><span class="c1">		/* needed for linked list processing */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/string.h&gt;</span><span class="c1">	/* needed for string handling */</span><span class="cp"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dummy text&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">charp</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="n">text</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">ele_nr</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">list_head</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">LIST_HEAD</span><span class="w"> </span><span class="p">(</span><span class="n">my_list</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">skeleton_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module 04 skeleton loaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;  text: %s</span><span class="se">\n</span><span class="s">  elements: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">elements</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="o">*</span><span class="w"> </span><span class="n">ele</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kzalloc</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">ele</span><span class="p">),</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ele</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">strncpy</span><span class="w"> </span><span class="p">(</span><span class="n">ele</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">);</span><span class="w"></span>
+<span class="w">			</span><span class="n">ele</span><span class="o">-&gt;</span><span class="n">ele_nr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="n">list_add_tail</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">ele</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">my_list</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">skeleton_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="o">*</span><span class="w"> </span><span class="n">ele</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">nb_eles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">list_for_each_entry</span><span class="w"> </span><span class="p">(</span><span class="n">ele</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">my_list</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;ele [%d/%d/%d] = %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nb_eles</span><span class="p">,</span><span class="w"> </span><span class="n">ele</span><span class="o">-&gt;</span><span class="n">ele_nr</span><span class="p">,</span><span class="w"> </span><span class="n">elements</span><span class="p">,</span><span class="w"> </span><span class="n">ele</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">nb_eles</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">list_empty</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">my_list</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">ele</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list_entry</span><span class="w"> </span><span class="p">(</span><span class="n">my_list</span><span class="p">.</span><span class="n">next</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">element</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">list_del</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">ele</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">kfree</span><span class="w"> </span><span class="p">(</span><span class="n">ele</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;All elements (%d/%d) of the list have been removed and deleted!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nb_eles</span><span class="p">,</span><span class="w"> </span><span class="n">elements</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module skeleton unloaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">module_init</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_init</span><span class="p">);</span><span class="w"></span>
+<span class="n">module_exit</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_exit</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">MODULE_AUTHOR</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Daniel Gachet &lt;daniel.gachet@hefr.ch&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_DESCRIPTION</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+</details>
 <h2 id="acces-aux-entreessorties">Accès aux entrées/sorties</h2>
-<p>À l’aide d’un module noyau, afficher le Chip-ID du processeur, la température du CPU et la MAC
+<p>À l&rsquo;aide d&rsquo;un module noyau, afficher le Chip-ID du processeur, la température du CPU et la MAC
 adresse du contrôleur Ethernet.</p>
 <ul>
-<li>Les 4 registres de 32 bits du Chip-ID sont aux adresses <code>0x01c1’4200</code> à <code>0x01c1’420c</code></li>
-<li>Le registre de 32 bits du senseur de température du CPU est à l’adresse <code>0x01c2’5080</code></li>
-<li>Les 2 registres de 32 bits de la MAC adresse sont aux adresses <code>0x01c3’0050</code> et
-    <code>0x01c3’0054</code></li>
+<li>Les 4 registres de 32 bits du Chip-ID sont aux adresses <code>0x01c1'4200</code> à <code>0x01c1'420c</code></li>
+<li>Le registre de 32 bits du senseur de température du CPU est à l&rsquo;adresse <code>0x01c2'5080</code></li>
+<li>Les 2 registres de 32 bits de la MAC adresse sont aux adresses <code>0x01c3'0050</code> et
+    <code>0x01c3'0054</code></li>
 </ul>
 <p>Pour obtenir la température du CPU, il faut, après lecture du registre, appliquer la formule
 suivante : </p>
-<div class="arithmatex">\[ \mathsf{temperature} = -1'191 \cdot \frac{\mathsf{register\, value}}{10} + 223’000\]</div>
-<p>Avant d’accéder aux registres du <em>Chip-ID</em>, veuillez réserver la zone mémoire correspondante aux
-registres du µP. Validez cette réservation à l’aide de la commande <code>cat /proc/iomem</code>.
+<div class="arithmatex">\[ \mathsf{temperature} = -1'191 \cdot \frac{\mathsf{register\, value}}{10} + 223'000\]</div>
+<p>Avant d&rsquo;accéder aux registres du <em>Chip-ID</em>, veuillez réserver la zone mémoire correspondante aux
+registres du µP. Validez cette réservation à l&rsquo;aide de la commande <code>cat /proc/iomem</code>.
 La commande <code>cat /sys/class/thermal/thermal_zone0/temp</code> permet de valider la bonne lecture
 de la température. La commande <code>ifconfig</code> permet de valider la bonne lecture de la <em>MAC
 adresse</em>.</p>
 <h2 id="threads-du-noyau">Threads du noyau</h2>
-<p>Développez un petit module permettant d’instancier un <em>thread</em> dans le noyau. Ce <em>thread</em> affichera
-un message toutes les 5 secondes. Il pourra être mis en sommeil durant ces 5 secondes à l’aide de
-la fonction <code>ssleep(5)</code> provenant de l’interface <code>&lt;linux/delay.h&gt;</code>.</p>
+<p>Développez un petit module permettant d&rsquo;instancier un <em>thread</em> dans le noyau. Ce <em>thread</em> affichera
+un message toutes les 5 secondes. Il pourra être mis en sommeil durant ces 5 secondes à l&rsquo;aide de
+la fonction <code>ssleep(5)</code> provenant de l&rsquo;interface <code>&lt;linux/delay.h&gt;</code>.</p>
 <h2 id="mise-en-sommeil">Mise en sommeil</h2>
-<p>Développez un petit module permettant d’instancier deux threads dans le noyau. Le premier
+<p>Développez un petit module permettant d&rsquo;instancier deux threads dans le noyau. Le premier
 thread attendra une notification de réveil du deuxième thread et se remettra en sommeil. Le 2ème
 thread enverra cette notification toutes les 5 secondes et se rendormira. On utilisera les
 <em>waitqueues</em> pour les mises en sommeil. Afin de permettre le debugging du module, chaque thread
 affichera un petit message à chaque réveil.</p>
 <h2 id="interruptions">Interruptions</h2>
 <p>Développez un petit module permettant de capturer les pressions exercées sur les switches de la
-carte d’extension par interruption. Afin de permettre le debugging du module, chaque capture
+carte d&rsquo;extension par interruption. Afin de permettre le debugging du module, chaque capture
 affichera un petit message.</p>
 <p>Quelques informations pour la réalisation du module :</p>
 <ol>
 <li>Acquérir la porte GPIO avec le service
    <code>gpio_request (&lt;io_nr&gt;, &lt;label&gt;);</code></li>
-<li>Obtenir le vecteur d’interruption avec le service
+<li>Obtenir le vecteur d&rsquo;interruption avec le service
    <code>gpio_to_irq (&lt;io_nr&gt;);</code></li>
-<li>Informations sur les switches de la carte d’extension<ul>
+<li>Informations sur les switches de la carte d&rsquo;extension<ul>
 <li>k1 - <code>gpio</code>: A, <code>pin_nr</code>=0, <code>io_nr</code>=0</li>
 <li>k2 - <code>gpio</code>: A, <code>pin_nr</code>=2, <code>io_nr</code>=2</li>
 <li>k3 - <code>gpio</code>: A, <code>pin_nr</code>=3, <code>io_nr</code>=3</li>
 </ul>
 </li>
 </ol>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Archives 2021/2022</p>
+<ul>
+<li><a href="../assets/sp.03.2_mas_csel_noyau_modules_exercices.pdf">Exercices</a></li>
+</ul>
+</div>
 <div class="footnote">
 <hr />
 <ol>

@@ -579,38 +579,45 @@
 
 <h1 id="pilotes-de-peripheriques-travaux-pratiques">Pilotes de périphériques / Travaux pratiques</h1>
 <h2 id="pilotes-orientes-memoire">Pilotes orientés mémoire</h2>
-<p>Réaliser un pilote orienté mémoire permettant de mapper en espace utilisateur les registres du µP en utilisant le fichier virtuel <code>/dev/mem</code>. Ce pilote permettra de lire l’identification du µP (Chip-ID aux adresses <code>0x01c1’4200</code> à <code>0x01c1’420c</code>) décrit dans l’exercice &ldquo;Accès aux entrées/sorties&rdquo; du cours sur la programmation de modules noyau.</p>
+<p>Réaliser un pilote orienté mémoire permettant de mapper en espace utilisateur les registres du µP en utilisant le fichier virtuel <code>/dev/mem</code>. Ce pilote permettra de lire l&rsquo;identification du µP (Chip-ID aux adresses <code>0x01c1'4200</code> à <code>0x01c1'420c</code>) décrit dans l&rsquo;exercice &ldquo;Accès aux entrées/sorties&rdquo; du cours sur la programmation de modules noyau.</p>
 <h2 id="pilotes-orientes-caractere">Pilotes orientés caractère</h2>
-<p>Implémenter un pilote de périphérique orienté caractère. Ce pilote sera capable de stocker dans une variable globale au module les données reçues par l’opération write et de les restituer par l’opération <code>read</code>. Pour tester le module, on utilisera les commandes <code>echo</code> et <code>cat</code>.</p>
-<p>Etendre la fonctionnalité du pilote de l’exercice précédent afin que l’on puisse à l’aide d’un paramètre module spécifier le nombre d’instances. Pour chaque instance, on créera une variable unique permettant de stocker les données échangées avec l’application en espace utilisateur.</p>
-<p>Développer une petite application en espace utilisateur permettant d’accéder à ces pilotes orientés caractère. L’application devra écrire un texte dans le pilote et le relire.</p>
+<p>Implémenter un pilote de périphérique orienté caractère. Ce pilote sera capable de stocker dans une variable globale au module les données reçues par l&rsquo;opération write et de les restituer par l&rsquo;opération <code>read</code>. Pour tester le module, on utilisera les commandes <code>echo</code> et <code>cat</code>.</p>
+<p>Etendre la fonctionnalité du pilote de l&rsquo;exercice précédent afin que l&rsquo;on puisse à l&rsquo;aide d&rsquo;un paramètre module spécifier le nombre d&rsquo;instances. Pour chaque instance, on créera une variable unique permettant de stocker les données échangées avec l&rsquo;application en espace utilisateur.</p>
+<p>Développer une petite application en espace utilisateur permettant d&rsquo;accéder à ces pilotes orientés caractère. L&rsquo;application devra écrire un texte dans le pilote et le relire.</p>
 <h2 id="sysfs">sysfs</h2>
-<p>Développer un pilote de périphérique orienté caractère permettant de valider la fonctionnalité du sysfs. Le pilote offrira quelques attributs pouvant être lus et écrites avec les commandes <code>echo</code> et <code>cat</code>. Ces attributs seront disponibles sous l’arborescence <code>/sys/class/…</code>. </p>
-<p>Adapter l’implémentation de l’exercice #3 ci-dessous afin que celui-ci utilise un <em>device tree</em> (DT) pour décrire le nombre de périphériques à mettre en œuvre. Le DT sera externe à l’arborescence des sources du noyaux Linux. La structure «<code>struct miscdevice</code> peut être utilisée pour instancier les <em>devices</em> et les fichiers d’accès (<code>/dev/…</code>).</p>
+<p>Développer un pilote de périphérique orienté caractère permettant de valider la fonctionnalité du sysfs. Le pilote offrira quelques attributs pouvant être lus et écrites avec les commandes <code>echo</code> et <code>cat</code>. Ces attributs seront disponibles sous l&rsquo;arborescence <code>/sys/class/…</code>. </p>
+<p>Adapter l&rsquo;implémentation de l&rsquo;exercice #3 ci-dessous afin que celui-ci utilise un <em>device tree</em> (DT) pour décrire le nombre de périphériques à mettre en œuvre. Le DT sera externe à l&rsquo;arborescence des sources du noyaux Linux. La structure «<code>struct miscdevice</code> peut être utilisée pour instancier les <em>devices</em> et les fichiers d&rsquo;accès (<code>/dev/…</code>).</p>
 <h2 id="operations-bloquantes">Opérations bloquantes</h2>
-<p>Développer un pilote et une application utilisant les entrées/sorties bloquantes pour signaler une interruption matérielle provenant de l’un des switches de la carte d’extension du NanoPI. L’application utilisera le service select pour compter le nombre d’interruptions.</p>
+<p>Développer un pilote et une application utilisant les entrées/sorties bloquantes pour signaler une interruption matérielle provenant de l&rsquo;un des switches de la carte d&rsquo;extension du NanoPI. L&rsquo;application utilisera le service select pour compter le nombre d&rsquo;interruptions.</p>
 <div class="admonition info">
 <p class="admonition-title">Remarque</p>
-<p>les switches n’ont pas d’anti-rebonds, par conséquent il est fort probable que vous comptiez un peu trop
-d’impulsions; effet à ignorer.</p>
+<p>les switches n&rsquo;ont pas d&rsquo;anti-rebonds, par conséquent il est fort probable que vous comptiez un peu trop
+d&rsquo;impulsions; effet à ignorer.</p>
 </div>
 <h2 id="pilotes-orientes-memoire-optionel">Pilotes orientés mémoire <em>(optionel)</em></h2>
-<p>Sur la base de l’exercice 1, développer un pilote orienté caractère permettant de mapper en espace utilisateur ces registres (implémentation de l’opération de fichier « mmap »). 
+<p>Sur la base de l&rsquo;exercice 1, développer un pilote orienté caractère permettant de mapper en espace utilisateur ces registres (implémentation de l&rsquo;opération de fichier « mmap »). 
 Le driver orienté mémoire sera ensuite adapté à cette nouvelle interface.</p>
 <div class="admonition info">
 <p class="admonition-title">Remarque</p>
 <p>à effectuer après les exercices des pilotes orientés caractère.</p>
 </div>
 <h2 id="ioctl-optionel">Ioctl <em>(optionel)</em></h2>
-<p>Implémenter à l’intérieur d’un pilote de périphérique l’opération <code>ioctl</code> afin de pouvoir:</p>
+<p>Implémenter à l&rsquo;intérieur d&rsquo;un pilote de périphérique l&rsquo;opération <code>ioctl</code> afin de pouvoir:</p>
 <ul>
 <li>Envoyer une commande</li>
 <li>Ecrire et lire une valeur entière</li>
 <li>Ecrire e lire un bloc de configuration de plus de 50 octets</li>
 </ul>
-<p>Afin de valider le pilote, développer une petite application permettant d’effectuer ces opérations et de les valider. 
+<p>Afin de valider le pilote, développer une petite application permettant d&rsquo;effectuer ces opérations et de les valider. 
 <code>procfs</code> <em>(optionel)</em></p>
-<p>Implémenter à l’intérieur d’un pilote de périphérique les opérations nécessaires afin de pouvoir lire un bloc de configuration et de pouvoir modifier le contenu de la valeur entière par <code>procfs</code>. Seules les commandes <code>echo</code> et <code>cat</code> doivent être nécessaires pour manipuler ces attributs.</p>
+<p>Implémenter à l&rsquo;intérieur d&rsquo;un pilote de périphérique les opérations nécessaires afin de pouvoir lire un bloc de configuration et de pouvoir modifier le contenu de la valeur entière par <code>procfs</code>. Seules les commandes <code>echo</code> et <code>cat</code> doivent être nécessaires pour manipuler ces attributs.</p>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Archives 2021/2022</p>
+<ul>
+<li><a href="../assets/sp.04.2_mas_csel_noyau_pilotes_exercices.pdf">Exercices</a></li>
+</ul>
+</div>
 
               
             </article>
@@ -640,13 +647,13 @@ Le driver orienté mémoire sera ensuite adapté à cette nouvelle interface.</p
       
       
         
-        <a href="../../../programmation-systeme/fichiers/" class="md-footer__link md-footer__link--next" aria-label="Suivant: 05 : Système de fichiers" rel="next">
+        <a href="../../../programmation-systeme/fichiers/fichiers-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Suivant
               </span>
-              05 : Système de fichiers
+              Leçon / Slides
             </div>
           </div>
           <div class="md-footer__button md-icon">
