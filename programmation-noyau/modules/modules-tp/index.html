@@ -868,16 +868,244 @@ registres du µP. Validez cette réservation à l&rsquo;aide de la commande <cod
 La commande <code>cat /sys/class/thermal/thermal_zone0/temp</code> permet de valider la bonne lecture
 de la température. La commande <code>ifconfig</code> permet de valider la bonne lecture de la <em>MAC
 adresse</em>.</p>
+<details class="success">
+<summary>Solution</summary>
+<div class="highlight"><span class="filename">/workspace/src/exercice04/skeleton.c</span><pre><span></span><code><span class="cm">/* skeleton.c */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">	/* needed by all modules */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">		/* needed for macros */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">	/* needed for debugging */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/moduleparam.h&gt;</span><span class="c1">	/* needed for module parameters */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/slab.h&gt;</span><span class="c1">		/* needed for dynamic memory allocation */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/list.h&gt;</span><span class="c1">		/* needed for linked list processing */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/string.h&gt;</span><span class="c1">	/* needed for string handling */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/ioport.h&gt;</span><span class="c1">	/* needed for memory region handling */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/io.h&gt;</span><span class="c1">		/* needed for mmio handling */</span><span class="cp"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">resource</span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">skeleton_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">regs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+<span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+<span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">addr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module 05 skeleton loaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request_mem_region</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01c14000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;allwiner h5 sid&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="c1">//res[1] = request_mem_region (0x01C25000, 0x1000, &quot;allwiner h5 ths&quot;);</span>
+<span class="w">	</span><span class="c1">//res[2] = request_mem_region (0x01C30000, 0x1000, &quot;allwiner h5 emac&quot;);</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="c1">// || (res[1] == 0) ||(res[2] == 0))</span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Error while reserving memory region... [0]=%d, [1]=%d, [2]=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">	</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioremap</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01c14000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioremap</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01C25000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioremap</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01C30000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Error while trying to map processor register...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EFAULT</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x200</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x204</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x208</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20c</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;chipid=%08x&#39;%08x&#39;%08x&#39;%08x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">	 	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1191</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mh">0x80</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">223000</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;temperature=%ld (%d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mh">0x80</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mh">0x50</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mh">0x54</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;mac-addr=%02x:%02x:%02x:%02x:%02x:%02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="w"></span>
+<span class="w">	</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">iounmap</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">	</span><span class="n">iounmap</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">	</span><span class="n">iounmap</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">skeleton_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module skeleton unloaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">release_mem_region</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01c14000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="c1">//release_mem_region (0x01C25000, 0x1000);</span>
+<span class="w">	</span><span class="c1">//release_mem_region (0x01C30000, 0x1000);</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">module_init</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_init</span><span class="p">);</span><span class="w"></span>
+<span class="n">module_exit</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_exit</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">MODULE_AUTHOR</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Daniel Gachet &lt;daniel.gachet@hefr.ch&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_DESCRIPTION</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</details>
 <h2 id="threads-du-noyau">Threads du noyau</h2>
 <p>Développez un petit module permettant d&rsquo;instancier un <em>thread</em> dans le noyau. Ce <em>thread</em> affichera
 un message toutes les 5 secondes. Il pourra être mis en sommeil durant ces 5 secondes à l&rsquo;aide de
 la fonction <code>ssleep(5)</code> provenant de l&rsquo;interface <code>&lt;linux/delay.h&gt;</code>.</p>
+<details class="success">
+<summary>Solution</summary>
+<div class="highlight"><span class="filename">/workspace/src/exercice04/skeleton.c</span><pre><span></span><code><span class="cm">/* skeleton.c */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">	/* needed by all modules */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">		/* needed for macros */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">	/* needed for debugging */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/moduleparam.h&gt;</span><span class="c1">	/* needed for module parameters */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/slab.h&gt;</span><span class="c1">		/* needed for dynamic memory allocation */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/list.h&gt;</span><span class="c1">		/* needed for linked list processing */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/string.h&gt;</span><span class="c1">	/* needed for string handling */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/ioport.h&gt;</span><span class="c1">	/* needed for memory region handling */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/io.h&gt;</span><span class="c1">		/* needed for mmio handling */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kthread.h&gt;</span><span class="c1">	/* needed for kernel thread management */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/delay.h&gt;</span><span class="c1">	/* needed for delay fonctions */</span><span class="cp"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">task_struct</span><span class="o">*</span><span class="w"> </span><span class="n">my_thread</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">skeleton_thread</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread is now active...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">kthread_should_stop</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">ssleep</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread is kick every 5 seconds...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">skeleton_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module 06 skeleton loaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">my_thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kthread_run</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_thread</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;s/thread&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">skeleton_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">kthread_stop</span><span class="w"> </span><span class="p">(</span><span class="n">my_thread</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module skeleton unloaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">module_init</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_init</span><span class="p">);</span><span class="w"></span>
+<span class="n">module_exit</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_exit</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">MODULE_AUTHOR</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Daniel Gachet &lt;daniel.gachet@hefr.ch&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_DESCRIPTION</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</details>
 <h2 id="mise-en-sommeil">Mise en sommeil</h2>
 <p>Développez un petit module permettant d&rsquo;instancier deux threads dans le noyau. Le premier
 thread attendra une notification de réveil du deuxième thread et se remettra en sommeil. Le 2ème
 thread enverra cette notification toutes les 5 secondes et se rendormira. On utilisera les
 <em>waitqueues</em> pour les mises en sommeil. Afin de permettre le debugging du module, chaque thread
 affichera un petit message à chaque réveil.</p>
+<details class="success">
+<summary>Solution</summary>
+<div class="highlight"><span class="filename">/workspace/src/exercice04/skeleton.c</span><pre><span></span><code><span class="cm">/* skeleton.c */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">	/* needed by all modules */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">		/* needed for macros */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">	/* needed for debugging */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kthread.h&gt;</span><span class="c1">	/* needed for kernel thread management */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/wait.h&gt;</span><span class="c1">		/* needed for waitqueues handling */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/delay.h&gt;</span><span class="c1">	/* needed for delay fonctions */</span><span class="cp"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">task_struct</span><span class="o">*</span><span class="w"> </span><span class="n">my_thread</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
+
+<span class="n">DECLARE_WAIT_QUEUE_HEAD</span><span class="w"> </span><span class="p">(</span><span class="n">queue_1</span><span class="p">);</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="n">atomic_t</span><span class="w"> </span><span class="n">is_kicked</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">skeleton_thread_1</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread_1 is now active...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">kthread_should_stop</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wait_event_interruptible</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">queue_1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">atomic_read</span><span class="p">(</span><span class="o">&amp;</span><span class="n">is_kicked</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">					</span><span class="o">||</span><span class="w"> </span><span class="n">kthread_should_stop</span><span class="p">());</span><span class="w"></span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="n">ERESTARTSYS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread_1 has been interrupted</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">			</span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="w">		</span><span class="n">atomic_dec</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">is_kicked</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread_1 has been kicked</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">skeleton_thread_2</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">wait_queue_head_t</span><span class="w"> </span><span class="n">queue</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread_2 is now active...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">init_waitqueue_head</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">queue</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">kthread_should_stop</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">ssleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/*</span>
+<span class="cm">		int status = wait_event_interruptible_timeout</span>
+<span class="cm">			(queue, kthread_should_stop(), 5*HZ);</span>
+<span class="cm">		if (status == -ERESTARTSYS) {</span>
+<span class="cm">			pr_info (&quot;skeleton thread_2 has been interrupted\n&quot;);</span>
+<span class="cm">			break;</span>
+<span class="cm">		}</span>
+<span class="cm">*/</span><span class="w"></span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;skeleton thread_2 timout elapsed...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">atomic_set</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">is_kicked</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">wake_up_interruptible</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">queue_1</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">skeleton_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module 07 skeleton loaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">atomic_set</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">is_kicked</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">my_thread</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kthread_run</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_thread_1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;s/thread/%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">my_thread</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kthread_run</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_thread_2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;s/thread/2&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">skeleton_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">kthread_stop</span><span class="w"> </span><span class="p">(</span><span class="n">my_thread</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">	</span><span class="n">kthread_stop</span><span class="w"> </span><span class="p">(</span><span class="n">my_thread</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module skeleton unloaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">module_init</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_init</span><span class="p">);</span><span class="w"></span>
+<span class="n">module_exit</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_exit</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">MODULE_AUTHOR</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Daniel Gachet &lt;daniel.gachet@hefr.ch&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_DESCRIPTION</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</details>
 <h2 id="interruptions">Interruptions</h2>
 <p>Développez un petit module permettant de capturer les pressions exercées sur les switches de la
 carte d&rsquo;extension par interruption. Afin de permettre le debugging du module, chaque capture
@@ -895,6 +1123,92 @@ affichera un petit message.</p>
 </ul>
 </li>
 </ol>
+<details class="success">
+<summary>Solution</summary>
+<div class="highlight"><span class="filename">/workspace/src/exercice08/skeleton.c</span><pre><span></span><code><span class="cm">/* skeleton.c */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1">	/* needed by all modules */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span><span class="c1">		/* needed for macros */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1">	/* needed for debugging */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/moduleparam.h&gt;</span><span class="c1">	/* needed for module parameters */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/slab.h&gt;</span><span class="c1">		/* needed for dynamic memory allocation */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/list.h&gt;</span><span class="c1">		/* needed for linked list processing */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/string.h&gt;</span><span class="c1">	/* needed for string handling */</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/ioport.h&gt;</span><span class="c1">	/* needed for memory region handling */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/io.h&gt;</span><span class="c1">		/* needed for mmio handling */</span><span class="cp"></span>
+
+
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">resource</span><span class="o">*</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="nf">skeleton_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">regs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+<span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+<span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">addr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">,};</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module 05 skeleton loaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request_mem_region</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01c14000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;allwiner h5 sid&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="c1">//res[1] = request_mem_region (0x01C25000, 0x1000, &quot;allwiner h5 ths&quot;);</span>
+<span class="w">	</span><span class="c1">//res[2] = request_mem_region (0x01C30000, 0x1000, &quot;allwiner h5 emac&quot;);</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="c1">// || (res[1] == 0) ||(res[2] == 0))</span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Error while reserving memory region... [0]=%d, [1]=%d, [2]=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w">	</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioremap</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01c14000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioremap</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01C25000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioremap</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01C30000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Error while trying to map processor register...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EFAULT</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x200</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x204</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x208</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioread32</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mh">0x20c</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;chipid=%08x&#39;%08x&#39;%08x&#39;%08x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">	 	</span><span class="n">chipid</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">chipid</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1191</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mh">0x80</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">223000</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;temperature=%ld (%d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mh">0x80</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mh">0x50</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">ioread32</span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mh">0x54</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;mac-addr=%02x:%02x:%02x:%02x:%02x:%02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"></span>
+<span class="w">			</span><span class="p">(</span><span class="n">addr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="w"></span>
+<span class="w">	</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">iounmap</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">	</span><span class="n">iounmap</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">	</span><span class="n">iounmap</span><span class="w"> </span><span class="p">(</span><span class="n">regs</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">__exit</span><span class="w"> </span><span class="nf">skeleton_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">pr_info</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Linux module skeleton unloaded</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">release_mem_region</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01c14000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="c1">//release_mem_region (0x01C25000, 0x1000);</span>
+<span class="w">	</span><span class="c1">//release_mem_region (0x01C30000, 0x1000);</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">module_init</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_init</span><span class="p">);</span><span class="w"></span>
+<span class="n">module_exit</span><span class="w"> </span><span class="p">(</span><span class="n">skeleton_exit</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">MODULE_AUTHOR</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Daniel Gachet &lt;daniel.gachet@hefr.ch&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_DESCRIPTION</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</details>
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Archives 2021/2022</p>
