@@ -26,7 +26,7 @@ jobs:
         uses: ./.github/actions/mkdocs-edu
         with:
           published-week: "4"
-          published-solutions: "3"
+          published-solutions: "4"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
