@@ -399,3 +399,9 @@ Redémarrez avec un `reboot` et vérifiez que vous pouvez maintenant vous connec
 1. Comment faut-il faire pour générer son propre rootfs ?
 1. Comment faudrait-il procéder pour utiliser la carte eMMC en lieu et place de la carte SD ?
 1. Dans le support de cours, on trouve différentes configurations de l'environnement de développement. Qu'elle serait la configuration optimale pour le développement uniquement d'applications en espace utilisateur ?
+
+---
+
+!!! note "Archives 2021/2022"
+    - [Exercices](assets/sp.02.2_mas_csel_environnement_linux_embarque_exercices.pdf)
+    - [Code](assets/sp.02.3_mas_csel_examples.tar)

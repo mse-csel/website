@@ -14,5 +14,3 @@ title: "Leçon / Slides"
 - [Free-Electrons : Network device driver](assets/sp.04.4_mas_csel_network_drivers.pdf)
 - [Free-Electrons : Serial device driver](assets/sp.04.5_mas_csel_serial_drivers.pdf)
 
-!!! note "Archives 2021/2022"
-    - [Exercices](assets/sp.04.2_mas_csel_noyau_pilotes_exercices.pdf)
