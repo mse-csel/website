@@ -15,6 +15,10 @@ config="${2:-config/mkdocs.yml}"
 week="${3:-999}"
 solutions="${4:-999}"
 
+# Install mkdocs from .devcontainer in a sub-shell
+cp -a .devcontainer/mkdocs-edu /
+(cd /mkdocs-edu && poetry install)
+
 python --version
 mkdocs --version
 
