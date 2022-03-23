@@ -6,7 +6,6 @@ RUN apt-get update && \
   zip
 
 RUN pip install poetry
-RUN poetry config virtualenvs.create false
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

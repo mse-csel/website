@@ -17,7 +17,7 @@ solutions="${4:-999}"
 
 # Install mkdocs from .devcontainer in a sub-shell
 cp -a .devcontainer/mkdocs-edu /
-(cd /mkdocs-edu && poetry install)
+(cd /mkdocs-edu && poetry config virtualenvs.create false && poetry install)
 
 python --version
 mkdocs --version
