@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://mse-csel.github.io/website/programmation-noyau/modules/modules-tp/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.e8d9bf0c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9d5733d3.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -32,8 +32,9 @@
     
       
         
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CIBM+Plex+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"IBM Plex Mono"}</style>
       
     
@@ -567,6 +568,67 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Pilotes de périphériques
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Pilotes de périphériques" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pilotes de périphériques
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pilotes/pilotes-le/" class="md-nav__link">
+        Leçon / Slides
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pilotes/pilotes-tp/" class="md-nav__link">
+        Travaux pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -657,7 +719,7 @@
 
 <h1 id="modules-noyaux-travaux-pratiques">Modules noyaux / Travaux pratiques</h1>
 <h2 id="module-noyau">Module noyau</h2>
-<p>Générez un module noyau <em>out of tree</em> pour la cible NanoPi :</p>
+<p><strong>Exercice #1</strong>:  Générez un module noyau <em>out of tree</em> pour la cible NanoPi :</p>
 <ol>
 <li>Créez le squelette d&rsquo;un module noyau et générez-le en dehors des sources du noyau à l&rsquo;aide
     d&rsquo;un Makefile. Le module devra afficher un message lors de son enregistrement et lors de sa
@@ -672,7 +734,7 @@
     modules du noyau permettant l&rsquo;utilisation de la commande <code>modprobe</code>. Le module devra
     être installé dans le root filesystem utilisé en <em>cifs</em> par la cible.</li>
 </ol>
-<p>Adaptez le module de l&rsquo;exercice précédent afin qu&rsquo;il puisse recevoir deux ou trois paramètres de
+<p><strong>Exercice #2</strong>:   Adaptez le module de l&rsquo;exercice précédent afin qu&rsquo;il puisse recevoir deux ou trois paramètres de
 votre choix. Ces paramètres seront affichés dans la console. Adaptez également le <em>rootfs</em> afin de
 pouvoir utiliser la commande <code>modprobe</code>.</p>
 <details class="success">
@@ -747,10 +809,10 @@ MODPATH  := /rootfs
 <span class="n">MODULE_LICENSE</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></p>
 </details>
-<p>Trouvez la signification des 4 valeurs affichées lorsque l&rsquo;on tape la commande
+<p><strong>Exercice #3</strong>:   Trouvez la signification des 4 valeurs affichées lorsque l&rsquo;on tape la commande
 <code>cat /proc/sys/kernel/printk</code></p>
 <h2 id="gestion-de-la-memoire-bibliotheque-et-fonction-utile">Gestion de la mémoire, bibliothèque et fonction utile</h2>
-<p>Créez dynamiquement des éléments dans le noyau. Adaptez un module noyau, afin que l&rsquo;on
+<p><strong>Exercice #4</strong>:  Créez dynamiquement des éléments dans le noyau. Adaptez un module noyau, afin que l&rsquo;on
 puisse lors de son installation spécifier un nombre d&rsquo;éléments à créer ainsi qu&rsquo;un texte initial à
 stocker dans les éléments précédemment alloués. Chaque élément contiendra également un
 numéro unique. Les éléments seront créés lors de l&rsquo;installation du module et chaînés dans l&rsquo;une
@@ -852,7 +914,7 @@ d&rsquo;information seront émis afin de permettre le debugging du module.</p>
 </code></pre></div></p>
 </details>
 <h2 id="acces-aux-entreessorties">Accès aux entrées/sorties</h2>
-<p>À l&rsquo;aide d&rsquo;un module noyau, afficher le Chip-ID du processeur, la température du CPU et la MAC
+<p><strong>Exercice #5</strong>:  À l&rsquo;aide d&rsquo;un module noyau, afficher le Chip-ID du processeur, la température du CPU et la MAC
 adresse du contrôleur Ethernet.</p>
 <ul>
 <li>Les 4 registres de 32 bits du Chip-ID sont aux adresses <code>0x01c1'4200</code> à <code>0x01c1'420c</code></li>
@@ -955,7 +1017,7 @@ adresse</em>.</p>
 </code></pre></div>
 </details>
 <h2 id="threads-du-noyau">Threads du noyau</h2>
-<p>Développez un petit module permettant d&rsquo;instancier un <em>thread</em> dans le noyau. Ce <em>thread</em> affichera
+<p><strong>Exercice #6</strong>:  Développez un petit module permettant d&rsquo;instancier un <em>thread</em> dans le noyau. Ce <em>thread</em> affichera
 un message toutes les 5 secondes. Il pourra être mis en sommeil durant ces 5 secondes à l&rsquo;aide de
 la fonction <code>ssleep(5)</code> provenant de l&rsquo;interface <code>&lt;linux/delay.h&gt;</code>.</p>
 <details class="success">
@@ -1017,7 +1079,7 @@ la fonction <code>ssleep(5)</code> provenant de l&rsquo;interface <code>&lt;linu
 </code></pre></div>
 </details>
 <h2 id="mise-en-sommeil">Mise en sommeil</h2>
-<p>Développez un petit module permettant d&rsquo;instancier deux threads dans le noyau. Le premier
+<p><strong>Exercice #7</strong>:  Développez un petit module permettant d&rsquo;instancier deux threads dans le noyau. Le premier
 thread attendra une notification de réveil du deuxième thread et se remettra en sommeil. Le 2ème
 thread enverra cette notification toutes les 5 secondes et se rendormira. On utilisera les
 <em>waitqueues</em> pour les mises en sommeil. Afin de permettre le debugging du module, chaque thread
@@ -1107,7 +1169,7 @@ affichera un petit message à chaque réveil.</p>
 </code></pre></div>
 </details>
 <h2 id="interruptions">Interruptions</h2>
-<p>Développez un petit module permettant de capturer les pressions exercées sur les switches de la
+<p><strong>Exercice #8</strong>:  Développez un petit module permettant de capturer les pressions exercées sur les switches de la
 carte d&rsquo;extension par interruption. Afin de permettre le debugging du module, chaque capture
 affichera un petit message.</p>
 <p>Quelques informations pour la réalisation du module :</p>
@@ -1252,6 +1314,21 @@ affichera un petit message.</p>
         </a>
       
       
+        
+        <a href="../../pilotes/pilotes-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Leçon / Slides
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
     </nav>
   
   <div class="md-footer-meta md-typeset">
@@ -1278,7 +1355,7 @@ affichera un petit message.</p>
       
     
     <a href="https://github.com/mse-csel/website" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -1291,10 +1368,10 @@ affichera un petit message.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.sections"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e87a5f81.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
