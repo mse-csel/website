@@ -1,5 +1,6 @@
 ---
 title: "Leçon / Slides"
+week: 5
 ---
 
 # Pilotes de périphériques / Leçon
