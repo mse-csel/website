@@ -1,5 +1,6 @@
 ---
 title: "Leçon / Slides"
+week: 3
 ---
 
 # Modules noyaux / Leçon

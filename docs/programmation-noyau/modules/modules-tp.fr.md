@@ -3,11 +3,16 @@ title: "Travaux pratiques"
 week: 3
 ---
 
+{% set exno = namespace(no=1) %}
+{% macro ex() -%}
+**Exercice #{{ exno.no }}**: {% set exno.no = exno.no + 1 %}
+{%- endmacro %}
+
 # Modules noyaux / Travaux pratiques
 
 ## Module noyau
 
-Générez un module noyau _out of tree_ pour la cible NanoPi :
+{{ ex() }} Générez un module noyau _out of tree_ pour la cible NanoPi :
 
 1. Créez le squelette d'un module noyau et générez-le en dehors des sources du noyau à l'aide
     d'un Makefile. Le module devra afficher un message lors de son enregistrement et lors de sa
@@ -24,7 +29,7 @@ Générez un module noyau _out of tree_ pour la cible NanoPi :
 
 [^1]: Pour installer  `modinfo`, ajouter le _package_ "kmod utilities" : _Target Packages_ --> _System Tools_ --> _kmod_ et _kmod utilities_. Vous pouvez ensuite mettre à jour le _root file system_ avec la commande `extract-rootfs.sh`, mais attention, vous allez remplacer des fichiers tels que `/etc/fstab`. Sauvegardez vos fichiers importants!
 
-Adaptez le module de l'exercice précédent afin qu'il puisse recevoir deux ou trois paramètres de
+{{ ex() }}  Adaptez le module de l'exercice précédent afin qu'il puisse recevoir deux ou trois paramètres de
 votre choix. Ces paramètres seront affichés dans la console. Adaptez également le _rootfs_ afin de
 pouvoir utiliser la commande `modprobe`.
 
@@ -41,12 +46,12 @@ pouvoir utiliser la commande `modprobe`.
     ```
 {% endif %}
 
-Trouvez la signification des 4 valeurs affichées lorsque l'on tape la commande
+{{ ex() }}  Trouvez la signification des 4 valeurs affichées lorsque l'on tape la commande
 `cat /proc/sys/kernel/printk`
 
 ## Gestion de la mémoire, bibliothèque et fonction utile
 
-Créez dynamiquement des éléments dans le noyau. Adaptez un module noyau, afin que l'on
+{{ ex() }} Créez dynamiquement des éléments dans le noyau. Adaptez un module noyau, afin que l'on
 puisse lors de son installation spécifier un nombre d'éléments à créer ainsi qu'un texte initial à
 stocker dans les éléments précédemment alloués. Chaque élément contiendra également un
 numéro unique. Les éléments seront créés lors de l'installation du module et chaînés dans l'une
@@ -65,7 +70,7 @@ d'information seront émis afin de permettre le debugging du module.
 
 ## Accès aux entrées/sorties
 
-À l'aide d'un module noyau, afficher le Chip-ID du processeur, la température du CPU et la MAC
+{{ ex() }} À l'aide d'un module noyau, afficher le Chip-ID du processeur, la température du CPU et la MAC
 adresse du contrôleur Ethernet.
 
 - Les 4 registres de 32 bits du Chip-ID sont aux adresses `0x01c1'4200` à `0x01c1'420c`
@@ -93,7 +98,7 @@ adresse_.
 
 ## Threads du noyau
 
-Développez un petit module permettant d'instancier un _thread_ dans le noyau. Ce _thread_ affichera
+{{ ex() }} Développez un petit module permettant d'instancier un _thread_ dans le noyau. Ce _thread_ affichera
 un message toutes les 5 secondes. Il pourra être mis en sommeil durant ces 5 secondes à l'aide de
 la fonction `ssleep(5)` provenant de l'interface `<linux/delay.h>`.
 
@@ -106,7 +111,7 @@ la fonction `ssleep(5)` provenant de l'interface `<linux/delay.h>`.
 
 ## Mise en sommeil
 
-Développez un petit module permettant d'instancier deux threads dans le noyau. Le premier
+{{ ex() }} Développez un petit module permettant d'instancier deux threads dans le noyau. Le premier
 thread attendra une notification de réveil du deuxième thread et se remettra en sommeil. Le 2ème
 thread enverra cette notification toutes les 5 secondes et se rendormira. On utilisera les
 _waitqueues_ pour les mises en sommeil. Afin de permettre le debugging du module, chaque thread
@@ -121,7 +126,7 @@ affichera un petit message à chaque réveil.
 
 ## Interruptions
 
-Développez un petit module permettant de capturer les pressions exercées sur les switches de la
+{{ ex() }} Développez un petit module permettant de capturer les pressions exercées sur les switches de la
 carte d'extension par interruption. Afin de permettre le debugging du module, chaque capture
 affichera un petit message.
 
