@@ -15,7 +15,7 @@ mkdocs-minify-plugin = "^0.5.0"
 mkdocs-pdf-export-plugin = "^0.5.10"
 python-markdown-math = "^0.8"
 python-markdown-comments = {git = "https://github.com/ryneeverett/python-markdown-comments.git", rev = "aa82610"}
-pymdown-include = "^0.0.1"
+pymdown-include = "^0.1.0"
 CairoSVG = "^2.5.2"
 mkdocs-awesome-pages-plugin = "^2.6.1"
 mkdocs-static-i18n = "^0.31"
