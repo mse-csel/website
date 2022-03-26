@@ -235,7 +235,7 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "jinja2-cli"
-version = "0.8.1"
+version = "0.8.2"
 description = "A CLI interface to Jinja2"
 category = "main"
 optional = false
@@ -682,7 +682,7 @@ test = ["pytest"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "2567cc3f7593a4442017faf989f10b3cc2176bde4d1fbc265de2a31bc8283d4c"
+content-hash = "8f35f99bfbc7943c5a660d97fac85b7b05c21d6570a0ae06b2346bc329dfae25"
 
 [metadata.files]
 beautifulsoup4 = [
@@ -891,8 +891,8 @@ jinja2 = [
     {file = "Jinja2-3.0.3.tar.gz", hash = "sha256:611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"},
 ]
 jinja2-cli = [
-    {file = "jinja2-cli-0.8.1.tar.gz", hash = "sha256:fb1173811ed5b54205c65131374f342fcb924a5123af53a65fe1ffa7eb40bf19"},
-    {file = "jinja2_cli-0.8.1-py2.py3-none-any.whl", hash = "sha256:70b14f930ab9fe5b9bc79e93e90bdeb4c5262e023476e05f52316b883812544f"},
+    {file = "jinja2-cli-0.8.2.tar.gz", hash = "sha256:a16bb1454111128e206f568c95938cdef5b5a139929378f72bb8cf6179e18e50"},
+    {file = "jinja2_cli-0.8.2-py2.py3-none-any.whl", hash = "sha256:b91715c79496beaddad790171e7258a87db21c1a0b6d2b15bca3ba44b74aac5d"},
 ]
 jsmin = [
     {file = "jsmin-3.0.1.tar.gz", hash = "sha256:c0959a121ef94542e807a674142606f7e90214a2b3d1eb17300244bbb5cc2bfc"},
