@@ -405,7 +405,7 @@ mkdocs = "*"
 
 [[package]]
 name = "mkdocs-static-i18n"
-version = "0.31"
+version = "0.44"
 description = "MkDocs i18n plugin using static translation markdown files"
 category = "main"
 optional = false
@@ -682,7 +682,7 @@ test = ["pytest"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "77f07419fc32eb0bf4794ebb0758966ecf736748c78f0cdebecd089dba642c29"
+content-hash = "2567cc3f7593a4442017faf989f10b3cc2176bde4d1fbc265de2a31bc8283d4c"
 
 [metadata.files]
 beautifulsoup4 = [
@@ -980,7 +980,7 @@ mkdocs-select-files = [
     {file = "mkdocs_select_files-0.4.0-py3-none-any.whl", hash = "sha256:2e2f187ab0d5d3bf79b3020e0ae633865a357462883d4667978cb6b6bce58e3a"},
 ]
 mkdocs-static-i18n = [
-    {file = "mkdocs-static-i18n-0.31.tar.gz", hash = "sha256:555349fd7d7db4a1ac5865c3c1c3533f15b840796fe789603599aea9cd75160c"},
+    {file = "mkdocs-static-i18n-0.44.tar.gz", hash = "sha256:0d97df64b5be7b34dc112d4ccfba28352b9fccd1b7a3babf229f30d25f6ebb36"},
 ]
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
