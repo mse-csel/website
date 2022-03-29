@@ -325,7 +325,7 @@ wcmatch = ">=7"
 
 [[package]]
 name = "mkdocs-macros-plugin"
-version = "0.6.4"
+version = "0.7.0"
 description = "Unleash the power of MkDocs with macros and variables"
 category = "main"
 optional = false
@@ -682,7 +682,7 @@ test = ["pytest"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "8f35f99bfbc7943c5a660d97fac85b7b05c21d6570a0ae06b2346bc329dfae25"
+content-hash = "189a1ed86a5a1278aef1cb5d84f9da83b31a9fb32b4f4269c6e0133f9675bd2b"
 
 [metadata.files]
 beautifulsoup4 = [
@@ -956,8 +956,8 @@ mkdocs-awesome-pages-plugin = [
     {file = "mkdocs_awesome_pages_plugin-2.7.0-py3-none-any.whl", hash = "sha256:875ae2b1a1a782a40ceb6fb8a5f2e83ffb15e6bdca29c597a4decb6bdd76e066"},
 ]
 mkdocs-macros-plugin = [
-    {file = "mkdocs-macros-plugin-0.6.4.tar.gz", hash = "sha256:3430a2b1c5c8f6e8d49d66614bded698a8d6fdf0e97a62141faba3958d8c3e8b"},
-    {file = "mkdocs_macros_plugin-0.6.4-py3-none-any.whl", hash = "sha256:e498843b49fbe959b4b9d90ff431300d6bfb48a3023c576dd42c13ca105e82de"},
+    {file = "mkdocs-macros-plugin-0.7.0.tar.gz", hash = "sha256:9e64e1cabcf6925359de29fe54f62d5847fb455c2528c440b87f8f1240650608"},
+    {file = "mkdocs_macros_plugin-0.7.0-py3-none-any.whl", hash = "sha256:96bdabeb98b96139544f0048ea2f5cb80c7befde6b21e94c6d4596c22774cbcf"},
 ]
 mkdocs-material = [
     {file = "mkdocs-material-8.2.7.tar.gz", hash = "sha256:3314d94ccc11481b1a3aa4f7babb4fb2bc47daa2fa8ace2463665952116f409b"},
