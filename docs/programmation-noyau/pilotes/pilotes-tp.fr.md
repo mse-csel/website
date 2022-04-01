@@ -83,17 +83,31 @@ Dans un premier temps, implémentez juste ce qu'il faut pour créer une nouvelle
 {{ exx() }} : Ajoutez maintenant les opérations sur les fichiers définies à l'exercice #3. Vous pouvez définir une classe
 comme dans l'exercice précédent, ou vous pouvez utiliser un `platform_device`, ou encore un `miscdevice`.
 
-{% if solution >= page.meta.week %}
+{% if solution >= page.meta.week+1 %}
 ??? success "Solution"
     ```c title="skeleton.c" hl_lines="157 198 209"
     {!docs/programmation-noyau/pilotes/src/exercice051/skeleton.c!>}
     ```
 {% endif %}
 
-## Device Tree
+## Device Tree _(optionel)_
 
 {{ ex() }}:
 Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise un _device tree_ (DT) pour décrire le nombre de périphériques à mettre en œuvre. Le DT sera externe à l'arborescence des sources du noyaux Linux. La structure `struct miscdevice` peut être utilisée pour instancier les _devices_ et les fichiers d'accès (`/dev/…`).
+
+{% if solution >= page.meta.week %}
+??? success "Solution"
+    ```makefile title="Makefile"
+    {!docs/programmation-noyau/pilotes/src/exercice06/Makefile!>}
+    ```
+    ```c title="skeleton.c"
+    {!docs/programmation-noyau/pilotes/src/exercice06/skeleton.c!>}
+    ```
+    ```text title="boot.cmd"
+    {!docs/programmation-noyau/pilotes/src/exercice06/boot.cmd!>}
+    ```
+{% endif %}
+
 
 ## Opérations bloquantes
 
@@ -103,6 +117,22 @@ Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise u
     les switches n'ont pas d'anti-rebonds, par conséquent il est fort probable que vous comptiez un peu trop
     d'impulsions; effet à ignorer.
 
+{% if solution >= page.meta.week %}
+??? success "Solution"
+    **Device Driver :**
+    ```c title="drv/skeleton.c"
+    {!docs/programmation-noyau/pilotes/src/exercice07/drv/skeleton.c!>}
+    ```
+
+    **Application :**
+    ```makefile title="app/Makefile"
+    {!docs/programmation-noyau/pilotes/src/exercice07/app/Makefile!>}
+    ```
+    ```c title="app/main.c"
+    {!docs/programmation-noyau/pilotes/src/exercice07/app/main.c!>}
+    ```
+{% endif %}
+
 ## Pilotes orientés mémoire _(optionel)_
 
 {{ ex() }}: Sur la base de l'exercice 1, développer un pilote orienté caractère permettant de mapper en espace utilisateur ces registres (implémentation de l'opération de fichier « mmap »). 
@@ -110,6 +140,19 @@ Le driver orienté mémoire sera ensuite adapté à cette nouvelle interface.
 
 !!! info "Remarque"
     à effectuer après les exercices des pilotes orientés caractère.
+
+{% if solution >= page.meta.week %}
+??? success "Solution"
+    **Device Driver :**
+    ```c title="drv/skeleton.c"
+    {!docs/programmation-noyau/pilotes/src/exercice08/drv/skeleton.c!>}
+    ```
+
+    **Application :**
+    ```c title="app/main.c"
+    {!docs/programmation-noyau/pilotes/src/exercice08/app/main.c!>}
+    ```
+{% endif %}
 
 ## Ioctl _(optionel)_
 
@@ -121,9 +164,32 @@ Le driver orienté mémoire sera ensuite adapté à cette nouvelle interface.
 
 Afin de valider le pilote, développer une petite application permettant d'effectuer ces opérations et de les valider. 
 
+{% if solution >= page.meta.week %}
+??? success "Solution"
+    **Device Driver :**
+    ```c title="drv/skeleton.h"
+    {!docs/programmation-noyau/pilotes/src/exercice09/drv/skeleton.h!>}
+    ```
+    ```c title="drv/skeleton.c"
+    {!docs/programmation-noyau/pilotes/src/exercice09/drv/skeleton.c!>}
+    ```
+
+    **Application :**
+    ```c title="app/main.c"
+    {!docs/programmation-noyau/pilotes/src/exercice09/app/main.c!>}
+    ```
+{% endif %}
+
 ## `procfs` _(optionel)_
 
 {{ ex() }}: Implémenter à l'intérieur d'un pilote de périphérique les opérations nécessaires afin de pouvoir lire un bloc de configuration et de pouvoir modifier le contenu de la valeur entière par `procfs`. Seules les commandes `echo` et `cat` doivent être nécessaires pour manipuler ces attributs.
+
+{% if solution >= page.meta.week %}
+??? success "Solution"
+    ```c title="skeleton.c"
+    {!docs/programmation-noyau/pilotes/src/exercice10/skeleton.c!>}
+    ```
+{% endif %}
 
 ---
 
