@@ -144,7 +144,7 @@ Quelques informations pour la réalisation du module :
 {% if solution >= page.meta.week + 1 %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice08/skeleton.c"
-    {!docs/programmation-noyau/modules/src/exercice05/skeleton.c!>}
+    {!docs/programmation-noyau/modules/src/exercice08/skeleton.c!>}
     ```
 {% endif %}
 
