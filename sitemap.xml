@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mse-csel.github.io/website/documentation/references/</loc>
+         <lastmod>2022-04-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mse-csel.github.io/website/documentation/tools/</loc>
          <lastmod>2022-04-01</lastmod>
          <changefreq>daily</changefreq>
