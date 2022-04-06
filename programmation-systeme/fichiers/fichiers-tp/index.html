@@ -589,6 +589,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    Contexte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travail-a-realiser" class="md-nav__link">
+    Travail à réaliser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infos-pratiques" class="md-nav__link">
+    Infos pratiques
+  </a>
+  
+    <nav class="md-nav" aria-label="Infos pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    GPIO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timer" class="md-nav__link">
+    Timer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -602,7 +651,175 @@
 
 
 <h1 id="systeme-de-fichiers-travaux-pratiques">Système de fichiers / Travaux pratiques</h1>
-<p>TODO</p>
+<h2 id="contexte">Contexte</h2>
+<p>La carte NanoPi NEO Plus2 est équipée de deux LEDs. La LED rouge est en principe prévue pour indiquer
+si la cible est sous tension (<em>power</em>) et la LED verte est là pour donner des indications d&rsquo;état (<em>status</em>).
+Avec la configuration actuelle du noyau Linux, ces deux LEDs sont à libre disposition des développeurs.</p>
+<h2 id="travail-a-realiser">Travail à réaliser</h2>
+<p>Vous trouverez ci-dessous application qui contrôle la fréquence de clignotement d’une
+LED. Ce code n’a pas été très bien programmé et utilise le 100% d’un cœur du processeur (à mesurer
+avec <code>top</code>).</p>
+<details class="example">
+<summary>silly_led_control.c</summary>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Copyright 2018 University of Applied Sciences Western Switzerland / Fribourg</span>
+<span class="cm"> *</span>
+<span class="cm"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="cm"> * you may not use this file except in compliance with the License.</span>
+<span class="cm"> * You may obtain a copy of the License at</span>
+<span class="cm"> *</span>
+<span class="cm"> *     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="cm"> *</span>
+<span class="cm"> * Unless required by applicable law or agreed to in writing, software</span>
+<span class="cm"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="cm"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="cm"> * See the License for the specific language governing permissions and</span>
+<span class="cm"> * limitations under the License.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Project:	HEIA-FR / HES-SO MSE - MA-CSEL1 Laboratory</span>
+<span class="cm"> *</span>
+<span class="cm"> * Abstract: System programming -  file system</span>
+<span class="cm"> *</span>
+<span class="cm"> * Purpose:	NanoPi silly status led control system</span>
+<span class="cm"> *</span>
+<span class="cm"> * Autĥor:	Daniel Gachet</span>
+<span class="cm"> * Date:	07.11.2018</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * status led - gpioa.10 --&gt; gpio10</span>
+<span class="cm"> * power led  - gpiol.10 --&gt; gpio362</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#define GPIO_EXPORT		&quot;/sys/class/gpio/export&quot;</span>
+<span class="cp">#define GPIO_UNEXPORT	&quot;/sys/class/gpio/unexport&quot;</span>
+<span class="cp">#define GPIO_LED		&quot;/sys/class/gpio/gpio10&quot;</span>
+<span class="cp">#define LED				&quot;10&quot;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">open_led</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="c1">// unexport pin out of sysfs (reinitialization)</span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">GPIO_UNEXPORT</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">write</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">LED</span><span class="p">));</span><span class="w"></span>
+<span class="w">	</span><span class="n">close</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="c1">// export pin to sysfs</span>
+<span class="w">	</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">GPIO_EXPORT</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">write</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">LED</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">LED</span><span class="p">));</span><span class="w"></span>
+<span class="w">	</span><span class="n">close</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="c1">// config pin</span>
+<span class="w">	</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">GPIO_LED</span><span class="w"> </span><span class="s">&quot;/direction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">write</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;out&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">close</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="c1">// open gpio value attribute</span>
+<span class="w"> 	</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">GPIO_LED</span><span class="w"> </span><span class="s">&quot;/value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="n">duty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">		</span><span class="c1">// %</span>
+<span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">// ms</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="n">period</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">	</span><span class="n">period</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// in ns</span>
+
+<span class="w">	</span><span class="c1">// compute duty period...</span>
+<span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">duty</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">long</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w"></span>
+
+<span class="w"> 	</span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open_led</span><span class="p">();</span><span class="w"></span>
+<span class="w">	</span><span class="n">pwrite</span><span class="w"> </span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">clock_gettime</span><span class="w"> </span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t1</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="k">struct</span><span class="w"> </span><span class="nc">timespec</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">clock_gettime</span><span class="w"> </span><span class="p">(</span><span class="n">CLOCK_MONOTONIC</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">		</span><span class="kt">long</span><span class="w"> </span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">tv_sec</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">tv_sec</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000000000</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">			     </span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">tv_nsec</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">tv_nsec</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">toggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">k</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">p1</span><span class="p">))</span><span class="w"></span>
+<span class="w">			   </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">k</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">p2</span><span class="p">));</span><span class="w"></span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">toggle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">				</span><span class="n">pwrite</span><span class="w"> </span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">			</span><span class="k">else</span><span class="w"></span>
+<span class="w">				</span><span class="n">pwrite</span><span class="w"> </span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<p>Concevez une application permettant de gérer la fréquence de clignotement de la LED <code>status</code> de la
+carte NanoPi à l’aide des trois boutons-poussoirs.
+Quelques indications pour la réalisation de l’application :</p>
+<ol>
+<li>Au démarrage la fréquence de clignotement sera réglée à 2&nbsp;Hz</li>
+<li>Utilisation des boutons-poussoirs<ul>
+<li><code>k1</code> pour augmenter la fréquence</li>
+<li><code>k2</code> pour remettre la fréquence à sa valeur initiale</li>
+<li><code>k3</code> pour diminuer la fréquence</li>
+<li>optionnel : une pression continue exercée sur un bouton indiquera une auto
+  incrémentation ou décrémentation de la fréquence.</li>
+</ul>
+</li>
+<li>Tous les changements de fréquence seront logger avec syslog de Linux.</li>
+<li>Le multiplexage des entrées/sorties devra être utilisé.</li>
+</ol>
+<h2 id="infos-pratiques">Infos pratiques</h2>
+<h3 id="gpio">GPIO</h3>
+<p>L’accès aux entrées/sorties est proposé sous le système de fichiers virtuels <em>sysfs</em>, dans le
+répertoire <code>/sys/class/gpio/*</code>. Cette interface est décrite dans la documentation du noyau
+Linux (<a href="https://www.kernel.org/doc/Documentation/gpio/sysfs.txt">https://www.kernel.org/doc/Documentation/gpio/sysfs.txt</a>).</p>
+<p>Quelques informations utiles pour l’utilisation du module GPIO sous Linux :</p>
+<p><strong>Pour lire ou écrire une valeur sur une <em>pin</em> d’entrée/sortie, il faut
+tout d’abord configurer le <em>GPIO</em>, soit :</strong></p>
+<ol>
+<li>Exporter la porte dans le « sysfs » à l’aide de la commande :
+    <div class="highlight"><pre><span></span><code># echo &lt;pin_nr&gt; &gt; /sys/class/gpio/export
+</code></pre></div></li>
+<li>Configurer la porte en entrée ou en sortie :
+    <div class="highlight"><pre><span></span><code># echo in &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/direction
+# echo out &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/direction
+</code></pre></div></li>
+<li>Lire l’état de la pin (input) :
+    <div class="highlight"><pre><span></span><code># cat /sys/class/gpio/gpio&lt;pin_nr&gt;/value
+</code></pre></div></li>
+<li>Changer l’état de la pin (output) :
+    <div class="highlight"><pre><span></span><code># echo 0 &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/value
+# echo 1 &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/value
+</code></pre></div></li>
+<li>Pour traiter les entrées/sorties en mode événementiel :
+    <div class="highlight"><pre><span></span><code># echo rising &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/edge
+# echo falling &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/edge
+# echo both &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/edge
+</code></pre></div></li>
+</ol>
+<p><strong>Pour obtenir le numéro du <em>GPIO</em> correspondant à un <em>pin</em> il faut lire la configuration sur le <em>debugfs</em>,
+soit :</strong></p>
+<div class="highlight"><pre><span></span><code># mount -t debugfs none /sys/kernel/debug
+# cat /sys/kernel/debug/gpio
+</code></pre></div>
+<h3 id="timer">Timer</h3>
+<p>La librairie <code>timerfd</code> offre des services très intéressants pour la génération d’une horloge à haute
+résolution et surtout une interface permettant le multiplexage des entrées/sorties.</p>
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Archives 2021/2022</p>
