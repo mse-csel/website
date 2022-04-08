@@ -86,6 +86,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mse-csel.github.io/website/programmation-systeme/fichiers/fichiers-ex/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/fichiers/fichiers-le/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
