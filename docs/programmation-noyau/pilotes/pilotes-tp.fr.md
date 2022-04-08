@@ -103,6 +103,9 @@ Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise u
     ```c title="skeleton.c"
     {!docs/programmation-noyau/pilotes/src/exercice06/skeleton.c!>}
     ```
+    ```text title="mydt.dts"
+    {!docs/programmation-noyau/pilotes/src/exercice06/mydt.dts!>}
+    ```
     ```text title="boot.cmd"
     {!docs/programmation-noyau/pilotes/src/exercice06/boot.cmd!>}
     ```
