@@ -10,5 +10,4 @@ title: "Leçon / Slides"
 
 ## Compléments
 
-- [code : silly status led control system](assets/sp.05.3_mas_csel_silly_led_control.c)
 - [Exemple: lecture des fichiers d'un répertoire (ls)](assets/list.c)
