@@ -663,6 +663,103 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Programmation Système
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programmation Système" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Programmation Système
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Système de fichiers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Système de fichiers" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Système de fichiers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programmation-systeme/fichiers/fichiers-le/" class="md-nav__link">
+        Leçon / Slides
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programmation-systeme/fichiers/fichiers-tp/" class="md-nav__link">
+        Travaux pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1690,6 +1787,41 @@ Adapter l&rsquo;implémentation de l&rsquo;exercice #3 ci-dessus afin que celui-
 <span class="n">MODULE_DESCRIPTION</span><span class="p">(</span><span class="s">&quot;Module skeleton&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
+<div class="highlight"><span class="filename">mydt.dts</span><pre><span></span><code>/dts-v1/;
+
+#include &quot;allwinner/sun50i-h5-nanopi-neo-plus2.dts&quot;
+
+/ {
+    /delete-node/ leds;
+
+    mydevice {
+        compatible = &quot;mydevice&quot;;
+        #address-cells = &lt;1&gt;;
+        #size-cells = &lt;0&gt;;
+        attribute = &quot;idle&quot;;
+
+        mydevice@0 {
+            reg = &lt;0x0&gt;;
+            attribute = &quot;on&quot;;
+        };
+
+        mydevice@1 {
+            reg = &lt;0x1&gt;;
+            attribute = &quot;off&quot;;
+        };
+
+        mydevice@2 {
+            reg = &lt;0x2&gt;;
+            attribute = &quot;off&quot;;
+        };
+
+        mydevice@3 {
+            reg = &lt;0x3&gt;;
+            attribute = &quot;off&quot;;
+        };
+    };
+};
+</code></pre></div>
 <div class="highlight"><span class="filename">boot.cmd</span><pre><span></span><code>setenv bootargs console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p2 rootwait
 
 fatload mmc 0 $kernel_addr_r Image
@@ -2462,6 +2594,21 @@ Le driver orienté mémoire sera ensuite adapté à cette nouvelle interface.</p
           </div>
         </a>
       
+      
+        
+        <a href="../../../programmation-systeme/fichiers/fichiers-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Leçon / Slides
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
