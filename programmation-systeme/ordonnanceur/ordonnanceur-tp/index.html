@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ordonnanceur-travaux-pratiques" class="md-skip">
+        <a href="#multiprocessing-et-ordonnanceur-travaux-pratiques" class="md-skip">
           Aller au contenu
         </a>
       
@@ -702,6 +702,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#processus-signaux-et-communication" class="md-nav__link">
+    Processus, signaux et communication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cgroups" class="md-nav__link">
+    CGroups
+  </a>
+  
+    <nav class="md-nav" aria-label="CGroups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quelques-indications-pour-la-creation-du-programme" class="md-nav__link">
+    Quelques indications pour la création du programme :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quelques-indications-pour-monter-les-cgroups" class="md-nav__link">
+    Quelques indications pour monter les CGroups :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quelques-questions" class="md-nav__link">
+    Quelques questions :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quelques-indications-pour-monter-les-cgroups_1" class="md-nav__link">
+    Quelques indications pour monter les CGroups :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quelques-questions_1" class="md-nav__link">
+    Quelques questions :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -714,14 +777,90 @@
                 
 
 
-<h1 id="ordonnanceur-travaux-pratiques">Ordonnanceur / Travaux pratiques</h1>
-<p>TODO</p>
+<h1 id="multiprocessing-et-ordonnanceur-travaux-pratiques">Multiprocessing et Ordonnanceur / Travaux pratiques</h1>
+<h2 id="processus-signaux-et-communication">Processus, signaux et communication</h2>
+<p><strong>Exercice #1</strong>: Concevez et développez une petite application mettant en
+œuvre un des services de communication proposés par Linux (par exemple
+<code>socketpair</code>) entre un processus parent et un processus enfant. Le
+processus enfant devra émettre quelques messages sous forme de texte
+vers le processus parent, lequel les affichera sur la console. Le
+message <code>exit</code> permettra de terminer l’application. Cette application
+devra impérativement capturer tous les signaux et les ignorer. Seul un
+message d’information sera affiché sur la console. Chacun des processus
+devra utiliser son propre cœur, par exemple <em>core 0</em> pour le parent, et <em>core 1</em>
+pour l’enfant.</p>
+<h2 id="cgroups">CGroups</h2>
+<p><strong>Exercice #2</strong>: Concevez une petite application permettant de valider la
+capacité des groupes de contrôle à limiter l’utilisation de la mémoire.</p>
+<h3 id="quelques-indications-pour-la-creation-du-programme">Quelques indications pour la création du programme :</h3>
+<ul>
+<li>Allouer un nombre défini de blocs de mémoire d’un mébibyte<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, par exemple 50</li>
+<li>Tester si le pointeur est non nul</li>
+<li>Remplir le bloc avec des 0</li>
+</ul>
+<h3 id="quelques-indications-pour-monter-les-cgroups">Quelques indications pour monter les <em>CGroups</em> :</h3>
+<ul>
+<li><code>$ mount -t tmpfs none /sys/fs/cgroup</code></li>
+<li><code>$ mkdir /sys/fs/cgroup/memory</code></li>
+<li><code>$ mount -t cgroup -o memory memory /sys/fs/cgroup/memory</code></li>
+<li><code>$ mkdir /sys/fs/cgroup/memory/mem</code></li>
+<li><code>$ echo $$ &gt; /sys/fs/cgroup/memory/mem/tasks</code></li>
+<li><code>$ echo 20M &gt; /sys/fs/cgroup/memory/mem/memory.limit_in_bytes</code></li>
+</ul>
+<h3 id="quelques-questions">Quelques questions :</h3>
+<ol>
+<li>Quel effet a la commande <code>echo $$ &gt; ...</code> sur les <em>cgroups</em> ?</li>
+<li>Quel est le comportement du sous-système <em>memory</em> lorsque le quota de
+   mémoire est épuisé&nbsp;? Pourrait-on le modifier ? Si oui, comment ?</li>
+<li>Est-il possible de surveiller/vérifier l’état actuel de la mémoire ?
+   Si oui, comment ?</li>
+</ol>
+<p><strong>Exercice #3</strong>: Afin de valider la capacité des groupes de contrôle de
+limiter l’utilisation des CPU, concevez une petite application composée
+au minimum de 2 processus utilisant le 100% des ressources du
+processeur.</p>
+<h3 id="quelques-indications-pour-monter-les-cgroups_1">Quelques indications pour monter les CGroups :</h3>
+<ul>
+<li>Si pas déjà effectuer, monter le <em>cgroup</em> de l’exercice précédent.</li>
+<li><code>$ mkdir /sys/fs/cgroup/cpuset</code></li>
+<li><code>$ mount -t cgroup -o cpu,cpuset cpuset /sys/fs/cgroup/cpuset</code></li>
+<li><code>$ mkdir /sys/fs/cgroup/cpuset/high</code></li>
+<li><code>$ mkdir /sys/fs/cgroup/cpuset/low</code></li>
+<li><code>$ echo 3 &gt; /sys/fs/cgroup/cpuset/high/cpuset.cpus</code></li>
+<li><code>$ echo 0 &gt; /sys/fs/cgroup/cpuset/high/cpuset.mems</code></li>
+<li><code>$ echo 2 &gt; /sys/fs/cgroup/cpuset/low/cpuset.cpus</code></li>
+<li><code>$ echo 0 &gt; /sys/fs/cgroup/cpuset/low/cpuset.mems</code></li>
+</ul>
+<h3 id="quelques-questions_1">Quelques questions :</h3>
+<ol>
+<li>Les 4 dernières lignes sont obligatoires pour que les prochaines
+   commandes fonctionnent correctement. Pouvez-vous en donner la raison ?</li>
+<li>Ouvrez deux shells distincts et placez une dans le <em>cgroup high</em> et
+   l’autre dans le <em>cgroup low</em>, par exemple :
+   <div class="highlight"><pre><span></span><code># ssh root@192.168.0.14
+$ echo $$ &gt; /sys/fs/cgroup/cpuset/low/tasks
+</code></pre></div>
+   Lancez ensuite votre application dans chacun des shells. Quel
+   devrait être le bon comportement ? Pouvez-vous le vérifier ?</li>
+<li>Sachant que l’attribut <code>cpu.shares</code> permet de répartir le temps CPU
+   entre différents <em>cgroups</em>, comment devrait-on procéder pour lancer
+   deux tâches distinctes sur le cœur 6 de notre processeur et attribuer
+   75% du temps CPU à la première tâche et 25% à la deuxième ?</li>
+</ol>
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Archives 2021/2022</p>
 <ul>
 <li><a href="../assets/sp.06.2_mas_csel_mulitprocessing_exercices.pdf">Exercices</a></li>
 </ul>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><span class="arithmatex">\(1\)</span> mébibyte = <span class="arithmatex">\(2^{20}\)</span> byte&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
               

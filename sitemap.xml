@@ -101,6 +101,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mse-csel.github.io/website/programmation-systeme/ordonnanceur/ordonnanceur-cpl/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/ordonnanceur/ordonnanceur-le/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
