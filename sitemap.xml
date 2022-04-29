@@ -2,112 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://mse-csel.github.io/website/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/todo/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/documentation/microprocessor/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/documentation/nanopi/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/documentation/references/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/documentation/tools/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/environnement/env-linux/env-le/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/environnement/env-linux/env-tp/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/mini-projet/donnee/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/optimisations/performances/perf-le/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/optimisations/performances/perf-tp/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/organisation/exam/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/organisation/intro/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-noyau/modules/modules-le/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-noyau/modules/modules-tp/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-noyau/pilotes/pilotes-le/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-noyau/pilotes/pilotes-tp/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/fichiers/fichiers-ex/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/fichiers/fichiers-le/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/fichiers/fichiers-tp/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/ordonnanceur/ordonnanceur-le/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://mse-csel.github.io/website/programmation-systeme/ordonnanceur/ordonnanceur-tp/</loc>
-         <lastmod>2022-04-08</lastmod>
+         <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
