@@ -40,33 +40,30 @@ Numéro |  Nom              | Description
 30     | SIGPWR            | Power failure restart
 31     | SIGSYS            | Erreur d'appel système
 
+## Daemon (sans `fork`)
 
-## Daemon
-
-??? example "daemon/daemon.c"
-    ```c
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/daemon/daemon.c!>}
-    ```
-
-??? example "daemon/Makefile"
-    ```Makefile
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/daemon/Makefile!>}
-    ```
-
-??? example "appl/main.c"
+??? example "main.c"
     ```c
     {!docs/programmation-systeme/ordonnanceur/assets/daemon/appl/main.c!>}
     ```
 
-??? example "appl/Makefile"
+??? example "Makefile"
     ```Makefile
     {!docs/programmation-systeme/ordonnanceur/assets/daemon/appl/Makefile!>}
     ```
 
+## Daemon (complet, avec `fork`)
+
+??? example "daemon.c"
+    ```c
+    {!docs/programmation-systeme/ordonnanceur/assets/daemon/daemon/daemon.c!>}
+    ```
+
 ??? example "Makefile"
     ```Makefile
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/Makefile!>}
+    {!docs/programmation-systeme/ordonnanceur/assets/daemon/daemon/Makefile!>}
     ```
+
 
 ## Threads
 
