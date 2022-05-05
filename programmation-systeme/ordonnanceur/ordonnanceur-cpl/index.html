@@ -676,6 +676,141 @@
 
             
           
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2">
+          Ordonnanceur
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ordonnanceur" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Ordonnanceur
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ordonnanceur-le/" class="md-nav__link">
+        Leçon / Slides
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Compléments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Compléments
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signaux" class="md-nav__link">
+    Signaux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemon-sans-fork" class="md-nav__link">
+    Daemon (sans fork)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemon-complet-avec-fork" class="md-nav__link">
+    Daemon (complet, avec fork)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threads" class="md-nav__link">
+    Threads
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ordonnanceur-tp/" class="md-nav__link">
+        Travaux pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -714,8 +849,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
-    Daemon
+  <a href="#daemon-sans-fork" class="md-nav__link">
+    Daemon (sans fork)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemon-complet-avec-fork" class="md-nav__link">
+    Daemon (complet, avec fork)
   </a>
   
 </li>
@@ -920,9 +1062,207 @@
 </tr>
 </tbody>
 </table>
-<h2 id="daemon">Daemon</h2>
+<h2 id="daemon-sans-fork">Daemon (sans <code>fork</code>)</h2>
 <details class="example">
-<summary>daemon/daemon.c</summary>
+<summary>main.c</summary>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Copyright 2015 University of Applied Sciences Western Switzerland / Fribourg</span>
+<span class="cm"> *</span>
+<span class="cm"> * SPDX-License-Identifier: Apache-2.0</span>
+<span class="cm"> *</span>
+<span class="cm"> * Project:	HEIA-FR / Embedded Systems Laboratory</span>
+<span class="cm"> *</span>
+<span class="cm"> * Abstract: Process and daemon samples</span>
+<span class="cm"> *</span>
+<span class="cm"> * Purpose:	This module implements a simple application to be launched from</span>
+<span class="cm"> *          /etc/inttab.</span>
+<span class="cm"> *          --&gt; this application requires /opt/daemon as root directory</span>
+<span class="cm"> *</span>
+<span class="cm"> * Autĥor:  Daniel Gachet</span>
+<span class="cm"> * Date:    17.11.2015</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#define _XOPEN_SOURCE 600</span>
+<span class="cp">#define _DEFAULT_SOURCE</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;grp.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pwd.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;syslog.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define UNUSED(x) (void)(x)</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">signal_catched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">catch_signal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">signal</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;signal=%d catched</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">signal</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">signal_catched</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">UNUSED</span><span class="p">(</span><span class="n">argc</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">UNUSED</span><span class="p">(</span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// daemon&#39;s steps 1 to 3 skipped</span>
+
+<span class="w">    </span><span class="c1">// 4. capture all required signals</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">sigaction</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">sa_handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">catch_signal</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGHUP</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">   </span><span class="c1">//  1 - hangup</span>
+<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">   </span><span class="c1">//  2 - terminal interrupt</span>
+<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGQUIT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">//  3 - terminal quit</span>
+<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGABRT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">//  6 - abort</span>
+<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGTERM</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">// 15 - termination</span>
+<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGTSTP</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">// 19 - terminal stop signal</span>
+
+<span class="w">    </span><span class="c1">// 5. update file mode creation mask</span>
+<span class="w">    </span><span class="n">umask</span><span class="p">(</span><span class="mo">0027</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 6. change working directory to appropriate place</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chdir</span><span class="p">(</span><span class="s">&quot;/opt&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while changing to working directory&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 7. close all open file descriptors</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sysconf</span><span class="p">(</span><span class="n">_SC_OPEN_MAX</span><span class="p">);</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fd</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 8. redirect stdin, stdout and stderr to /dev/null</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/null&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">STDIN_FILENO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while opening &#39;/dev/null&#39; for stdin&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">STDOUT_FILENO</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">STDOUT_FILENO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while opening &#39;/dev/null&#39; for stdout&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">STDERR_FILENO</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">STDERR_FILENO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while opening &#39;/dev/null&#39; for stderr&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 9. option: open syslog for message logging</span>
+<span class="w">    </span><span class="n">openlog</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">LOG_NDELAY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">LOG_PID</span><span class="p">,</span><span class="w"> </span><span class="n">LOG_DAEMON</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Daemon has started...&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 10. option: get effective user and group id for appropriate&#39;s one</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">passwd</span><span class="o">*</span><span class="w"> </span><span class="n">pwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getpwnam</span><span class="p">(</span><span class="s">&quot;daemon&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while reading daemon password file entry&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 11. option: change root directory</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chroot</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while changing to new root directory&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 12. option: change effective user and group id for appropriate&#39;s one</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setegid</span><span class="p">(</span><span class="n">pwd</span><span class="o">-&gt;</span><span class="n">pw_gid</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while setting new effective group id&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">seteuid</span><span class="p">(</span><span class="n">pwd</span><span class="o">-&gt;</span><span class="n">pw_uid</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while setting new effective user id&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 13. implement daemon body...</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sleep</span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="s">&quot;daemon stopped. Number of signals catched=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="n">signal_catched</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">closelog</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Makefile</summary>
+<div class="highlight"><pre><span></span><code><span class="nv">EXE</span><span class="o">=</span>appl
+<span class="nv">SRCS</span><span class="o">=</span><span class="k">$(</span>wildcard *.c<span class="k">)</span>
+
+<span class="cp">ifeq ($(target),)</span>
+<span class="nv">target</span><span class="o">=</span>nano
+<span class="cp">endif</span>
+
+<span class="nv">CFLAGS</span><span class="o">=</span>-Wall -Wextra -g -c -O0 -MD -std<span class="o">=</span>gnu11
+
+<span class="cp">ifeq ($(target),nano)</span>
+<span class="nv">TOOLCHAIN_PATH</span><span class="o">=</span>~/workspace/nano/buildroot/output/host/usr/bin/
+<span class="nv">TOOLCHAIN</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN_PATH<span class="k">)</span>aarch64-linux-gnu-
+<span class="nv">CFLAGS</span><span class="o">+=</span>-mcpu<span class="o">=</span>cortex-a53 -funwind-tables
+<span class="c">##CFLAGS+=-O2 -fno-omit-frame-pointer</span>
+<span class="nv">OBJDIR</span><span class="o">=</span>.obj/nano
+<span class="nv">EXEC</span><span class="o">=</span><span class="k">$(</span>EXE<span class="k">)</span>
+<span class="cp">endif</span>
+
+<span class="cp">ifeq ($(target),host)</span>
+<span class="nv">EXEC</span><span class="o">=</span><span class="k">$(</span>EXE<span class="k">)</span>_h
+<span class="cp">endif</span>
+
+<span class="cp">ifeq ($(target),xu3)</span>
+<span class="nv">TOOLCHAIN_PATH</span><span class="o">=</span>~/workspace/xu3/buildroot/output/host/usr/bin/
+<span class="nv">TOOLCHAIN</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN_PATH<span class="k">)</span>arm-linux-gnueabihf-
+<span class="nv">CFLAGS</span><span class="o">+=</span>-mcpu<span class="o">=</span>cortex-a15.cortex-a7 -funwind-tables
+<span class="c">##CFLAGS+=-O2 -fno-omit-frame-pointer</span>
+<span class="nv">OBJDIR</span><span class="o">=</span>.obj/xu3
+<span class="nv">EXEC</span><span class="o">=</span><span class="k">$(</span>EXE<span class="k">)</span>_a
+<span class="cp">endif</span>
+
+<span class="nv">CC</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>gcc
+<span class="nv">LD</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>gcc
+<span class="nv">AR</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>ar
+<span class="nv">STRIP</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>strip
+
+<span class="nv">OBJDIR</span><span class="o">=</span>.obj/<span class="k">$(</span>target<span class="k">)</span>
+<span class="nv">OBJS</span><span class="o">=</span> <span class="k">$(</span>addprefix <span class="k">$(</span>OBJDIR<span class="k">)</span>/, <span class="k">$(</span>SRCS:.c<span class="o">=</span>.o<span class="k">))</span>
+
+<span class="nf">$(OBJDIR)/%o</span><span class="o">:</span> %<span class="n">c</span>
+	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> $&lt; -o <span class="nv">$@</span>
+
+<span class="nf">all</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJDIR</span><span class="k">)</span>/ <span class="k">$(</span><span class="nv">EXEC</span><span class="k">)</span>
+	<span class="nb">echo</span> <span class="k">$(</span>EXEC<span class="k">)</span>
+	<span class="nb">echo</span> <span class="k">$(</span>SRCS<span class="k">)</span>
+
+<span class="nf">$(EXEC)</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJS</span><span class="k">)</span> <span class="k">$(</span><span class="nv">LINKER_SCRIPT</span><span class="k">)</span>
+	<span class="k">$(</span>LD<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> -o <span class="nv">$@</span>
+
+<span class="nf">$(OBJDIR)/</span><span class="o">:</span>
+	mkdir -p <span class="k">$(</span>OBJDIR<span class="k">)</span>
+
+<span class="nf">clean</span><span class="o">:</span>
+	rm -Rf <span class="k">$(</span>OBJDIR<span class="k">)</span> <span class="k">$(</span>EXEC<span class="k">)</span> <span class="k">$(</span>EXEC<span class="k">)</span>_s *~
+
+<span class="nf">clean_all</span><span class="o">:</span> <span class="n">clean</span>
+	rm -Rf .obj <span class="k">$(</span>EXE<span class="k">)</span> <span class="k">$(</span>EXE<span class="k">)</span>_s <span class="k">$(</span>EXE<span class="k">)</span>_a <span class="k">$(</span>EXE<span class="k">)</span>_a_s <span class="k">$(</span>EXE<span class="k">)</span>_h <span class="k">$(</span>EXE<span class="k">)</span>_h_s
+
+<span class="cp">-include $(OBJS:.o=.d)</span>
+
+<span class="nf">.PHONY</span><span class="o">:</span> <span class="n">all</span> <span class="n">clean</span> <span class="n">clean_all</span>
+</code></pre></div>
+</details>
+<h2 id="daemon-complet-avec-fork">Daemon (complet, avec <code>fork</code>)</h2>
+<details class="example">
+<summary>daemon.c</summary>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Copyright 2015 University of Applied Sciences Western Switzerland / Fribourg</span>
 <span class="cm"> *</span>
@@ -1078,7 +1418,7 @@
 </code></pre></div>
 </details>
 <details class="example">
-<summary>daemon/Makefile</summary>
+<summary>Makefile</summary>
 <div class="highlight"><pre><span></span><code><span class="nv">EXE</span><span class="o">=</span>daemon
 <span class="nv">SRCS</span><span class="o">=</span><span class="k">$(</span>wildcard *.c<span class="k">)</span>
 
@@ -1140,211 +1480,6 @@
 <span class="cp">-include $(OBJS:.o=.d)</span>
 
 <span class="nf">.PHONY</span><span class="o">:</span> <span class="n">all</span> <span class="n">clean</span> <span class="n">clean_all</span>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>appl/main.c</summary>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Copyright 2015 University of Applied Sciences Western Switzerland / Fribourg</span>
-<span class="cm"> *</span>
-<span class="cm"> * SPDX-License-Identifier: Apache-2.0</span>
-<span class="cm"> *</span>
-<span class="cm"> * Project:	HEIA-FR / Embedded Systems Laboratory</span>
-<span class="cm"> *</span>
-<span class="cm"> * Abstract: Process and daemon samples</span>
-<span class="cm"> *</span>
-<span class="cm"> * Purpose:	This module implements a simple application to be launched from</span>
-<span class="cm"> *          /etc/inttab.</span>
-<span class="cm"> *          --&gt; this application requires /opt/daemon as root directory</span>
-<span class="cm"> *</span>
-<span class="cm"> * Autĥor:  Daniel Gachet</span>
-<span class="cm"> * Date:    17.11.2015</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="cp">#define _XOPEN_SOURCE 600</span>
-<span class="cp">#define _DEFAULT_SOURCE</span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;grp.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pwd.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;signal.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;syslog.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-
-<span class="cp">#define UNUSED(x) (void)(x)</span>
-
-<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">signal_catched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">catch_signal</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">signal</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;signal=%d catched</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">signal</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">signal_catched</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">UNUSED</span><span class="p">(</span><span class="n">argc</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">UNUSED</span><span class="p">(</span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// daemon&#39;s steps 1 to 3 skipped</span>
-
-<span class="w">    </span><span class="c1">// 4. capture all required signals</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">sigaction</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="n">sa_handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">catch_signal</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGHUP</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">   </span><span class="c1">//  1 - hangup</span>
-<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">   </span><span class="c1">//  2 - terminal interrupt</span>
-<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGQUIT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">//  3 - terminal quit</span>
-<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGABRT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">//  6 - abort</span>
-<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGTERM</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">// 15 - termination</span>
-<span class="w">    </span><span class="n">sigaction</span><span class="p">(</span><span class="n">SIGTSTP</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">act</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w">  </span><span class="c1">// 19 - terminal stop signal</span>
-
-<span class="w">    </span><span class="c1">// 5. update file mode creation mask</span>
-<span class="w">    </span><span class="n">umask</span><span class="p">(</span><span class="mo">0027</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 6. change working directory to appropriate place</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chdir</span><span class="p">(</span><span class="s">&quot;/opt&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while changing to working directory&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 7. close all open file descriptors</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sysconf</span><span class="p">(</span><span class="n">_SC_OPEN_MAX</span><span class="p">);</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fd</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 8. redirect stdin, stdout and stderr to /dev/null</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/null&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">STDIN_FILENO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while opening &#39;/dev/null&#39; for stdin&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">STDOUT_FILENO</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">STDOUT_FILENO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while opening &#39;/dev/null&#39; for stdout&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dup2</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">STDERR_FILENO</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">STDERR_FILENO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while opening &#39;/dev/null&#39; for stderr&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 9. option: open syslog for message logging</span>
-<span class="w">    </span><span class="n">openlog</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">LOG_NDELAY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">LOG_PID</span><span class="p">,</span><span class="w"> </span><span class="n">LOG_DAEMON</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Daemon has started...&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 10. option: get effective user and group id for appropriate&#39;s one</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">passwd</span><span class="o">*</span><span class="w"> </span><span class="n">pwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getpwnam</span><span class="p">(</span><span class="s">&quot;daemon&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while reading daemon password file entry&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 11. option: change root directory</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chroot</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while changing to new root directory&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 12. option: change effective user and group id for appropriate&#39;s one</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">setegid</span><span class="p">(</span><span class="n">pwd</span><span class="o">-&gt;</span><span class="n">pw_gid</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while setting new effective group id&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">seteuid</span><span class="p">(</span><span class="n">pwd</span><span class="o">-&gt;</span><span class="n">pw_uid</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ERROR while setting new effective user id&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 13. implement daemon body...</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sleep</span><span class="p">(</span><span class="n">t</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">syslog</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"></span>
-<span class="w">           </span><span class="s">&quot;daemon stopped. Number of signals catched=%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">           </span><span class="n">signal_catched</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">closelog</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>appl/Makefile</summary>
-<div class="highlight"><pre><span></span><code><span class="nv">EXE</span><span class="o">=</span>appl
-<span class="nv">SRCS</span><span class="o">=</span><span class="k">$(</span>wildcard *.c<span class="k">)</span>
-
-<span class="cp">ifeq ($(target),)</span>
-<span class="nv">target</span><span class="o">=</span>nano
-<span class="cp">endif</span>
-
-<span class="nv">CFLAGS</span><span class="o">=</span>-Wall -Wextra -g -c -O0 -MD -std<span class="o">=</span>gnu11
-
-<span class="cp">ifeq ($(target),nano)</span>
-<span class="nv">TOOLCHAIN_PATH</span><span class="o">=</span>~/workspace/nano/buildroot/output/host/usr/bin/
-<span class="nv">TOOLCHAIN</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN_PATH<span class="k">)</span>aarch64-linux-gnu-
-<span class="nv">CFLAGS</span><span class="o">+=</span>-mcpu<span class="o">=</span>cortex-a53 -funwind-tables
-<span class="c">##CFLAGS+=-O2 -fno-omit-frame-pointer</span>
-<span class="nv">OBJDIR</span><span class="o">=</span>.obj/nano
-<span class="nv">EXEC</span><span class="o">=</span><span class="k">$(</span>EXE<span class="k">)</span>
-<span class="cp">endif</span>
-
-<span class="cp">ifeq ($(target),host)</span>
-<span class="nv">EXEC</span><span class="o">=</span><span class="k">$(</span>EXE<span class="k">)</span>_h
-<span class="cp">endif</span>
-
-<span class="cp">ifeq ($(target),xu3)</span>
-<span class="nv">TOOLCHAIN_PATH</span><span class="o">=</span>~/workspace/xu3/buildroot/output/host/usr/bin/
-<span class="nv">TOOLCHAIN</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN_PATH<span class="k">)</span>arm-linux-gnueabihf-
-<span class="nv">CFLAGS</span><span class="o">+=</span>-mcpu<span class="o">=</span>cortex-a15.cortex-a7 -funwind-tables
-<span class="c">##CFLAGS+=-O2 -fno-omit-frame-pointer</span>
-<span class="nv">OBJDIR</span><span class="o">=</span>.obj/xu3
-<span class="nv">EXEC</span><span class="o">=</span><span class="k">$(</span>EXE<span class="k">)</span>_a
-<span class="cp">endif</span>
-
-<span class="nv">CC</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>gcc
-<span class="nv">LD</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>gcc
-<span class="nv">AR</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>ar
-<span class="nv">STRIP</span><span class="o">=</span><span class="k">$(</span>TOOLCHAIN<span class="k">)</span>strip
-
-<span class="nv">OBJDIR</span><span class="o">=</span>.obj/<span class="k">$(</span>target<span class="k">)</span>
-<span class="nv">OBJS</span><span class="o">=</span> <span class="k">$(</span>addprefix <span class="k">$(</span>OBJDIR<span class="k">)</span>/, <span class="k">$(</span>SRCS:.c<span class="o">=</span>.o<span class="k">))</span>
-
-<span class="nf">$(OBJDIR)/%o</span><span class="o">:</span> %<span class="n">c</span>
-	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>CFLAGS<span class="k">)</span> $&lt; -o <span class="nv">$@</span>
-
-<span class="nf">all</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJDIR</span><span class="k">)</span>/ <span class="k">$(</span><span class="nv">EXEC</span><span class="k">)</span>
-	<span class="nb">echo</span> <span class="k">$(</span>EXEC<span class="k">)</span>
-	<span class="nb">echo</span> <span class="k">$(</span>SRCS<span class="k">)</span>
-
-<span class="nf">$(EXEC)</span><span class="o">:</span> <span class="k">$(</span><span class="nv">OBJS</span><span class="k">)</span> <span class="k">$(</span><span class="nv">LINKER_SCRIPT</span><span class="k">)</span>
-	<span class="k">$(</span>LD<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> -o <span class="nv">$@</span>
-
-<span class="nf">$(OBJDIR)/</span><span class="o">:</span>
-	mkdir -p <span class="k">$(</span>OBJDIR<span class="k">)</span>
-
-<span class="nf">clean</span><span class="o">:</span>
-	rm -Rf <span class="k">$(</span>OBJDIR<span class="k">)</span> <span class="k">$(</span>EXEC<span class="k">)</span> <span class="k">$(</span>EXEC<span class="k">)</span>_s *~
-
-<span class="nf">clean_all</span><span class="o">:</span> <span class="n">clean</span>
-	rm -Rf .obj <span class="k">$(</span>EXE<span class="k">)</span> <span class="k">$(</span>EXE<span class="k">)</span>_s <span class="k">$(</span>EXE<span class="k">)</span>_a <span class="k">$(</span>EXE<span class="k">)</span>_a_s <span class="k">$(</span>EXE<span class="k">)</span>_h <span class="k">$(</span>EXE<span class="k">)</span>_h_s
-
-<span class="cp">-include $(OBJS:.o=.d)</span>
-
-<span class="nf">.PHONY</span><span class="o">:</span> <span class="n">all</span> <span class="n">clean</span> <span class="n">clean_all</span>
-</code></pre></div>
-</details>
-<details class="example">
-<summary>Makefile</summary>
-<div class="highlight"><pre><span></span><code><span class="nv">DIRS</span><span class="o">=</span><span class="k">$(</span>filter-out Makefile daemon.txt, <span class="k">$(</span>wildcard *<span class="k">))</span>
-
-<span class="nf">all clean install</span><span class="o">:</span>
-	<span class="k">for</span> dir <span class="k">in</span> <span class="k">$(</span>DIRS<span class="k">)</span><span class="p">;</span> <span class="k">do</span> <span class="k">$(</span>MAKE<span class="k">)</span> <span class="nv">$@</span> -C <span class="nv">$$</span>dir<span class="p">;</span> <span class="k">done</span>
 </code></pre></div>
 </details>
 <h2 id="threads">Threads</h2>
@@ -1576,7 +1711,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../../fichiers/fichiers-tp/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Travaux pratiques" rel="prev">
+        <a href="../ordonnanceur-le/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Leçon / Slides" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1585,20 +1720,20 @@
               <span class="md-footer__direction">
                 Précédent
               </span>
-              Travaux pratiques
+              Leçon / Slides
             </div>
           </div>
         </a>
       
       
         
-        <a href="../ordonnanceur-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
+        <a href="../ordonnanceur-tp/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Travaux pratiques" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Suivant
               </span>
-              Leçon / Slides
+              Travaux pratiques
             </div>
           </div>
           <div class="md-footer__button md-icon">
