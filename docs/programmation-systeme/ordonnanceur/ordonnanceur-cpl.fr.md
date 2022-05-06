@@ -76,3 +76,20 @@ Numéro |  Nom              | Description
     ```Makefile
     {!docs/programmation-systeme/ordonnanceur/assets/threads/Makefile!>}
     ```
+
+## Berkeley Sockets
+
+### Protocole orienté connexion (TCP)
+
+<figure markdown>
+![Etcher](assets/socket-tcp.drawio.svg)
+<figcaption>Appels systèmes "Socket" pour un protocole orienté connexion (TCP)</figcaption>
+</figure>
+
+### Protocole sans connexion (UDP)
+
+
+<figure markdown>
+![Etcher](assets/socket-udp.drawio.svg)
+<figcaption>Appels systèmes "Socket" pour un protocole sans connexion (UDP)</figcaption>
+</figure>
