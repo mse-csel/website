@@ -89,7 +89,7 @@ processeur.
    devrait être le bon comportement ? Pouvez-vous le vérifier ?
 3. Sachant que l’attribut ``cpu.shares`` permet de répartir le temps CPU
    entre différents _cgroups_, comment devrait-on procéder pour lancer
-   deux tâches distinctes sur le cœur 6 de notre processeur et attribuer
+   deux tâches distinctes sur le cœur 4 de notre processeur et attribuer
    75% du temps CPU à la première tâche et 25% à la deuxième ?
 
 ---
