@@ -931,6 +931,56 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Mini-projet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mini-projet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Mini-projet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mini-projet/donnee/" class="md-nav__link">
+        Donnée
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1018,8 +1068,8 @@
 si la cible est sous tension (<em>power</em>) et la LED verte est là pour donner des indications d&rsquo;état (<em>status</em>).
 Avec la configuration actuelle du noyau Linux, ces deux LEDs sont à libre disposition des développeurs.</p>
 <h2 id="travail-a-realiser">Travail à réaliser</h2>
-<p>Vous trouverez ci-dessous application qui contrôle la fréquence de clignotement d’une
-LED. Ce code n’a pas été très bien programmé et utilise le 100% d’un cœur du processeur (à mesurer
+<p>Vous trouverez ci-dessous application qui contrôle la fréquence de clignotement d&rsquo;une
+LED. Ce code n&rsquo;a pas été très bien programmé et utilise le 100% d&rsquo;un cœur du processeur (à mesurer
 avec <code>top</code>).</p>
 <details class="example">
 <summary>silly_led_control.c</summary>
@@ -1128,8 +1178,8 @@ avec <code>top</code>).</p>
 </code></pre></div>
 </details>
 <p>Concevez une application permettant de gérer la fréquence de clignotement de la LED <code>status</code> de la
-carte NanoPi à l’aide des trois boutons-poussoirs.
-Quelques indications pour la réalisation de l’application :</p>
+carte NanoPi à l&rsquo;aide des trois boutons-poussoirs.
+Quelques indications pour la réalisation de l&rsquo;application :</p>
 <ol>
 <li>Au démarrage la fréquence de clignotement sera réglée à 2&nbsp;Hz</li>
 <li>Utilisation des boutons-poussoirs<ul>
@@ -1145,24 +1195,24 @@ Quelques indications pour la réalisation de l’application :</p>
 </ol>
 <h2 id="infos-pratiques">Infos pratiques</h2>
 <h3 id="gpio">GPIO</h3>
-<p>L’accès aux entrées/sorties est proposé sous le système de fichiers virtuels <em>sysfs</em>, dans le
+<p>L&rsquo;accès aux entrées/sorties est proposé sous le système de fichiers virtuels <em>sysfs</em>, dans le
 répertoire <code>/sys/class/gpio/*</code>. Cette interface est décrite dans la documentation du noyau
 Linux (<a href="https://www.kernel.org/doc/Documentation/gpio/sysfs.txt">https://www.kernel.org/doc/Documentation/gpio/sysfs.txt</a>).</p>
-<p>Quelques informations utiles pour l’utilisation du module GPIO sous Linux :</p>
-<p><strong>Pour lire ou écrire une valeur sur une <em>pin</em> d’entrée/sortie, il faut
-tout d’abord configurer le <em>GPIO</em>, soit :</strong></p>
+<p>Quelques informations utiles pour l&rsquo;utilisation du module GPIO sous Linux :</p>
+<p><strong>Pour lire ou écrire une valeur sur une <em>pin</em> d&rsquo;entrée/sortie, il faut
+tout d&rsquo;abord configurer le <em>GPIO</em>, soit :</strong></p>
 <ol>
-<li>Exporter la porte dans le « sysfs » à l’aide de la commande :
+<li>Exporter la porte dans le « sysfs » à l&rsquo;aide de la commande :
     <div class="highlight"><pre><span></span><code># echo &lt;pin_nr&gt; &gt; /sys/class/gpio/export
 </code></pre></div></li>
 <li>Configurer la porte en entrée ou en sortie :
     <div class="highlight"><pre><span></span><code># echo in &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/direction
 # echo out &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/direction
 </code></pre></div></li>
-<li>Lire l’état de la pin (input) :
+<li>Lire l&rsquo;état de la pin (input) :
     <div class="highlight"><pre><span></span><code># cat /sys/class/gpio/gpio&lt;pin_nr&gt;/value
 </code></pre></div></li>
-<li>Changer l’état de la pin (output) :
+<li>Changer l&rsquo;état de la pin (output) :
     <div class="highlight"><pre><span></span><code># echo 0 &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/value
 # echo 1 &gt; /sys/class/gpio/gpio&lt;pin_nr&gt;/value
 </code></pre></div></li>
@@ -1178,7 +1228,7 @@ soit :</strong></p>
 # cat /sys/kernel/debug/gpio
 </code></pre></div>
 <h3 id="timer">Timer</h3>
-<p>La librairie <code>timerfd</code> offre des services très intéressants pour la génération d’une horloge à haute
+<p>La librairie <code>timerfd</code> offre des services très intéressants pour la génération d&rsquo;une horloge à haute
 résolution et surtout une interface permettant le multiplexage des entrées/sorties.</p>
 <hr />
 <div class="admonition note">

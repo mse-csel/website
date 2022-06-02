@@ -939,10 +939,10 @@
       
         <li class="md-nav__item">
   <a href="#analyse-et-optimisation-dun-programme" class="md-nav__link">
-    Analyse et optimisation d’un programme
+    Analyse et optimisation d'un programme
   </a>
   
-    <nav class="md-nav" aria-label="Analyse et optimisation d’un programme">
+    <nav class="md-nav" aria-label="Analyse et optimisation d'un programme">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1075,6 +1075,56 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Mini-projet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mini-projet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Mini-projet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mini-projet/donnee/" class="md-nav__link">
+        Donnée
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1172,10 +1222,10 @@
       
         <li class="md-nav__item">
   <a href="#analyse-et-optimisation-dun-programme" class="md-nav__link">
-    Analyse et optimisation d’un programme
+    Analyse et optimisation d'un programme
   </a>
   
-    <nav class="md-nav" aria-label="Analyse et optimisation d’un programme">
+    <nav class="md-nav" aria-label="Analyse et optimisation d'un programme">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1350,7 +1400,7 @@ argument :</p>
  See &#39;perf help COMMAND&#39; for more information on a specific command.
 </code></pre></div>
 <h3 id="installation-de-perf">Installation de <code>perf</code></h3>
-<p>La version de <code>perf</code> que vous avez générée avec Buildroot n’est pas totalement satisfaisante.</p>
+<p>La version de <code>perf</code> que vous avez générée avec Buildroot n&rsquo;est pas totalement satisfaisante.</p>
 <p>Commencez par reconfigurer Buildroot pour inclure les <em>binutils</em> :</p>
 <p><img alt="" src="../assets/binutils.png" /></p>
 <p>Reconstruisez votre système avec la commande <code>make</code> comme vous l&rsquo;avez fait
@@ -1423,7 +1473,7 @@ d&rsquo;exécution.</em></p>
 <p>Ouvrez maintenant le fichier <code>main.c</code> et analysez le code.</p>
 <p><em>Ce programme contient une erreur triviale qui empêche une utilisation optimale du cache. De quelle
 erreur s&rsquo;agit-il ?</em></p>
-<p>Si vous ne voyez pas l’erreur, essayez encore une fois, mais avec la commande</p>
+<p>Si vous ne voyez pas l&rsquo;erreur, essayez encore une fois, mais avec la commande</p>
 <div class="highlight"><pre><span></span><code># perf stat -e cache-misses ./ex1
 </code></pre></div>
 <h3 id="correction-de-bug">Correction de bug</h3>
@@ -1451,7 +1501,7 @@ facteur constatez-vous entre les deux valeurs ?</p>
 <p><em>Lors de la présentation de l&rsquo;outil <code>perf</code>, on a vu que celui-ci permettait de profiler une application avec
 très peu d&rsquo;impacts sur les performances. En utilisant la commande time, mesurez le temps d&rsquo;exécution
 de notre application ex1 avec et sans la commande <code>perf stat</code>.</em></p>
-<h2 id="analyse-et-optimisation-dun-programme">Analyse et optimisation d’un programme</h2>
+<h2 id="analyse-et-optimisation-dun-programme">Analyse et optimisation d&rsquo;un programme</h2>
 <p>Sur la base du programme situé dans le dossier
 <a href="https://github.com/mse-csel/csel-workspace/tree/main/src/06_optimization/ex02">src/06_optimization/ex02</a> </p>
 <h3 id="analyse-du-code-source">Analyse du code source</h3>
@@ -1558,8 +1608,8 @@ modifications :</p>
 </li>
 </ul>
 <h2 id="mesure-de-la-latence-et-de-la-gigue-jitter">Mesure de la latence et de la gigue (<em>jitter</em>)</h2>
-<p>Décrivez comment devrait-on procéder pour mesurer la latence et la gigue d’interruption, ceci aussi
-bien au niveau du noyau (<em>kernel space</em>) que de l’application (<em>user space</em>).</p>
+<p>Décrivez comment devrait-on procéder pour mesurer la latence et la gigue d&rsquo;interruption, ceci aussi
+bien au niveau du noyau (<em>kernel space</em>) que de l&rsquo;application (<em>user space</em>).</p>
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Archives 2021/2022</p>
@@ -1594,6 +1644,21 @@ bien au niveau du noyau (<em>kernel space</em>) que de l’application (<em>user
           </div>
         </a>
       
+      
+        
+        <a href="../../../mini-projet/donnee/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Donnée" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Donnée
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

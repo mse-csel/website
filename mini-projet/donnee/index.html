@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#mini-projet-programmation-noyau-et-systeme" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -847,12 +852,180 @@
   
 
     
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Mini-projet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mini-projet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Mini-projet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Donnée
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Donnée
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    Contexte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travail-a-realiser" class="md-nav__link">
+    Travail à réaliser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliotheques" class="md-nav__link">
+    Bibliothèques
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    Contexte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travail-a-realiser" class="md-nav__link">
+    Travail à réaliser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliotheques" class="md-nav__link">
+    Bibliothèques
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -861,12 +1034,133 @@
                 
 
 
-  <h1>Donnée</h1>
+<h1 id="mini-projet-programmation-noyau-et-systeme">Mini Projet – Programmation noyau et système</h1>
+<h2 id="objectifs">Objectifs</h2>
+<p>Ce mini-projet vise à mettre en œuvre les notions étudiées durant le semestre, soit :</p>
+<ul>
+<li>Mise en œuvre d&rsquo;un système embarqué sous Linux</li>
+<li>Développement de modules noyaux</li>
+<li>Développement de pilotes de périphériques</li>
+<li>Traitement des fichiers ordinaires et spéciaux</li>
+<li>Développement d&rsquo;applications multitâches</li>
+<li>Gestion des ressources du CPU</li>
+<li>Optimisation</li>
+</ul>
+<h2 id="contexte">Contexte</h2>
+<p>L&rsquo;évacuation de la chaleur produite par le processeur et ses périphériques est un aspect essentiel à considérer lors de la conception de systèmes embarqués. Un refroidissement par convection naturelle est idéal. Cependant, il n&rsquo;est pas toujours suffisant. Dans de tels cas, un système de refroidissement forcé (<em>forced cooling</em>) complétera et garantira le bon fonctionnement de l&rsquo;équipement. Un refroidissement forcé passe par la mise en place d&rsquo;un ou plusieurs ventilateurs. Leur vitesse est généralement contrôlée par un PWM (<em>Pulser-Width Modulation</em>) en agissant soit sur la fréquence (<em>frequency</em>), soit sur le rapport de cycle (<em>duty cycle</em>).</p>
+<p>Notre cible ne dispose pas de ventilateur. Quant au PWM, il n&rsquo;est pas disponible, car son signal de sortie est multiplexé avec le signal RX de l&rsquo;interface série de la console système. Afin de simuler cette infrastructure, nous allons simplement utiliser le clignotement de la LED Status en guise de ventilateur et un timer pour la génération de la fréquence de clignotement de cette LED.</p>
+<h2 id="travail-a-realiser">Travail à réaliser</h2>
+<p>Concevez une application permettant de simuler la gestion de la vitesse
+de rotation d&rsquo;un ventilateur en fonction de la température du
+processeur. On permettra une gestion automatique et manuelle.</p>
+<p>Cette application réalisera la fonctionnalité minimale suivante :</p>
+<ol>
+<li>
+<p>La supervision de la température du microprocesseur et la gestion
+    automatique de la vitesse de clignotement de la LED Status devront
+    être réalisées par un module noyau. Ce module offrira, via le sysfs,
+    une interface permettant de choisir</p>
+<ol>
+<li>le mode de fonctionnement automatique ou manuel</li>
+<li>la fréquence de clignotement de la LED Status</li>
+</ol>
+<p>La fréquence de clignotement dépendra de la température du CPU, soit :</p>
+<ul>
+<li>Température <span class="arithmatex">\(&lt; 35 °C\)</span> &rarr; fréquence de 2Hz</li>
+<li>Température <span class="arithmatex">\(&lt; 40 °C\)</span> &rarr; fréquence de 5Hz</li>
+<li>Température <span class="arithmatex">\(&lt; 45 °C\)</span> &rarr; fréquence de 10Hz</li>
+<li>Température <span class="arithmatex">\(\geq 45 °C\)</span> &rarr; fréquence de 20Hz</li>
+</ul>
+</li>
+<li>
+<p>Un daemon en espace utilisateur offrira les services pour une gestion manuelle.
+    Ce daemon proposera deux interfaces de gestion distinctes, soit :</p>
+<ol>
+<li>Interface physique via les boutons poussoir et LED Power de la carte d&rsquo;extension<ol>
+<li>S1 pour augmenter la vitesse de rotation du ventilateur, la pression du S1
+   devra être signalisée sur la LED Power</li>
+<li>S2 pour diminuer la vitesse de rotation du ventilateur, la pression du S2
+   devra être signalisée sur la LED Power</li>
+<li>S3 pour changer du mode automatique au mode manuel et vice versa.</li>
+</ol>
+</li>
+<li>Interface IPC, au choix du développeur, permettant de dialoguer
+   avec une application pour choisir le mode de fonctionnement et
+   spécifier la fréquence de clignotement</li>
+</ol>
+<p>Le daemon utilisera l&rsquo;écran OLED pour indiquer le mode de
+fonctionnement, la température actuelle du microprocesseur ainsi que
+la fréquence de clignotement de la LED Status.</p>
+</li>
+<li>
+<p>Une application fournira une interface utilisateur, une ligne de
+    commande, pour piloter le système via l&rsquo;interface IPC choisie.</p>
+</li>
+</ol>
+<h2 id="bibliotheques">Bibliothèques</h2>
+<ol>
+<li>
+<p>Le module <code>linux/thermal.h</code> du noyau Linux fournit des services pour
+    lire la température des différentes zones du microprocesseur. Avec
+    les deux méthodes ci-dessous, il est possible d&rsquo;obtenir la
+    température en millième de degré des zones du μP, soit :</p>
+<ul>
+<li><code>struct thermal_zone_device* thermal_zone_get_zone_by_name (const char* name);</code></li>
+<li><code>int thermal_zone_get_temp(struct thermal_zone_device*, int* temp);</code></li>
+</ul>
+<p>Dans sa configuration actuelle, le μP implémente deux zones, la zone « cpu-thermal » et la zone
+« gpu_thermal ».</p>
+</li>
+<li>
+<p>Le module <code>linux/gpio.h</code> du noyau Linux fournit les services nécessaires au pilotage d&rsquo;une broche d&rsquo;entrée/sortie, soit :</p>
+<ul>
+<li><code>int gpio_request(unsigned gpio, const char* label);</code></li>
+<li><code>void gpio_free(unsigned gpio);</code></li>
+<li><code>int gpio_direction_output(unsigned gpio, int value);</code></li>
+<li><code>void gpio_set_value(unsigned gpio, int value);</code></li>
+</ul>
+</li>
+<li>
+<p>Le module <code>linux/timer.h</code> du noyau Linux fournit les services nécessaires à la gestion de timers, soit :</p>
+<ul>
+<li><code>#define timer_setup(timer, callback, flags);</code></li>
+<li><code>int del_timer(struct timer_list * timer);</code></li>
+<li><code>int mod_timer(struct timer_list *timer, unsigned long expires);</code></li>
+</ul>
+</li>
+<li>
+<p>Pour la gestion de l&rsquo;écran OLED de la carte d&rsquo;extension, un pilote
+    basic est disponible sur <a href="https://github.com/mse-csel/csel-workspace/tree/main/src/07_miniproj/oled">github</a>.
+    Il met à disposition principalement une méthode pour l&rsquo;écriture de strings. La
+    documentation du contrôleur de l&rsquo;écran OLED est disponible
+    sur <a href="https://mse-csel.github.io/website/documentation/nanopi/">le site du cours</a>.
+    Il est important de noter que l&rsquo;écran est interfacé au
+    μP via un bus I<sup>2</sup>C. Dans la configuration actuelle du noyau,
+    effectuée par le <em>Device Tree</em>, les bus I<sup>2</sup>C ne sont pas
+    disponibles. Il est donc nécessaire d&rsquo;étendre cette configuration et
+    de mettre le statut du bus <code>i2c0</code> à <code>okay</code> comme ci-dessous :</p>
+<div class="highlight"><pre><span></span><code>/dts-v1/;
 
+#include &quot;allwinner/sun50i-h5-nanopi-neo-plus2.dts&quot;
+
+/{
+    /delete-node/ leds;
+};
+
+&amp;i2c0 {
+    status = &quot;okay&quot;;
+};
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Archives 2021/2022</p>
 <ul>
 <li><a href="../assets/sp.08.1_mas_csel_mini_projet.pdf">Donnée</a></li>
 <li><a href="../assets/oled.tar">OLED Driver Sample Code</a></li>
 </ul>
+</div>
 
               
             </article>
@@ -880,7 +1174,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Pied de page">
       
         
-        <a href="../../environnement/env-linux/env-tp/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Travaux pratiques" rel="prev">
+        <a href="../../optimisations/performances/perf-tp/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Travaux pratiques" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -894,21 +1188,6 @@
           </div>
         </a>
       
-      
-        
-        <a href="../../optimisations/performances/perf-le/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Leçon / Slides" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Suivant
-              </span>
-              Leçon / Slides
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   

@@ -945,6 +945,56 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Mini-projet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mini-projet" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Mini-projet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mini-projet/donnee/" class="md-nav__link">
+        Donnée
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1047,17 +1097,17 @@
 <code>socketpair</code>) entre un processus parent et un processus enfant. Le
 processus enfant devra émettre quelques messages sous forme de texte
 vers le processus parent, lequel les affichera sur la console. Le
-message <code>exit</code> permettra de terminer l’application. Cette application
+message <code>exit</code> permettra de terminer l&rsquo;application. Cette application
 devra impérativement capturer tous les signaux et les ignorer. Seul un
-message d’information sera affiché sur la console. Chacun des processus
+message d&rsquo;information sera affiché sur la console. Chacun des processus
 devra utiliser son propre cœur, par exemple <em>core 0</em> pour le parent, et <em>core 1</em>
-pour l’enfant.</p>
+pour l&rsquo;enfant.</p>
 <h2 id="cgroups">CGroups</h2>
 <p><strong>Exercice #2</strong>: Concevez une petite application permettant de valider la
-capacité des groupes de contrôle à limiter l’utilisation de la mémoire.</p>
+capacité des groupes de contrôle à limiter l&rsquo;utilisation de la mémoire.</p>
 <h3 id="quelques-indications-pour-la-creation-du-programme">Quelques indications pour la création du programme :</h3>
 <ul>
-<li>Allouer un nombre défini de blocs de mémoire d’un mébibyte<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, par exemple 50</li>
+<li>Allouer un nombre défini de blocs de mémoire d&rsquo;un mébibyte<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, par exemple 50</li>
 <li>Tester si le pointeur est non nul</li>
 <li>Remplir le bloc avec des 0</li>
 </ul>
@@ -1075,16 +1125,16 @@ capacité des groupes de contrôle à limiter l’utilisation de la mémoire.</p
 <li>Quel effet a la commande <code>echo $$ &gt; ...</code> sur les <em>cgroups</em> ?</li>
 <li>Quel est le comportement du sous-système <em>memory</em> lorsque le quota de
    mémoire est épuisé&nbsp;? Pourrait-on le modifier ? Si oui, comment ?</li>
-<li>Est-il possible de surveiller/vérifier l’état actuel de la mémoire ?
+<li>Est-il possible de surveiller/vérifier l&rsquo;état actuel de la mémoire ?
    Si oui, comment ?</li>
 </ol>
 <p><strong>Exercice #3</strong>: Afin de valider la capacité des groupes de contrôle de
-limiter l’utilisation des CPU, concevez une petite application composée
+limiter l&rsquo;utilisation des CPU, concevez une petite application composée
 au minimum de 2 processus utilisant le 100% des ressources du
 processeur.</p>
 <h3 id="quelques-indications-pour-monter-les-cgroups_1">Quelques indications pour monter les CGroups :</h3>
 <ul>
-<li>Si pas déjà effectuer, monter le <em>cgroup</em> de l’exercice précédent.</li>
+<li>Si pas déjà effectuer, monter le <em>cgroup</em> de l&rsquo;exercice précédent.</li>
 <li><code>$ mkdir /sys/fs/cgroup/cpuset</code></li>
 <li><code>$ mount -t cgroup -o cpu,cpuset cpuset /sys/fs/cgroup/cpuset</code></li>
 <li><code>$ mkdir /sys/fs/cgroup/cpuset/high</code></li>
@@ -1099,13 +1149,13 @@ processeur.</p>
 <li>Les 4 dernières lignes sont obligatoires pour que les prochaines
    commandes fonctionnent correctement. Pouvez-vous en donner la raison ?</li>
 <li>Ouvrez deux shells distincts et placez une dans le <em>cgroup high</em> et
-   l’autre dans le <em>cgroup low</em>, par exemple :
+   l&rsquo;autre dans le <em>cgroup low</em>, par exemple :
    <div class="highlight"><pre><span></span><code># ssh root@192.168.0.14
 $ echo $$ &gt; /sys/fs/cgroup/cpuset/low/tasks
 </code></pre></div>
    Lancez ensuite votre application dans chacun des shells. Quel
    devrait être le bon comportement ? Pouvez-vous le vérifier ?</li>
-<li>Sachant que l’attribut <code>cpu.shares</code> permet de répartir le temps CPU
+<li>Sachant que l&rsquo;attribut <code>cpu.shares</code> permet de répartir le temps CPU
    entre différents <em>cgroups</em>, comment devrait-on procéder pour lancer
    deux tâches distinctes sur le cœur 4 de notre processeur et attribuer
    75% du temps CPU à la première tâche et 25% à la deuxième ?</li>
