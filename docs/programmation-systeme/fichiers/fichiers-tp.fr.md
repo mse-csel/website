@@ -22,8 +22,8 @@ Avec la configuration actuelle du noyau Linux, ces deux LEDs sont à libre dispo
 
 ## Travail à réaliser
 
-Vous trouverez ci-dessous application qui contrôle la fréquence de clignotement d’une
-LED. Ce code n’a pas été très bien programmé et utilise le 100% d’un cœur du processeur (à mesurer
+Vous trouverez ci-dessous application qui contrôle la fréquence de clignotement d'une
+LED. Ce code n'a pas été très bien programmé et utilise le 100% d'un cœur du processeur (à mesurer
 avec `top`).
 
 ??? example "silly_led_control.c"
@@ -32,8 +32,8 @@ avec `top`).
     ```
 
 Concevez une application permettant de gérer la fréquence de clignotement de la LED `status` de la
-carte NanoPi à l’aide des trois boutons-poussoirs.
-Quelques indications pour la réalisation de l’application :
+carte NanoPi à l'aide des trois boutons-poussoirs.
+Quelques indications pour la réalisation de l'application :
 
 1. Au démarrage la fréquence de clignotement sera réglée à 2&nbsp;Hz
 2. Utilisation des boutons-poussoirs
@@ -49,16 +49,16 @@ Quelques indications pour la réalisation de l’application :
 
 ### GPIO
 
-L’accès aux entrées/sorties est proposé sous le système de fichiers virtuels _sysfs_, dans le
+L'accès aux entrées/sorties est proposé sous le système de fichiers virtuels _sysfs_, dans le
 répertoire `/sys/class/gpio/*`. Cette interface est décrite dans la documentation du noyau
 Linux (https://www.kernel.org/doc/Documentation/gpio/sysfs.txt).
 
-Quelques informations utiles pour l’utilisation du module GPIO sous Linux :
+Quelques informations utiles pour l'utilisation du module GPIO sous Linux :
 
-**Pour lire ou écrire une valeur sur une _pin_ d’entrée/sortie, il faut
-tout d’abord configurer le _GPIO_, soit :**
+**Pour lire ou écrire une valeur sur une _pin_ d'entrée/sortie, il faut
+tout d'abord configurer le _GPIO_, soit :**
 
-1. Exporter la porte dans le « sysfs » à l’aide de la commande :
+1. Exporter la porte dans le « sysfs » à l'aide de la commande :
     ```
     # echo <pin_nr> > /sys/class/gpio/export
     ```
@@ -67,11 +67,11 @@ tout d’abord configurer le _GPIO_, soit :**
     # echo in > /sys/class/gpio/gpio<pin_nr>/direction
     # echo out > /sys/class/gpio/gpio<pin_nr>/direction
     ```
-3. Lire l’état de la pin (input) :
+3. Lire l'état de la pin (input) :
     ```
     # cat /sys/class/gpio/gpio<pin_nr>/value
     ```
-4. Changer l’état de la pin (output) :
+4. Changer l'état de la pin (output) :
     ```
     # echo 0 > /sys/class/gpio/gpio<pin_nr>/value
     # echo 1 > /sys/class/gpio/gpio<pin_nr>/value
@@ -93,7 +93,7 @@ soit :**
 
 ### Timer
 
-La librairie `timerfd` offre des services très intéressants pour la génération d’une horloge à haute
+La librairie `timerfd` offre des services très intéressants pour la génération d'une horloge à haute
 résolution et surtout une interface permettant le multiplexage des entrées/sorties.
 
 ---

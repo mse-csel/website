@@ -71,7 +71,7 @@ argument :
 
 ### Installation de `perf`
 
-La version de `perf` que vous avez générée avec Buildroot n’est pas totalement satisfaisante.
+La version de `perf` que vous avez générée avec Buildroot n'est pas totalement satisfaisante.
 
 Commencez par reconfigurer Buildroot pour inclure les _binutils_ :
 
@@ -176,7 +176,7 @@ Ouvrez maintenant le fichier `main.c` et analysez le code.
 _Ce programme contient une erreur triviale qui empêche une utilisation optimale du cache. De quelle
 erreur s'agit-il ?_
 
-Si vous ne voyez pas l’erreur, essayez encore une fois, mais avec la commande
+Si vous ne voyez pas l'erreur, essayez encore une fois, mais avec la commande
 
 ```
 # perf stat -e cache-misses ./ex1
@@ -218,7 +218,7 @@ très peu d'impacts sur les performances. En utilisant la commande time, mesurez
 de notre application ex1 avec et sans la commande `perf stat`._
 
 
-## Analyse et optimisation d’un programme
+## Analyse et optimisation d'un programme
 
 Sur la base du programme situé dans le dossier
 [src/06_optimization/ex02](https://github.com/mse-csel/csel-workspace/tree/main/src/06_optimization/ex02) 
@@ -373,8 +373,8 @@ modifications :
 
 ## Mesure de la latence et de la gigue (_jitter_)
 
-Décrivez comment devrait-on procéder pour mesurer la latence et la gigue d’interruption, ceci aussi
-bien au niveau du noyau (_kernel space_) que de l’application (_user space_).
+Décrivez comment devrait-on procéder pour mesurer la latence et la gigue d'interruption, ceci aussi
+bien au niveau du noyau (_kernel space_) que de l'application (_user space_).
 
 
 ---

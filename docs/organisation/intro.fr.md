@@ -146,8 +146,8 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 
 - Sous forme d'examen oral
     - Deux thèmes tirés au sort
-    - 20’ de préparation (un résumé de 5 feuilles A4 recto-verso autorisé)
-    - 20’ de présentation au rétroprojecteur sur transparents avec questions des professeurs (le résumé n'est plus autorisé)
+    - 20' de préparation (un résumé de 5 feuilles A4 recto-verso autorisé)
+    - 20' de présentation au rétroprojecteur sur transparents avec questions des professeurs (le résumé n'est plus autorisé)
 - Experts: le professeur du module + un professeur du domaine
 
 ### Note finale du cours

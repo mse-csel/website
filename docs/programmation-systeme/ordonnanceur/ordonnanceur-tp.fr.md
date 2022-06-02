@@ -21,20 +21,20 @@ week: 9
 `socketpair`) entre un processus parent et un processus enfant. Le
 processus enfant devra émettre quelques messages sous forme de texte
 vers le processus parent, lequel les affichera sur la console. Le
-message `exit` permettra de terminer l’application. Cette application
+message `exit` permettra de terminer l'application. Cette application
 devra impérativement capturer tous les signaux et les ignorer. Seul un
-message d’information sera affiché sur la console. Chacun des processus
+message d'information sera affiché sur la console. Chacun des processus
 devra utiliser son propre cœur, par exemple _core 0_ pour le parent, et _core 1_
-pour l’enfant.
+pour l'enfant.
 
 ## CGroups
 
 {{ ex() }}: Concevez une petite application permettant de valider la
-capacité des groupes de contrôle à limiter l’utilisation de la mémoire.
+capacité des groupes de contrôle à limiter l'utilisation de la mémoire.
 
 ### Quelques indications pour la création du programme :
 
-- Allouer un nombre défini de blocs de mémoire d’un mébibyte[^1], par exemple 50
+- Allouer un nombre défini de blocs de mémoire d'un mébibyte[^1], par exemple 50
 - Tester si le pointeur est non nul
 - Remplir le bloc avec des 0
 
@@ -54,17 +54,17 @@ capacité des groupes de contrôle à limiter l’utilisation de la mémoire.
 1. Quel effet a la commande `echo $$ > ...` sur les _cgroups_ ?
 2. Quel est le comportement du sous-système _memory_ lorsque le quota de
    mémoire est épuisé&nbsp;? Pourrait-on le modifier ? Si oui, comment ?
-3. Est-il possible de surveiller/vérifier l’état actuel de la mémoire ?
+3. Est-il possible de surveiller/vérifier l'état actuel de la mémoire ?
    Si oui, comment ?
 
 {{ ex() }}: Afin de valider la capacité des groupes de contrôle de
-limiter l’utilisation des CPU, concevez une petite application composée
+limiter l'utilisation des CPU, concevez une petite application composée
 au minimum de 2 processus utilisant le 100% des ressources du
 processeur.
 
 ### Quelques indications pour monter les CGroups :
 
-- Si pas déjà effectuer, monter le _cgroup_ de l’exercice précédent.
+- Si pas déjà effectuer, monter le _cgroup_ de l'exercice précédent.
 - `$ mkdir /sys/fs/cgroup/cpuset`
 - `$ mount -t cgroup -o cpu,cpuset cpuset /sys/fs/cgroup/cpuset`
 - `$ mkdir /sys/fs/cgroup/cpuset/high`
@@ -80,14 +80,14 @@ processeur.
 1. Les 4 dernières lignes sont obligatoires pour que les prochaines
    commandes fonctionnent correctement. Pouvez-vous en donner la raison ?
 2. Ouvrez deux shells distincts et placez une dans le _cgroup high_ et
-   l’autre dans le _cgroup low_, par exemple :
+   l'autre dans le _cgroup low_, par exemple :
    ```
    # ssh root@192.168.0.14
    $ echo $$ > /sys/fs/cgroup/cpuset/low/tasks
    ```
    Lancez ensuite votre application dans chacun des shells. Quel
    devrait être le bon comportement ? Pouvez-vous le vérifier ?
-3. Sachant que l’attribut ``cpu.shares`` permet de répartir le temps CPU
+3. Sachant que l'attribut ``cpu.shares`` permet de répartir le temps CPU
    entre différents _cgroups_, comment devrait-on procéder pour lancer
    deux tâches distinctes sur le cœur 4 de notre processeur et attribuer
    75% du temps CPU à la première tâche et 25% à la deuxième ?
