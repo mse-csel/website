@@ -20,7 +20,7 @@ Ce mini-projet vise à mettre en œuvre les notions étudiées durant le semestr
 
 L'évacuation de la chaleur produite par le processeur et ses périphériques est un aspect essentiel à considérer lors de la conception de systèmes embarqués. Un refroidissement par convection naturelle est idéal. Cependant, il n'est pas toujours suffisant. Dans de tels cas, un système de refroidissement forcé (_forced cooling_) complétera et garantira le bon fonctionnement de l'équipement. Un refroidissement forcé passe par la mise en place d'un ou plusieurs ventilateurs. Leur vitesse est généralement contrôlée par un PWM (_Pulser-Width Modulation_) en agissant soit sur la fréquence (_frequency_), soit sur le rapport de cycle (_duty cycle_).
 
-Notre cible ne dispose pas de ventilateur. Quant au PWM, il n'est pas disponible, car son signal de sortie est multiplexé avec le signal RX de l'interface série de la console système. Afin de simuler cette infrastructure, nous allons simplement utiliser le clignotement de la LED Status en guise de ventilateur et un timer pour la génération de la fréquence de clignotement de cette LED.
+Notre cible ne dispose pas de ventilateur. Quant au PWM, il n'est pas disponible, car son signal de sortie est multiplexé avec le signal RX de l'interface série de la console système. Afin de simuler cette infrastructure, nous allons simplement utiliser le clignotement de la LED _Status_ en guise de ventilateur et un timer pour la génération de la fréquence de clignotement de cette LED.
 
 ## Travail à réaliser
 
@@ -31,38 +31,38 @@ processeur. On permettra une gestion automatique et manuelle.
 Cette application réalisera la fonctionnalité minimale suivante :
 
 1.  La supervision de la température du microprocesseur et la gestion
-    automatique de la vitesse de clignotement de la LED Status devront
-    être réalisées par un module noyau. Ce module offrira, via le sysfs,
+    automatique de la vitesse de clignotement de la LED _Status_ devront
+    être réalisées par un **module noyau**. Ce module offrira, via le **sysfs**,
     une interface permettant de choisir
    
     1. le mode de fonctionnement automatique ou manuel
-    2. la fréquence de clignotement de la LED Status
+    2. la fréquence de clignotement de la LED _Status_
 
-    La fréquence de clignotement dépendra de la température du CPU, soit :
+    En mode automatique, la fréquence de clignotement dépendra de la température du CPU, soit :
     
     - Température $< 35 °C$ --> fréquence de 2Hz
     - Température $< 40 °C$ --> fréquence de 5Hz
     - Température $< 45 °C$ --> fréquence de 10Hz
     - Température $\geq 45 °C$ --> fréquence de 20Hz
 
-2.  Un daemon en espace utilisateur offrira les services pour une gestion manuelle.
+2.  Un **daemon** en espace utilisateur offrira les services pour une gestion manuelle.
     Ce daemon proposera deux interfaces de gestion distinctes, soit :
 
-    1. Interface physique via les boutons poussoir et LED Power de la carte d'extension
+    1. Interface physique via les boutons poussoir et LED _Power_ de la carte d'extension
         1. S1 pour augmenter la vitesse de rotation du ventilateur, la pression du S1
-           devra être signalisée sur la LED Power
+           devra être signalisée sur la LED _Power_
         2. S2 pour diminuer la vitesse de rotation du ventilateur, la pression du S2
-           devra être signalisée sur la LED Power
+           devra être signalisée sur la LED _Power_
         3. S3 pour changer du mode automatique au mode manuel et vice versa.
-    2. Interface IPC, au choix du développeur, permettant de dialoguer
+    2. **Interface IPC**, au choix du développeur, permettant de dialoguer
        avec une application pour choisir le mode de fonctionnement et
        spécifier la fréquence de clignotement
 
     Le daemon utilisera l'écran OLED pour indiquer le mode de
     fonctionnement, la température actuelle du microprocesseur ainsi que
-    la fréquence de clignotement de la LED Status.
+    la fréquence de clignotement de la LED _Status_.
 
-3.  Une application fournira une interface utilisateur, une ligne de
+3.  Une application fournira une **interface utilisateur**, une ligne de
     commande, pour piloter le système via l'interface IPC choisie.
 
 ## Bibliothèques
