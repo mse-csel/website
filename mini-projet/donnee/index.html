@@ -1048,7 +1048,7 @@
 </ul>
 <h2 id="contexte">Contexte</h2>
 <p>L&rsquo;évacuation de la chaleur produite par le processeur et ses périphériques est un aspect essentiel à considérer lors de la conception de systèmes embarqués. Un refroidissement par convection naturelle est idéal. Cependant, il n&rsquo;est pas toujours suffisant. Dans de tels cas, un système de refroidissement forcé (<em>forced cooling</em>) complétera et garantira le bon fonctionnement de l&rsquo;équipement. Un refroidissement forcé passe par la mise en place d&rsquo;un ou plusieurs ventilateurs. Leur vitesse est généralement contrôlée par un PWM (<em>Pulser-Width Modulation</em>) en agissant soit sur la fréquence (<em>frequency</em>), soit sur le rapport de cycle (<em>duty cycle</em>).</p>
-<p>Notre cible ne dispose pas de ventilateur. Quant au PWM, il n&rsquo;est pas disponible, car son signal de sortie est multiplexé avec le signal RX de l&rsquo;interface série de la console système. Afin de simuler cette infrastructure, nous allons simplement utiliser le clignotement de la LED Status en guise de ventilateur et un timer pour la génération de la fréquence de clignotement de cette LED.</p>
+<p>Notre cible ne dispose pas de ventilateur. Quant au PWM, il n&rsquo;est pas disponible, car son signal de sortie est multiplexé avec le signal RX de l&rsquo;interface série de la console système. Afin de simuler cette infrastructure, nous allons simplement utiliser le clignotement de la LED <em>Status</em> en guise de ventilateur et un timer pour la génération de la fréquence de clignotement de cette LED.</p>
 <h2 id="travail-a-realiser">Travail à réaliser</h2>
 <p>Concevez une application permettant de simuler la gestion de la vitesse
 de rotation d&rsquo;un ventilateur en fonction de la température du
@@ -1057,14 +1057,14 @@ processeur. On permettra une gestion automatique et manuelle.</p>
 <ol>
 <li>
 <p>La supervision de la température du microprocesseur et la gestion
-    automatique de la vitesse de clignotement de la LED Status devront
-    être réalisées par un module noyau. Ce module offrira, via le sysfs,
+    automatique de la vitesse de clignotement de la LED <em>Status</em> devront
+    être réalisées par un <strong>module noyau</strong>. Ce module offrira, via le <strong>sysfs</strong>,
     une interface permettant de choisir</p>
 <ol>
 <li>le mode de fonctionnement automatique ou manuel</li>
-<li>la fréquence de clignotement de la LED Status</li>
+<li>la fréquence de clignotement de la LED <em>Status</em></li>
 </ol>
-<p>La fréquence de clignotement dépendra de la température du CPU, soit :</p>
+<p>En mode automatique, la fréquence de clignotement dépendra de la température du CPU, soit :</p>
 <ul>
 <li>Température <span class="arithmatex">\(&lt; 35 °C\)</span> &rarr; fréquence de 2Hz</li>
 <li>Température <span class="arithmatex">\(&lt; 40 °C\)</span> &rarr; fréquence de 5Hz</li>
@@ -1073,27 +1073,27 @@ processeur. On permettra une gestion automatique et manuelle.</p>
 </ul>
 </li>
 <li>
-<p>Un daemon en espace utilisateur offrira les services pour une gestion manuelle.
+<p>Un <strong>daemon</strong> en espace utilisateur offrira les services pour une gestion manuelle.
     Ce daemon proposera deux interfaces de gestion distinctes, soit :</p>
 <ol>
-<li>Interface physique via les boutons poussoir et LED Power de la carte d&rsquo;extension<ol>
+<li>Interface physique via les boutons poussoir et LED <em>Power</em> de la carte d&rsquo;extension<ol>
 <li>S1 pour augmenter la vitesse de rotation du ventilateur, la pression du S1
-   devra être signalisée sur la LED Power</li>
+   devra être signalisée sur la LED <em>Power</em></li>
 <li>S2 pour diminuer la vitesse de rotation du ventilateur, la pression du S2
-   devra être signalisée sur la LED Power</li>
+   devra être signalisée sur la LED <em>Power</em></li>
 <li>S3 pour changer du mode automatique au mode manuel et vice versa.</li>
 </ol>
 </li>
-<li>Interface IPC, au choix du développeur, permettant de dialoguer
+<li><strong>Interface IPC</strong>, au choix du développeur, permettant de dialoguer
    avec une application pour choisir le mode de fonctionnement et
    spécifier la fréquence de clignotement</li>
 </ol>
 <p>Le daemon utilisera l&rsquo;écran OLED pour indiquer le mode de
 fonctionnement, la température actuelle du microprocesseur ainsi que
-la fréquence de clignotement de la LED Status.</p>
+la fréquence de clignotement de la LED <em>Status</em>.</p>
 </li>
 <li>
-<p>Une application fournira une interface utilisateur, une ligne de
+<p>Une application fournira une <strong>interface utilisateur</strong>, une ligne de
     commande, pour piloter le système via l&rsquo;interface IPC choisie.</p>
 </li>
 </ol>
