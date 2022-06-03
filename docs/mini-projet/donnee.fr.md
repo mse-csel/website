@@ -4,6 +4,8 @@ title: Donnée
 
 # Mini Projet – Programmation noyau et système
 
+![Cooler](assets/fan.jpeg)
+
 ## Objectifs
 
 Ce mini-projet vise à mettre en œuvre les notions étudiées durant le semestre, soit :
