@@ -93,8 +93,12 @@ Cette application réalisera la fonctionnalité minimale suivante :
 
 4.  Pour la gestion de l'écran OLED de la carte d'extension, un pilote
     basic est disponible sur [github](https://github.com/mse-csel/csel-workspace/tree/main/src/07_miniproj/oled).
-    Il met à disposition principalement une méthode pour l'écriture de strings. La
-    documentation du contrôleur de l'écran OLED est disponible
+    Il met à disposition principalement une méthode pour l'écriture de strings.
+    <figure markdown>
+    ![OLED](assets/oled.jpeg){width=500}
+    <figcaption>Demo de l'écran OLED</figcaption>
+    </figure>
+    La documentation du contrôleur de l'écran OLED est disponible
     sur [le site du cours](https://mse-csel.github.io/website/documentation/nanopi/).
     Il est important de noter que l'écran est interfacé au
     μP via un bus I^2^C. Dans la configuration actuelle du noyau,
