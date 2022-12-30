@@ -10,24 +10,23 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Fri May 20 00:44:45 2022
+# Make data base, printed on Wed Nov 30 16:14:12 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
+ 
 # automatic
 ?F = $(notdir $?)
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 LC_CTYPE = UTF-8
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-PLATFORMIO_IDE = 2.4.3
+PLATFORMIO_IDE = 2.5.5
 # environment
 PLATFORMIO_CALLER = vscode
 # automatic
@@ -47,13 +46,11 @@ MAKEFILE_LIST :=
 # environment
 AUTOJUMP_SOURCED = 1
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/5l/1n5v3xc953s1gsd183xkqwcc0000gn/T/vscode-ipc-113e8122-8eb2-4f62-9805-cd671079b53f.sock
+P9K_SSH = 0
 # environment
 VSCODE_CWD = /Users/supcik/Lectures/CSEL1
 # environment
@@ -65,19 +62,17 @@ SDKMAN_DIR = /Users/supcik/.sdkman
 # environment
 SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
 # environment
-SDKMAN_PLATFORM = darwinarm64
+LaunchInstanceID = 435C9B62-D1BC-4AEC-9A23-FD441B1ABDD5
 # environment
-VSCODE_LOG_STACK = false
+SDKMAN_PLATFORM = darwinx64
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.RCHysiYagW/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.H89DGEyFgm/Listeners
 # automatic
 %F = $(notdir $%)
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /Users/supcik/Lectures/CSEL1/csel1-website
 # environment
@@ -97,11 +92,11 @@ MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/supcik/Library/Application Support/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = /Users/supcik/Library/Application Support/Code/CachedData/6261075646f055b99068d3688932416f2346dd3b
 # environment
 LOGNAME = supcik
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 ZSH = /Users/supcik/.oh-my-zsh
 # environment
@@ -109,9 +104,9 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-PLATFORMIO_PATH = /Users/supcik/.platformio/python3/bin:/Users/supcik/.sdkman/candidates/java/current/bin:/Users/supcik/bin:/Users/supcik/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/supcik/go/bin/:/opt/homebrew/opt/fzf/bin
+PLATFORMIO_PATH = /Users/supcik/.platformio/penv/bin:/Users/supcik/.platformio/penv:/Users/supcik/.platformio/python3/bin:/Users/supcik/.pyenv/shims:/Users/supcik/.sdkman/candidates/java/current/bin:/Users/supcik/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/supcik/Library/Application Support/JetBrains/Toolbox/scripts:/Users/supcik/go/bin/:/opt/homebrew/opt/fzf/bin
 # environment
-SDKMAN_VERSION = 5.13.2
+SDKMAN_VERSION = 5.15.0
 # environment
 COLORTERM = truecolor
 # default
@@ -119,7 +114,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 LC_TERMINAL = iTerm2
 # environment
-PATH = /Users/supcik/.sdkman/candidates/java/current/bin:/Users/supcik/bin:/Users/supcik/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/supcik/go/bin/:/opt/homebrew/opt/fzf/bin
+PATH = /Users/supcik/.pyenv/shims:/Users/supcik/.sdkman/candidates/java/current/bin:/Users/supcik/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/supcik/Library/Application Support/JetBrains/Toolbox/scripts:/Users/supcik/go/bin/:/opt/homebrew/opt/fzf/bin
 # environment
 SHLVL = 3
 # environment
@@ -135,7 +130,7 @@ USER = supcik
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = w1t0p0:F54FD914-F84E-482E-96F1-A3F03CB31AC3
+TERM_SESSION_ID = w0t0p0:F2EEB551-E574-44DC-89C3-2906AD4F0E46
 # environment
 LESS = -R
 # automatic
@@ -151,7 +146,9 @@ TMPDIR = /var/folders/5l/1n5v3xc953s1gsd183xkqwcc0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/supcik/Library/Application Support/Code/1.67.1-main.sock
+VSCODE_IPC_HOOK = /Users/supcik/Library/Application Support/Code/1.73.1-main.sock
+# environment
+MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -159,11 +156,11 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-TERM_PROGRAM_VERSION = 3.4.15
+TERM_PROGRAM_VERSION = 3.4.18
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.16160280.16160286.00DF20BF-B0D3-4279-AE93-E42C05411804
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.41942678.41942684.8EB458B4-9C27-4111-8719-CB20D6E86B16
 # environment
-LC_TERMINAL_VERSION = 3.4.15
+LC_TERMINAL_VERSION = 3.4.18
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -171,7 +168,7 @@ HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +F = $(notdir $+)
 # environment
-ITERM_SESSION_ID = w1t0p0:F54FD914-F84E-482E-96F1-A3F03CB31AC3
+ITERM_SESSION_ID = w0t0p0:F2EEB551-E574-44DC-89C3-2906AD4F0E46
 # environment
 HOMEBREW_REPOSITORY = /opt/homebrew
 # environment
@@ -194,6 +191,10 @@ PAGER = less
 LC_ALL = C
 # environment
 VIRTUAL_ENV_DISABLE_PROMPT = 1
+# environment
+SECURITYSESSIONID = 186b4
+# environment
+P9K_TTY = old
 # automatic
 ^F = $(notdir $^)
 # default
@@ -209,9 +210,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 80948
+_P9K_TTY = /dev/ttys000
+# environment
+VSCODE_PID = 8081
 # variable set hash-table stats:
-# Load=98/1024=10%, Rehash=0, Collisions=7/119=6%
+# Load=99/1024=10%, Rehash=0, Collisions=7/120=6%
 
 # Pattern-specific Variable Values
 
@@ -219,9 +222,9 @@ VSCODE_PID = 80948
 
 # Directories
 
-# . (device 16777233, inode 3766118): 13 files, no impossibilities.
+# . (device 16777234, inode 3766118): 17 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -269,6 +272,7 @@ makefile:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 GNUmakefile:
@@ -293,6 +297,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri May 20 00:44:45 2022
+# Finished Make data base on Wed Nov 30 16:14:12 2022
 
  

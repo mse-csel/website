@@ -1,0 +1,424 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="581px" height="415px" viewBox="-0.5 -0.5 581 415" content="&lt;mxfile&gt;&lt;diagram id=&quot;DwD4So2wld9oqDP5zUzQ&quot; name=&quot;Page-1&quot;&gt;7VpJc6M4FP41VM0chtLCIo6Ok0wfpqe6Joc5dgmQQdUCEZbYmV8/EosNEUk7HTu2U0FVWDwJLe/73tOTsIWX2ebPkhbpVxkzYSEQbyx8bSEUQKTuWvDYCVyMO0FS8rgTwZ3gjv/HeiHopQ2PWTWpWEspal5MhZHMcxbVExktS7meVltJMe21oAkzBHcRFab0Xx7XaSclyN/JvzCepEPP0Au6kowOlfuZVCmN5XokwjcWXpZS1l0u2yyZ0Lob9NK9d/tM6XZgJcvrfV7A/RsPVDT95PqB1Y/DbJNSNoWFr1Yyr29pxoVG7R8Zylr20jvZlJGunda1gkDhuVA31am+6QqVnUiZCEYLXtmRzNqCqGqr3q66NlX2Sasd7tBRz+a8hoGzsmabOdRpOExgp1hFSCYzVpeqO9C/5fdQ9Fz0+sf1DlhIelk6AhUPZKQ9mZJtyzt9q0yv8nn1uz/XvlJ+HjNdHyo9rFNes7uCttpeK+NSsrTORF/8rhBxIZZSyLIdJ165OvW9jeTdpeRVXcofbFTitddeYOPn0DZRHVzKnjBu8X4LjOjnMBaSKx3rvHtluddqlrQqOt+04huN7xhHKniSq3ykNMBKrbzBTwD1ENMqbRmhH3jWOqvh95pniRqu4KG6UyE4i7/XTLCKKyRvFa5Fo1r8TnMtLjOeU6ELvrGykir/fdnXsKuH5Oxs/hU06Etd1yYT8/aJDYPxZdDEI7Zj8iRAtv92omCDKF9plPKc6cWwvVlLbC2CByZkUbBMz/wpk9TM6ylbppaVy5w9Mc9eZLBK65GrZW3RF2Q8jnU3s25m54jAKYjRKwA+IYp3KKIgm4DRBQ1ezC4CB3Aezozz8ISGuCpoPsHeu290YNAq4I+q1YDSLYBOsdkVqlyif6OUcmu5tAjq6GXdIEvNIQhkU3Nt9C3jPJppcPOwKrp3RdfGbdd519RhBqS608OBY3Lr6l3bYfnrLR912Ncy+qGsBS3b0CIruKA1azrBu2ovbJKkH8iZq8y27XfVzVEV8ul+j7AuI3/W3T5uIzXbXJghnvHAAbHRAdblPSK4D74N2q5vz++DsD8DgHOIfVDwgfZBJGJRNLffCYnruGA/g0LPwPqa/c4sXPgQ+50B8hFed49V3cauJNPRBstCWt43XTR7BB8q2Kq+MA/6ugB2fwIMpcCzXThKyHSgrmcH3ij5x4looXmo9IWW8VrN7wWzBmdt1jFlZDVr1l5EWLg6tFkPXhnZDhonNHHSeM7skWuPeQCPBLK5ZC4yqUDQoTHQzSBwJWUtJI111HqhuFMEAJo51lq11ywfbnVAcyI+QPdkfDDPNv6Wj7RRor943mwulgGxy0jszCFNUIj3PcA8NNLbcO0ESJsnFlc8FFyqcbQRwH3DqhZrmsfK7+v8b8tuA/1NVnzz+8VyYQUoBnSOC1fX/s7qR/Jue3Mijjin8wbmlw2DI6p4cblMoLFP58N8x3OBcyLE4cxnD+DaOBinI0Hu7QW5eaLyCfnLgT1GNga7hMj5QO7vBfnyE/JXWrmDbEhGyTsfyM2jmkVRCLUJr7nUR7jQAFs1wItK78qrlBZaGAnZxGcNfAgYZt4c8IARQMixbB3YQUAQcX3odPcJ8BCan6X0pt5zfGf7EjGBJ4f4xm2e+UyBN4/sLhJ4GMcrMAc8BD4O2LGAR549Qh2RqcXP/SnFxbbj7GCfOcs5COzmWc4UdvwxYKcRiWf/pYKw47jxsRw9AC/BDlW4R2aQ9+0AeU99xBuRV4+7v521ZaP/7uGb/wE=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs>
+        <style type="text/css">
+            /* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMRrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtM1rTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMVrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMprTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMZrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMdrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMlrTFcZZJmOpw.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+        </style>
+    </defs>
+    <g>
+        <rect x="0" y="54" width="180" height="260" rx="27" ry="27" fill="#f5f5f5" stroke="#666666" pointer-events="none"/>
+        <image x="55.3" y="81.7" width="68.4" height="92.7" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NS42MDEgMTAzLjM4MiI+PHN0eWxlPjwhW0NEQVRBWy5Se2ZpbGw6I2ZlZmVmZX0uU3tmaWxsOiMyMzFmMjB9LlR7ZmlsbDojNjI2MzY2fS5Ve2ZpbGw6bm9uZX0uVntzdHJva2UtbGluZWpvaW46cm91bmR9Lld7c3Ryb2tlOiM2MjYzNjZ9Llh7ZmlsbDojODk4YjhlfS5Ze2ZpbGw6I2JiYmRiZn0uWntmaWxsOiNiM2I1Yjd9LmF7c3Ryb2tlLXdpZHRoOjN9LmJ7c3Ryb2tlOiNlMWUyZTN9LmN7c3Ryb2tlLWxpbmVjYXA6cm91bmR9XV0+PC9zdHlsZT48ZyBjbGFzcz0iVSBWIFcgYSI+PHBhdGggZD0iTTUwLjM0OCA4Mi41NDVsMTEuNzEtNi4yMTUuMDAzIDMuMjk3LTExLjcgNi4yMTd6Ii8+PHBhdGggZD0iTTIwLjQ1IDY0LjU4bDExLjcxLTYuMjE1IDI5LjkgMTcuOTY1LTExLjcxIDYuMjE1eiIvPjxwYXRoIGQ9Ik01MC4zNDggODIuNTQ1bC4wMDIgMy4zLTI5LjktMTcuOTY3VjY0LjU4eiIvPjwvZz48cGF0aCBkPSJNNTAuMzQ4IDgyLjU0NWwxMS43MS02LjIxNS4wMDMgMy4yOTctMTEuNyA2LjIxN3oiIGNsYXNzPSJYIi8+PHBhdGggZD0iTTIwLjQ1IDY0LjU4bDExLjcxLTYuMjE1IDI5LjkgMTcuOTY1LTExLjcxIDYuMjE1eiIgY2xhc3M9IlkiLz48cGF0aCBkPSJNNTAuMzQ4IDgyLjU0NWwuMDAyIDMuMy0yOS45LTE3Ljk2N1Y2NC41OHoiIGNsYXNzPSJaIi8+PGcgY2xhc3M9IlUgViI+PHBhdGggZD0iTTIwLjY5IDY0LjYxNGwyOS40IDE3LjY3djMuMjA1IiBjbGFzcz0iYiBjIi8+PGcgc3Ryb2tlLXdpZHRoPSIyLjY2OCIgY2xhc3M9IlciPjxwYXRoIGQ9Ik02OS4wNDQgMzYuODNsNS4xODYtMi43NTMuMDM2IDUwLjc3OEw2OS4wOCA4Ny42eiIvPjxwYXRoIGQ9Ik0xNC41NSA0LjA4OGw1LjE4Ny0yLjc1NEw3NC4yMyAzNC4wNzhsLTUuMTg2IDIuNzUzeiIvPjxwYXRoIGQ9Ik02OS4wNDQgMzYuODNsLjAzNSA1MC43OC01NC40OTMtMzIuNzQ0LS4wMzctNTAuNzc4eiIvPjwvZz48L2c+PHBhdGggZD0iTTY5LjA0MyAzNi44M2w1LjE4Ny0yLjc1My4wMzYgNTAuNzc4TDY5LjA4IDg3LjZ6IiBjbGFzcz0iWCIvPjxwYXRoIGQ9Ik0xNC41NSA0LjA4OGw1LjE4Ni0yLjc1NEw3NC4yMyAzNC4wNzhsLTUuMTg4IDIuNzUzeiIgY2xhc3M9IlkiLz48cGF0aCBkPSJNNjkuMDQzIDM2LjgzbC4wMzcgNTAuNzgtNTQuNDk1LTMyLjc0NC0uMDM1LTUwLjc3OHoiIGNsYXNzPSJaIi8+PHBhdGggZD0iTTY2LjE5IDgxLjkwM0wxNi41MjYgNTEuNjk4VjguNzgzTDY2LjE5IDM4Ljk4NXoiIGNsYXNzPSJSIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSAzLjM4MykiPjxwYXRoIGQ9Ik00Ni43NjQgMjcuMTk4TDYzLjI0NyAzNy4xbC4wOTIgOS4yMTZzLS4yOTMtNi42MDgtNS4xOTMtMTAuNzVjLTYuMjU2LTUuMjg2LTExLjM4Mi04LjM2OC0xMS4zODItOC4zNjgiIGZpbGw9IiNjNGNhY2UiLz48ZyBjbGFzcz0iVSI+PHBhdGggZD0iTTE0LjE4NCA1Mi41MzJsNTMuOSAzMi4zOCIgc3Ryb2tlPSIjNjM2NDY2IiBzdHJva2Utd2lkdGg9IjEuMTU2Ii8+PHBhdGggZD0iTTE0LjAwOC44NzVMNjguMDIzIDMzLjMzbC4wMzcgNTAuNDY1IiBzdHJva2Utd2lkdGg9Ii44ODkiIGNsYXNzPSJWIGIgYyIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MyA2NCkiPjxkZWZzPjxmaWx0ZXIgaWQ9IkEiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeD0iLjI2MSIgeT0iLjcyMyIgd2lkdGg9IjEuMjkiIGhlaWdodD0iMTMuMzQyIj48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCAwIDAgMCAwIDEgMCIvPjwvZmlsdGVyPjwvZGVmcz48bWFzayBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIuMjYxIiB5PSIuNzIzIiB3aWR0aD0iMS4yOSIgaGVpZ2h0PSIxMy4zNDIiIGlkPSJCIj48ZyBmaWx0ZXI9InVybCgjQSkiPjxwYXRoIGQ9Ik0uOTA2LjcyM0gxLjZ2MTMuMzQySC45MDZ6IiBmaWxsPSIjZmZmIi8+PC9nPjwvbWFzaz48cGF0aCBkPSJNLjkwNi43MjN2MTMuMzQyIiBtYXNrPSJ1cmwoI0IpIiBzdHJva2U9IiM2MzY0NjYiIHN0cm9rZS13aWR0aD0iMS4yOSIgY2xhc3M9IlUiLz48L2c+PHBhdGggZD0iTTQ4LjU1NiA5MC43OHMxLjM3NS0uNzM0IDIuNS0uNzY2IDIuNTE2LjY0IDIuNTE2LjY0IDEuMzc1LjczNCAyLjA0NiAxLjQzNy43Mi45ODUuNzY2IDEuMjM1LjAzLjgyOC0uMDQ3Ljk1My03Ljc1IDQuMDk0LTcuNzUgNC4wOTQtLjQ1My4yMDMtMS4xODcuMDkzLTItMS0yLjQwNy0xLjU3OC0uMzc1LTEuNDY4LS4zNzUtMS40NjguMDE2LTEuMDQ3IDEuMzktMi42Yy45MDYtMS4wOTQgMi41NDctMi4wMyAyLjU0Ny0yLjAzeiIgY2xhc3M9IlUgViBXIGEiLz48cGF0aCBkPSJNNDguNTU2IDkwLjc4czEuMzc1LS43MzQgMi41LS43NjYgMi41MTYuNjQgMi41MTYuNjQgMS4zNzcuNzM0IDIuMDQ2IDEuNDM3LjcyLjk4NS43NjYgMS4yMzUuMDMuODI4LS4wNDcuOTUzLTcuNzUgNC4wOTQtNy43NSA0LjA5NC0uNDUzLjIwMy0xLjE4Ny4wOTMtMi0xLTIuNDA3LTEuNTc4LS4zNzUtMS40NjgtLjM3NS0xLjQ2OC4wMTYtMS4wNDcgMS4zOS0yLjZjLjkwNi0xLjA5NCAyLjU0Ny0yLjAzIDIuNTQ3LTIuMDMiIGNsYXNzPSJZIi8+PHBhdGggZD0iTTQ4Ljc1NyA5OC4wN2MuMDEyLS4xLjg5LTIuNTUgMy43NjgtNC4xMDcgMi44ODQtMS41MTggMy41NDguMTIgMy41LS4yMjNsLS4wMDYuNTQ3LTcuMTkgMy44MzYiIGNsYXNzPSJYIi8+PHBhdGggZD0iTTQ2LjQ2MiA5Ni41MDZjLjE4Ny0uNzUgMS4yNjYtMi4zOSAxLjk5Mi0zLjE0czEuMzYtMS4yNDIgMi40Ni0xLjgwNCAyLjQzOC0uOTg1IDMuMDk0LS42NTcgMS41NyAxLjE1IDEuOTQ1IDEuNjQuMjggMS4wMDguMjggMS4wMDgtMS4zODItLjQ3LTIuMjAzLS4xODgtMi4xMzMuOTM4LTIuOTc2IDEuNzU4LTEuMTcyIDEuOS0xLjc1OCAyLjU3OC0xLjcxLjc3NC0xLjcxLjc3NC0xLjE0OC0uMjM1LTEuMjY2LS40NDYtLjA0Ni0uNzczLjE0LTEuNTIzIiBjbGFzcz0iWiIvPjxwYXRoIGQ9Ik00OC4zNyA5My44NjRsLS41MDQtLjMwM2MtLjkxOC45OTYtMS40NDUgMS45NzUtMS43IDIuNTI0bC41MDYuMzAyYy4yNTItLjU0OC43OC0xLjUzIDEuNjk3LTIuNTIzIiBmaWxsPSIjZTFlMmUzIi8+PGcgY2xhc3M9IlUgViBXIGEiPjxwYXRoIGQ9Ik0zMC40IDkxLjA5NWwxMS43MS02LjIxNXYzLjI5N2wtMTEuNzEgNi4yMTd6Ii8+PHBhdGggZD0iTS41IDczLjEzbDExLjcxLTYuMjE3IDI5LjkgMTcuOTY2LTExLjcxIDYuMjE1eiIvPjxwYXRoIGQ9Ik0zMC40IDkxLjA5NWwuMDAyIDMuMy0yOS45LTE3Ljk2NkwuNSA3My4xM3oiLz48L2c+PHBhdGggZD0iTTMwLjQgOTEuMDk1bDExLjcxLTYuMjE1djMuMjk3bC0xMS43MSA2LjIxN3oiIGNsYXNzPSJYIi8+PHBhdGggZD0iTS41IDczLjEzbDExLjcxLTYuMjE3IDI5LjkgMTcuOTY2LTExLjcxIDYuMjE1eiIgY2xhc3M9IlkiLz48cGF0aCBkPSJNMzAuNCA5MS4wOTVsLjAwMiAzLjMtMjkuOS0xNy45NjZMLjUgNzMuMTN6IiBjbGFzcz0iWiIvPjxwYXRoIGQ9Ik03LjY1NyA3Mi43ODRsMS40NTgtLjc3M3YuMjhsLTEuNDU4Ljc3NXoiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTYuNCA3Mi4wMjhsMS40NTgtLjc3M0w5LjExNiA3MmwtMS40NTguNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNNy42NTcgNzIuNzg0di4yODNMNi40IDcyLjMxdi0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNOS41MTggNzMuOWwxLjQ1OC0uNzczdi4yODNsLTEuNDU4Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTguMjYgNzMuMTQ3bDEuNDU4LS43NzUgMS4yNTcuNzU1LTEuNDU4Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTkuNTE4IDczLjl2LjI4M2wtMS4yNTctLjc1NnYtLjI4eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMTEuNDcgNzUuMDc1bDEuNDU3LS43NzMuMDAxLjI4My0xLjQ1OC43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xMC4yMTQgNzQuMzJsMS40NTgtLjc3MyAxLjI1Ni43NTUtMS40NTcuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTEuNDcgNzUuMDc1di4yODNsLTEuMjU3LS43NTZ2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0xMy4zMzggNzYuMTk4bDEuNDU3LS43NzUuMDAxLjI4My0xLjQ1OC43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xMi4wOCA3NS40NDJsMS40NTgtLjc3MyAxLjI1Ni43NTMtMS40NTcuNzc2eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTMuMzM4IDc2LjE5OHYuMjhsLTEuMjU3LS43NTR2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0xNS4yNjYgNzcuMzU2bDEuNDU4LS43NzV2LjI4M2wtMS40NTguNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMTQuMDEgNzYuNmwxLjQ1OC0uNzczIDEuMjU3Ljc1My0xLjQ1OC43NzZ6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0xNS4yNjYgNzcuMzU2di4yOGwtMS4yNTctLjc1NFY3Ni42eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMTcuMTMyIDc4LjQ3N2wxLjQ2LS43NzN2LjI4bC0xLjQ2Ljc3NXoiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTE1Ljg3IDc3LjcxN2wxLjQ2LS43NzMgMS4yNjQuNzYtMS40Ni43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0xNy4xMzIgNzguNDc3di4yODNMMTUuODY4IDc4di0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMTkuMDg1IDc5LjY1bDEuNDU3LS43NzMuMDAyLjI4LTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMTcuODI4IDc4Ljg5NWwxLjQ2LS43NzMgMS4yNTYuNzU1LTEuNDU3Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTE5LjA4NSA3OS42NXYuMjhsLTEuMjU2LS43NTQtLjAwMi0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjAuOTQ3IDgwLjc2OGwxLjQ1Ny0uNzczdi4yODNsLTEuNDU3Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTE5LjY5IDgwLjAxNGwxLjQ1Ny0uNzc1IDEuMjU4Ljc1NS0xLjQ1Ny43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0yMC45NDcgODAuNzY4di4yODNsLTEuMjU4LS43NTZ2LS4yOHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTIyLjc3NyA4MS44N2wxLjQ1Ny0uNzc0di4yODNsLTEuNDU3Ljc3MnoiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTIxLjUyIDgxLjExNGwxLjQ2LS43NzUgMS4yNTYuNzU1LTEuNDU3Ljc3NXoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTIyLjc3NyA4MS44N3YuMjhsLTEuMjU4LS43NTV2LS4yOHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTI0LjYzNiA4Mi45ODZsMS40Ni0uNzczdi4yOGwtMS40Ni43NzV6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0yMy4zOCA4Mi4yM2wxLjQ1Ny0uNzcyIDEuMjU4Ljc1NC0xLjQ2Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTI0LjYzNiA4Mi45ODZ2LjI4M2wtMS4yNTYtLjc1NnYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTI2LjU5IDg0LjE2bDEuNDYtLjc3NXYuMjgzbC0xLjQ2Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTI1LjMzNCA4My40MDRsMS40NTctLjc3MyAxLjI1OC43NTMtMS40Ni43NzZ6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0yNi41OSA4NC4xNnYuMjhsLTEuMjU2LS43NTR2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yOC40NTcgODUuMjhsMS40Ni0uNzczdi4yODNsLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjcuMiA4NC41MjVsMS40NTctLjc3MyAxLjI1OC43NTUtMS40Ni43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0yOC40NTcgODUuMjh2LjI4M2wtMS4yNTYtLjc1NnYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTMwLjM4NCA4Ni40NGwxLjQ2LS43NzN2LjI4M2wtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0yOS4xMjggODUuNjg1bDEuNDU3LS43NzUgMS4yNTguNzU1LTEuNDYuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMzAuMzg0IDg2LjQ0di4yODNsLTEuMjU2LS43NTZ2LS4yOHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTMyLjIxIDg3LjUzNWwxLjQ1Ny0uNzczLjAwMi4yODMtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0zMC45NSA4Ni43OGwxLjQ2LS43NzUgMS4yNTYuNzU1LTEuNDU3Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTMyLjIxIDg3LjUzNXYuMjgzbC0xLjI1Ni0uNzU2LS4wMDItLjI4eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNOS42NTcgNzEuNjZsMS40NTgtLjc3M3YuMjhsLTEuNDU4Ljc3NXoiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTguNCA3MC45MDNsMS40NTgtLjc3MyAxLjI1Ny43NTUtMS40NTguNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNOS42NTcgNzEuNjZ2LjI4M0w4LjQgNzEuMTg2di0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMTEuNTE4IDcyLjc3NmwxLjQ1OC0uNzczdi4yODNsLTEuNDU4Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTEwLjI2IDcyLjAyMmwxLjQ1OC0uNzc1IDEuMjU3Ljc1NS0xLjQ1OC43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0xMS41MTggNzIuNzc2di4yODNsLTEuMjU3LS43NTZ2LS4yOHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTEzLjQ3IDczLjk1bDEuNDU3LS43NzMuMDAxLjI4My0xLjQ1OC43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xMi4yMTQgNzMuMTk0bDEuNDU4LS43NzMgMS4yNTYuNzU1LTEuNDU3Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTEzLjQ3IDczLjk1di4yODNsLTEuMjU3LS43NTZ2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0xNS4zMzggNzUuMDczbDEuNDU2LS43NzUuMDAyLjI4My0xLjQ1OC43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xNC4wOCA3NC4zMTdsMS40NTgtLjc3MyAxLjI1NS43NTMtMS40NTcuNzc2eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTUuMzM4IDc1LjA3M3YuMjhsLTEuMjU2LS43NTR2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0xNy4yNjUgNzYuMjNsMS40Ni0uNzc1di4yODNsLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMTYuMDEgNzUuNDc1bDEuNDU3LS43NzMgMS4yNTguNzUzLTEuNDYuNzc2eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTcuMjY1IDc2LjIzdi4yOGwtMS4yNTYtLjc1NHYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTE5LjEzMiA3Ny4zNTJsMS40Ni0uNzczdi4yOGwtMS40Ni43NzV6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xNy44NyA3Ni41OTJsMS40Ni0uNzczIDEuMjY0Ljc2LTEuNDYuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTkuMTMyIDc3LjM1MnYuMjgzbC0xLjI2NC0uNzZ2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yMS4wODUgNzguNTI2bDEuNDU3LS43NzMuMDAyLjI4LTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMTkuODI4IDc3Ljc3bDEuNDYtLjc3MyAxLjI1Ni43NTUtMS40NTcuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMjEuMDg1IDc4LjUyNnYuMjhsLTEuMjU2LS43NTQtLjAwMi0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjIuOTQ3IDc5LjY0M2wxLjQ1Ny0uNzczdi4yODNsLTEuNDU3Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTIxLjY5IDc4Ljg5bDEuNDU3LS43NzUgMS4yNTguNzU1LTEuNDU3Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTIyLjk0NyA3OS42NDN2LjI4M2wtMS4yNTgtLjc1NnYtLjI4eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjQuNzc3IDgwLjc0M2wxLjQ1Ny0uNzczdi4yODNsLTEuNDU3Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTIzLjUyIDc5Ljk5bDEuNDYtLjc3NSAxLjI1Ni43NTUtMS40NTcuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMjQuNzc3IDgwLjc0M3YuMjgzbC0xLjI1OC0uNzU2di0uMjh6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yNi42MzYgODEuODZsMS40Ni0uNzc0di4yODNsLTEuNDYuNzc0eiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjUuMzggODEuMTA2bDEuNDU3LS43NzMgMS4yNTguNzUzLTEuNDYuNzc1eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMjYuNjM2IDgxLjg2di4yODNsLTEuMjU2LS43NTV2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yOC41OSA4My4wMzVsMS40Ni0uNzc1di4yODNsLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjcuMzM0IDgyLjI4bDEuNDU3LS43NzIgMS4yNTguNzUyLTEuNDYuNzc2eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMjguNTkgODMuMDM1di4yOGwtMS4yNTYtLjc1NHYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTMwLjQ1NyA4NC4xNTZsMS40Ni0uNzczdi4yODNsLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjkuMiA4My40bDEuNDU3LS43NzMgMS4yNTguNzU1LTEuNDYuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMzAuNDU3IDg0LjE1NnYuMjgzbC0xLjI1Ni0uNzU2VjgzLjR6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0zMi4zODQgODUuMzE0bDEuNDYtLjc3M3YuMjgzbC0xLjQ2Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTMxLjEyOCA4NC41NmwxLjQ1Ny0uNzc1IDEuMjU4Ljc1NS0xLjQ2Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTMyLjM4NCA4NS4zMTR2LjI4M2wtMS4yNTYtLjc1NnYtLjI4eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMzQuMjEgODYuNGwxLjQ1Ny0uNzczLjAwMi4yODMtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0zMi45NSA4NS42NTZsMS40Ni0uNzc1IDEuMjU2Ljc1NS0xLjQ1Ny43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0zNC4yMSA4Ni40di4yODNsLTEuMjU2LS43NTYtLjAwMi0uMjh6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0xMS43ODIgNzAuNTM0bDEuNDU4LS43NzN2LjI4bC0xLjQ1OC43NzV6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xMC41MjYgNjkuNzc4bDEuNDU4LS43NzMgMS4yNTcuNzU1LTEuNDU4Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTExLjc4MiA3MC41MzR2LjI4M2wtMS4yNTctLjc1NnYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTEzLjY0MyA3MS42NWwxLjQ1OC0uNzczdi4yODNsLTEuNDU4Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTEyLjM4NiA3MC44OTdsMS40NTgtLjc3NSAxLjI1Ny43NTUtMS40NTguNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTMuNjQzIDcxLjY1di4yODNsLTEuMjU3LS43NTZ2LS4yOHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTE1LjU5NSA3Mi44MjVsMS40NTctLjc3My4wMDIuMjgzLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMTQuMzQgNzIuMDdsMS40NTgtLjc3MyAxLjI1NS43NTUtMS40NTcuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMTUuNTk1IDcyLjgyNXYuMjgzbC0xLjI1Ni0uNzU2di0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMTcuNDYyIDczLjk0OGwxLjQ1Ny0uNzc1di4yODNsLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMTYuMjA3IDczLjE5MmwxLjQ1Ny0uNzczIDEuMjU2Ljc1My0xLjQ1Ny43NzZ6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0xNy40NjIgNzMuOTQ4di4yOGwtMS4yNTYtLjc1NHYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTE5LjQgNzUuMTA2bDEuNDYtLjc3NXYuMjgzbC0xLjQ2Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTE4LjEzNCA3NC4zNWwxLjQ1Ny0uNzczIDEuMjU4Ljc1My0xLjQ2Ljc3NnoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTE5LjQgNzUuMTA2di4yOGwtMS4yNTYtLjc1NHYtLjI4M3oiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTIxLjI1NyA3Ni4yMjdsMS40Ni0uNzczdi4yOGwtMS40Ni43NzV6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xOS45OTQgNzUuNDY3bDEuNDYtLjc3MyAxLjI2NC43Ni0xLjQ2Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTIxLjI1NyA3Ni4yMjd2LjI4M2wtMS4yNjQtLjc2di0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjMuMiA3Ny40bDEuNDU3LS43NzMuMDAyLjI4LTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjEuOTUzIDc2LjY0NWwxLjQ2LS43NzMgMS4yNTYuNzU1LTEuNDU3Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTIzLjIgNzcuNHYuMjhsLTEuMjU2LS43NTQtLjAwMi0uMjgzeiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjUuMDcyIDc4LjUxOGwxLjQ1Ny0uNzczdi4yODNsLTEuNDU3Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTIzLjgxNCA3Ny43NjRsMS40NTctLjc3NSAxLjI1OC43NTUtMS40NTcuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMjUuMDcyIDc4LjUxOHYuMjgzbC0xLjI1OC0uNzU2di0uMjh6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yNi45MDIgNzkuNjE4bDEuNDU3LS43NzN2LjI4M2wtMS40NTcuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjUuNjQ0IDc4Ljg2NGwxLjQ2LS43NzUgMS4yNTYuNzU1LTEuNDU3Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTI2LjkwMiA3OS42MTh2LjI4M2wtMS4yNTgtLjc1NnYtLjI4eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjguNzYgODAuNzM3bDEuNDYtLjc3NXYuMjgzbC0xLjQ2Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTI3LjUwNSA3OS45OGwxLjQ1Ny0uNzczIDEuMjU4Ljc1My0xLjQ2Ljc3NnoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTI4Ljc2IDgwLjczN3YuMjhsLTEuMjU2LS43NTR2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0zMC43MTQgODEuOWwxLjQ2LS43NzR2LjI4M2wtMS40Ni43NzJ6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0yOS40NiA4MS4xNTVsMS40NTctLjc3MyAxLjI1OC43NTMtMS40Ni43NzV6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0zMC43MTQgODEuOXYuMjhsLTEuMjU2LS43NTV2LS4yOHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTMyLjU4MiA4My4wM2wxLjQ2LS43NzN2LjI4M2wtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0zMS4zMjYgODIuMjc1bDEuNDU3LS43NzIgMS4yNTguNzU0LTEuNDYuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMzIuNTgyIDgzLjAzdi4yODNsLTEuMjU2LS43NTZ2LS4yODN6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0zNC41MSA4NC4xOWwxLjQ2LS43NzN2LjI4M2wtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0zMy4yNTMgODMuNDM1bDEuNDU3LS43NzUgMS4yNTguNzU1LTEuNDYuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMzQuNTEgODQuMTl2LjI4M2wtMS4yNTYtLjc1NnYtLjI4eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMzYuMzM0IDg1LjI4NWwxLjQ1Ny0uNzczLjAwMi4yODMtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0zNS4wNzYgODQuNTNsMS40Ni0uNzc1IDEuMjU2Ljc1NS0xLjQ1Ny43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0zNi4zMzQgODUuMjg1di4yODNsLTEuMjU2LS43NTYtLjAwMi0uMjh6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik02LjI2NiA3NC40NmwxLjQ1OC0uNzc1di4yNzVsLTEuNDU4Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTUuMDA4IDczLjcwNWwxLjQ1OC0uNzczIDEuMjU4Ljc1My0xLjQ1OC43NzZ6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik02LjI2NiA3NC40NnYuMjczTDUuMDEgNzMuOThsLS4wMDEtLjI3NHoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTguMDM0IDc1LjUyNGwxLjQ1OC0uNzc1di4yNzVsLTEuNDU4Ljc3M3oiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTYuNzc3IDc0Ljc2OGwxLjQ1OC0uNzczIDEuMjU3Ljc1My0xLjQ1OC43NzZ6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik04LjAzNCA3NS41MjR2LjI3M2wtMS4yNTctLjc1M3YtLjI3NnoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTTkuODk1IDc2LjY0bDEuNDU4LS43NzN2LjI3M2wtMS40NTguNzc1eiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNOC42MzggNzUuODg1bDEuNDU4LS43NzMgMS4yNTcuNzU1LTEuNDU4Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTkuODk1IDc2LjY0di4yNzVsLTEuMjU3LS43NTV2LS4yNzZ6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yNS40NTMgODUuOTZsMS40Ni0uNzczdi4yNzNsLTEuNDYuNzc1eiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjQuMTk1IDg1LjIwNGwxLjQ2LS43NzMgMS4yNTguNzU1LTEuNDYuNzc0eiIgY2xhc3M9IlIiLz48cGF0aCBkPSJNMjUuNDUzIDg1Ljk2di4yNzVsLTEuMjU2LS43NTUtLjAwMi0uMjc2eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjcuMjIyIDg3LjAyM2wxLjQ1Ny0uNzczdi4yNzNsLTEuNDU3Ljc3NXoiIGNsYXNzPSJTIi8+PHBhdGggZD0iTTI1Ljk2NCA4Ni4yNjdsMS40Ni0uNzczIDEuMjU1Ljc1NS0xLjQ1Ny43NzR6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0yNy4yMjIgODcuMDIzdi4yNzVsLTEuMjU4LS43NTV2LS4yNzZ6IiBjbGFzcz0iVCIvPjxwYXRoIGQ9Ik0yOS4wODIgODguMTRsMS40Ni0uNzczdi4yNzVsLTEuNDYuNzczeiIgY2xhc3M9IlMiLz48cGF0aCBkPSJNMjcuODI2IDg3LjM4NmwxLjQ1Ny0uNzc1IDEuMjU4Ljc1NS0xLjQ2Ljc3NHoiIGNsYXNzPSJSIi8+PHBhdGggZD0iTTI5LjA4MiA4OC4xNHYuMjc1bC0xLjI1Ni0uNzU1di0uMjc0eiIgY2xhc3M9IlQiLz48cGF0aCBkPSJNMjMuNDY2IDg0LjgwNmwxLjQ2LS43NzN2LjI3NWwtMS40Ni43NzN6IiBjbGFzcz0iUyIvPjxwYXRoIGQ9Ik0xMC41NzIgNzcuMDZsMS40NTgtLjc3MyAxMi44OTUgNy43NDctMS40Ni43NzN6IiBjbGFzcz0iUiIvPjxwYXRoIGQ9Ik0yMy40NjYgODQuODA2di4yNzVsLTEyLjg5NC03Ljc0N3YtLjI3NXoiIGNsYXNzPSJUIi8+PHBhdGggZD0iTS43NDIgNzMuMTY0bDI5LjQgMTcuNjd2My4yMDUiIGNsYXNzPSJVIFYgYiBjIi8+PC9nPjwvc3ZnPg==" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 19px; margin-left: 54px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 16px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; font-weight: bold; white-space: normal; overflow-wrap: normal;">
+                                Machine de développement
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="93" y="24" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="16px" text-anchor="middle" font-weight="bold">
+                    Machine de...
+                </text>
+            </switch>
+        </g>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 128px; height: 1px; padding-top: 234px; margin-left: 29px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                <span style="font-size: 14px">
+                                    chaîne d'outils de
+                                </span>
+                                <span style="font-size: 14px">
+                                    développement:
+                                    <br style="font-size: 14px"/>
+                                </span>
+                                <span style="font-size: 14px">
+                                    Docker, compilateur,
+                                </span>
+                                <span style="font-size: 14px">
+                                    debugger,
+                                    <br style="font-size: 14px"/>
+                                </span>
+                                <span style="font-size: 14px">
+                                    ...
+                                </span>
+                                <span style="font-size: 14px">
+                                    <br style="font-size: 14px"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="93" y="238" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    chaîne d'outils de...
+                </text>
+            </switch>
+        </g>
+        <rect x="210" y="54" width="370" height="360" rx="54" ry="54" fill="#f8cecc" stroke="#b85450" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 155px; height: 1px; padding-top: 19px; margin-left: 319px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: left;">
+                            <div style="display: inline-block; font-size: 16px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; font-weight: bold; white-space: normal; overflow-wrap: normal;">
+                                Système embarqué
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="319" y="24" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="16px" font-weight="bold">
+                    Système embarqué
+                </text>
+            </switch>
+        </g>
+        <rect x="232.42" y="354" width="325.15" height="30" fill="#dae8fc" stroke="#6c8ebf" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 323px; height: 1px; padding-top: 369px; margin-left: 233px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Hardware
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="395" y="373" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Hardware
+                </text>
+            </switch>
+        </g>
+        <rect x="232.42" y="319" width="325.15" height="30" fill="#a20025" stroke="#6f0000" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 323px; height: 1px; padding-top: 334px; margin-left: 233px;">
+                        <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Amorceur / Bootloader
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="395" y="338" fill="#ffffff" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Amorceur / Bootloader
+                </text>
+            </switch>
+        </g>
+        <rect x="232.42" y="284" width="325.15" height="30" fill="#d5e8d4" stroke="#82b366" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 323px; height: 1px; padding-top: 299px; margin-left: 233px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Noyau Linux
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="395" y="303" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Noyau Linux
+                </text>
+            </switch>
+        </g>
+        <rect x="232.42" y="249" width="325.15" height="30" fill="#f0a30a" stroke="#bd7000" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 323px; height: 1px; padding-top: 264px; margin-left: 233px;">
+                        <div data-drawio-colors="color: #000000; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Bibliothèques standards (C, Posix)
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="395" y="268" fill="#000000" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Bibliothèques standards (C, Posix)
+                </text>
+            </switch>
+        </g>
+        <rect x="232.42" y="214" width="105.39" height="30" fill="#fad7ac" stroke="#b46504" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 103px; height: 1px; padding-top: 229px; margin-left: 233px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Bibliothèque A
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="285" y="233" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Bibliothèque A
+                </text>
+            </switch>
+        </g>
+        <rect x="342.3" y="214" width="105.39" height="30" fill="#fad7ac" stroke="#b46504" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 103px; height: 1px; padding-top: 229px; margin-left: 343px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Bibliothèque B
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="395" y="233" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Bibliothèque B
+                </text>
+            </switch>
+        </g>
+        <rect x="452.18" y="214" width="105.39" height="30" fill="#fad7ac" stroke="#b46504" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 103px; height: 1px; padding-top: 229px; margin-left: 453px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Bibliothèque C
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="505" y="233" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Bibliothèque C
+                </text>
+            </switch>
+        </g>
+        <path d="M 260.16 135 C 228.83 135 221 155 246.06 159 C 221 167.8 249.19 187 269.56 179 C 283.66 195 330.65 195 346.32 179 C 377.65 179 377.65 163 358.06 155 C 377.65 139 346.32 123 318.9 131 C 299.32 119 267.99 119 260.16 135 Z" fill="#b0e3e6" stroke="#0e8088" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 155px; height: 1px; padding-top: 155px; margin-left: 222px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Application 1
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="299" y="159" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Application 1
+                </text>
+            </switch>
+        </g>
+        <path d="M 375.22 84 C 344.53 84 336.86 104 361.41 108 C 336.86 116.8 364.48 136 384.42 128 C 398.23 144 444.27 144 459.61 128 C 490.3 128 490.3 112 471.12 104 C 490.3 88 459.61 72 432.76 80 C 413.58 68 382.89 68 375.22 84 Z" fill="#b1ddf0" stroke="#10739e" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 151px; height: 1px; padding-top: 104px; margin-left: 338px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Application 2
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="414" y="108" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Application 2
+                </text>
+            </switch>
+        </g>
+        <path d="M 450.34 146.8 C 418.75 146.8 410.86 166.8 436.13 170.8 C 410.86 179.6 439.28 198.8 459.81 190.8 C 474.03 206.8 521.41 206.8 537.2 190.8 C 568.78 190.8 568.78 174.8 549.04 166.8 C 568.78 150.8 537.2 134.8 509.56 142.8 C 489.82 130.8 458.24 130.8 450.34 146.8 Z" fill="#bac8d3" stroke="#23445d" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 156px; height: 1px; padding-top: 167px; margin-left: 412px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Application 3
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="490" y="171" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Application 3
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

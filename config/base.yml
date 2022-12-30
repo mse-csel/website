@@ -1,14 +1,20 @@
-site_name: CSEL1
-site_description: Construction de systèmes embarqués sous Linux
-copyright: "Copyright &copy; 2022 Haute école d'ingénierie et d'architecture of Fribourg"
-site_url: https://mse-csel.github.io/website/
-
 docs_dir: '../docs/'
 site_dir: '../public/'
 
 theme:
   name: material
   language: 'fr'
+  palette:
+    # Palette toggle for light mode
+    - scheme: isc
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode  
   font:
     text: 'Roboto'
     code: 'IBM Plex Mono'
@@ -18,7 +24,11 @@ theme:
   favicon: 'assets/images/favicon.ico'
   features:
     - content.code.annotate
-    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.tracking
+    - content.tabs.link
 
 markdown_extensions:
   admonition: {}
@@ -35,7 +45,6 @@ markdown_extensions:
     generic: true
   pymdownx.betterem:
     smart_enable: all
-  pymdownx.tabbed: {}
   pymdownx.highlight: {}
   pymdownx.caret: {}
   pymdownx.critic: {}
@@ -49,28 +58,31 @@ markdown_extensions:
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
   pymdownx.superfences: {}
+  pymdownx.tabbed:
+      alternate_style: true 
   pymdownx.tasklist:
     custom_checkbox: true
   pymdownx.tilde: {}
   mdx_math: {}
-  pymdown_include: {}
   attr_list: {}
   md_in_html: {}
 
 extra_css:
-  - 'stylesheets/extra.css'
+  - stylesheets/extra.css
 
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-extra:
-  Ado: Architecture des ordinateurs
-  ado: architecture des ordinateurs
-  class_names:
-    - ISC-2
-  year: '2021-2022'
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/mse-csel/website
+plugins:
+  - search
+  - include-markdown:
+      opening_tag: '{!'
+      closing_tag: '!}'
+  - awesome-pages
+  - macros
+  - mkdocs-simple-hooks:
+      hooks:
+        on_pre_build: "hooks:on_pre_build"
+  
