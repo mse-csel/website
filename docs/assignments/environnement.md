@@ -63,7 +63,7 @@ Installez aussi [Visual Studio Code](https://code.visualstudio.com/) si ce n'est
 
 ## Création de l'espace de travail (workspace) sur la machine hôte personnelle
 
-Avec notre browser, rendez vous sur le dépôt [csel-workspace](https://github.com/supcik/csel-workspace)
+Avec notre browser, rendez vous sur le dépôt [csel-workspace](https://github.com/mse-csel/csel-workspace)
 et faites un _fork_ dans l'espace de travail personnel de github d'un membre du groupe.
 
 Ajoutez les autres membres du groupe avec le rôle "Write", "Maintain" ou "Admin". Ajouter aussi
