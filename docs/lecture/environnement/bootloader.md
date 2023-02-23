@@ -94,28 +94,28 @@ Source code :
 
 Le démarrage du NanoPi NEO Plus2 se décompose en 6 phases:
 
-1. Lorsque le μP est mis sous tension, le code stocké dans son BROM va
-   charger dans ses 32KiB de SRAM interne le firmware « sunxi-spl »
+1. Lorsque le μP est mis sous tension, le code stocké dans son BROM
+   charge dans ses 32KiB de SRAM interne le firmware « sunxi-spl »
    stocké dans le secteur no 16 de la carte SD / eMMC et l'exécuter.
 2. Le firmware « sunxi-spl » (Secondary Program Loader) initialise les
    couches basses du μP, puis charge l'U-Boot dans la RAM du μP avant de
    le lancer.
-3. L'U-Boot va effectuer les initialisations hardware nécessaires
+3. L'U-Boot effectue les initialisations hardware nécessaires
    (horloges, contrôleurs, ...) avant de charger l'image non compressées
    du noyau Linux dans la RAM, le fichier «Image», ainsi que le fichier
    de configuration FDT (flattened device tree).
-4. L'U-Boot lancera le noyau Linux en lui passant les arguments de boot
+4. L'U-Boot lance le noyau Linux en lui passant les arguments de boot
    (bootargs).
-5. Le noyau Linux procédera à son initialisation sur la base des
+5. Le noyau Linux procéde à son initialisation sur la base des
    bootargs et des éléments de configuration contenus dans le fichier
    FDT (sun50i-h5-nanopi-neo- plus2.dtb).
-6. Le noyau Linux attachera les systèmes de fichiers (rootfs, tmpfs,
-   usrfs, ...) et poursuivra son exécution.
+6. Le noyau Linux attache les systèmes de fichiers (rootfs, tmpfs,
+   usrfs, ...) et poursuit son exécution.
 
 Ref. documentation sur les bootargs:
 
-- fichier ./Documentation/kernel-parameters.txt dans les sources du noyau Linux
-- sp.02.4_mas_cesl_linux_boot_commands_arguments.pdf
+- fichier `./Documentation/kernel-parameters.txt` dans les sources du noyau Linux
+- [linux_boot_commands_arguments](assets/sp.02.4_mas_cesl_linux_boot_commands_arguments.pdf)
 
 ## Structure de la carte SD du NanoPI NEO Plus2
 

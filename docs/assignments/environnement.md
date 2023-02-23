@@ -344,11 +344,11 @@ Pour ce faire, il faut créer un nouveau fichier de configuration (par exemple `
 - Ouvrir/créer le fichier de commandes `boot_cifs.cmd` et l'ouvrir avec VS-Code
 - Entrer le contenu suivant :
   ``` plain
-  {!docs/environnement/env-linux/inc/boot_cifs.cmd!>}
+  {! include "environnement/inc/boot_cifs.cmd" !}
   ```
 - Ecrire aussi le `Makefile` suivant:
   ``` makefile
-  {!docs/environnement/env-linux/inc/makefile!>}
+  {! include "environnement/inc/makefile" !}
   ```
 - Dans un terminal, entrer dans le dossier `boot-scripts` et taper la command `make`
   Vous devriez obtenir le fichier `boot.cifs` dans le dossier `boot-scripts`
