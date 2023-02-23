@@ -63,7 +63,7 @@ Les étudiant-e-s devront être capables :
         1. De décrire le principe de multiplexage des entrées/sorties
         1. De décrire les accès bloquants et non bloquants
         1. De traiter le multiplexage des entrées/sorties avec « select » et/ou « epoll»
-        1. De décrire le principe de fonctionnement des signaux (levée, capture, traitement, …)
+        1. De décrire le principe de fonctionnement des signaux (levée, capture, traitement, ...)
     1. Multiprocessing
         1. De décrire la problématique de la programmation multitâches (processus - thread)
         1. De citer les avantages/désavantages des processus par rapport aux threads

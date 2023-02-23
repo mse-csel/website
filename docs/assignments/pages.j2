@@ -1,7 +1,17 @@
 title: Travaux pratiques
 nav:
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 1 %}
     - environnement.md
+{%- endif %}
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 2 %}
     - programmation-noyau
+{%- endif %}
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 4 %}
     - programmation-systeme
+{%- endif %}
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 6 %}
     - optimisations.md
+{%- endif %}
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 7 %}
     - mini-projet.md
+{%- endif %}

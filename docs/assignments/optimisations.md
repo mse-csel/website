@@ -326,7 +326,7 @@ Indice : rappelez-vous vos cours d'algorithmique...
 
 ### Implémentation de l'optimisation
 
-Une partie de la solution… Il faut remplacer le `std::vector` par une structure de données de la librairie
+Une partie de la solution... Il faut remplacer le `std::vector` par une structure de données de la librairie
 standard plus efficace pour faire des _finds_. Par exemple un `std::set`. Ceci implique quelques petites
 modifications :
 

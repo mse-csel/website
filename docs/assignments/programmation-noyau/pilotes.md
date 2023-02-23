@@ -66,7 +66,7 @@ tpno: 3
 
 ## sysfs
 
-{{ ex() }}: Développer un pilote de périphérique orienté caractère permettant de valider la fonctionnalité du sysfs. Le pilote offrira quelques attributs pouvant être lus et écrites avec les commandes `echo` et `cat`. Ces attributs seront disponibles sous l'arborescence `/sys/class/…`.
+{{ ex() }}: Développer un pilote de périphérique orienté caractère permettant de valider la fonctionnalité du sysfs. Le pilote offrira quelques attributs pouvant être lus et écrites avec les commandes `echo` et `cat`. Ces attributs seront disponibles sous l'arborescence `/sys/class/...`.
 
 Dans un premier temps, implémentez juste ce qu'il faut pour créer une nouvelle classe (par exemple : `my_sysfs_class`)
 
@@ -91,7 +91,7 @@ comme dans l'exercice précédent, ou vous pouvez utiliser un `platform_device`,
 ## Device Tree _(optionel)_
 
 {{ ex() }}:
-Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise un _device tree_ (DT) pour décrire le nombre de périphériques à mettre en œuvre. Le DT sera externe à l'arborescence des sources du noyaux Linux. La structure `struct miscdevice` peut être utilisée pour instancier les _devices_ et les fichiers d'accès (`/dev/…`).
+Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise un _device tree_ (DT) pour décrire le nombre de périphériques à mettre en œuvre. Le DT sera externe à l'arborescence des sources du noyaux Linux. La structure `struct miscdevice` peut être utilisée pour instancier les _devices_ et les fichiers d'accès (`/dev/...`).
 
 {% if assignment_show_solution >= page.meta.tpno %}
 ??? success "Solution"

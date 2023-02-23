@@ -18,7 +18,7 @@ développement permettant de générer le code exécutable pour la cible
 - ...
 
 Bien qu'il soit possible de développer des applications pour Linux embarqué
-sur différents types de machine (Windows, Mac OS X, …), il est préférable
+sur différents types de machine (Windows, Mac OS X, ...), il est préférable
 d'utiliser une machine avec Linux comme système opératif
 
 - Meilleur support de la communauté
@@ -36,16 +36,16 @@ tâches distinctes
 1. **Développement de «Board Support Package»** :
    Tâche consistant à mettre en œuvre une distribution Linux avec son bootloader
    pour un système embarqué cible (adaptation des routines d'initialisation du
-   matériel, des pilotes de périphériques, …)
+   matériel, des pilotes de périphériques, ...)
 2. **Développement de logiciels noyau** :
    Tâche consistant à développer des logiciels fonctionnant dans le noyau Linux
-   (développement de pile de protocoles, de pilotes de périphériques, …)
+   (développement de pile de protocoles, de pilotes de périphériques, ...)
 3. **Développement d'applications système** :
    Tâche consistant à développer des applications et/ou de bibliothèques
    logicielles dans l'espace utilisateur spécifique au système embarqué cible
 4. **Intégration du système** :
    Tâche consistant à intégrer et valider les différentes composantes (bootloader,
-   noyau, applications, …) pour construire le système final
+   noyau, applications, ...) pour construire le système final
 
 ## Solutions Linux embarqué
 
@@ -53,7 +53,7 @@ Deux chemins sont possibles pour aller vers du Linux embarqué
 
 1. Utiliser des **solutions propriétaires** développées et maintenues par des
    fournisseurs, tels que MontaVista, Wind River ou TimeSys
-    - Faciles d'accès, mais souvent coûteuses (royalities, runtime fees, …)
+    - Faciles d'accès, mais souvent coûteuses (royalities, runtime fees, ...)
     - Ces solutions viennent avec leurs propres environnements de développement
       pas toujours suffisamment flexible pour les besoins.
     - Leurs outils de développement utilisent un mélange de composants opensource et les outils propriétaires.
@@ -286,7 +286,7 @@ Alternatives :
 
 - Référence http://www.codesourcery.com/
 - Compagnie avec une grande expertise sur les chaînes d'outils libres
-- Ces chaînes d'outils sont disponibles pour ARM, MIPS, PowerPC, SuperH, …
+- Ces chaînes d'outils sont disponibles pour ARM, MIPS, PowerPC, SuperH, ...
 - Egalement possible d'acheter ces outils avec du support
 
 <figure markdown>

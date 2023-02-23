@@ -12,8 +12,6 @@ __base="$(basename ${__file} .sh)"
 
 site_dir="${1:-public}"
 config="${2:-config/mkdocs.yml}"
-week="${3:-999}"
-solutions="${4:-999}"
 
 # Install mkdocs from .devcontainer in a sub-shell
 cp -a .devcontainer/mkdocs-edu /
@@ -22,12 +20,5 @@ cp -a .devcontainer/mkdocs-edu /
 python --version
 mkdocs --version
 
-echo "Filtering pages"
-for i in $(find docs -name pages.j2); do
-    echo "Processing $i"
-    jinja2 -D week=$week -o $(dirname $i)/.pages $i
-done
-
 echo "Building site"
-export SHOW_SOLUTION=$solutions
 mkdocs build --clean --config-file ${config} --site-dir ${site_dir}

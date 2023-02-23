@@ -1,4 +1,8 @@
 title: Programmation Noyau
 nav:
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 2 %}
     - modules.md
+{%- endif %}
+{%- if env.ASSIGNMENT_SHOW_DATA | float >= 3 %}
     - pilotes.md
+{%- endif %}

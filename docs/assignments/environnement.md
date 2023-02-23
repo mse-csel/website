@@ -88,7 +88,7 @@ Ouvrez maintenant un terminal dans VSCode et téléchargez "buildroot" avec la c
 get-buildroot.sh 
 ```
 
-Pour votre culture génlrale, étudiez le script `get-buildroot.sh` dans `/usr/local/bin/`.
+Pour votre culture générale, étudiez le script `get-buildroot.sh` dans `/usr/local/bin/`.
 
 ### Génération et installation de l'environnement
 

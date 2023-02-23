@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   version="1.1"
+   id="svg7698"
+   height="578.815"
+   width="918.90601"
+   sodipodi:docname="Linux_Virtual_Memory_Layout_64bit.svg"
+   inkscape:export-filename="Linux Memory Layout 64bit.png"
+   inkscape:export-xdpi="109.47"
+   inkscape:export-ydpi="109.47"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+  <title
+     id="title8655">Linux 64 bit memory layout</title>
+  <defs
+     id="defs7700">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient9887">
+      <stop
+         style="stop-color:#98d0de;stop-opacity:1;"
+         offset="0"
+         id="stop9889" />
+      <stop
+         style="stop-color:#98d0de;stop-opacity:0;"
+         offset="1"
+         id="stop9891" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path8842"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible">
+      <path
+         id="path8848"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)" />
+    </marker>
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotM"
+       style="overflow:visible">
+      <path
+         id="path8886"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none;marker-end:none"
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-408.07134 : 156.07317 : 1"
+       inkscape:vp_y="0 : 2053.2703 : 0"
+       inkscape:vp_z="864.6736 : 506.64049 : 1"
+       inkscape:persp3d-origin="211.3486 : 131.41741 : 1"
+       id="perspective7706" />
+    <filter
+       id="filter7871"
+       inkscape:label="Drop shadow"
+       width="1.1565819"
+       height="1.0312332"
+       x="-0.056978915"
+       y="-0.011365505">
+      <feGaussianBlur
+         id="feGaussianBlur7873"
+         in="SourceAlpha"
+         stdDeviation="2"
+         result="blur" />
+      <feColorMatrix
+         id="feColorMatrix7875"
+         result="bluralpha"
+         type="matrix"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0 " />
+      <feOffset
+         id="feOffset7877"
+         in="bluralpha"
+         dx="4"
+         dy="4"
+         result="offsetBlur" />
+      <feMerge
+         id="feMerge7879">
+        <feMergeNode
+           id="feMergeNode7881"
+           in="offsetBlur" />
+        <feMergeNode
+           id="feMergeNode7883"
+           in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9887"
+       id="linearGradient9893"
+       x1="346.93997"
+       y1="385.82117"
+       x2="597.5575"
+       y2="385.82117"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(6,314.2677)" />
+    <filter
+       inkscape:collect="always"
+       id="filter9899"
+       x="-0.0174225"
+       y="-0.0091516744"
+       width="1.034845"
+       height="1.0183033">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.758067"
+         id="feGaussianBlur9901" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.58395425"
+     inkscape:cx="381.87923"
+     inkscape:cy="321.94303"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1390"
+     inkscape:window-height="942"
+     inkscape:window-x="196"
+     inkscape:window-y="177"
+     inkscape:window-maximized="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <metadata
+     id="metadata7703">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Linux 64 bit memory layout</dc:title>
+        <dc:date>2012.02.07</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jean-Christophe Berthon</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:language>English</dc:language>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:source>http://www.berthon.eu/wiki/_detail/media:Linux%20Memory%20Layout%2064bit.svg</dc:source>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>linux</rdf:li>
+            <rdf:li>memory</rdf:li>
+            <rdf:li>layout</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-151.06551,-431.97324)">
+    <path
+       style="opacity:0.8;fill:url(#linearGradient9893);fill-opacity:1;stroke:none;filter:url(#filter9899)"
+       d="M 599.33816,930.61284 C 520.02459,903.56954 457.66353,891.66241 357.76476,887.6261 L 357.15932,752.00595 C 478.55146,704.47835 541.21523,569.16093 594.19185,469.56488"
+       id="path9860"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:#98d0de;fill-opacity:1;stroke:#98d0de;stroke-width:1.09423;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7871)"
+       d="M 213.24226,458.92395 V 673.0802 l 27.6875,-14.75 34.84375,9.78125 31.3125,-12.4375 v -196.75 z m 93.84375,248.4375 -31.3125,12.4375 -34.84375,-9.78125 -27.6875,14.75 v 204.625 h 93.84375 z"
+       id="rect7778"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="259.83685"
+       y="544.95105"
+       id="text8488"><tspan
+         sodipodi:role="line"
+         id="tspan8490"
+         x="259.83685"
+         y="544.95105"
+         style="font-size:25.6744px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle">Kernel</tspan><tspan
+         sodipodi:role="line"
+         x="259.83685"
+         y="577.04407"
+         id="tspan8492"
+         style="font-size:25.6744px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle">Space</tspan></text>
+    <text
+       id="text8507"
+       y="829.29297"
+       x="259.47955"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         y="829.29297"
+         x="259.47955"
+         id="tspan8509"
+         sodipodi:role="line"
+         style="font-size:25.6744px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle">User</tspan><tspan
+         id="tspan8511"
+         y="861.38599"
+         x="259.47955"
+         sodipodi:role="line"
+         style="font-size:25.6744px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle">Space</tspan></text>
+    <g
+       transform="matrix(1.2499986,0,0,1.5752242,182.03853,706.02578)"
+       id="g8526"
+       style="stroke-width:0.498852;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         transform="rotate(90,258.673,259.393)"
+         v:groupContext="shape"
+         v:mID="9"
+         id="shape9-28"
+         style="stroke-width:0.498852;stroke-miterlimit:4;stroke-dasharray:none">
+        <title
+           id="title101">Sheet.9</title>
+        <path
+           style="stroke:#000000;stroke-width:0.498852;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           inkscape:connector-curvature="0"
+           id="path103"
+           class="st7"
+           d="M 0,412.46 V 384.12" />
+        <path
+           style="stroke:#000000;stroke-width:0.498852;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           inkscape:connector-curvature="0"
+           id="path105"
+           class="st7"
+           d="M 141.73,412.46 V 384.12" />
+      </g>
+      <g
+         transform="rotate(90,264.36761,273.94588)"
+         v:groupContext="shape"
+         v:mID="10"
+         id="shape10-32"
+         style="stroke-width:0.498852;stroke-miterlimit:4;stroke-dasharray:none">
+        <title
+           id="title108">Sheet.10</title>
+        <path
+           style="stroke:#000000;stroke-width:0.498852;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           inkscape:connector-curvature="0"
+           id="path110"
+           class="st7"
+           d="M 0,412.46 H 124.02" />
+      </g>
+    </g>
+    <text
+       id="text8661"
+       y="734.29431"
+       x="344.04474"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         y="734.29431"
+         x="344.04474"
+         id="tspan8663"
+         sodipodi:role="line"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">Up to 128 TiB</tspan></text>
+    <g
+       style="stroke-width:0.530304;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g8665"
+       transform="matrix(1.2499986,0,0,1.3939151,182.03853,457.50338)">
+      <g
+         style="stroke-width:0.530304;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g8667"
+         v:mID="9"
+         v:groupContext="shape"
+         transform="rotate(90,258.673,259.393)">
+        <title
+           id="title8669">Sheet.9</title>
+        <path
+           d="M 0,412.46 V 384.12"
+           class="st7"
+           id="path8671"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:0.530304;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M 141.73,412.46 V 384.12"
+           class="st7"
+           id="path8673"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:0.530304;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+      <g
+         style="stroke-width:0.530304;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g8675"
+         v:mID="10"
+         v:groupContext="shape"
+         transform="rotate(90,264.36761,273.94588)">
+        <title
+           id="title8677">Sheet.10</title>
+        <path
+           d="M 0,412.46 H 124.02"
+           class="st7"
+           id="path8679"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:0.530304;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="344.04474"
+       y="643.64136"
+       id="text8681"><tspan
+         sodipodi:role="line"
+         id="tspan8683"
+         x="344.04474"
+         y="643.64136"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">Up to 128 TiB</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       x="208.85066"
+       y="451.64902"
+       id="text8685"><tspan
+         sodipodi:role="line"
+         id="tspan8687"
+         x="208.85066"
+         y="451.64902"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">64 bit</tspan></text>
+    <text
+       id="text8689"
+       y="935.64905"
+       x="208.85066"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         y="935.64905"
+         x="208.85066"
+         id="tspan8691"
+         sodipodi:role="line"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">0 bit</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       x="208.85066"
+       y="719.64905"
+       id="text8693"><tspan
+         sodipodi:role="line"
+         id="tspan8695"
+         x="208.85066"
+         y="719.64905"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">47 bit</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="244.07375"
+       y="983.01617"
+       id="text8697"><tspan
+         sodipodi:role="line"
+         id="tspan8699"
+         x="244.07375"
+         y="983.01617"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">So Kernel + User Spaces add for 256 TiB which is a tiny part</tspan><tspan
+         sodipodi:role="line"
+         x="244.07375"
+         y="1005.5162"
+         id="tspan9848"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">of the 16 777 216 TiB addressable over 64 bit!</tspan></text>
+    <path
+       style="fill:#98d0de;fill-opacity:1;stroke:#98d0de;stroke-width:1.09423;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7871)"
+       d="m 640.34375,459.04895 v 17.3125 l 93.84375,0.0625 v -17.375 z m 0,29.21875 v 189.8125 l 29.84375,-14.71875 31.40625,8.15625 32.59375,-11.96875 v -165.3125 l -32.59375,-3.875 -31.40625,2.65625 z m 93.84375,214.34375 -32.59375,11.96875 -31.40625,-8.15625 -29.84375,14.71875 v 147.65625 l 29.84375,-4.75 31.40625,2.65625 32.59375,-3.875 z m 0,178.0625 -93.84375,0.0312 v 48.81255 h 93.84375 z"
+       id="rect8701" />
+    <rect
+       style="fill:#287082;fill-opacity:1;stroke:none"
+       id="rect8703"
+       width="95.405663"
+       height="18.706993"
+       x="639.54352"
+       y="911.8241" />
+    <rect
+       y="894.98779"
+       x="639.54352"
+       height="17.45986"
+       width="95.405663"
+       id="rect8705"
+       style="fill:#3591a8;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#4bacc6;fill-opacity:1;stroke:none"
+       id="rect8707"
+       width="95.405663"
+       height="15.589161"
+       x="639.54352"
+       y="880.02222" />
+    <rect
+       y="458.4913"
+       x="639.54352"
+       height="18.706993"
+       width="95.405663"
+       id="rect8709"
+       style="fill:#287082;fill-opacity:1;stroke:none" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="685.31036"
+       y="925.72424"
+       id="text8724"><tspan
+         sodipodi:role="line"
+         id="tspan8726"
+         x="685.31036"
+         y="925.72424"
+         style="font-size:16px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1">Code</tspan></text>
+    <text
+       id="text8728"
+       y="909.01733"
+       x="685.31036"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:16px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1"
+         y="909.01733"
+         x="685.31036"
+         id="tspan8730"
+         sodipodi:role="line">Data</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       x="685.31036"
+       y="893.01147"
+       id="text8732"><tspan
+         sodipodi:role="line"
+         id="tspan8734"
+         x="685.31036"
+         y="893.01147"
+         style="font-size:16px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1">BSS</tspan></text>
+    <text
+       id="text8736"
+       y="798.15527"
+       x="685.31036"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:16px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1"
+         y="798.15527"
+         x="685.31036"
+         id="tspan8738"
+         sodipodi:role="line">Heap</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:sans-serif;-inkscape-font-specification:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none"
+       x="685.31036"
+       y="578.15527"
+       id="text8740"><tspan
+         sodipodi:role="line"
+         id="tspan8748"
+         x="685.31036"
+         y="578.15527"
+         style="font-size:16px;line-height:1.25;font-family:sans-serif">Memory</tspan><tspan
+         sodipodi:role="line"
+         x="685.31036"
+         y="598.15527"
+         id="tspan9854"
+         style="font-size:16px;line-height:1.25;font-family:sans-serif">Mapping</tspan><tspan
+         sodipodi:role="line"
+         x="685.31036"
+         y="618.15527"
+         id="tspan9856"
+         style="font-size:16px;line-height:1.25;font-family:sans-serif">Area</tspan></text>
+    <text
+       id="text8750"
+       y="472.27597"
+       x="685.31036"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:16px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1"
+         y="472.27597"
+         x="685.31036"
+         id="tspan8752"
+         sodipodi:role="line">Stack</tspan></text>
+    <g
+       transform="matrix(1.2499986,0,0,1.1302145,611.67391,703.24435)"
+       id="g8754"
+       style="stroke-width:0.588929;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         transform="rotate(90,258.673,259.393)"
+         v:groupContext="shape"
+         v:mID="9"
+         id="g8756"
+         style="stroke-width:0.588929;stroke-miterlimit:4;stroke-dasharray:none">
+        <title
+           id="title8758">Sheet.9</title>
+        <path
+           style="stroke:#000000;stroke-width:0.588929;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           inkscape:connector-curvature="0"
+           id="path8760"
+           class="st7"
+           d="M 0,412.46 V 384.12" />
+        <path
+           style="stroke:#000000;stroke-width:0.588929;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           inkscape:connector-curvature="0"
+           id="path8762"
+           class="st7"
+           d="M 141.73,412.46 V 384.12" />
+      </g>
+      <g
+         transform="rotate(90,264.36761,273.94588)"
+         v:groupContext="shape"
+         v:mID="10"
+         id="g8764"
+         style="stroke-width:0.588929;stroke-miterlimit:4;stroke-dasharray:none">
+        <title
+           id="title8766">Sheet.10</title>
+        <path
+           style="stroke:#000000;stroke-width:0.588929;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+           inkscape:connector-curvature="0"
+           id="path8768"
+           class="st7"
+           d="M 0,412.46 H 124.02" />
+      </g>
+    </g>
+    <g
+       style="stroke-width:1.6941;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g8770"
+       transform="matrix(1.2499986,0,0,0.13658702,611.67391,458.87267)">
+      <g
+         style="stroke-width:1.6941;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g8772"
+         v:mID="9"
+         v:groupContext="shape"
+         transform="rotate(90,258.673,259.393)">
+        <title
+           id="title8774">Sheet.9</title>
+        <path
+           d="M 0,412.46 V 384.12"
+           class="st7"
+           id="path8776"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:1.6941;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M 141.73,412.46 V 384.12"
+           class="st7"
+           id="path8778"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:1.6941;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+      <g
+         style="stroke-width:1.6941;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g8780"
+         v:mID="10"
+         v:groupContext="shape"
+         transform="rotate(90,264.36761,273.94588)">
+        <title
+           id="title8782">Sheet.10</title>
+        <path
+           d="M 0,412.46 H 124.02"
+           class="st7"
+           id="path8784"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:1.6941;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       x="636.19995"
+       y="935.64905"
+       id="text8786"><tspan
+         sodipodi:role="line"
+         id="tspan8788"
+         x="636.19995"
+         y="935.64905"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">0 bit</tspan></text>
+    <text
+       id="text8790"
+       y="835.0069"
+       x="636.19995"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         y="835.0069"
+         x="636.19995"
+         id="tspan8792"
+         sodipodi:role="line"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">32 bit</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       x="636.19995"
+       y="715.41266"
+       id="text8794"><tspan
+         sodipodi:role="line"
+         id="tspan8796"
+         x="636.19995"
+         y="715.41266"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">45 bit</tspan></text>
+    <text
+       id="text8798"
+       y="462.50027"
+       x="636.19995"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         y="462.50027"
+         x="636.19995"
+         id="tspan8800"
+         sodipodi:role="line"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">47 bit</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="773.35461"
+       y="726.29431"
+       id="text8802"><tspan
+         sodipodi:role="line"
+         id="tspan8804"
+         x="773.35461"
+         y="726.29431"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">Zone: 0x2AAA AAAA A555</tspan><tspan
+         sodipodi:role="line"
+         x="773.35461"
+         y="748.79431"
+         id="tspan8806"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">Up to ~42 TiB</tspan></text>
+    <text
+       id="text8808"
+       y="474.68896"
+       x="773.35461"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         id="tspan8812"
+         y="474.68896"
+         x="773.35461"
+         sodipodi:role="line"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">Up to 8 MiB, by default</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#Arrow2Lend)"
+       d="M 724.87244,499.60224 V 645.99081"
+       id="path8816"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9820"
+       d="M 724.87244,856.76944 V 710.38087"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#Arrow2Lend)" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9822"
+       d="m 724.87244,462.35158 v 11.62181"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#Arrow2Lend)" />
+    <g
+       style="stroke-width:1.03394;stroke-miterlimit:4;stroke-dasharray:none"
+       id="g9824"
+       transform="matrix(1.2499986,0,0,0.36668641,611.67391,879.32153)">
+      <g
+         style="stroke-width:1.03394;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g9826"
+         v:mID="9"
+         v:groupContext="shape"
+         transform="rotate(90,258.673,259.393)">
+        <title
+           id="title9828">Sheet.9</title>
+        <path
+           d="M 0,412.46 V 384.12"
+           class="st7"
+           id="path9830"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:1.03394;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M 141.73,412.46 V 384.12"
+           class="st7"
+           id="path9832"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:1.03394;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+      <g
+         style="stroke-width:1.03394;stroke-miterlimit:4;stroke-dasharray:none"
+         id="g9834"
+         v:mID="10"
+         v:groupContext="shape"
+         transform="rotate(90,264.36761,273.94588)">
+        <title
+           id="title9836">Sheet.10</title>
+        <path
+           d="M 0,412.46 H 124.02"
+           class="st7"
+           id="path9838"
+           inkscape:connector-curvature="0"
+           style="stroke:#000000;stroke-width:1.03394;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+    <text
+       id="text9840"
+       y="894.90259"
+       x="773.35461"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         id="tspan9844"
+         y="894.90259"
+         x="773.35461"
+         sodipodi:role="line"
+         style="font-size:18px;line-height:1.25;font-family:sans-serif">Static, this is the executable file</tspan></text>
+  </g>
+</svg>

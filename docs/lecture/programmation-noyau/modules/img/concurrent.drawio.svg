@@ -1,0 +1,348 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="377px" height="398px" viewBox="-0.5 -0.5 377 398" content="&lt;mxfile&gt;&lt;diagram id=&quot;HzSM26qF48bQAedqq8x7&quot; name=&quot;Page-1&quot;&gt;7VrLcuI4FP0alqH8NiyBhJ5FprurmapZTglb2KoYy5FlIP31I8mSjS3zCBBCuvACm2tJSPece48e9OzJcvONgCz+G4cw6VlGuOnZjz3LGhge++SGt9LgDu3SEBEUliazNszQbyiNhrQWKIR5oyDFOKEoaxoDnKYwoA0bIASvm8UWOGn+agYiqBlmAUh0678opLEcluXX9r8gimL1y6Y3LN8sgSosR5LHIMTrLZP91LMnBGNaPi03E5hw3ym/lPWmO95WHSMwpcdU4O9EP+ibGhwM2Vjl1xSn7DYOCrKCvIbJvsR0mcjHBU7pFCxRwnH8heeYYmmd4YIEvIWYUgaK5doj9sG6wT94gbwfYRwlEGQo7wd4KV4EuSg6XZRtssdWqyUTTEd+n+AEE9Fr2xAXs5fj4YPY6RJpylUfOQMliwCJYIVahQfjMcRLSAnrk0FgAihaNZsHklFRVa52OnuQft8Bmn8MBrfp9qm42hQ5DQNPx2BwJgSi6ogQ8LZVIMOIOWKr5Z/cwArI9OQ4MjjfFBGMFpxlizW4VdeOwluOcwWSQo7gn5hAEGosILhIw8qp6xhROMuAcNea5dUbIgVKkkYsDoCIxZwS/AIbb1xfvGnRaCGuijkrSCjc7OeOzgpZwRo6TfgMCee6TtWmyr/xVpr2jAvE8uAPyadVYJ8Wy/6NxLLrGZ1kmO6Kfb9V3r5s7CvebQV/z/ISKgEQcxaFgfda8GnAuFa3LZMX8ft3XKzE1ArmOUCqpV5JCVWok5HPYM4qNtgHEhSl7DlgwELWhTEPQ8RmPSP5YonCkLcxJjBHv8FctMejWaLAGnfHPfdxB7u6md3FuYR3bgyCl0ikQFVERs/OHCGne7Jj9SSrwdUdNJQtPRh9e2jJ2ej7qKlx6cF0G1x6aLWAF4ucBUc7u7yPUL7GpxGlHEA+bhaQ7JYA/oHmvYndGw0JGxJO+eS7KL3IXPzHKI/HdEfoyC590RTJZno0mVxGeVy3lTzcayqP3ZFZWrDycMrOC5+9DnCMlgOGV3TA4PD4a1obh2mt0iEpu3lLNIdm6EK/i85Dz7eBdzSd7W44rwGXdRiu/AXSIJZogTwrl/ILtOEQlqIDydMKltrDMauW07xGCPK4AnsL2KbTpKgIyfmJcySyY4cIPrcKMKQoQ1JXSYqzLjHV5sjmYPBYdjnj411uIr5X0l/mAYB9USsjKIf9BAcvn0y/s8ikarRm5a6WGSy77+hcsy/AtaEukq8FklDuV0I2YnoEfbbRlabjp1NdiaiZqr46+JowauB7HWnmEtAr2t2SLDr2NecF5l0X362Lzufp4hHTuLsuKl38r0j5TYz79nPkDlZVAtn3jK1LMWGPYFp964Oypr5N8fyuBeRdNi9Bic+TzWpP76vvY555LiQXldv7mG43ZBc/FrL0mcusCAIRhIO8E55b3NRrAXDiBOvADOvB6DsyOM7dtFOQy5jzmg1cZM9OZfZ7cGnB5Z8ZXKcd+A2bedby9x8SuINWee/ChwSuFvk/goAtUYT+fr3I/8DtfGv/upPlBcvxmtvwl8kT6tBeSbPzEXniiC3Na69drWO3dKtj13M0UA8EdcY1J+p46xfMZVIR46IgKuMEar76qqcaCwPYBtgTYNpyd/zoHxDdRhDtOBO7CsSmjvGMUbZcYgSELStfCx3K+/pi/3n9ByF+wtKCfa3/zlYmwfo/gfbT/w==&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs>
+        <style type="text/css">
+            /* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMRrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtM1rTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMVrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMprTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMZrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMdrTFcZZJmOpwVS.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMlrTFcZZJmOpw.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lujVj9_mf.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+        </style>
+    </defs>
+    <g>
+        <path d="M 166 297 Q 166 297 166 330.63" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 166 335.88 L 162.5 328.88 L 166 330.63 L 169.5 328.88 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 120 23.05 Q 146 17 159.41 90.73" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 160.35 95.9 L 155.65 89.64 L 159.41 90.73 L 162.54 88.39 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <rect x="0" y="7" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 37px; margin-left: 1px;">
+                        <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                Thread
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="60" y="41" fill="#ffffff" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Thread
+                </text>
+            </switch>
+        </g>
+        <path d="M 297.25 57 Q 266 7 221 22 Q 176 37 170.04 90.67" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 169.46 95.89 L 166.75 88.55 L 170.04 90.67 L 173.71 89.32 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 8px; margin-left: 246px;">
+                        <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
+                                <font color="#000000">
+                                    Nouvel essai
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="246" y="13" fill="#FFFFFF" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Nouvel essai
+                </text>
+            </switch>
+        </g>
+        <rect x="256" y="57" width="120" height="60" rx="9" ry="9" fill="#6a00ff" stroke="#3700cc" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 87px; margin-left: 257px;">
+                        <div data-drawio-colors="color: #ffffff; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
+                                Attente pour la libération du verrou
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="316" y="91" fill="#ffffff" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Attente pour la l...
+                </text>
+            </switch>
+        </g>
+        <rect x="106" y="97" width="120" height="60" fill="#e1d5e7" stroke="#9673a6" pointer-events="none"/>
+        <path d="M 121.39 142 C 120.71 141.78 120.19 141.25 120 140.57 L 120 125.51 C 120.16 124.79 120.69 124.22 121.39 123.98 L 123.12 123.98 L 123.12 119.99 C 123.13 117.87 124.02 115.85 125.58 114.4 C 127.14 112.95 129.24 112.19 131.38 112.29 C 133.63 112 135.9 112.68 137.6 114.15 C 139.31 115.63 140.28 117.75 140.28 119.99 L 140.28 123.98 L 141.77 123.98 C 142.56 124.14 143.2 124.73 143.4 125.51 L 143.4 140.57 C 143.19 141.27 142.63 141.81 141.92 142 Z M 132.87 139.05 L 132.87 132.81 C 133.98 132.29 134.57 131.08 134.3 129.9 C 134.03 128.72 132.96 127.88 131.73 127.88 C 130.5 127.88 129.43 128.72 129.16 129.9 C 128.89 131.08 129.48 132.29 130.6 132.81 L 130.6 139.05 Z M 137.47 123.98 L 137.47 119.84 C 137.23 116.92 134.65 114.73 131.68 114.92 C 128.74 114.76 126.21 116.94 125.96 119.84 L 125.96 123.98 Z" fill="#00188d" stroke="none" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 127px; margin-left: 157px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Aquisition du verrou
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="186" y="131" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Aquisiti...
+                </text>
+            </switch>
+        </g>
+        <rect x="106" y="337" width="120" height="60" fill="#e1d5e7" stroke="#9673a6" pointer-events="none"/>
+        <path d="M 122.1 382 C 121.35 381.89 120.74 381.31 120.6 380.56 L 120.6 366.12 C 120.71 365.33 121.32 364.71 122.1 364.59 L 137.28 364.59 L 137.28 359.8 C 137.03 356.71 134.55 354.39 131.7 354.6 C 130.19 354.55 128.73 355.22 127.7 356.43 C 126.67 357.64 126.17 359.28 126.33 360.92 L 123.48 360.92 C 123.27 358.62 124.04 356.33 125.61 354.64 C 127.18 352.94 129.39 352 131.7 352.05 C 133.85 352.02 135.93 352.86 137.46 354.37 C 139 355.88 139.87 357.95 139.89 360.11 L 139.89 364.59 L 141.51 364.59 C 142.21 364.79 142.72 365.39 142.8 366.12 L 142.8 380.56 C 142.66 381.29 142.09 381.86 141.36 382 Z M 132.81 379.17 L 132.81 373.16 C 133.86 372.65 134.42 371.49 134.16 370.35 C 133.9 369.22 132.89 368.41 131.73 368.41 C 130.57 368.41 129.56 369.22 129.3 370.35 C 129.04 371.49 129.6 372.65 130.65 373.16 L 130.65 379.17 Z" fill="#00188d" stroke="none" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 367px; margin-left: 157px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Libération du verrou
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="186" y="371" fill="rgb(0, 0, 0)" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Libérati...
+                </text>
+            </switch>
+        </g>
+        <path d="M 166 157 Q 166 157 166 190.63" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 166 195.88 L 162.5 188.88 L 166 190.63 L 169.5 188.88 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 175px; margin-left: 139px;">
+                        <div data-drawio-colors="color: #000000; background-color: rgb(255, 255, 255); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; background-color: rgb(255, 255, 255); white-space: nowrap;">
+                                Succès
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="139" y="179" fill="#000000" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Succès
+                </text>
+            </switch>
+        </g>
+        <path d="M 184 157 Q 196 177 241 172 Q 286 167 302.51 122.96" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 304.36 118.05 L 305.18 125.83 L 302.51 122.96 L 298.62 123.37 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 182px; margin-left: 252px;">
+                        <div data-drawio-colors="color: #000000; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: nowrap;">
+                                Occupé
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="252" y="186" fill="#000000" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Occupé
+                </text>
+            </switch>
+        </g>
+        <rect x="106" y="197" width="120" height="100" rx="15" ry="15" fill="#f0a30a" stroke="#bd7000" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 247px; margin-left: 107px;">
+                        <div data-drawio-colors="color: #000000; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                <br/>
+                                Ressource partagée
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="166" y="251" fill="#000000" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Ressource partagé...
+                </text>
+            </switch>
+        </g>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 212px; margin-left: 107px;">
+                        <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 14px; font-family: Roboto; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                                Section critique
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="166" y="216" fill="#FFFFFF" font-family="Roboto" font-size="14px" text-anchor="middle">
+                    Section critique
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

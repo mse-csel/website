@@ -1,27 +1,27 @@
-docs_dir: '../docs/'
-site_dir: '../public/'
+docs_dir: "../docs/"
+site_dir: "../public/"
 
 theme:
   name: material
-  language: 'fr'
+  language: "fr"
   palette:
     # Palette toggle for light mode
     - scheme: isc
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode  
+        name: Switch to light mode
   font:
-    text: 'Roboto'
-    code: 'IBM Plex Mono'
-  custom_dir: '../overrides/'
+    text: "Roboto"
+    code: "IBM Plex Mono"
+  custom_dir: "../overrides/"
   icon:
-    logo: material/school 
-  favicon: 'assets/images/favicon.ico'
+    logo: material/school
+  favicon: "assets/images/favicon.ico"
   features:
     - content.code.annotate
     - navigation.tabs
@@ -29,15 +29,16 @@ theme:
     - navigation.instant
     - navigation.tracking
     - content.tabs.link
+    - content.code.copy
 
 markdown_extensions:
   admonition: {}
   extra: {}
   smarty:
-      smart_angled_quotes: true
-      substitutions:
-        left-angle-quote: "&laquo;&#xA0;"
-        right-angle-quote: "&#xA0;&raquo;"
+    smart_angled_quotes: true
+    substitutions:
+      left-angle-quote: "&laquo;&#xA0;"
+      right-angle-quote: "&#xA0;&raquo;"
   mkdcomments: {}
   footnotes: {}
   codehilite: {}
@@ -59,7 +60,7 @@ markdown_extensions:
   pymdownx.smartsymbols: {}
   pymdownx.superfences: {}
   pymdownx.tabbed:
-      alternate_style: true 
+    alternate_style: true
   pymdownx.tasklist:
     custom_checkbox: true
   pymdownx.tilde: {}
@@ -78,11 +79,10 @@ extra_javascript:
 plugins:
   - search
   - include-markdown:
-      opening_tag: '{!'
-      closing_tag: '!}'
+      opening_tag: "{!"
+      closing_tag: "!}"
   - awesome-pages
   - macros
   - mkdocs-simple-hooks:
       hooks:
         on_pre_build: "hooks:on_pre_build"
-  
