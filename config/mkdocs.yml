@@ -1,9 +1,32 @@
-INHERIT: base-fr.yml
+INHERIT: base.yml
 site_url: https://mse-csel.github.io/website
 site_name: Construction de systèmes embarqués sous Linux
 site_description:  Construction de systèmes embarqués sous Linux
-
+copyright: "Copyright &copy; 2023 Haute école d'ingénierie et d'architecture of Fribourg"
 
 extra:
   teacher_name: "Jacques Supcik"
-          
+  year: '2022-2023'
+  teams_code: mx5fntd
+  info:
+    students_count: 11
+    students_cs: 10
+    students_ds: 1
+    students_ft: 3
+    students_pt: 8
+
+  pdf_to_jpg:
+    programmation-noyau/modules/assets/sp.03.1_mas_csel_noyau_modules.pdf
+  social:
+    - icon: material/web
+      link: https://www.heia-fr.ch/fr/
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/heiafr.htafr
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/HEIAFR
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/school/heiafr/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/heiafr
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/eiafr

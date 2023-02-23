@@ -1,0 +1,14 @@
+title: Leçons
+nav:
+{%- if env.LECTURE_SHOW | float >= 1 %}
+    - environnement
+{% endif %}
+{%- if env.LECTURE_SHOW | float >= 2 %}
+    - programmation-noyau
+{% endif %}
+{%- if env.LECTURE_SHOW | float >= 4 %}
+    - programmation-systeme
+{% endif %}
+{%- if env.LECTURE_SHOW | float >= 6 %}
+    - optimisations
+{% endif %}

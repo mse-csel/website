@@ -6,44 +6,56 @@ title: "Introduction"
 - Module : MA-CSEL1
 - Titre : MA-CSEL1 - Construction de Systèmes Embarqués sous Linux
 - Intervenant
-    - Jacques Supcik (HEIA-FR / ISC)
-- 18 étudiants inscrits
-    - 16 étudiants CS/TIC
-    - 2 étudiants EIE/TIN
-    - 5 plein temps
-    - 13 temps partiel
+    - Jacques Supcik (HEIA-FR / ISC)<br/><jacques.supcik@hefr.ch>
+- {{ info.students_count }} étudiants inscrits
+    {%- if info.students_cs  > 0 %}
+    - {{ info.students_cs }} étudiant{% if info.students_cs  > 0 %}s{% endif %} CS
+    {%- endif %}
+    {%- if info.students_cs  > 0 %}
+    - {{ info.students_ds }} étudiant{% if info.students_ds  > 0 %}s{% endif %} DS
+    {%- endif %}
+    {%- if info.students_ft  > 0 %}
+    - {{ info.students_ft }} étudiant{% if info.students_ft  > 0 %}s{% endif %} plein temps
+    {%- endif %}
+    {%- if info.students_pt  > 0 %}
+    - {{ info.students_pt }} étudiant{% if info.students_pt  > 0 %}s{% endif %} temps partiel
+    {%- endif %}
+    
+## Groupe Microsoft Teams
 
-
-## Communication
-
-- e-mail : jacques.supcik@hefr.ch
-- MS-Teams : [Groupe MSE-CSEL1](https://teams.microsoft.com/l/team/19%3a8c0T003imo0cNfBkutblbtt4frLvQuT57QncCpbgd5I1%40thread.tacv2/conversations?groupId=849f5561-f450-415b-92a9-3b50931c353b&tenantId=a372f724-c0b2-4ea0-abfb-0eb8c6f84e40)
-
+{%- if teams_code %}
+<div style="font-size: 1.4em; border: solid; padding: 0.5em">
+code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
+</div>
+{%- elif teams_name and teams_url %}
+[{{ teams_name }}]({{ teams_url }})
+{%- else %}
+**A DÉFINIR**
+{%- endif %}
 
 ## Programme des cours
 
-- Horaire : 14:35 - 17:00
+- Horaire : 15:**10** - 17:**55**
 - Salle de classe : HEIA-FR / C00.16
 
-| Semaine  | Date      | Thème |
-|:---------|:----------|:------|
-| 8/SP-1   | 25.2.2022 | Environnement Linux embarqué 1 |
-| 9/SP-2   | 4.3.2022  | Environnement Linux embarqué 2 |
-| 10/SP-3  | 11.3.2022 | Programmation noyau Linux 1    |
-| 11/SP-4  | 18.3.2022 | Programmation noyau Linux 2    |
-| 12/SP-5  | 25.3.2022 | Programmation noyau Linux 3    |
-| 13/SP-6  | 1.4.2022  | Programmation noyau Linux 4    |
-| 14/SP-7  | 8.4.2022  | Programmation système Linux 1  |
-| 15/SP-8  | 15.4.2022 | Vendredi Saint                 |
-| 16       |           | Pâques                         |
-| 17/SP-9  | 29.4.2022 | Programmation système Linux 2  |
-| 18/SP-10 | 6.5.2022  | Programmation système Linux 3  |
-| 19/SP-11 | 13.5.2022 | Programmation système Linux 4  |
-| 20/SP-12 | 20.5.2022 | Optimisation système Linux 1   |
-| 21/SP-13 | 27.5.2022 | Optimisation système Linux 2   |
-| 22/SP-14 | 3.6.2022  | Mini projet intégré 1          |
-| 23       | 10.6.2022 | Mini projet intégré 2          |
-
+| Semaine  | Date      | Thème                          |
+| :------- | :-------- | :----------------------------- |
+| 8/SP-1   | 24.2.2023 | Environnement Linux embarqué 1 |
+| 9/SP-2   | 3.3.2023  | Environnement Linux embarqué 2 |
+| 10/SP-3  | 10.3.2023 | Programmation noyau Linux 1    |
+| 11/SP-4  | 17.3.2023 | Programmation noyau Linux 2    |
+| 12/SP-5  | 24.3.2023 | Programmation noyau Linux 3    |
+| 13/SP-6  | 31.3.2023 | Programmation noyau Linux 4    |
+| 14/SP-7  | 7.4.2023  | Vendredi Saint                 |
+| 15       |           | Pâques                         |
+| 16/SP-8  | 21.4.2023 | Programmation système Linux 1  |
+| 17/SP-9  | 28.4.2023 | Programmation système Linux 2  |
+| 18/SP-10 | 5.5.2023  | Programmation système Linux 3  |
+| 19/SP-11 | 12.5.2023 | Programmation système Linu x 4 |
+| 20/SP-12 | 19.5.2023 | Pont de l'Ascension            |
+| 21/SP-13 | 26.5.2023 | Optimisation système Linux     |
+| 22/SP-14 | 2.6.2023  | Mini projet intégré 1          |
+| 23       | 9.6.2023  | Mini projet intégré 2          |
 
 ## Déroulement des cours
 
@@ -102,7 +114,7 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 - Interface noyaux (system calls et bibliothèques)
 - File I/O
 - Gestion des processus et threads
-- Communication inter processus (IPC, signaux, …)
+- Communication inter processus (IPC, signaux, ...)
 - Mémoire virtuelle et accès aux périphériques par UIO
 - Unix domain sockets
 - IPC system V
@@ -114,21 +126,20 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 
 - Mise en œuvre des concepts étudiés durant les 6 premières semaines
 
-
 ## Rapport de laboratoire
 
 ### Rapport
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
-    - 8.4.2022 : Environnement Linux embarqué et programmation noyau Linux 
-    - 3.6.2022 : Programmation système Linux et optimisation système Linux
-    - 17.6.2022 : Mini projet intégré
+    - 6.4.2023 : Environnement Linux embarqué et programmation noyau Linux 
+    - 2.6.2023 : Programmation système Linux et optimisation système Linux
+    - 16.6.2023 : Mini projet intégré
 - Format : fichier PDF avec les annexes dans un fichier .tar
 - Langue : français, allemand ou anglais
 
 ### Contenu (indicatif)
 
-- En-tête (logos, établissement, titre, auteur, lieu et date, …)
+- En-tête (logos, établissement, titre, auteur, lieu et date, ...)
 - Par journée de cours (sujet / thème) entre 1 et 4 pages
     - Résumé du laboratoire
     - Réponse aux questions
@@ -155,7 +166,6 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 - Examen théorique oral 65%
 - Les rapports de laboratoire 35%
 
-
 ## Littérature
 
 ![Embedded Linux Primer, Second Edition](assets/embedded_linux_primer.jpg){align=right width="200" class="shadow"}
@@ -166,7 +176,6 @@ November, 2010, 656 pages<br/>
 ISBN-10: 0137017839 | ISBN-13: 978-0137017836
 
 <div style="clear: both"/>
-
 
 ![Image title](assets/linux_kernel_development.jpg){align=right width="200" class="shadow"}
 ### Linux Kernel Development
@@ -179,7 +188,7 @@ ISBN-10: 0672329468 | ISBN-13: 978-0672329463
 
 ![Image title](assets/essential_linux_device_drivers.jpg){align=right width="200" class="shadow"}
 ### Essentials Linux Device Drivers
-_Probably the most wide ranging and complete Linux device driver book…_<br/>
+_Probably the most wide ranging and complete Linux device driver book..._<br/>
 By Sreekrishnan Venkateswaran<br/>
 April, 2008, 744 pages<br/>
 ISBN-10: 0132396556 | ISBN-13: 978-0132396554
@@ -273,7 +282,6 @@ ISBN-10: 0672322269 | ISBN-13: 978-0672322266
 
 <div style="clear: both"/>
 
-
 ## Liens utiles
 
 ### Noyau Linux
@@ -281,7 +289,7 @@ ISBN-10: 0672322269 | ISBN-13: 978-0672322266
 - [Linux documentation](http://www.tldp.org)
 - [Linux weekly news](http://lwn.net)
 - [Linux kernel mailing list (FAQ)](http://www.tux.org/lkml/)
-- [Kernel Newbies (glossaire, articles, présentations, …)](http://kernelnewbies.org)
+- [Kernel Newbies (glossaire, articles, présentations, ...)](http://kernelnewbies.org)
 
 ### Projet ARM
 

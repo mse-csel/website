@@ -24,3 +24,7 @@ img.shadow {
 .column {
     flex: 50%;
 }
+
+.md-decimal-list ol li {
+    list-style-type: decimal !important;
+}

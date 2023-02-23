@@ -1,19 +1,10 @@
 nav:
-    - ... | index.*.md
+    - index.md
     - organisation
     - documentation
-{%- if week | int >= 1 %}
-    - environnement
-{%- endif %}
-{%- if week | int >= 3 %}
-    - programmation-noyau
-{%- endif %}
-{%- if week | int >= 7 %}
-    - programmation-systeme
-{%- endif %}
-{%- if week | int >= 11 %}
-    - optimisations
-{%- endif %}
-{%- if week | int >= 13 %}
-    - mini-projet
-{%- endif %}
+{%- if env.LECTURE_SHOW | float > 0 %}
+    - lecture
+{% endif %}
+{%- if env.ASSIGNMENT_SHOW_DATA | float > 0 %}
+    - assignments
+{% endif %}
