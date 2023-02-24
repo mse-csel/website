@@ -44,7 +44,7 @@ Numéro |  Nom              | Description
 
 ??? example "main.c"
     ```c
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/appl/main.c!>}
+    {! include "assets/daemon/appl/main.c!>}
     ```
 
 ??? example "Makefile"
