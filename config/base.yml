@@ -81,6 +81,8 @@ extra_javascript:
 
 plugins:
   - search
+  - exclude-search:
+      exclude_unreferenced: true
   - include-markdown:
       opening_tag: "{!"
       closing_tag: "!}"
