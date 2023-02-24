@@ -68,6 +68,9 @@ markdown_extensions:
   attr_list: {}
   md_in_html: {}
 
+hooks:
+  - hooks.py
+
 extra_css:
   - stylesheets/extra.css
 
