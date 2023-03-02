@@ -326,19 +326,40 @@ Cette dernière option offre l'avantage de pouvoir utiliser VS-Code.
 Visual Studio Code avec ses extensions et les "multi-root workspaces" offre une interface très simple
 et un debugger de qualité pour le debugging de vos applications. Pour configurer VS-Code, il suffit trois fichiers:
 
-- Un fichier "workspace"
-- Un fichier "task"
-- Un fichier "launcher"
+- Un fichier `*.code.workspace` (pour le projet)
+- Un fichier `task.json` (dans le dossier `.vscode` de chaque "root")
+- Un fichier `launcher.json` (dans le dossier `.vscode` de chaque "root")
 
 Ces fichiers sont déjà configurés dans votre workspace.
 
-Les fichiers _task_ (`task.json`) et _launcher_ (`launch.json`) se trouvent du répertoire .vscode de chaque projet, soit dans les répertoires /workspace/src/samples/tp.01/debug/.vscode et /workspace/src/samples/tp.01/coredump/.vscode.
+- Ouvrez le fichier `env-fibonacci.code-workspace` avec VS-Code (File --> Open Workspace from File...)
+- Pressez ++ctrl+p++ (ou ++cmd+p++ sur Mac) et choisissez "Tasks: Run Task"
+- Choisissez "gdbserver fibonacci"
+- Puis "Continue without scanning the task output"
+- Le terminal devrait afficher:
+  ```text
+  Executing task in folder fibonacci: ssh -t root@192.168.0.14 '/usr/bin/gdbserver :1234 /workspace/src/01_environment/fibonacci/app 2' 
+
+  Process /workspace/src/01_environment/fibonacci/app created; pid = 312
+  Listening on port 1234
+  ```
+- Démarrez le debugger depuis VS-code et choisissez "(gdb) Launch (fibonacci)
+- Débuggez votre application
+
+Expérimentez avec les autres sous-dossiers de "src/01_environment/"
 
 ## Mise en place de l'environnement pour le développement du noyau sous CIFS/SMB
 
-Pour le développement de modules et de pilotes de périphériques devant fonctionner dans le noyau Linux, il est généralement plus commode de charger le noyau de la machine hôte sur la cible et d'accéder le _rootfs_ fraîchement généré ou modifié directement via le réseau. 
+Pour le développement de modules et de pilotes de périphériques devant
+fonctionner dans le noyau Linux, il est généralement plus commode de
+charger le noyau de la machine hôte sur la cible et d'accéder le
+_rootfs_ fraîchement généré ou modifié directement via le réseau. 
 
-Pour ce faire, il faut créer un nouveau fichier de configuration (par exemple `boot.cifs`) pour l'U-Boot, et le copier sur la carte SD dans la partition vfat `boot`. Pour créer ce fichier, il faut tout d'abord éditer un fichier avec les variables et commandes nécessaire à l'U-Boot :
+Pour ce faire, il faut créer un nouveau fichier de configuration (par
+exemple `boot.cifs`) pour l'U-Boot, et le copier sur la carte SD dans la
+partition vfat `boot`. Pour créer ce fichier, il faut tout d'abord
+éditer un fichier avec les variables et commandes nécessaire à l'U-Boot
+:
 
 - Créer un dossier `boot-scripts` dans le _workspace_
 - Ouvrir/créer le fichier de commandes `boot_cifs.cmd` et l'ouvrir avec VS-Code
@@ -350,16 +371,22 @@ Pour ce faire, il faut créer un nouveau fichier de configuration (par exemple `
   ``` makefile
   {! include "environnement/inc/makefile" !}
   ```
-- Dans un terminal, entrer dans le dossier `boot-scripts` et taper la command `make`
-  Vous devriez obtenir le fichier `boot.cifs` dans le dossier `boot-scripts`
-- Copier le fichier `boot.cifs` sur la partition vfat `boot` de la carte SD
-- Redémarer la cible et l'arrêter dans l'U-Boot (en pressant une touche au démarrage) et changer le script de démarrage de la cible
-  avec la commande `setenv boot_scripts boot.cifs`. Si vous souhaitez conserver cette configuration, taper également la commande `saveenv`
+- Dans un terminal, entrer dans le dossier `boot-scripts` et taper la
+  command `make` Vous devriez obtenir le fichier `boot.cifs` dans le
+  dossier `boot-scripts`
+- Copier le fichier `boot.cifs` sur la partition vfat `boot` de la carte
+  SD
+- Redémarer la cible et l'arrêter dans l'U-Boot (en pressant une touche
+  au démarrage) et changer le script de démarrage de la cible avec la
+  commande `setenv boot_scripts boot.cifs`. Si vous souhaitez conserver
+  cette configuration, taper également la commande `saveenv`
   ![configuration U-Boot](environnement/boot_env.png)
 - Relancer le système / redémarrer la cible (avec la commande `boot`)
 
-Lors du premier démarrage sur le réseau, la cible va générer de nouvelles clés SSH et c'est possible que les
-permissions de ces clés soient mal configurées. Vous verrez alors des messages de ce genre sur la console:
+Lors du premier démarrage sur le réseau, la cible va générer de
+nouvelles clés SSH et c'est possible que les permissions de ces clés
+soient mal configurées. Vous verrez alors des messages de ce genre sur
+la console:
 
 ``` plain
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -379,23 +406,37 @@ chmod go= /etc/ssh/*_key
 Redémarrez avec un `reboot` et vérifiez que vous pouvez maintenant vous connecter avec SSH.
 
 ## Travail
-1. Installez l'environnement de développement sur la machine hôte, selon les instructions ci-dessus, et configurez la cible en mode de développement avec CIFS/SMB.
+1. Installez l'environnement de développement sur la machine hôte, selon
+   les instructions ci-dessus, et configurez la cible en mode de
+   développement avec CIFS/SMB.
 1. Installez/configurez SSH pour un accès à distance.
 1. Créez un script permettant de générer la carte SD.
-1. Testez les différentes méthodes et techniques de débogage proposées par l'environnement Linux. Pour cela, générez les exemples fournis dans le répertoire
-   "~/workspace/csel1/environment" en suivant les indications des slides. Ces fichiers se trouvent également sous Moodle.
-1. Créez une partition _ext4_ avec l'espace restant sur la carte SD (avec les commandes `fdisk /dev/mmcblk2` et `mkfs.ext4`) et montez ce répertoire sous `/opt`.
-  Démarrez ensuite automatiquement (mode production) un petit programme que vous aurez préalablement placé dans `/opt`.
+1. Testez les différentes méthodes et techniques de débogage proposées
+   par l'environnement Linux. Pour cela, générez les exemples fournis
+   dans le répertoire "~/workspace/csel1/environment" en suivant les
+   indications des slides. Ces fichiers se trouvent également sous
+   Moodle.
+1. Créez une partition _ext4_ avec l'espace restant sur la carte SD
+  (avec les commandes `fdisk /dev/mmcblk2` et `mkfs.ext4`) et montez ce
+  répertoire sous `/opt`. Démarrez ensuite automatiquement (mode
+  production) un petit programme que vous aurez préalablement placé dans
+  `/opt`.
 1. Répondez aux questions 
 
 ## Questions
 
 1. Comment faut-il procéder pour générer l'U-Boot ?
-1. Comment peut-on ajouter et générer un package supplémentaire dans le Buildroot ?
-1. Comment doit-on procéder pour modifier la configuration du noyau Linux ?
+1. Comment peut-on ajouter et générer un package supplémentaire dans le
+   Buildroot ?
+1. Comment doit-on procéder pour modifier la configuration du noyau
+   Linux ?
 1. Comment faut-il faire pour générer son propre rootfs ?
-1. Comment faudrait-il procéder pour utiliser la carte eMMC en lieu et place de la carte SD ?
-1. Dans le support de cours, on trouve différentes configurations de l'environnement de développement. Qu'elle serait la configuration optimale pour le développement uniquement d'applications en espace utilisateur ?
+1. Comment faudrait-il procéder pour utiliser la carte eMMC en lieu et
+   place de la carte SD ?
+1. Dans le support de cours, on trouve différentes configurations de
+   l'environnement de développement. Qu'elle serait la configuration
+   optimale pour le développement uniquement d'applications en espace
+   utilisateur ?
 
 ---
 
