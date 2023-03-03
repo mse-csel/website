@@ -18,7 +18,7 @@ mkdocs-minify-plugin = "^0.6.2"
 mkdocs-include-markdown-plugin = "^4.0.3"
 python-markdown-comments = {git = "https://github.com/ryneeverett/python-markdown-comments.git"}
 mkdocs-exclude-search = "^0.6.5"
-mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-git-revision-date-localized-plugin = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 
