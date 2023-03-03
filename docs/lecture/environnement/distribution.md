@@ -104,15 +104,15 @@ une architecture de processeur donnée,
 
 Les deux outils les plus connus
 
-- `ld` – l'éditeur de liens GNU
-- `as` – l'assembleur GNU
+- `ld` : l'éditeur de liens GNU
+- `as` : l'assembleur GNU
 
 Il contient également
 
-- `ar`, `ranlib` – outils pour générer et manipuler des archives (`*.a`)
-- `objdump`, `objcopy`, `nm`, `readelf`, `size`, `strings`, `strip` – outils pour analyser et
+- `ar`, `ranlib` : outils pour générer et manipuler des archives (`*.a`)
+- `objdump`, `objcopy`, `nm`, `readelf`, `size`, `strings`, `strip` - outils pour analyser et
    manipuler les fichiers objets
-- `addr2line`, `c++filt`, `gprof` – outils de debugging en complément à GDB
+- `addr2line`, `c++filt`, `gprof` : outils de debugging en complément à GDB
 
 <figure markdown>
 ![](img/distribution/gnu.png){width=150}

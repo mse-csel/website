@@ -5,7 +5,7 @@ title: Device Tree
 ## Introduction
 
 Sur les systèmes à microprocesseurs, certains bus permettent de découvrir dynamiquement
-les périphériques qui y sont connectés, p.ex. le PCIe ou l'USB, ce qui permet
+les périphériques qui y sont connectés, par exemple le PCIe ou l'USB, ce qui permet
 d'éviter de connaître à l'avance leur présence et leurs caractéristiques.
 
 <figure markdown>
@@ -34,7 +34,7 @@ périphériques d'un système allant des périphériques internes au
 processeur aux périphériques de la carte.
 
 Chaque nœud contient un certain nombre de propriétés décrivant le
-périphérique, p.ex. les adresses, les interruptions, les horloges, etc.
+périphérique, par exemple les adresses, les interruptions, les horloges, etc.
 
 Lors du lancement, une version compilée, le _Device Tree Blob_ (DTB),
 est passée au noyau Linux pour instancier toutes les descriptions des
@@ -86,7 +86,7 @@ variantes sont à disposition pour la génération du DTB
 - Si le DT est placé dans l'arborescence du noyau, il suffit de choisir le nouveau DT
   lors de la configuration du noyau. Ce choix se laisse facilement configurer avec
   Buildroot.
-- Si le DT est placé dans l'arborescence de Buildroot, p.ex. sous `board/<name>`,
+- Si le DT est placé dans l'arborescence de Buildroot, par exemple sous `board/<name>`,
   il suffit de configurer Buildroot afin qu'il génère le nouveau DTB.
 - Si le DT est placé en dehors des 2 arborescences précédentes, il faudra alors
   développer son propre Makefile.

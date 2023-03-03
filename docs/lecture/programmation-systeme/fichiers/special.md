@@ -61,7 +61,7 @@ périphérique.
 
 Contrairement aux fichiers ordinaires, il est très courant qu'un périphérique
 ne puisse accéder immédiatement à la requête souhaitée (lecture ou écriture).
-L'exécution de l'application est alors suspendue pendant certain temps; p. ex.
+L'exécution de l'application est alors suspendue pendant certain temps; par exemple
 sur une interface série en mode lecture, cette situation peut arriver si aucune
 donnée n'a été reçue.
 

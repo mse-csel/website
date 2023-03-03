@@ -2,7 +2,7 @@
 title: Mini Projet
 ---
 
-# Mini Projet – Programmation noyau et système
+# Mini Projet - Programmation noyau et système
 
 ![Cooler](mini-projet/assets/fan.jpeg)
 

@@ -31,7 +31,7 @@ lorsque l'interface avec les périphériques à gérer est simple
 
 - Pas (ou peu) d'adaptations en cas de mise à jour du noyau Linux
 - Choix du langage de programmation
-- Accès à toutes les librairies (p. ex. calcul en virgule flottante autorisé)
+- Accès à toutes les librairies (par exemple calcul en virgule flottante autorisé)
 - Accès aux registres plus efficace (pas d'appel système)
 - Pas de problèmes de licences liés à Linux (GPL)
 

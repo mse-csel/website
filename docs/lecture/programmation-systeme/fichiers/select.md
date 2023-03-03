@@ -109,7 +109,7 @@ FD_ZERO(fd_set *set)
   demandé.
 - L'argument `timeout` permet d'attendre sur un événement avec un temps limite.
   Si `timeout` est non `NULL`, la `struct timeval` permet de spécifier le temps en
-  microsecondes, p.ex. pour attendre 10 seconds au maximum:
+  microsecondes, par exemple pour attendre 10 seconds au maximum:
   ```c
   struct timeval timeout;
   timeout.tv_sec = 10;

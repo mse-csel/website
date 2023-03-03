@@ -6,11 +6,11 @@ title: Infrastructure HEIA-FR
 
 ![](img/infra-heia/neoplus2.png)
 
-## NanoPi NEO Plus2 – Pinout
+## NanoPi NEO Plus2 - Pinout
 
 ![](img/infra-heia/pinout.png)
 
-## NanoPi NEO Plus2 – Main Characteristics
+## NanoPi NEO Plus2 - Main Characteristics
 
 _Source : https://linux-sunxi.org/images/a/a3/Allwinner_H5_Manual_v1.0.pdf_
 

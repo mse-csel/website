@@ -86,7 +86,7 @@ Source code :
 - Taille de l'exécutable: ~300KiB
 - Release: tous les 2 à 3 mois
 
-## Séquence de démarrage du NanoPi NEO Plus2 – Carte SD / eMMC
+## Séquence de démarrage du NanoPi NEO Plus2 - Carte SD / eMMC
 
 <figure markdown>
 ![](img/bootloader/boot.drawio.svg)
@@ -123,7 +123,7 @@ Ref. documentation sur les bootargs:
 ![](img/bootloader/sdcard.drawio.svg)
 </figure>
 
-## Séquence de démarrage du NanoPi NEO Plus2 – Réseau
+## Séquence de démarrage du NanoPi NEO Plus2 - Réseau
 
 <figure markdown>
 ![](img/bootloader/boot-net.drawio.svg)

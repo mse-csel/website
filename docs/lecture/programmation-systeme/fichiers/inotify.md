@@ -37,7 +37,7 @@ La solution proposée par Linux s'appelle `inotify`.
 Le mécanisme inotify de Linux propose divers services la surveillance de
 fichiers ou de répertoires. Il est intéressant de noter que ceux-ci peuvent être
 bloquants ou non bloquants. Dans le cas de services bloquants, les services
-de multiplexage (p.ex. `epoll`) peuvent être mis en œuvre pour attendre sur
+de multiplexage (par exemple `epoll`) peuvent être mis en œuvre pour attendre sur
 des événements.
 
 | Opération                              | syscall             |
