@@ -333,7 +333,7 @@ et un debugger de qualité pour le debugging de vos applications. Pour configure
 Ces fichiers sont déjà configurés dans votre workspace.
 
 - Ouvrez le fichier `env-fibonacci.code-workspace` avec VS-Code (File --> Open Workspace from File...)
-- Pressez ++ctrl+p++ (ou ++cmd+p++ sur Mac) et choisissez "Tasks: Run Task"
+- Pressez ++shift+ctrl+p++ (ou ++shift+cmd+p++ sur Mac) et choisissez "Tasks: Run Task"
 - Choisissez "gdbserver fibonacci"
 - Puis "Continue without scanning the task output"
 - Le terminal devrait afficher:
