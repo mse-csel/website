@@ -410,10 +410,9 @@ Redémarrez avec un `reboot` et vérifiez que vous pouvez maintenant vous connec
    les instructions ci-dessus, et configurez la cible en mode de
    développement avec CIFS/SMB.
 1. Installez/configurez SSH pour un accès à distance.
-1. Créez un script permettant de générer la carte SD.
 1. Testez les différentes méthodes et techniques de débogage proposées
    par l'environnement Linux. Pour cela, générez les exemples fournis
-   dans le répertoire "~/workspace/csel1/environment" en suivant les
+   dans le répertoire "src/01_environment/" en suivant les
    indications des slides. Ces fichiers se trouvent également sous
    Moodle.
 1. Créez une partition _ext4_ avec l'espace restant sur la carte SD
