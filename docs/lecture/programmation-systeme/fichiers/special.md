@@ -146,7 +146,7 @@ relatives à l'état du processus sont contenues dans des fichiers séparés, pa
     |-- status  -> basic information about the process
     |-- task    -> directory with all threads in the process
     |-- fd      -> directory with all open file descriptors
-    |-- maps    -> information about mapped files and blocks (heap, stack…)
+    |-- maps    -> information about mapped files and blocks (heap, stack...)
     |-- limits  -> information process' resource limits
     |-- ...
 ```

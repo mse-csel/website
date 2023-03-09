@@ -11,8 +11,10 @@ def cleanup(path):
         raise Exception("ERROR")
     orig = content
     content = re.sub(r"p\.\s*ex\.?", "par exemple", content)
+    content = re.sub(r"c\.à\.d\.*", "c'est à dire", content)
     content = re.sub(r"’", "'", content)
     content = re.sub(r"–", "-", content)
+    content = re.sub(r"…", "...", content)
 
     if orig != content:
         with open(path, "wt") as f:

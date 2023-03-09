@@ -69,7 +69,7 @@ et la gestion des pilotes et de leurs périphériques dans le _sysfs_
 
 
 Cependant, avant de commencer le développement d'un pilote, il est important de
-savoir dans quel bus le pilote doit être inséré (i2c, pci, usb, …) et, le cas échéant,
+savoir dans quel bus le pilote doit être inséré (i2c, pci, usb, ...) et, le cas échéant,
 utiliser les structures et services spécifiques fournis par ces bus.
 
 ## Attributs du pilote (driver)
