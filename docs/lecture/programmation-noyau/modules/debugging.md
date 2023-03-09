@@ -6,7 +6,7 @@ title: Debugging
 
 **Le débogage des pilotes sous Linux pour des systèmes embarqués est relativement malaisé.**
 
-- L'utilisation de debugger, tel que kgdb, peut naturellement est
+- L'utilisation de debugger, tel que `kgdb`, peut naturellement est
   utilisé, mais généralement nécessite une infrastructure supplémentaire
   (par exemple probes _JTAG_).
 - La manière la plus simple est d'insérer à l'intérieur du code des

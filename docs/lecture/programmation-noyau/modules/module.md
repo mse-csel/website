@@ -11,9 +11,10 @@ Des applications nécessitant un accès au matériel ou devant traiter une très
 **Linux propose deux techniques pour lier ces modules avec le noyau**
 
 - Statique
-    - Le module est compilé et linké statiquement avec l'image du noyau v Le module est chargé avec le noyau lors du démarrage
+    - Le module est compilé et linké statiquement avec l'image du noyau
+    - Le module est chargé avec le noyau lors du démarrage
 - Dynamique
-    - Le module est compilé séparément du noyau, mais en utilisant la version courante du noyau (current running kernel)
+    - Le module est compilé séparément du noyau, mais en utilisant la version courante du noyau (_current running kernel_)
     - Le module est chargé par des applications utilisateur en fonction des besoins
     - Ces modules/objets noyau ont l'extension `*.ko`
 
@@ -97,7 +98,7 @@ MODULE_LICENSE ("GPL");
 **Initialisation**
 
 - La fonction `skeleton_init` est appelée lorsque le module est chargé
-  dans le noyau. Elle retourne un code d'erreur (0 pour succès, une
+  dans le noyau. Elle retourne un code d'erreur (`0` pour succès, une
   valeur négative, par exemple: `EACCES`, en cas d'erreur). Liste des
   codes d'erreurs:
   ```C
@@ -108,7 +109,7 @@ MODULE_LICENSE ("GPL");
 
 **Nettoyage**
 
-- La fonction «skeleton_exit» est appelée lorsque le module est désinstallé.
+- La fonction `skeleton_exit` est appelée lorsque le module est désinstallé.
   Si le module est compilé statiquement avec le noyau, la fonction est écartée
   (macro `__exit`).
 - La macro `module_exit` permet de déclarer le nom de la fonction d'initialisation.

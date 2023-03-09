@@ -7,7 +7,7 @@ Linux permet de passer des paramètres à un module lors de son chargement.
 Le code ci-dessous montre les adaptations à apporter au squelette du module pour
 supporter deux paramètres
 
-``` C hl_lines="6-12 17"
+``` C hl_lines="6 8-9 11-12 16"
 /* skeleton.c */
 #include <linux/module.h>  /* needed by all modules */
 #include <linux/init.h>    /* needed for macros */
@@ -15,21 +15,19 @@ supporter deux paramètres
 
 #include <linux/moduleparam.h>  /* needed for module parameters */
 
-static char* text= "dummy help";
+static char* text = "dummy help";
 module_param(text, charp, 0);
 
-static int elements= 1;
+static int elements = 1;
 module_param(elements, int, 0);
 
-static int __init skeleton_init(void)
-{
+static int __init skeleton_init(void) {
     pr_info ("Linux module skeleton loaded\n");
     pr_info ("text: %s\nelements: %d\n", text, elements);
     return 0;
 }
 
-static void __exit skeleton_exit(void)
-{
+static void __exit skeleton_exit(void) {
     pr_info ("Linux module skeleton unloaded\n");
 }
 
@@ -44,13 +42,13 @@ MODULE_LICENSE ("GPL");
 **La macro module_param permet de définir des paramètres dans un module.
 Cette macro est disponible depuis l'interface `linux/moduleparam.h`**
 
-- 1er argument : indique le nom du paramètre et de la variable dans le module
-- 2ème argument : indique le type de paramètre
+- 1^er^ argument : indique le nom du paramètre et de la variable dans le module
+- 2^ème^ argument : indique le type de paramètre
   (`byte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`, `charp` ou `bool`).
   Ce paramètre est contrôlé lors de la compilation.
-- 3ème argument : spécifie les droits d'accès au fichier contenant les
+- 3^ème^ argument : spécifie les droits d'accès au fichier contenant les
   paramètres (`/sys/module/<module_name>/parameters/<param>`).
-  La valeur 0 indique que ce fichier n'existe pas.
+  La valeur `0` indique que ce fichier n'existe pas.
 
 **Le passage de paramètres s'effectue lors du chargement du module**
 

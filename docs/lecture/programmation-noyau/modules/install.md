@@ -40,12 +40,12 @@ très intéressante aux commandes précédentes.
   propre module dans ce fichier, il suffit de compléter le `Makefile` du
   module avec l'instruction suivante, par exemple
   ``` Makefile
-  MODPATH := $(HOME)/workspace/buildroot/output/target # production mode install:
+  MODPATH := /buildroot/output/target # production mode install:
       $(MAKE) -C $(KDIR) M=$(PWD) INSTALL_MOD_PATH=$(MODPATH) modules_install
   ```
 - La variable `INSTALL_MOD_PATH` indique le chemin du répertoire où est placé le root file system
 - En mode de développement sous CIFS:
   ``` bash
-  MODPATH := /home/lmi/workspace/nano/rootfs
+  MODPATH := /rootfs
   sudo make install
   ```

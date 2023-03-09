@@ -33,11 +33,11 @@ Par exemple :
     <div class="md-decimal-list">
     1. Le `Makefile` du module est appelé avec la commande `make` ou `make all`
     1. Lors de ce premier appel, la variable `KERNELRELEASE` n'est pas définie.
-       Le `make` va par conséquent appeler le `Makefile` du noyau spécifié par
+       Le `make` appelle par conséquent le `Makefile` du noyau spécifié par
        la variable `KDIR`. On doit impérativement spécifier :
            - L'architecture du processeur avec la variable `ARCH=$(CPU)`
            - Le compilateur à utiliser avec la variable `CROSS_COMPILE=$(TOOLS)`
-    1. Le `Makefile` du noyau a la logique pour la génération de modules et,
+    2. Le `Makefile` du noyau a la logique pour la génération de modules et,
        grâce à la variable `M`, il peut obtenir la liste des sources à compiler
        en réinterprétant le `Makefile` du module pour obtenir le nom du module
        à générer avec la définition `obj-m` ainsi que la liste des objets
