@@ -25,7 +25,7 @@ A l'intérieur du noyau Linux on ne dispose pas des bibliothèques standard C. P
 - Ajouter un membre `struct list_head` dans la structure des éléments
   participant à la liste chaînée. On le nommera généralement `list`
   ou parfois `node`.
-- Créer une liste. Si la liste est globale on utilisera la macro
+- Créer une liste : Si la liste est globale on utilisera la macro
   `LIST_HEAD`, si la liste fait partie d'une structure on définira un
   élément  `struct list_head` et on l'initialisera avec la macro
   `INIT_LIST_HEAD`
