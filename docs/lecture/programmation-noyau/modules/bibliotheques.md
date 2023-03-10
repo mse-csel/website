@@ -23,7 +23,8 @@ A l'intérieur du noyau Linux on ne dispose pas des bibliothèques standard C. P
 
 - Très pratique et utilisées à des milliers d'endroits dans le noyau
 - Ajouter un membre `struct list_head` dans la structure des éléments
-  participant à la liste chaînée. On le nommera généralement `node`.
+  participant à la liste chaînée. On le nommera généralement `list`
+  ou parfois `node`.
 - Créer une liste. Si la liste est globale on utilisera la macro
   `LIST_HEAD`, si la liste fait partie d'une structure on définira un
   élément  `struct list_head` et on l'initialisera avec la macro
@@ -42,7 +43,7 @@ A l'intérieur du noyau Linux on ne dispose pas des bibliothèques standard C. P
 // definition of a list element with struct list_head as member
 struct element {
     // some members
-    struct list_head node;
+    struct list_head list;
 };
 
 // definition of the global list
@@ -55,14 +56,14 @@ void alloc_ele () {
     ele = kzalloc(sizeof(*ele), GFP_KERNEL); 
     if (ele != NULL)
         // add element at the end of the list 
-        list_add_tail(&ele->node, &my_list); 
+        list_add_tail(&ele->list, &my_list); 
 }
 
 // process all elements of the list
 void process_all() {
     struct element* ele;
     // iterate over the whole list
-    list_for_each_entry(ele, &my_list, node) { 
+    list_for_each_entry(ele, &my_list, list) { 
       // do something with ele
     }
 }

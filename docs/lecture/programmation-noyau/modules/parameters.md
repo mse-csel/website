@@ -39,7 +39,7 @@ MODULE_DESCRIPTION ("Module skeleton");
 MODULE_LICENSE ("GPL");
 ```
 
-**La macro module_param permet de définir des paramètres dans un module.
+**La macro `module_param` permet de définir des paramètres dans un module.
 Cette macro est disponible depuis l'interface `linux/moduleparam.h`**
 
 - 1^er^ argument : indique le nom du paramètre et de la variable dans le module
