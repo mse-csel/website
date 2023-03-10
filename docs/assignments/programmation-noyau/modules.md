@@ -23,7 +23,7 @@ tpno: 2
     modules du noyau permettant l'utilisation de la commande `modprobe`. Le module devra
     être installé dans le root filesystem utilisé en _cifs_ par la cible.
 
-[^1]: Pour installer  `modinfo`, ajouter le _package_ "kmod utilities" : _Target Packages_ --> _System Tools_ --> _kmod_ et _kmod utilities_. Vous pouvez ensuite mettre à jour le _root file system_ avec la commande `extract-rootfs.sh`, mais attention, vous allez remplacer des fichiers tels que `/etc/fstab`. Sauvegardez vos fichiers importants!
+[^1]: Pour installer  `modinfo`, ajoutez le _package_ "kmod utilities" : _Target Packages_ --> _System Tools_ --> _kmod_ et _kmod utilities_. Vous pouvez ensuite mettre à jour le _root file system_ avec la commande `extract-rootfs.sh`, mais attention, vous allez remplacer des fichiers tels que `/etc/fstab`. Sauvegardez vos fichiers importants!
 
 {{ ex() }}  Adaptez le module de l'exercice précédent afin qu'il puisse recevoir deux ou trois paramètres de
 votre choix. Ces paramètres seront affichés dans la console. Adaptez également le _rootfs_ afin de
