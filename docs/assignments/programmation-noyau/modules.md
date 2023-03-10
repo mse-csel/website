@@ -19,7 +19,7 @@ tpno: 2
 4. Comparez les résultats obtenus par la commande `lsmod` avec ceux obtenus avec la
     commande `cat /proc/modules`
 5. Désinstallez le module (`rmmod`).
-6. Adaptez le Makefile du module pour autoriser l'installation du module avec les autres
+6. Adaptez le `Makefile` du module pour autoriser l'installation du module avec les autres
     modules du noyau permettant l'utilisation de la commande `modprobe`. Le module devra
     être installé dans le root filesystem utilisé en _cifs_ par la cible.
 
@@ -108,7 +108,7 @@ la fonction `ssleep(5)` provenant de l'interface `<linux/delay.h>`.
 ## Mise en sommeil
 
 {{ ex() }} Développez un petit module permettant d'instancier deux threads dans le noyau. Le premier
-thread attendra une notification de réveil du deuxième thread et se remettra en sommeil. Le 2ème
+thread attendra une notification de réveil du deuxième thread et se remettra en sommeil. Le 2^ème^
 thread enverra cette notification toutes les 5 secondes et se rendormira. On utilisera les
 _waitqueues_ pour les mises en sommeil. Afin de permettre le debugging du module, chaque thread
 affichera un petit message à chaque réveil.
