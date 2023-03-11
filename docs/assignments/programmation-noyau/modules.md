@@ -15,7 +15,7 @@ tpno: 2
     désinstallation.
 2. Testez sur la machine hôte la commande `modinfo`[^1] sur votre squelette de module et
     comparez les informations retournées avec celles du code source.
-3. Installez le module (insmod) et contrôlez le log du noyau (`dmesg`)
+3. Installez le module (`insmod`) et contrôlez le log du noyau (`dmesg`)
 4. Comparez les résultats obtenus par la commande `lsmod` avec ceux obtenus avec la
     commande `cat /proc/modules`
 5. Désinstallez le module (`rmmod`).
