@@ -12,12 +12,15 @@ Selon les processeurs, on distingue deux types d'entrées/sorties :
   d'entrées/sorties
 - Instructions usuelles pour accéder les périphériques d'entrées/sorties
 - `cat /proc/iomem` permet d'obtenir les zones d'entrées/sorties
-- La méthode `request_mem_region` permet d'informer le noyau sur une zone
+- La méthode `request_mem_region` permet d'informer le noyau que votre
+  pilote utilise cette plage d'adresses. C'est un pur mécanisme de réservation
+  qui repose sur la bienveillance des pilotes qui doivent appeler `request_mem_region`,
+  vérifier la valeur de retour, et se comporter correctement en cas d'erreur.
   ``` C
   struct resource* request_mem_region (
       unsigned long start,
       unsigned long len,
-  char* name);
+      char* name);
   ```
 - La méthode `release_mem_region` permet de libérer une zone 
   ``` c
