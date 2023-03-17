@@ -70,7 +70,7 @@ L'interface `<linux/mutex.h>` propose les services reliés aux mutuxes
 ## Les spinlocks
 
 Les _spinlocks_ permettent de protéger des sections critiques pour des
-parties de code ne pouvant pas être mis en mode sommeil (in_terrupt
+parties de code ne pouvant pas être mis en mode sommeil (_interrupt
 handlers_).
 
 - L'utilisation de _spinlocks_ demande une extrême précaution

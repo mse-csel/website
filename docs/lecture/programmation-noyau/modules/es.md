@@ -91,7 +91,7 @@ void iowrite[8, 16, 32, 64]_rep(
     unsigned count);
 ```
 
-Il existe également une interface gérée :
+Il existe également une interface "gérée" (_managed_) :
 
 ``` c
 void* devm_ioremap(
@@ -108,5 +108,6 @@ void* devm_ioremap_resource(
     struct resource* res);
 ```
 
-Ce service prend en charge la réservation et le mapping de la ressource physique
-
+Ces procédures sont liés à un _device_ (`dev`). Ce service prend en charge la réservation
+et le mapping de la ressource physique. Il libère aussi le mapping losque le
+_device_ est désinstallé.
