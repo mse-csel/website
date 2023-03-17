@@ -34,10 +34,10 @@ pouvoir utiliser la commande `modprobe`.
     ```text title="/workspace/src/kernel_settings"
     {! include "modules/src/kernel_settings" !}
     ```
-    ```makefile title="/workspace/src/exercice01/Makefile"
+    ```makefile title="/workspace/src/02_modules/exercice01/Makefile"
     {! include "modules/src/exercice01/Makefile" !}
     ```
-    ```c title="/workspace/src/exercice01/skeleton.c"
+    ```c title="/workspace/src/02_modules/exercice01/skeleton.c"
     {! include "modules/src/exercice01/skeleton.c" !}
     ```
 {% endif %}
@@ -56,10 +56,10 @@ d'information seront émis afin de permettre le debugging du module.
 
 {% if assignment_show_solution >= page.meta.tpno %}
 ??? success "Solution"
-    ```makefile title="/workspace/src/exercice04/Makefile"
+    ```makefile title="/workspace/src/02_modules/exercice04/Makefile"
     {! include "modules/src/exercice04/Makefile" !}
     ```
-    ```c title="/workspace/src/exercice04/skeleton.c"
+    ```c title="/workspace/src/02_modules/exercice04/skeleton.c"
     {! include "modules/src/exercice04/skeleton.c" !}
     ```
 {% endif %}
@@ -87,7 +87,7 @@ adresse_.
 
 {% if assignment_show_solution >= page.meta.tpno + 0.5 %}
 ??? success "Solution"
-    ```c title="/workspace/src/exercice04/skeleton.c"
+    ```c title="/workspace/src/02_modules/exercice04/skeleton.c"
     {! include "modules/src/exercice05/skeleton.c" !}
     ```
 {% endif %}
