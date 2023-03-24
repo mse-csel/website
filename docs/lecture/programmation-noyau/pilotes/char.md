@@ -22,7 +22,7 @@ du système de fichiers virtuels
 L'implémentation d'un pilote orienté caractère peut être décomposer en
 5 étapes principales :
 
-1. Implémentation des opérations sur les fichiers (handler) correspondantes aux
+1. Implémentation des opérations sur les fichiers (_handler_) correspondantes aux
    appels système qu'une application en espace utilisateur pourra utiliser
 1. Définition de la structure `struct file_operations` (appelée `fops`) permettant
    d'associer les opérations à leur implémentation dans le pilote
@@ -40,7 +40,7 @@ pas nécessaire de toutes les implémenter pour un pilote orienté caractère.
 Le tableau ci-dessous présente cinq opérations principales :
 
 | Opérations sur les fichiers (Espace noyau) | Appels système (Espace utilisateur) |
-| ------------------------------------------ | ----------------------------------- |
+|--------------------------------------------|-------------------------------------|
 | .open                                      | open                                |
 | .release                                   | close                               |
 | .write                                     | write                               |
@@ -50,7 +50,7 @@ Le tableau ci-dessous présente cinq opérations principales :
 Le tableau ci-dessous présente trois opérations optionnelles :
 
 | Opérations sur les fichiers (Espace noyau) | Appels système (Espace utilisateur) |
-| ------------------------------------------ | ----------------------------------- |
+|--------------------------------------------|-------------------------------------|
 | .mmap                                      | mmap                                |
 | .poll                                      | select, poll, epoll                 |
 | .unlocked_ioctl                            | ioctl                               |
@@ -97,9 +97,9 @@ utilise la méthode `read()` sur le fichier correspondant au périphérique
 
 - Elle permet de lire les données du périphérique.
 - Elle copie au maximum `count` octets du périphérique dans le tampon `buf` en espace
-  utilisateur. Une fois l'opération terminée, elle met à jour la position off du fichier et
+  utilisateur. Une fois l'opération terminée, elle met à jour la position `off` du fichier et
   retourne le nombre d'octets lus.
-- `f` est le pointeur sur la structure de fichier qui a été passé lors de l'opération open()
+- `f` est le pointeur sur la structure de fichier qui a été passé lors de l'opération `open()`
 
 ### Write
 
@@ -120,7 +120,7 @@ utilise la méthode `write()` sur le fichier correspondant au périphérique
 
 L'échange de données entre l'application en espace utilisateur et le pilote de
 périphérique en espace noyau n'est généralement pas autorisé avec un accès
-direct basé sur la déréférenciation du pointeur buf. Pour garder le code portable
+direct basé sur la déréférenciation du pointeur `buf`. Pour garder le code portable
 sur différentes architectures, on préférera utiliser les services du noyau disponible
 dans l'interface `<linux/uaccess.h>`.
 
@@ -130,7 +130,7 @@ Pour copier une seule valeur :
   du noyau le contenu pointé par `p` en espace utilisateur.
 - `int put_user (v, p)` permet de copier le contenu de
   la variable `v` du noyau vers l'espace utilisateur pointé par `p`
-- Ces méthodes retournent zéro (0) en cas de succès
+- Ces méthodes retournent zéro (`0`) en cas de succès
   ou `-EFAULT` en cas d'erreur
 
 Pour copier une grande quantité de données :
@@ -140,8 +140,8 @@ unsigned long copy_to_user (void __user* to, const void* from, unsigned long n);
 unsigned long copy_from_user (void* to, const void __user* from, unsigned long n);
 ```
 
-- Ces méthodes retournent le nombre d'octets n'ayant pu
-  être copiés. Zéro (0) indique que toutes les données ont
+- Ces méthodes retournent le nombre d'octets n'ayant pas pu
+  être copiés. Zéro (`0`) indique que toutes les données ont
   bien été copiées.
 
 <figure markdown>
@@ -186,7 +186,7 @@ La structure `struct file_operations` permettant de définir les opérations
 supportées par le pilote de périphérique est disponible depuis l'interface
 `<linux/fs.h>`. Les opérations sont déclarées comme pointeurs de fonction.
 
-4 Pour définir les opérations du pilote, il suffit de fournir seulement les méthodes
+Pour définir les opérations du pilote, il suffit de fournir seulement les méthodes
 qui ont été implémentées.
 
 ```C
@@ -243,15 +243,15 @@ int register_chrdev_region (
     const char* name);
 ```
 
-- `from` spécifie le numéro de pilote (numéro majeur et 1er numéro mineur)
+- `from` spécifie le numéro de pilote (numéro majeur et 1^er^ numéro mineur)
 - `count` indique le nombre de numéros mineurs consécutifs du pilote
 - `name` indique le nom du pilote de périphérique
-- La fonction retourne 0 si la réservation s'est effectuée avec succès
+- La fonction retourne `0` si la réservation s'est effectuée avec succès
 
 
 ## Réservation dynamique du numéro de pilote
 
-Linux offre également le service alloc_chrdev_region permettant d'allouer
+Linux offre également le service `alloc_chrdev_region` permettant d'allouer
 dynamiquement les numéros de pilote
 
 ```c
@@ -262,11 +262,11 @@ int alloc_chrdev_region (
     const char* name);
 ```
 
-- `dev` paramètre de retour avec la 1er numéro assigné au pilote
-- `baseminor` spécifie le 1er numéro mineur du pilote
+- `dev` paramètre de retour avec la 1^er^ numéro assigné au pilote
+- `baseminor` spécifie le 1^er^ numéro mineur du pilote
 - `count` indique le nombre de numéros mineurs requis par le pilote
 - `name` indique le nom du pilote de périphérique
-- La fonction retourne 0 si la réservation s'est effectuée avec succès
+- La fonction retourne `0` si la réservation s'est effectuée avec succès
 
 **Ce service est à préférer, car il permet d'éviter tout conflit avec d'autres pilotes**
 
@@ -281,7 +281,10 @@ Un pilote orienté caractère est représenté dans le noyau à l'aide de la str
   ```c
   cdev_init (&skeleton_cdev, &skeleton_fops);
   ```
-- Une fois initialisé, l'attribut owner doit être assigné à `THIS_MODULE`
+- Une fois initialisé, l'attribut `owner` doit être assigné à `THIS_MODULE`
+  ```c
+  skeleton_cdev.owner = THIS_MODULE;
+  ```
 
 Le pilote doit ensuite être enregistré dans le noyau
 
@@ -292,7 +295,7 @@ int cdev_add (stuct cdev *p, dev_t dev, unsigned count);
 - `p` pointeur sur la structure du pilote
 - `dev` numéro du pilote
 - `count` indique le nombre de périphériques
-- La fonction retourne 0 si la réservation s'est effectuée avec succès
+- La fonction retourne `0` si la réservation s'est effectuée avec succès
 
 **Après enregistrement, le noyau connaît l'association entre le numéro du pilote
 (numéro majeur et numéro mineur) et les opérations de fichier attachées à ce
@@ -302,11 +305,11 @@ pilote. Le pilote est finalement prêt à être opéré depuis l'espace utilisat
 
 La libération d'un pilote se fait en deux étapes
 
-- Elimination du pilote dans le noyau
+1. Elimination du pilote dans le noyau
   ```c
   void cdev_del (struct cdev* p);
   ```
-- Libération des numéros de pilote
+2. Libération des numéros de pilote
   ```c
   void unregister_chrdev_region (dev_t from, unsigned count);
   ```

@@ -12,7 +12,7 @@ d'éviter de connaître à l'avance leur présence et leurs caractéristiques.
 ![](img/device_tree.drawio.svg)
 </figure>
 
-Cependant, beaucoup d'autres bus du µP, tels que I2C ou SPI, n'ont pas cette
+Cependant, beaucoup d'autres bus du µP, tels que I^2^C ou SPI, n'ont pas cette
 capacité. Il est donc primordiale que le système, le noyau Linux, soit informé
 de la description du matériel à l'avance.
 
@@ -104,7 +104,7 @@ variantes sont à disposition pour la génération du DTB
 ## String de compatibilité
 
 Le lien entre le pilote traitant un périphérique dans le noyau Linux et la
-description dans le _Device Tree_ est garanti par le string de compatibilité,
+description dans le _Device Tree_ est garanti par le _string_ de compatibilité,
 mot clef `.compatible`
 
 ```c
@@ -118,7 +118,7 @@ MODULE_DEVICE_TABLE(of, of_ths_match);
 ```
 
 L'attribut `.of_match_table` de la structure `struct device_driver`
-contient la liste des strings compatibles avec le pilote.
+contient la liste des _strings_ compatibles avec le pilote.
 
 ```c
 static struct platform_driver ths_driver = {

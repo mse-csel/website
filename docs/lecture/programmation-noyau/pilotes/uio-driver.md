@@ -47,8 +47,11 @@ lorsque l'interface avec les périphériques à gérer est simple
 L'implémentation d'un pilote de périphériques orientés mémoire s'implémente à
 l'aide de 5 opérations (`#include <sys/mman.h>`)
 
-- Ouverture du fichier correspondant au pilote (`int fd = open (...)`)
-- Appel de l'opération mmap afin de placer dans la mémoire virtuelle du processus les
+1. Ouverture du fichier correspondant au pilote
+   ```c
+   int fd = open (...)
+   ```
+2. Appel de l'opération mmap afin de placer dans la mémoire virtuelle du processus les
   registres du périphérique
   ``` c
   void* mmap (
@@ -59,8 +62,13 @@ l'aide de 5 opérations (`#include <sys/mman.h>`)
      int fd,        // descripteur du fichier correspondant au pilote
      off_t offset); // offset des registres en mémoire
   ```
-- Opérations sur le périphérique à l'aide de l'adresse virtuelle retournée par
+1. Opérations sur le périphérique à l'aide de l'adresse virtuelle retournée par
   l'opération `mmap`
-- Après utilisation, appel de l'opération munmap pour libérer l'espace mémoire
-  (`munmap (...)`)
-- Fermeture du fichier (`close (...)`)
+1. Après utilisation, appel de l'opération `munmap` pour libérer l'espace mémoire
+   ```c
+   munmap (...)
+   ```
+2. Fermeture du fichier
+   ```c
+   close (...)
+   ```

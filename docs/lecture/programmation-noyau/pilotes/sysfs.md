@@ -4,16 +4,16 @@ title: "sysfs : system file system"
 
 ## Principe
 
-sysfs (system filesystem), accessible sous `/sys`, est un système de fichiers
+_sysfs_ (_system filesystem_), accessible sous `/sys`, est un système de fichiers
 virtuels créés pour rendre le débogage de pilotes de périphériques plus
-simples. Aujourd'hui, sysfs va bien au-delà et est utilisé pour représenter
+simples. Aujourd'hui, _sysfs_ va bien au-delà et est utilisé pour représenter
 l'architecture et l'état d'un système dans l'espace utilisateur.
 
-sysfs permet de représenter des objets du noyau Linux, leurs attributs et leurs
+_sysfs_ permet de représenter des objets du noyau Linux, leurs attributs et leurs
 relations les uns envers les autres, comme suit
 
 | Interne au noyau       | Espace utilisateur |
-| ---------------------- | ------------------ |
+|------------------------|--------------------|
 | Objets du noyau        | Répertoires        |
 | Attributs des objets   | Fichiers           |
 | Relations entre objets | Liens symboliques  |
@@ -27,7 +27,7 @@ cat /sys/class/tty/ttyS0/dev
 
 retourne le device number de la première interface série du NanoPi
 
-sysfs est construit sous forme d'arborescence
+_sysfs_ est construit sous forme d'arborescence :
 
 ``` text
 /sys/
@@ -69,7 +69,7 @@ et la gestion des pilotes et de leurs périphériques dans le _sysfs_
 
 
 Cependant, avant de commencer le développement d'un pilote, il est important de
-savoir dans quel bus le pilote doit être inséré (i2c, pci, usb, ...) et, le cas échéant,
+savoir dans quel bus le pilote doit être inséré (I^2^C, PCI, USB, ...) et, le cas échéant,
 utiliser les structures et services spécifiques fournis par ces bus.
 
 ## Attributs du pilote (driver)
@@ -168,7 +168,7 @@ accessible sous différents répertoires de l'arborscence sysfs. La bibliothèqu
 `platform_device` permet de créer assez facilement une interface pour y
 accéder.
 
-4 Les méthodes ci-dessous sa propre `class` à laquelle on pourra ensuite
+Les méthodes ci-dessous définissent une `class` à laquelle on pourra ensuite
 attacher les fichiers d'accès aux attributs d'un device.
 
 - Création d'une nouvelle `class`

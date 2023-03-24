@@ -31,8 +31,7 @@ Le _Device Model_ proposé par le noyau Linux permet de maximaliser la
 réutilisation du code entre les différentes architectures et plateformes
 hardware
 
-3 structures importantes héritées de la
-structure `struct kobject`
+3 structures importantes :
 
 - `struct device` : périphérique dans le système et généralement associé
   à un bus. Il est découvert de différentes manières (hot-plug, pilote

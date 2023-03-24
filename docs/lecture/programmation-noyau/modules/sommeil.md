@@ -63,7 +63,7 @@ Quelques macros pour réveiller le _thread_
   ``` c
   wake_up(&queue);
   ```
-- Opération pour réveiller que les processus ininterruptibles de la _queue_.
+- Opération pour ne réveiller que les processus interruptibles de la _queue_.
   ``` c
   wake_up_interruptible (&queue);
   ```
