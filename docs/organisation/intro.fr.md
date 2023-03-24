@@ -39,7 +39,7 @@ code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
 - Salle de classe : HEIA-FR / C00.16
 
 | Semaine  | Date      | Thème                          |
-| :------- | :-------- | :----------------------------- |
+|:---------|:----------|:-------------------------------|
 | 8/SP-1   | 24.2.2023 | Environnement Linux embarqué 1 |
 | 9/SP-2   | 3.3.2023  | Environnement Linux embarqué 2 |
 | 10/SP-3  | 10.3.2023 | Programmation noyau Linux 1    |
@@ -131,7 +131,7 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 ### Rapport
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
-    - 6.4.2023 : Environnement Linux embarqué et programmation noyau Linux 
+    - 16.4.2023 : Environnement Linux embarqué et programmation noyau Linux 
     - 2.6.2023 : Programmation système Linux et optimisation système Linux
     - 16.6.2023 : Mini projet intégré
 - Format : fichier PDF avec les annexes dans un fichier .tar

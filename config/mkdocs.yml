@@ -9,11 +9,11 @@ extra:
   year: '2022-2023'
   teams_code: mx5fntd
   info:
-    students_count: 11
-    students_cs: 10
+    students_count: 12
+    students_cs: 11
     students_ds: 1
-    students_ft: 3
-    students_pt: 8
+    students_ft: 2
+    students_pt: 10
 
   pdf_to_jpg:
     programmation-noyau/modules/assets/sp.03.1_mas_csel_noyau_modules.pdf
