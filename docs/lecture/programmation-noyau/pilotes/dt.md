@@ -96,6 +96,8 @@ variantes sont à disposition pour la génération du DTB
 <caption>Arborescence du noyau</caption>
 </figure>
 
+Exemple :
+
 <figure markdown>
 ![](img/dt-mk-b.png)
 <caption>Arborescence de Buildroot</caption>
