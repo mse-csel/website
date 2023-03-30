@@ -38,7 +38,7 @@ hardware
   de périphérique (driver), initialisation)
 - `struct device_driver` : entité logicielle associée au périphérique et
   permettant d'effectuer des opérations sur ce dernier
-- `struct bus_type` : canal de communication entre le µP et le
+- `struct bus_type` : canal de communication entre le microprocesseur et le
   périphérique d'entrée/sortie (quelques bus: I2C, SPI, USB, PCI,...)
 
 <figure markdown>

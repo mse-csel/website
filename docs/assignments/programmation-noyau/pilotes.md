@@ -14,7 +14,7 @@ tpno: 3
 
 ## Pilotes orientés mémoire
 
-{{ ex() }}: Réaliser un pilote orienté mémoire permettant de mapper en espace utilisateur les registres du µP en utilisant le fichier virtuel `/dev/mem`. Ce pilote permettra de lire l'identification du µP (Chip-ID aux adresses `0x01c1'4200` à `0x01c1'420c`) décrit dans l'exercice "Accès aux entrées/sorties" du cours sur la programmation de modules noyau.
+{{ ex() }}: Réaliser un pilote orienté mémoire permettant de mapper en espace utilisateur les registres du microprocesseur en utilisant le fichier virtuel `/dev/mem`. Ce pilote permettra de lire l'identification du microprocesseur (Chip-ID aux adresses `0x01c1'4200` à `0x01c1'420c`) décrit dans l'exercice "Accès aux entrées/sorties" du cours sur la programmation de modules noyau.
 
 {% if assignment_show_solution >= page.meta.tpno %}
 ??? success "Solution"

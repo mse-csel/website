@@ -1,5 +1,5 @@
 ---
-title: Matériel et µP
+title: Matériel et microprocesseur
 ---
 
 ## Introduction
@@ -14,7 +14,7 @@ d'informations et d'événements de profiling
 - Les cycles CPU gaspillés (_stalled_)
 - Beaucoup, beaucoup d'autres...
 
-Comme ces informations sont collectées et stockées par le µP, elles offrent
+Comme ces informations sont collectées et stockées par le microprocesseur, elles offrent
 une solution avec un très faible impact sur les performances globales des
 applications
 

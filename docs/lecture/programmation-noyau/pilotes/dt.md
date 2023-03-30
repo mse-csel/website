@@ -12,14 +12,14 @@ d'éviter de connaître à l'avance leur présence et leurs caractéristiques.
 ![](img/device_tree.drawio.svg)
 </figure>
 
-Cependant, beaucoup d'autres bus du µP, tels que I^2^C ou SPI, n'ont pas cette
+Cependant, beaucoup d'autres bus du microprocesseur, tels que I^2^C ou SPI, n'ont pas cette
 capacité. Il est donc primordiale que le système, le noyau Linux, soit informé
 de la description du matériel à l'avance.
 
 Jusqu'au début des années 2010, le noyau Linux contenait dans son code une
 description du matériel disponible sur le système.
 
-Dès 2011, d'abord pour les µPs PowerPC, le noyau Linux ne contient plus de
+Dès 2011, d'abord pour les microprocesseurs PowerPC, le noyau Linux ne contient plus de
 description du matériel. Celle-ci lui est fournie par un fichier binaire, nommé le
 _Device Tree Blob_ (DTB), lequel est passé comme argument au noyau Linux
 lors de son lancement. Ce fichier contient toutes les informations sur le
@@ -60,7 +60,7 @@ ths: thermal-sensor@1c25000 {
 
 ## Modification et/ou extension du DT
 
-Pour les µP ARMv7 et ARMv8, les descriptions des différentes cartes
+Pour les microprocesseur ARMv7 et ARMv8, les descriptions des différentes cartes
 supportées par le noyau Linux sont stockées dans l'arborescence des sources
 du noyau sous `arch/arm/boot/dts` et `arch/arm64/boot/dts`
 

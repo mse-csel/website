@@ -126,7 +126,7 @@ propose divers services.
 ## CFS - Gestion des priorités _nice_
 
 Un processus placé dans la catégorie des processus normaux peut gérer son
-taux d'affectation du µP à l'aide de l'appel système `nice()`.
+taux d'affectation du microprocesseur à l'aide de l'appel système `nice()`.
 
 ```c
 #include <unistd.h>

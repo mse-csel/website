@@ -56,7 +56,7 @@ Des applications nécessitant un accès au matériel ou devant traiter une très
 - La bibliothèque standard C n'est pas disponible dans le noyau.
   D'autres méthodes doivent être utilisées. Les fichiers propres 
   au noyau sont placés dans le répertoire `<linux/>`
-- L'usage des nombres en virgule flottante n'est pas supporté si le μP
+- L'usage des nombres en virgule flottante n'est pas supporté si le microprocesseur
   ne dispose pas d'un coprocesseur mathématique
 - Le débogage des modules est nettement plus complexe
 

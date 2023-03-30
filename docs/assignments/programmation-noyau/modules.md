@@ -80,7 +80,7 @@ suivante :
 $$ \mathsf{temperature} = -1'191 \cdot \frac{\mathsf{register\, value}}{10} + 223'000$$
 
 Avant d'accéder aux registres du _Chip-ID_, veuillez réserver la zone mémoire correspondante aux
-registres du µP. Validez cette réservation à l'aide de la commande `cat /proc/iomem`.
+registres du microprocesseur. Validez cette réservation à l'aide de la commande `cat /proc/iomem`.
 La commande `cat /sys/class/thermal/thermal_zone0/temp` permet de valider la bonne lecture
 de la température. La commande `ifconfig` permet de valider la bonne lecture de la _MAC
 adresse_.

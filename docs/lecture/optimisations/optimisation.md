@@ -51,12 +51,12 @@ L'option `-O2` est très couramment utilisée.
 GCC propose aussi une option `-Og`, laquelle devrait déjà offrir un bon degré
 d'optimisation, mais ne pas trop péjorer le débogage.
 
-## Optimisation - µP
+## Optimisation - microprocesseur
 
 Les compilateurs génèrent normalement un code excessivement performant
 pour les diverses architectures de processeurs. Cependant dans certaines
 parties critiques du système il peut s'avérer très important de bien
-connaître les caractéristiques du µP et les conventions d'appel de
+connaître les caractéristiques du microprocesseur et les conventions d'appel de
 fonction.
 
 Par exemple avec les processeurs ARM le code généré pour des variables
@@ -70,7 +70,7 @@ Les accès à la mémoire principale et à la mémoire cache ainsi que
 l'utilisation du pipeline vont également influencer les performances du
 système.
 
-## Optimisation - µP vs SoC
+## Optimisation - microprocesseur vs SoC
 
 Il existe actuellement une très grande variété de microprocesseurs
 

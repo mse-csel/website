@@ -94,11 +94,11 @@ Source code :
 
 Le démarrage du NanoPi NEO Plus2 se décompose en 6 phases:
 
-1. Lorsque le μP est mis sous tension, le code stocké dans son BROM
+1. Lorsque le microprocesseur est mis sous tension, le code stocké dans son BROM
    charge dans ses 32KiB de SRAM interne le firmware « sunxi-spl »
    stocké dans le secteur no 16 de la carte SD / eMMC et l'exécuter.
 2. Le firmware « sunxi-spl » (Secondary Program Loader) initialise les
-   couches basses du μP, puis charge l'U-Boot dans la RAM du μP avant de
+   couches basses du microprocesseur, puis charge l'U-Boot dans la RAM du microprocesseur avant de
    le lancer.
 3. L'U-Boot effectue les initialisations hardware nécessaires
    (horloges, contrôleurs, ...) avant de charger l'image non compressées

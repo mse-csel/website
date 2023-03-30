@@ -72,12 +72,12 @@ Cette application réalisera la fonctionnalité minimale suivante :
 1.  Le module `linux/thermal.h` du noyau Linux fournit des services pour
     lire la température des différentes zones du microprocesseur. Avec
     les deux méthodes ci-dessous, il est possible d'obtenir la
-    température en millième de degré des zones du μP, soit :
+    température en millième de degré des zones du microprocesseur, soit :
 
     - `struct thermal_zone_device* thermal_zone_get_zone_by_name (const char* name);`
     - `int thermal_zone_get_temp(struct thermal_zone_device*, int* temp);`
 
-    Dans sa configuration actuelle, le μP implémente deux zones, la zone « cpu-thermal » et la zone
+    Dans sa configuration actuelle, le microprocesseur implémente deux zones, la zone « cpu-thermal » et la zone
     « gpu_thermal ».
 
 2.  Le module `linux/gpio.h` du noyau Linux fournit les services nécessaires au pilotage d'une broche d'entrée/sortie, soit :
@@ -103,7 +103,7 @@ Cette application réalisera la fonctionnalité minimale suivante :
     La documentation du contrôleur de l'écran OLED est disponible
     sur [le site du cours](https://mse-csel.github.io/website/documentation/nanopi/).
     Il est important de noter que l'écran est interfacé au
-    μP via un bus I^2^C. Dans la configuration actuelle du noyau,
+    microprocesseur via un bus I^2^C. Dans la configuration actuelle du noyau,
     effectuée par le _Device Tree_, les bus I^2^C ne sont pas
     disponibles. Il est donc nécessaire d'étendre cette configuration et
     de mettre le statut du bus `i2c0` à `okay` comme ci-dessous :

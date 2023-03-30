@@ -24,7 +24,7 @@ Cet outil est basé sur la méthode `times()` fournit par la bibliothèque
 
 Sa simplicité pâtit d'une résolution souvent insuffisante. Le temps retourné est
 donné en nombre de cycles d'horloge système, laquelle peut varier fortement
-selon les performances du µP mis en œuvre.
+selon les performances du microprocesseur mis en œuvre.
 
 ## Horloges (_timers_)
 
@@ -143,7 +143,7 @@ Inconvénients :
 - Peu de points de mesure possible
 
 L'utilisation de sorties numériques nécessite un accès aux ports
-d'entrées/sorties du µP
+d'entrées/sorties du microprocesseur
 
 2 chemins disponibles :
 

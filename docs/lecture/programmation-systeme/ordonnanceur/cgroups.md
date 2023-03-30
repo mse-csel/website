@@ -4,11 +4,11 @@ title: Control Groups (CGroups)
 
 ## Introduction
 
-La gestion des ressources des µP pour les différentes tâches que le système
+La gestion des ressources des microprocesseur pour les différentes tâches que le système
 doit assurer est un problème récurrent sur les systèmes embarqués.
 
 Les groupes de contrôle (CGroups) offrent un mécanisme puissant pour
-limiter, compter et isoler les ressources du µP, par exemple les cœurs, la mémoire,
+limiter, compter et isoler les ressources du microprocesseur, par exemple les cœurs, la mémoire,
 utilisation des I/O.
 
 Les CGroups permettent de partitionner le système en différentes activités.
@@ -21,7 +21,7 @@ des comportements spécialisés.
 
 ## Subsystems
 
-Un sous-système représente une ressource du µP, par exemple le temps CPU ou la
+Un sous-système représente une ressource du microprocesseur, par exemple le temps CPU ou la
 capacité d'une mémoire.
 
 Les _CGroups_ proposent :

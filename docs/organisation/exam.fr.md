@@ -78,7 +78,7 @@ Les étudiant-e-s devront être capables :
         1. De décrire les stratégies SCHED_NORMAL, SCHED_RR et SCHED_FIFO
         1. De proposer des critères pour la conception d'une application normale ou temps réel
         1. De décrire les mécanismes permettant d'attribuer un ou plusieurs CPU à un processus
-        1. De décrire la gestion des ressources des µP avec les groupes de contrôle (cgroup)
+        1. De décrire la gestion des ressources des microprocesseurs avec les groupes de contrôle (cgroup)
 1. Optimisation
     1. Performances
         1. De décrire différentes méthodes pour mesurer le temps d'exécution
