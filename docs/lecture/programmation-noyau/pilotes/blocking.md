@@ -5,9 +5,9 @@ title: "Opérations bloquantes"
 ## Opérations d'entrées/sorties bloquantes
 
 Quand une opération de lecture ou d'écriture doit attendre sur des données ou
-sur la disponibilité du périphérique, le pilote doit bloquer le thread jusqu'à ce
+sur la disponibilité du périphérique, le pilote doit bloquer le _thread_ jusqu'à ce
 que les données soient disponibles. Ceci peut être réalisé en le mettant en
-sommeil jusqu'à ce que la requête puisse être satisfaite à l'aide de waitqueues.
+sommeil jusqu'à ce que la requête puisse être satisfaite à l'aide de _waitqueues_.
 
 Déclaration de la _waitqueue_ (`<linux/wait.h>`, `<linux/sched.h>`) et d'un
 fanion de signalisation
@@ -23,13 +23,13 @@ Initialisation de la _waitqueue_
 init_waitqueue_head (&my_queue);
 ```
 
-Attendre jusqu'à ce que l'opération puisse être satisfaite (read/write)
+Attendre jusqu'à ce que l'opération puisse être satisfaite (_read/write_)
 
 ```c
 wait_event_interruptible(&my_queue, request_can_be_processed != 0);
 ```
 
-Lorsque les ressources sont disponibles, le pilote peut réveiller le thread et lui
+Lorsque les ressources sont disponibles, le pilote peut réveiller le _thread_ et lui
 signaler que la requête peut finalement être traitée
 
 ```c
@@ -43,16 +43,17 @@ utilisent l'opération `poll` du pilote de périphérique dont les services sont
 disponibles dans l'interface `<linux/poll.h>`.
 
 Cette méthode permet d'attendre sur les ressources en mode non bloquant et
-peut être pour de opérations de lecture comme d'écriture
+peut être pour des opérations de lecture comme d'écriture
 
 ```c
 static unsigned int skeleton_poll (struct file *f,
                                    poll_table *wait) {
     unsigned mask = 0;
     poll_wait (f, &my_queue, wait);
-    if (request_can_be_processed != 0)
-    mask |= POLLIN | POLLRDNORM; // read operation
- // mask |= POLLOUT | POLLWRNORM; // write operation
+    if (request_can_be_processed != 0) {
+        mask |= POLLIN | POLLRDNORM; // read operation
+        // mask |= POLLOUT | POLLWRNORM; // write operation
+    }
     return mask;
 }
 ```

@@ -85,11 +85,11 @@ variantes sont à disposition pour la génération du DTB
 
 - Si le DT est placé dans l'arborescence du noyau, il suffit de choisir le nouveau DT
   lors de la configuration du noyau. Ce choix se laisse facilement configurer avec
-  Buildroot.
+  _Buildroot_.
 - Si le DT est placé dans l'arborescence de Buildroot, par exemple sous `board/<name>`,
-  il suffit de configurer Buildroot afin qu'il génère le nouveau DTB.
+  il suffit de configurer _Buildroot_ afin qu'il génère le nouveau DTB.
 - Si le DT est placé en dehors des 2 arborescences précédentes, il faudra alors
-  développer son propre Makefile.
+  développer son propre _Makefile_.
 
 <figure markdown>
 ![](img/dt-mk-k.png)

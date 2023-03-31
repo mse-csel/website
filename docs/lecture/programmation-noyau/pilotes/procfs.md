@@ -4,7 +4,7 @@ title: "procfs: process file system"
 
 ## Principe
 
-procfs (process file system), accessible sous le répertoire` /proc`, est un
+_procfs_ (_process file system_), accessible sous le répertoire `/proc`, est un
 pseudo-système de fichiers, créé sous Linux pour accéder, au moyen
 d'utilitaires très simple, tels que `ls`, `cat` ou `echo`, aux informations du
 noyau. Par exemple :
@@ -24,10 +24,10 @@ fonctionnalité sous `sysfs` que sous `procfs`.
 Au niveau du noyau, l'interface `<linux/proc_fs.h>` offre une série de
 méthodes permettant au pilote d'instancier des méthodes de lecture et d'écriture.
 
-Depuis la version 3.10 du noyau, procfs utilise les `fops` employés par les
+Depuis la version 3.10 du noyau, _procfs_ utilise les `fops` employés par les
 méthodes d'accès aux pilotes de périphériques devront être utilisées.
 
-Pour installer les méthodes d'accès dans procfs, on utilisera la fonction
+Pour installer les méthodes d'accès dans _procfs_, on utilisera la fonction
 
 ```c
 struct proc_dir_entry *proc_create (const char *name, mode_t mode,

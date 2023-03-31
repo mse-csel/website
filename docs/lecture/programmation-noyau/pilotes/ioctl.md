@@ -4,12 +4,12 @@ title: "ioctl : input/output control"
 
 ## Principe
 
-ioctl (Input/Output Control) a été introduit dans les systèmes Unix vers la fin
+_ioctl_ (_Input/Output Control_) a été introduit dans les systèmes Unix vers la fin
 des années 1970. Elle est supportée par la plupart des systèmes Unix, dont
 Linux et Mac OS X. Windows fournit une interface similaire connue sous le
-nom de DeviceIoControl.
+nom de _DeviceIoControl_.
 
-4 ioctl fournit au niveau du mode utilisateur la méthode `ioctl` avec le
+_ioctl_ fournit au niveau du mode utilisateur la méthode `ioctl` avec le
 prototype suivant:
 
 ```c
@@ -19,7 +19,7 @@ int ioctl (int fd, unsigned long cmd, ...);
 - `fd` = descripteur de fichier obtenu lors de son ouverture
 - `cmd` = commande/opération devant être exécutée
 - `...` = paramètres optionnels
-- `return` = valeur de retour si positif, sinon erreur
+- _return_ : valeur de retour si positif, sinon erreur
   `-EINVAL` (invalid argument)
 
 La fonction `unlocked_ioctl` est appelée quand l'application en espace utilisateur utilise
@@ -45,7 +45,7 @@ permettant d'identifier les opérations que le driver devra exécuter.
 Le mot de commande a la structure suivante:
 
 - `type` : nombre magique unique (magic number) codé sur 8 bits, lequel doit est
-  défini après consultation de la liste `Documentation/ioctl-number.txt` fournie dans
+  défini après consultation de la liste `Documentation/userspace-api/ioctl/ioctl-number.rst` fournie dans
   la documentation de Linux
 - `number` : numéro de la commande/opération codé sur 8 bits.
 - `direction` : définit le type d'opération devant être exécutée
