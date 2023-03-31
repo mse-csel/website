@@ -4,7 +4,7 @@ title: Plateforme
 
 ## Introduction
 
-Pour les périphériques, le noyau Linux a développé un bus plateforme, lequel
+Pour les périphériques, le noyau Linux a développé un bus _plateforme_, lequel
 supporte des pilotes pour la gestion de ces périphériques ne faisant pas partie
 d'un type de bus avec une détection dynamique.
 
