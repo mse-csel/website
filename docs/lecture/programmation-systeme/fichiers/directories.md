@@ -29,7 +29,7 @@ fonctions pour:
   struct dirent* readdir (DIR* dir);
   int closedir (DIR* dir);
   ```
-- Gérer les liens (hardlinks et softLinks)
+- Gérer les liens (_hardlinks_ et _softLinks_)
   ```c
   int link (const char* oldpath, const char* newpath);
   int symlink (const char* oldpath, const char* newpath);
@@ -43,7 +43,7 @@ système de fichiers sont des opérations assez courantes. Elles sont utilisées
 pour obtenir l'annuaire des fichiers résidants dans un répertoire donné ou
 pour rechercher certaines informations, telles que la structure du système.
 
-La lecture s'effectue en trois opérations distinctes
+La lecture s'effectue en trois opérations distinctes :
 
 - Ouverture du répertoire (méthode: `opendir`)
 - Lecture du répertoire (méthode: `readdir`)
@@ -66,7 +66,7 @@ DIR *opendir (const char* dirname);
 **Exemple**
 
 ```c
-DIR* dirp = opendir ("/home/lmi/mydirectory");
+DIR* dirp = opendir ("/home/myusername/mydirectory");
 if (dirp == 0)
     /* error*/
 ```
@@ -77,9 +77,9 @@ if (dirp == 0)
   (_stream_) spécifié par l'argument `dirname`. Si une erreur survient lors de
   l'ouverture, le pointeur sera `NULL` et la variable `errno` indiquera l'erreur,
   les plus probables:
-    - `EACCES` à pas de permission
-    - `ENOENT` à répertoire n'existe pas
-    - `ENOTDIR` à dirname n'est pas un répertoire
+    - `EACCES` --> pas de permission
+    - `ENOENT` --> répertoire n'existe pas
+    - `ENOTDIR` --> dirname n'est pas un répertoire
 
 ## Lecture de l'annuaire d'un répertoire
 
@@ -109,7 +109,7 @@ while (true) {
 - La fonction `readdir()` retourne un pointeur sur une entrée de l'annuaire du
   répertoire. Si toutes les entrées ont été découvertes, la fonction retourne un
   pointeur `NULL`. En cas d'erreur, le pointeur sera `NULL` et la variable `errno`
-  indique l'erreur avec une valeur différente de 0.
+  indique l'erreur avec une valeur différente de `0`.
 - Il est important de noter que le contenu des données retournées par `readdir()`
   peut être modifié par d'autres appels à cette fonction pour le même annuaire.
   La méthode `readdir_r()` offre un service réentrant
@@ -127,7 +127,7 @@ while (true) {
       char d_name[256]; // filename
   };
   ```
-- L'attribut d_type peut prendre les valeurs suivantes:
+- L'attribut `d_type` peut prendre les valeurs suivantes:
     - `DT_BLK` --> it's a block device
     - `DT_CHR` --> it's a character device
     - `DT_DIR` --> it's a directory

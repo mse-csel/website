@@ -20,7 +20,7 @@ Avec la configuration actuelle du noyau Linux, ces deux LEDs sont à libre dispo
 
 ## Travail à réaliser
 
-Vous trouverez ci-dessous application qui contrôle la fréquence de clignotement d'une
+Vous trouverez ci-dessous une application qui contrôle la fréquence de clignotement d'une
 LED. Ce code n'a pas été très bien programmé et utilise le 100% d'un cœur du processeur (à mesurer
 avec `top`).
 
@@ -40,7 +40,7 @@ Quelques indications pour la réalisation de l'application :
     - `k3` pour diminuer la fréquence
     - optionnel : une pression continue exercée sur un bouton indiquera une auto
       incrémentation ou décrémentation de la fréquence.
-3. Tous les changements de fréquence seront logger avec syslog de Linux.
+3. Tous les changements de fréquence seront logger avec `syslog` de Linux.
 4. Le multiplexage des entrées/sorties devra être utilisé.
 
 ## Infos pratiques
@@ -56,7 +56,7 @@ Quelques informations utiles pour l'utilisation du module GPIO sous Linux :
 **Pour lire ou écrire une valeur sur une _pin_ d'entrée/sortie, il faut
 tout d'abord configurer le _GPIO_, soit :**
 
-1. Exporter la porte dans le « sysfs » à l'aide de la commande :
+1. Exporter la porte dans le _sysfs_ à l'aide de la commande :
     ```
     # echo <pin_nr> > /sys/class/gpio/export
     ```

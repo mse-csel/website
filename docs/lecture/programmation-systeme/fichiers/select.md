@@ -18,7 +18,7 @@ système `read` ou `write`
 Mécanismes à disposition :
 
 - Utilisation des services non bloquants
-- Implémentation d'un thread par entrée/sortie
+- Implémentation d'un _thread_ par entrée/sortie
 - Utilisation de services offrant un multiplexage des entrées/sorties
 
 ## Mécanismes - Services non bloquants
@@ -52,16 +52,16 @@ bloque le traitement des autres
 
 **Carences** :
 
-- Nombre de threads nécessaires pour réaliser l'application
+- Nombre de _threads_ nécessaires pour réaliser l'application
 - Complexité du logiciel pour synchroniser les différentes données
-- Complexité lors du debugging du logiciel
+- Complexité lors du _debugging_ du logiciel
 
 ## Mécanismes - Multiplexage des entrées/sorties
 
 Les systèmes Unix, et plus particulièrement Linux, proposent des services
 autorisant le multiplexage des entrées/sorties. Ces services permettent de
 sélectionner un catalogue d'entrées/sorties à traiter et de le passer au noyau.
-Ce dernier informera le processus sur ceux disponibles pour traitement.
+Ce dernier informe le processus sur ceux disponibles pour traitement.
 
 <figure markdown>
 ![](img/select-mux.drawio.svg)
@@ -163,12 +163,12 @@ if (ret == ‐1) {
 
 ## Service epoll
 
-Le service epo`ll a été introduit sur Linux pour pallier aux carences du
+Le service `epoll` a été introduit sur Linux pour pallier les carences du
 service `select()` et pour offrir une interface performante lorsqu'un grand
 nombre de descripteurs de fichiers doit être traité.
 
 | operation                      | syscall         |
-| ------------------------------ | --------------- |
+|--------------------------------|-----------------|
 | Création d'un contexte `epoll` | `epoll_create1` |
 | Contrôle du contexte `epoll`   | `epoll_ctl`     |
 | Attente sur des événements     | `epoll_wait`    |
@@ -193,7 +193,7 @@ if (epfd == -1)
 
 **Comportement**
 
-- La fonction `epoll_create1()` permet de créer une nouveau contexte `epool`
+- La fonction `epoll_create1()` permet de créer un nouveau contexte `epool`
   pour le multiplexage des entrées/sorties. Les erreurs pouvant survenir lors de la
   création d'un contexte epoll sont `EINVAL`, `EMFILE`, `ENFILE` ou `ENOMEM`. 
 
@@ -222,13 +222,13 @@ if (ret == -1)
 **Comportement**
 
 - La fonction `epoll_ctl()` permet d'ajouter ou de retirer un descripteur de
-  fichiers au contexte contexte `epool`. Il est également possible de modifier les
+  fichiers au contexte `epool`. Il est également possible de modifier les
   événements que l'on souhaite surveiller pour un descripteur de fichiers donné.
 
 **Arguments**
 
-- L'argument `epfd` spécifie le contexte epoll à contrôler
-- L'argument `op` indique l'operation que l'on souhaite exécuter avec le contexte
+- L'argument `epfd` spécifie le contexte `epoll` à contrôler
+- L'argument `op` indique l'opération que l'on souhaite exécuter avec le contexte
   `epoll` pour le descripteur de fichiers `fd`.
     - `EPOLL_CTL_ADD` ajouter un nouveau descripteur de fichiers
     - `EPOLL_CTL_DEL` retirer un descripteur de fichiers

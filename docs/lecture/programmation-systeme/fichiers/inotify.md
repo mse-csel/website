@@ -2,24 +2,24 @@
 title: Surveillance de changements dans le système de fichiers
 ---
 
-## inotify - Introduction
+## Inotify - Introduction
 
 Pour certaines applications, il peut être très utile de surveiller les
 changements apportés à certains fichiers ou répertoires.
 
-Par exemple, un système de backup peut être intéressé à connaitres tous les
+Par exemple, un système de backup peut être intéressé à connaitre tous les
 fichiers qui ont été ajoutés, enlevés ou modifiés. Cette même surveillance
-peut s'avérer très pratique pour des processus daemon utilisant des fichiers
+peut s'avérer très pratique pour des processus _daemon_ utilisant des fichiers
 de configuration. Elle lui permettrait d'adapter sa paramétrisation aux
 nouvelles modifications.
 
 La solution proposée par Linux s'appelle `inotify`.
 
-`inotify` permet de surveiller 12 événements distincts
+`inotify` permet de surveiller 12 événements distincts :
 
 | Event            | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| IN_ACCESS        | File was accessed (read())                           |
+|------------------|------------------------------------------------------|
+| IN_ACCESS        | File was accessed (`read()`)                         |
 | IN_ATTRIB        | File metadata changed                                |
 | IN_CLOSE_WRITE   | File opened for writing was closed                   |
 | IN_CLOSE_NOWRITE | File opened read-only was closed                     |
@@ -32,23 +32,23 @@ La solution proposée par Linux s'appelle `inotify`.
 | IN_MOVED_TO      | File moved into watched directory                    |
 | IN_OPEN          | File was opened                                      |
 
-## inotify - Opérations
+## Inotify - Opérations
 
-Le mécanisme inotify de Linux propose divers services la surveillance de
+Le mécanisme _inotify_ de Linux propose divers services pour la surveillance de
 fichiers ou de répertoires. Il est intéressant de noter que ceux-ci peuvent être
 bloquants ou non bloquants. Dans le cas de services bloquants, les services
 de multiplexage (par exemple `epoll`) peuvent être mis en œuvre pour attendre sur
 des événements.
 
 | Opération                              | syscall             |
-| -------------------------------------- | ------------------- |
+|----------------------------------------|---------------------|
 | Créer une instance de surveillance     | `inotify_init1`     |
 | Ajouter un nouvel article à surveiller | `inotify_add_watch` |
-| Eliminer un article de la surveillance | `inotify_rm_watch`  |
+| Éliminer un article de la surveillance | `inotify_rm_watch`  |
 | Lire les événements survenus           | `read`              |
 | Fermer une instance de surveillance    | `close`             |
 
-## inotify - Créer une instance de surveillance
+## Créer une instance de surveillance
 
 Pour créer une instance de surveillance, Linux propose l'appel système
 `inotify_init1()`.
@@ -68,13 +68,13 @@ if (ifd == -1)
 
 **Comportement**
 
-- La fonction `inotify_init1()` crèe une nouvelle instance de surveillance. La
+- La fonction `inotify_init1()` crée une nouvelle instance de surveillance. La
   méthode retourne un descripteur de fichier. En cas d'erreur, la valeur `-1` est
   retournée.
 - Si l'on souhaite un service non bloquant, il suffit de passer `IN_NONBLOCK` dans
-  l'argument flags.
+  l'argument `flags`.
 
-## inotify - Ajouter un article à surveiller
+## Ajouter un article à surveiller
 
 Pour ajouter un nouvel article dans l'instance de surveillance, Linux propose
 l'appel système `inotify_add_watch()`.
@@ -94,7 +94,7 @@ if (wd == -1)
 
 **Comportement**
 
-- La méthode inotify_add_watch() ajoute à l'instance de surveillance fd un
+- La méthode `inotify_add_watch()` ajoute à l'instance de surveillance `fd` un
   nouvel article (fichier ou répertoire) spécifié par le 2^e^ argument `pathname`. Les
   événements que l'on souhaite surveiller sont indiqués par le 3^e^ argument `mask`.
 - La méthode retourne un descripteur correspondant à l'article. Ce dernier sera
@@ -103,7 +103,7 @@ if (wd == -1)
 - Le processus doit naturellement disposer des droits pour surveiller un fichier ou
   un répertoire.
 
-# inotify - Lire les événements
+# Lire les événements
 
 La lecture des événements se réalise simplement avec la méthode `read()`.
 
@@ -132,11 +132,11 @@ while (len > 0) {
 
 **Comportement**
 
-- La méthode `read()` retourne dans le buff une liste d'événements
+- La méthode `read()` retourne dans le `buff` une liste d'événements
 
 **Arguments**
 
-- La struct `inotify_event` fournit les informations suivantes
+- La `struct inotify_event` fournit les informations suivantes
   ```c
   struct inotfy_event {
     int wd; // watch descriptor
@@ -150,7 +150,8 @@ while (len > 0) {
 - `mask` contient les bits décrivant l'événement
 - `cookie` est une valeur entière unique permettant de mettre en relation deux
   événements. Ceci arrive si l'on renomme un fichier ou un répertoire. Dans les
-  autres cas, cookie vaut `0`.
+  autres cas, `cookie` vaut `0`.
 - `name` identifie le nom relatif du fichier ou du répertoire pour lequel l'événement
-  a été levé. len décrit le nombre de charactères contenus dans name incluant le
-  caractère 0 terminant le string.
+  a été levé.
+- `len` décrit le nombre de caractères contenus dans `name` incluant le
+  caractère `0` terminant le _string_.

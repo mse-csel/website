@@ -7,12 +7,12 @@ entière signée (`int syscall()`). Si la valeur retournée est `0` ou supérieu
 elle indique le succès de l'opération. Par contre, en cas d'erreur, on obtient
 généralement `-1`.
 
-Le détail de l'erreur (sa cause / son type), peut être obtenu par l'intermédiaire de
+Le détail de l'erreur (sa cause / son type) peut être obtenu par l'intermédiaire de
 la variable globale `extern int errno;` déclarée dans le fichier `<errno.h>`,
 lequel définit aussi les codes d'erreurs du système, par exemple :
 
 | Code    | Description               | Code    | Description                         |
-| ------- | ------------------------- | ------- | ----------------------------------- |
+|---------|---------------------------|---------|-------------------------------------|
 | EPERM   | Operation not permitted   | EXDEV   | Cross-device link                   |
 | ENOENT  | No such file or directory | ENODEV  | No such device                      |
 | ESRCH   | No such process           | ENOTDIR | Not a directory                     |
@@ -34,7 +34,7 @@ lequel définit aussi les codes d'erreurs du système, par exemple :
 La bibliothèque standard C fournit plusieurs services pour convertir les codes
 d'erreurs en une représentation textuelle et les afficher sur la console.
 
-Exemple 1
+Exemple 1 :
 
 ```c
 #include <stdio.h>
@@ -46,7 +46,7 @@ if (ret == -1)
     perror("ERROR");
 ```
 
-Exemple 2
+Exemple 2 :
 
 ```c
 #include <stdio.h>
@@ -61,9 +61,9 @@ if (ret == -1) {
 }
 ```
 
-Remarque
+Remarque :
 
-- La méthode strerror n'est pas _thread-safe_. Il est préférable d'utiliser la
+- La méthode `strerror` n'est pas _thread-safe_. Il est préférable d'utiliser la
   méthode `strerror_r`
 - Bien que la variable `errno` soit globale, sous Linux, elle est stockée par _thread_
   et par conséquent sûre.

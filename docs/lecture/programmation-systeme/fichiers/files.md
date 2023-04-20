@@ -4,7 +4,7 @@ title: Traitement des fichiers ordinaires
 
 ## File I/O : Fichiers ordinaires
 
-Propriétés
+Propriétés :
 
 - _File I/O_ propose une interface au niveau du noyau Linux pour la gestion de
   fichiers ordinaires et spéciaux.
@@ -25,11 +25,11 @@ Linux propose une large palette de services pour traiter avec les fichiers
 ordinaires
 
 | Opération                                     | syscall        |
-| --------------------------------------------- | -------------- |
+|-----------------------------------------------|----------------|
 | Ouverture d'un fichier                        | `open`         |
 | Création d'un fichier                         | `creat`        |
 | Lecture du contenu d'un fichier               | `read`         |
-| Ecriture de données dans un fichier           | `write`        |
+| Écriture de données dans un fichier           | `write`        |
 | Positionnement dans le fichier                | `lseek`        |
 | Troncation d'un fichier                       | `ftruncate`    |
 | Mise en mémoire d'un fichier                  | `mmap`         |
@@ -40,7 +40,7 @@ ordinaires
 
 ## Ouverture d'un fichier
 
-L'ouverture d'un fichier est obtenue à l'aide de l'appel système open()
+L'ouverture d'un fichier est obtenue à l'aide de l'appel système `open()`
 
 ```c
 #include <sys/types.h>
@@ -52,14 +52,14 @@ int open (const char* pathname, int flags);
 Exemple
 
 ```c
-int fd = open ("/home/lmi/myfile", O_RDONLY);
+int fd = open ("/home/myusername/myfile", O_RDONLY);
 if (fd == -1)
     /* error*/
 ```
 
 **Comportement**
 
-La fonction `open()` associe le fichier spécifié par l'argument pathname au
+La fonction `open()` associe le fichier spécifié par l'argument `pathname` au
 descripteur `fd`, lequel est retourné en cas de succès.
 
 **Arguments**
@@ -75,7 +75,7 @@ descripteur `fd`, lequel est retourné en cas de succès.
     - `O_APPEND`: ajouter les données au contenu existant
     - `O_TRUNC`: remplacer les données du fichier
 - Par exemple
-    `int fd = open ("/home/lmi/myfile", O_WRONLY | O_APPEND);`
+    `int fd = open ("/home/myusername/myfile", O_WRONLY | O_APPEND);`
 
 ## Création d'un fichier ordinaire 
 
@@ -93,11 +93,11 @@ int open (const char* pathname, int flags, mode_t mode);
 Exemple
 
 ```c
-int fd = creat ("/home/lmi/myfile", 0664);
+int fd = creat ("/home/myusername/myfile", 0664);
 ```
 ou
 ```c
-int fd = open ("/home/lmi/myfile", O_WRONLY | O_CREAT | O_TRUNC, 0664);
+int fd = open ("/home/myusername/myfile", O_WRONLY | O_CREAT | O_TRUNC, 0664);
 if (fd == -1)
     /* error*/
 ```
@@ -106,7 +106,7 @@ if (fd == -1)
 
 - Ces deux appels sont équivalents. Ils permettent de créer un nouveau fichier. Si
   le fichier est déjà existant, le contenu de celui-ci sera simplement effacé.
-- Il faut noter, que si le fichier existe déjà, le mode du nouveau fichier ne sera pas
+- Il faut noter que si le fichier existe déjà, le mode du nouveau fichier ne sera pas
   adapté au mode spécifié lors de l'appel de la fonction.
 
 **Arguments**
@@ -114,22 +114,21 @@ if (fd == -1)
 - L'argument `pathname` spécifie le chemin et le nom du fichier à créer. Le chemin
   peut être absolu ou relatif.
 - L'argument `flags` spécifie le mode d'accès au fichier, en principe:
-    - O_WRONLY | O_CREAT | O_TRUNC
+    - `O_WRONLY | O_CREAT | O_TRUNC`
 - L'argument `mode` spécifie les droits d'accès au fichier. Ce mode peut être passé
   sous forme octale ou sous forme symbolique en utilisant les constantes
   suivantes:
 
 
 | Permission | Owner   | Group   | Other   |
-| ---------- | ------- | ------- | ------- |
+|------------|---------|---------|---------|
 | all        | S_IRWXU | S_IRWXG | S_IRWXO |
 | read       | S_IRUSR | S_IRGRP | S_IROTH |
 | write      | S_IWUSR | S_IWGRP | S_IWOTH |
 | execute    | S_IXUSR | S_IXGRP | S_IXOTH |
 
-
-Il est important de noter que les droits du fichier sera déterminé avec un ET
-logique entre le mode spécifié lors de la création du fichier et le complément à 1
+Il est important de noter que les droits du fichier est déterminé avec un **et**
+logique entre le mode spécifié lors de la création du fichier et le complément à un (inverse)
 du masque de création de fichiers attribué à l'utilisateur (valeur _umask_). Ce
 dernier peut être obtenu avec la commande `umask`
 
@@ -154,13 +153,13 @@ if (nr == -1)
 
 **Comportement**
 
-- La fonction `read()` permet de lire au maximum len octets du fichier et de les
+- La fonction `read()` permet de lire au maximum `len` octets du fichier et de les
 stocker dans `buf`. En cas d'erreur, la fonction retourne `-1`. La position du fichier
 est avancée du nombre d'octets lus, permettant ainsi de lire les octets restants.
 
 **Valeur de retour**
 
-- Si la valeur de retour est égale à len tout est en ordre
+- Si la valeur de retour est égale à `len` tout est en ordre
 - Si la valeur de retour est égale à `0`, cela indique la fin du fichier (_EOF_) et qu'il ne
   reste plus rien à lire
 - Si la valeur de retour est inférieure à `len`, mais supérieure à `0`, le nombre
@@ -168,7 +167,7 @@ est avancée du nombre d'octets lus, permettant ainsi de lire les octets restant
   cette situation. Pour en connaître la raison, il suffit d'exécuter une lecture
   supplémentaire.
 - Si la valeur de retour est égale à `-1`, cela indique qu'une erreur est survenue.
-  Dans ce cas, si errno est mis à `EINTR`, cela indique qu'un signal a été levé et
+  Dans ce cas, si `errno` est mis à `EINTR`, cela indique qu'un signal a été levé et
   qu'il faut réeffectuer une lecture, sinon une erreur sévère est survenue et il faut,
   par conséquent, stopper la lecture du fichier.
 
@@ -192,7 +191,7 @@ while (1) {
 }
 ```
 
-## Ecriture d'un fichier
+## Écriture d'un fichier
 
 L'écriture de données dans un fichier s'effectue à l'aide de l'appel système
 `write()`
@@ -216,11 +215,11 @@ else if (count != len)
 
 **Comportement**
 
-- La fonction `write()` permet de stocker dans le fichier les len octets contenus
+- La fonction `write()` permet de stocker dans le fichier les `len` octets contenus
   dans `buf`. En cas d'erreur, la fonction retourne `-1`. La position du fichier est
-  avancé du nombre d'octets écrits, permettant ainsi d'ajouter les octets
+  avancée du nombre d'octets écrits, permettant ainsi d'ajouter les octets
   supplémentaires.
-- Si la valeur retournée count est différente de len, cela signifie qu'une erreur
+- Si la valeur retournée `count` est différente de `len`, cela signifie qu'une erreur
   sévère est survenue.
 
 ## Synchronisation des données avec le disque
@@ -228,7 +227,7 @@ else if (count != len)
 La synchronisation des données d'un fichier ordinaire contenues dans la
 mémoire cache s'effectue de façon asynchrone. Linux propose plusieurs
 services pour forcer cette synchronisation. Cette dernière peut s'effectuer
-avec l'appel système `fsync()`
+avec l'appel système `fsync()`.
 
 ```c
 #include <unistd.h>
@@ -270,16 +269,16 @@ if (ret == -1)
 
 **Comportement**
 
-- La fonction `lseek()` déplace de offset octets la position du pointeur d'accès
+- La fonction `lseek()` déplace de `offset` octets la position du pointeur d'accès
   aux données dans le fichier. Ce déplacement s'effectue en relation avec l'origine
-  _whence_ (début, position courrante ou fin). La nouvelle position est retournée. En
-  case d'erreur on obtient `-1`.
+  `whence` (début, position courante ou fin). La nouvelle position est retournée. En
+  case d'erreur, on obtient `-1`.
 
 **Arguments**
 
-- L'argument offset spécifie le décalage du pointeur par rapport à une origine.
+- L'argument `offset` spécifie le décalage du pointeur par rapport à une origine.
   Ce décalage peut être positif ou négatif.
-- L'argument whence spécifie l'origine du pointeur pour le calcul de la nouvelle
+- L'argument `whence` spécifie l'origine du pointeur pour le calcul de la nouvelle
   position. Celui-ci peut prendre les valeurs suivantes:
     - `SEEK_SET`: le pointeur d'origine est placé au début du fichier
     - `SEEK_CUR`: le pointeur d'origine est placé à la position courante/actuelle
@@ -300,7 +299,7 @@ if (ret == -1)
   off_t pos = lseek(fd, 0, SEEK_END);
   ```
 
-## Troncation d'un fichie
+## Troncation d'un fichier
 
 La troncation d'un fichier est obtenue à l'aide de l'appel système
 `ftruncate()`
@@ -311,7 +310,7 @@ La troncation d'un fichier est obtenue à l'aide de l'appel système
 int ftruncate (int fd, off_t length);
 ```
 
-**Exemple
+**Exemple**
 
 ```c
 int ret = ftruncate (fd, 1150);
@@ -321,7 +320,7 @@ if (ret == -1)
 
 **Comportement**
 
-- La fonction `ftruncate()` tronque le fichier à length octets.
+- La fonction `ftruncate()` tronque le fichier à `length` octets.
 - Si le fichier était plus long, les données supplémentaires sont perdues.
 - Si le fichier était plus court, il est étendu, et la portion supplémentaire est remplie
   d'octets nuls.
@@ -352,10 +351,10 @@ if (nr == -1)
 ```
 **Comportement**
 
-- La 1ère fonction `pwrite()` permet de stocker dans au début du fichier (à la
-  position 0) les `len` octets contenus dans `buf`.
-- La 2ème fonction `pread()` permet de lire len premiers octets du fichier (de la
-  position 0) et de `les` stocker dans `buf`. 
+- La première fonction `pwrite()` permet de stocker dans au début du fichier (à la
+  position `0`) les `len` octets contenus dans `buf`.
+- La deuxième fonction `pread()` permet de lire `len` premiers octets du fichier (de la
+  position `0`) et de les stocker dans `buf`. 
 
 ## Lecture des métadonnées (statut) d'un fichier 
 
@@ -389,7 +388,7 @@ if (ret == -1)
 
 **Arguments**
 
-La structure struct stat fournit les informations suivantes:
+La structure `struct stat` fournit les informations suivantes:
 
 ```c
 struct stat {
@@ -448,7 +447,7 @@ Hormis l'accès direct aux fonctions du noyau Linux, C/C++ proposent d'autres
 services pour le traitement des fichiers. Ces services sont fournis par les
 bibliothèques standard (C: `stdio.h` / C++: `cstdio` ou `iostream`).
 
-Ces bibliothèques implémentent des caches supplémentaires au niveau des
+Ces bibliothèques implémentent des _caches_ supplémentaires au niveau des
 processus dans l'espace utilisateurs (_user space_), évitant ainsi de nombreux
 appels système (moins de changements de contexte entre espaces utilisateur
 (processus) et le noyau Linux).
@@ -460,7 +459,7 @@ appels système (moins de changements de contexte entre espaces utilisateur
 ## Standard I/O : Fonctions principales
 
 La bibliothèque standard C `<stdio.h>` propose toute une série de méthodes
-pour l^accès aux fichiers au format ascii ou binaire.
+pour l'accès aux fichiers au format ASCII ou binaire.
 
 ```c
 /* functions to open, close, rename and remove files */
@@ -490,7 +489,7 @@ int feof (FILE* stream);
 ## Utilisation
 
 L'utilisation des bibliothèques _Standard I/O_ est recommandée lors de
-manipulation de fichiers avec de petites quantités de données à la fois (ascii
+manipulation de fichiers avec de petites quantités de données à la fois (ASCII
 ou binaire) ou accès aux données orienté caractère ou ligne.
 
 Elles offrent:

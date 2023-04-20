@@ -42,7 +42,7 @@ très complexes à maintenir. Ils souffrent souvent d'effets de bord les rendant
 moins robustes et moins fiables.
 
 Il est plus judicieux de concevoir des applications basées sur de petits
-programmes simples, nettement plus facile a maintenir et plus évolutifs.
+programmes simples, nettement plus faciles à maintenir et plus évolutifs.
 
 Le système d'exploitation Linux offre divers outils et services pour autoriser
 de tels designs.
@@ -64,20 +64,20 @@ cat long_file.txt | wc
 find -name "*" | xargs grep hallo
 ```
 
-## Tout est fichier - Les données sont du texte
+## Tout est fichier - Les données sont du texte.
 
 Under Linux everything is a file!
 
 - Sous Linux, un fichier est beaucoup plus que de simples données stockées sur un
-  disque (disque dur magnétique, flash disk, disque réseau, ...)
+  disque (disque dur magnétique, flash disque, disque réseau ...)
 - Sur les systèmes embarqués, hormis l'accès aux données stockées dans des fichiers
   ordinaires, il est important de pouvoir accéder de manière simple et efficace aux
-  autres ressources du système (périphériques, noyau, réseau, ...)
+  autres ressources du système (périphériques, noyau, réseau ...)
 
 Linux implémente un système de fichiers virtuels permettant de représenter
 
 - Des fichiers ordinaires (stockage de données sur disque)
-- Des périphériques d'entrées/sorties (devfs: `/dev`)
+- Des périphériques d'entrées/sorties (_devfs_: `/dev`)
 - Des données (status/configuration) du noyau Linux (_procfs_: `/proc`)
 - Des données (status/configuration) des pilotes (_sysfs_: `/sys`)
 - Des données de débogage du noyau (_debugfs_: _/sys/kernel/debug_)
@@ -87,7 +87,7 @@ Les données sont du texte
 
 - La plupart des données stockées dans les fichiers spéciaux (_procfs_, _sysfs_, _debugfs_,...)
   sont du texte
-- Ce format permet d'être manipulé très aisément à l'aide d'outils tels que echo et cat
+- Ce format permet d'être manipulé très aisément à l'aide d'outils tels que `echo` et `cat`
 - Les fichiers de configuration sont également stockés sous forme de fichier texte
 
 ## Système de fichiers virtuels (Rappel)
@@ -121,7 +121,7 @@ Il existe naturellement bien d'autres opérations...
 
 ## Interfaces avec le système de fichiers virtuels
 
-Linux propose diverses interfaces pour accéder au système de fichiers virtuels
+Linux propose diverses interfaces pour accéder au système de fichiers virtuels :
 
 -  File I/O
 -  Standard I/O (ou Buffered I/O)
@@ -129,7 +129,7 @@ Linux propose diverses interfaces pour accéder au système de fichiers virtuels
 -  Surveillance de changements dans le système de fichiers
 -  Multiplexage des entrées/sorties
 
-Comportement des services
+Comportement des services :
 
 - Bien que les services proposés par ces interfaces sont disponibles pour tous
   les types de fichiers, ils peuvent se comporter légèrement différemment sur
