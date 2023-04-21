@@ -284,7 +284,7 @@ for (int i=0; i<nr; i++) {
 
 - La fonction `epoll_wait()` permet d'attendre jusqu'à ce que un ou plusieurs
   événements soient levés pour les descripteurs de fichiers attachés au contexte
-  `epoll`. 
+  `epoll`.
 
 **Arguments**
 

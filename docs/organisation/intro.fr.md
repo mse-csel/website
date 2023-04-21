@@ -51,7 +51,7 @@ code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
 | 16/SP-8  | 21.4.2023 | Programmation système Linux 1  |
 | 17/SP-9  | 28.4.2023 | Programmation système Linux 2  |
 | 18/SP-10 | 5.5.2023  | Programmation système Linux 3  |
-| 19/SP-11 | 12.5.2023 | Programmation système Linu x 4 |
+| 19/SP-11 | 12.5.2023 | Programmation système Linux 4  |
 | 20/SP-12 | 19.5.2023 | Pont de l'Ascension            |
 | 21/SP-13 | 26.5.2023 | Optimisation système Linux     |
 | 22/SP-14 | 2.6.2023  | Mini projet intégré 1          |
