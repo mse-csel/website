@@ -233,7 +233,7 @@ if (ret == -1)
     - `EPOLL_CTL_ADD` ajouter un nouveau descripteur de fichiers
     - `EPOLL_CTL_DEL` retirer un descripteur de fichiers
     - `EPOLL_CTL_MOD` modifier les événements à surveiller
-- L'argument eve`nt, à l'aide de la struct epoll_event, permet de spécifier
+- L'argument `event`, à l'aide de la `struct epoll_event`, permet de spécifier
   les événements (attribut `events`) que l'on souhaite surveiller pour le descripteur
   de fichiers `fd`. Cette même structure permet également d'attacher un paramètre
   supplémentaire (attribut `data`) pour identifier le descripteur de fichiers ayant
@@ -253,7 +253,7 @@ if (ret == -1)
     - `EPOLLERR` une condition d'erreur a été levée
     - `EPOLLIN` un fichier virtuel est disponible lecture
     - `EPOLLOUT` un ifchier virtuel est disponible en écriture
-    - `EPOLLPRI` des données prioritaires « out-of-band » sont diponibles
+    - `EPOLLPRI` des données prioritaires _out-of-band_ sont diponibles
 
 
 ## epoll - Attente sur la levée d'événements
