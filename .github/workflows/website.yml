@@ -10,7 +10,7 @@ on:
 
 # Change the following for conditional deployment
 env:
-  LECTURE_SHOW: 4
+  LECTURE_SHOW: 5
   EXAM_SHOW_OBJECTIVES: 0
   EXERCISE_SHOW_DATA: 5
   EXERCISE_SHOW_SOLUTION: 1
