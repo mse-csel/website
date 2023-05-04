@@ -26,7 +26,7 @@ _Completely Fair Scheduler_.
 
 Les caractéristiques de cet ordonnanceurs sont
 
-- Répartition fair des ressources du processeur en garantissant une proportion
+- Répartition équitable des ressources du processeur en garantissant une proportion
   identique du temps processeur à chaque processus, par exemple pour un système à N
   processus, chaque processus recevra 1/N du temps processeur
 - Implémente un arbre bicolore (red-black tree) pour la
@@ -190,7 +190,7 @@ if (ret == -1)
 
 ## Processor Affinity
 
-Par défaut, Linux implémente un mécanisme de « load balancing » pour la
+Par défaut, Linux implémente un mécanisme de _load balancing_ pour la
 gestion des CPU de processeurs multicoeurs. Cependant, il arrive que pour
 des applications il soit utile et nécessaire d'attribuer un ou plusieurs CPU à
 un processus ou groupe de processus. A cet effet, Linux propose une série

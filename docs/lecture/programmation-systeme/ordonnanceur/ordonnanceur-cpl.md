@@ -4,8 +4,8 @@ title: "Compléments"
 
 ## Signaux
 
-Numéro |  Nom              | Description
--------|-------------------|-----------------------------------------------------------
+Numéro | Nom               | Description
+-------|-------------------|--------------------------------------------------------
 1      | SIGHUP            | Instruction (HANG UP) - Fin de session
 2      | SIGINT            | Interruption
 3      | SIGQUIT           | Instruction (QUIT)
@@ -44,24 +44,24 @@ Numéro |  Nom              | Description
 
 ??? example "main.c"
     ```c
-    {! include "assets/daemon/appl/main.c!>}
+    {! include "assets/daemon/appl/main.c" !}
     ```
 
 ??? example "Makefile"
     ```Makefile
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/appl/Makefile!>}
+    {! include "assets/daemon/appl/Makefile" !}
     ```
 
 ## Daemon (complet, avec `fork`)
 
 ??? example "daemon.c"
     ```c
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/daemon/daemon.c!>}
+    {! include "assets/daemon/daemon/daemon.c" !}
     ```
 
 ??? example "Makefile"
     ```Makefile
-    {!docs/programmation-systeme/ordonnanceur/assets/daemon/daemon/Makefile!>}
+    {! include "assets/daemon/daemon/Makefile" !}
     ```
 
 
@@ -69,12 +69,12 @@ Numéro |  Nom              | Description
 
 ??? example "main.c"
     ```c
-    {!docs/programmation-systeme/ordonnanceur/assets/threads/main.c!>}
+    {! include "assets/threads/main.c" !}
     ```
 
 ??? example "Makefile"
     ```Makefile
-    {!docs/programmation-systeme/ordonnanceur/assets/threads/Makefile!>}
+    {! include "assets/threads/Makefile" !}
     ```
 
 ## Berkeley Sockets

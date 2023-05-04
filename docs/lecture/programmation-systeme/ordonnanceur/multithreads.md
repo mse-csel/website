@@ -15,8 +15,8 @@ Chaque thread est défini par :
 - `PID` : _Process identifier_
 - `TID` : _Thread identifier_
 
-Dans cet espace virtuel fourni par le processus parent, chaque thread
-dispose de sa propre pile (stack)
+Dans cet espace virtuel fourni par le processus parent, chaque _thread_
+dispose de sa propre pile (_stack_)
 
 Au niveau du noyau Linux, chaque thread est vue comme un processus léger
 (_light weight process_ - _LWP_)

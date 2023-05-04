@@ -35,7 +35,7 @@ Les états principaux d'un processus:
 
 - **Running**: le processus utilise le processeur et ses ressources
 - **Blocked**: le processus est bloqué en attente sur un événement
-- *Runnable*: le processus est prêt, mais attend que le micro-processeur soit libéré
+- **Runnable**: le processus est prêt, mais attend que le microprocesseur soit libéré
 
 <figure markdown>
 ![](img/states.drawio.svg)
@@ -219,10 +219,10 @@ else
 Lors du clonage d'un processus, le noyau Linux crèe un nouvel espace virtuel
 pour le nouveau processus (processus enfant).
 
-A quelques exceptions près (voir les _man pages_), toutes les données sont
+A quelques exceptions près (voir les [man pages](https://man7.org/linux/man-pages/man2/clone.2.html)), toutes les données sont
 copiées dans le nouveau processus.
 
-Sous Linux, la copie des données se fait à la volée, c'est à dire les données du
+Sous Linux, la copie des données se fait _à la volée_, c'est à dire les données du
 processus parent dans copiées dans l'espace du processus enfant que
 lorsque celles-ci sont modifiées par l'un ou l'autre des deux processus.
 
@@ -258,7 +258,7 @@ else
   valeur différente de zéro indique une erreur.
 - Les fichiers sont _flushées_ et fermés, puis toutes les ressources sont libérées.
 - Tant que le processus parent ne lit pas la raison pour laquelle le processus
-  enfant a été détruit (à l'aide du service `wait()` ou `waitpid()`), ce dernier se
+  enfant a été détruit (à l'aide du service `wait()` ou `waitpid()` ), ce dernier se
   trouve dans l'état _zombie_.
 
 ## Attente d'un changement d'état
@@ -352,21 +352,21 @@ simplement, Linux propose les services suivants:
 
 ## Session et groupe de processus
 
-Chaque processus est membre d'un groupe de processus, identifié par un pgid.
+Chaque processus est membre d'un groupe de processus, identifié par un `pgid`.
 
 Le groupe de processus permet à des processus de contrôle d'envoyer des
 signaux à tous les processus du groupe.
 
-La session est une collection de groupes de processus. Elle est
-généralement le résultat du login d'un utilisateur. Un terminal de
+La _session_ est une collection de groupes de processus. Elle est
+généralement le résultat du _login_ d'un utilisateur. Un terminal de
 contrôle est généralement associé à une session.
 
 Quelques services:
 
-- Lecture du pgid : `pid_t getpgid(0);`
-- Lecture du sid : `pid_t getsid (0);`
-- Création du nouveau groupe de processus : `int setpgid (0, 0);`
-- Création d'une nouvelle session : `int setsid (0);`
+- Lecture du `pgid` : `pid_t getpgid(0);`
+- Lecture du `sid` : `pid_t getsid(0);`
+- Création du nouveau groupe de processus : `int setpgid(0, 0);`
+- Création d'une nouvelle session : `int setsid(0);`
 
 <figure markdown>
 ![](img/session.drawio.svg)

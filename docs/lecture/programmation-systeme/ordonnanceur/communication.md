@@ -9,10 +9,10 @@ différents systèmes et processus formant le logiciel de ces systèmes
 
 On peut schématiquement distinguer 4 niveaux de communication :
 
-- Communication entre stations de gestion et équipements
-- Communication entre équipements mis en réseau
-- Communication entre éléments d'un même équipement
-- Communication entre processus d'un même élément
+1. Communication entre stations de gestion et équipements
+1. Communication entre équipements mis en réseau
+1. Communication entre éléments d'un même équipement
+1. Communication entre processus d'un même élément
 
 <figure markdown>
 ![](img/communication.drawio.svg)
@@ -31,7 +31,7 @@ principales de mécanismes
     - Files d'attente de messages (_Messages Queues_)
     - Sockets (_Unix_ ou _Internet_)
     - Protocoles de communication/gestion
-      (_D-Bus_, _SOAP_, _SNMP_, _REST_, -, _XML-RPC_, etc.)
+      (_D-Bus_, _SOAP_, _SNMP_, _REST_, _RPC_, _gRPC_, _XML-RPC_, etc.)
 - Mécanismes de synchronisation
     - Signaux
     - Sémaphores
@@ -172,7 +172,7 @@ une série de méthodes spécifiques avec la bibliothèque `<mqueue.h>`.
 | Destruction d'une file d'attente           | `mq_unlink`  |
 | Lecture des attributs d'une file d'attente | `mq_getattr` |
 
-La struc mq_attr permet de décrire les caractérisques d'une file d'attente
+La `struct mq_attr` permet de décrire les caractérisques d'une file d'attente
 
 ```c
 struct mq_attr {
@@ -189,7 +189,7 @@ Les sockets ont été conçus par l'université de Berkeley au début des année
 1980. Ils proposent un ensemble de services normalisés pour l'échange
 d'information entre processus locaux ou distants.
 
-Le socket fournit une prise permettant aux différents processus d'une
+Le socket fournit une _prise_ permettant aux différents processus d'une
 application ou d'un système d'envoyer et de recevoir des données. Cette prise
 est très polyvalente et permet d'interfacer une large palette de protocole, dont
 le plus fréquemment utilisé TCP/IP.
@@ -232,7 +232,7 @@ if (err == -1)
 
 **Comportement**
 
-- La fonction socketpair()crée un canal de communication bidirectionnelle
+- La fonction `socketpair()` crée un canal de communication bidirectionnelle
   sous la forme d'un socket Unix (le seul supporté par Linux) et retourne deux
   descripteurs, le 1^er^ `fd[0]` pour un processus et le 2^e^ `fd[1]` pour le deuxième
   processus. Ces descripteurs permettent d'émettre des données avec la méthode

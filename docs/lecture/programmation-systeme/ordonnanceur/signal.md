@@ -25,7 +25,7 @@ actions suivantes:
 - **Effectuer une action par défaut** :
   Le noyau arrête l'exécution du processus et exécute une action par défaut
   implémentée par le noyau lui-même et dépendante du signal. Celle-ci consiste
-  souvent à terminer le processus et générer un coredump.
+  souvent à terminer le processus et générer un _core dump_.
 
 ## Liste
 
@@ -37,38 +37,38 @@ laquelle représente une valeur entière positive non nulle
 Signaux disponibles sous Linux (`kill -l`):
 
 
-| Signal    | No | Description                                  |
-|-----------|----|----------------------------------------------|
-| SIGHUP    | 1  | Hangup                                       |
-| SIGINT    | 2  | Terminal interrupt (Ctrl-C)                  |
-| SIGQUIT   | 3  | Terminal quit (Ctrl-\\)                      |
-| SIGILL    | 4  | Illegal instruction                          |
-| SIGTRAP   | 5  | Trace trap                                   |
-| SIGABRT   | 6  | Abort                                        |
-| SIGBUS    | 7  | BUS error                                    |
-| SIGFPE    | 8  | Floating point exception                     |
-| SIGKILL   | 9  | Kill (can't be caught or ignored)            |
-| SIGUSR1   | 10 | User defined signal 1                        |
-| SIGSEGV   | 11 | Invalid memory segment access                |
-| SIGUSR2   | 12 | User defined signal 2                        |
-| SIGPIPE   | 13 | Write on a pipe with no reader, Broken pipe  |
-| SIGALRM   | 14 | Alarm clock                                  |
-| SIGTERM   | 15 | Termination                                  |
-| SIGSTKFLT | 16 | Stack fault                                  |
-| SIGCHLD   | 17 | Child process has stopped or exited, changed |
-| SIGCONT   | 18 | Continue executing, if stopped               |
-| SIGSTOP   | 19 | Stop executing (can't be caught or ignored)  |
-| SIGTSTP   | 20 | Terminal stop signal (Ctrl-Z)                |
-| SIGTTIN   | 21 | Background process trying to read, from TTY  |
-| SIGTTOU   | 22 | Background process trying to write, to TTY   |
-| SIGURG    | 23 | Urgent condition on socket                   |
-| SIGXCPU   | 24 | CPU limit exceeded                           |
-| SIGXFSZ   | 25 | File size limit exceeded                     |
-| SIGVTALRM | 26 | Virtual alarm clock                          |
-| SIGPROF   | 27 | Profiling alarm clock                        |
-| SIGWINCH  | 28 | Window size change                           |
-| SIGIO     | 29 | I/O now possible                             |
-| SIGPWR    | 30 | Power failure restart                        |
+| Signal    | No | Description                                 |
+|-----------|----|---------------------------------------------|
+| SIGHUP    | 1  | Hangup                                      |
+| SIGINT    | 2  | Terminal interrupt (Ctrl-C)                 |
+| SIGQUIT   | 3  | Terminal quit (Ctrl-\\)                     |
+| SIGILL    | 4  | Illegal instruction                         |
+| SIGTRAP   | 5  | Trace trap                                  |
+| SIGABRT   | 6  | Abort                                       |
+| SIGBUS    | 7  | BUS error                                   |
+| SIGFPE    | 8  | Floating point exception                    |
+| SIGKILL   | 9  | Kill (can't be caught or ignored)           |
+| SIGUSR1   | 10 | User defined signal 1                       |
+| SIGSEGV   | 11 | Invalid memory segment access               |
+| SIGUSR2   | 12 | User defined signal 2                       |
+| SIGPIPE   | 13 | Write on a pipe with no reader, Broken pipe |
+| SIGALRM   | 14 | Alarm clock                                 |
+| SIGTERM   | 15 | Termination                                 |
+| SIGSTKFLT | 16 | Stack fault                                 |
+| SIGCHLD   | 17 | Child process has stopped or exited         |
+| SIGCONT   | 18 | Continue executing, if stopped              |
+| SIGSTOP   | 19 | Stop executing (can't be caught or ignored) |
+| SIGTSTP   | 20 | Terminal stop signal (Ctrl-Z)               |
+| SIGTTIN   | 21 | Background process trying to read, from TTY |
+| SIGTTOU   | 22 | Background process trying to write, to TTY  |
+| SIGURG    | 23 | Urgent condition on socket                  |
+| SIGXCPU   | 24 | CPU limit exceeded                          |
+| SIGXFSZ   | 25 | File size limit exceeded                    |
+| SIGVTALRM | 26 | Virtual alarm clock                         |
+| SIGPROF   | 27 | Profiling alarm clock                       |
+| SIGWINCH  | 28 | Window size change                          |
+| SIGIO     | 29 | I/O now possible                            |
+| SIGPWR    | 30 | Power failure restart                       |
 
 Les signaux `SIGSTOP` (19) et `SIGKILL` (9) ne peuvent être ni capturés et ni ignorés.
 
@@ -127,13 +127,13 @@ struct sigaction {
 
 - Cette structure permet de choisir entre deux signatures pour la méthode de
   traitement, soit `sa_handler`, soit `sa_sigaction`. Si l'on souhaite traiter le
-  signal avec la méthode sa_sigaction, il est nécessaire d'ajouter le fanion
+  signal avec la méthode `sa_sigaction`, il est nécessaire d'ajouter le fanion
   `SA_SIGINFO` dans `sa_flags`.
 - Si l'on souhaite ignorer le signal, on pourra associer `SIG_IGN` à `sa_handler`. Si
   l'on souhaite le comportement par défaut on assignera `SIG_DFL` à `sa_handler`.
 - `sa_mask` permet de bloquer certains signaux.
 - `sa_flags` permet de modifier le comportement du signal. Pour plus de détails
-  voir la _man page_.
+  voir la [man page](https://man7.org/linux/man-pages/man2/sigaction.2.html).
 
 La méthode de traitement `catch_signal` prend la forme suivante :
 
@@ -212,7 +212,7 @@ contrôler la valeur de la variable `errno` et de la tester contre l'erreur `EIN
 
 Si l'erreur `EINTR` est signalée, il faut simplement répéter l'appel.
 
-Il est judicieux de toujours bien vérifier (par exemple par la _man-page_) si un appel
+Il est judicieux de toujours bien vérifier (par exemple par la [man-page](https://man7.org/linux/man-pages/man2/nanosleep.2.html)) si un appel
 système dépend d'un signal.
 
 **Exemple**
