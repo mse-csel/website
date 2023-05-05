@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  *
- * Project:	HEIA-FR / Embedded Systems Laboratory
+ * Project:	HEIA-FR / Embedded Systems Laboratory
  *
  * Abstract: Multi-threading
  *
