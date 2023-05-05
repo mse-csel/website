@@ -131,7 +131,7 @@ struct sigaction {
   `SA_SIGINFO` dans `sa_flags`.
 - Si l'on souhaite ignorer le signal, on pourra associer `SIG_IGN` à `sa_handler`. Si
   l'on souhaite le comportement par défaut on assignera `SIG_DFL` à `sa_handler`.
-- `sa_mask` permet de bloquer certains signaux.
+- `sa_mask` permet de bloquer certains signaux lors du traitement par le _handler_.
 - `sa_flags` permet de modifier le comportement du signal. Pour plus de détails
   voir la [man page](https://man7.org/linux/man-pages/man2/sigaction.2.html).
 
