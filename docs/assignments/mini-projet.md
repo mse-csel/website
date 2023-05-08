@@ -20,7 +20,7 @@ Ce mini-projet vise à mettre en œuvre les notions étudiées durant le semestr
 
 ## Contexte
 
-L'évacuation de la chaleur produite par le processeur et ses périphériques est un aspect essentiel à considérer lors de la conception de systèmes embarqués. Un refroidissement par convection naturelle est idéal. Cependant, il n'est pas toujours suffisant. Dans de tels cas, un système de refroidissement forcé (_forced cooling_) complétera et garantira le bon fonctionnement de l'équipement. Un refroidissement forcé passe par la mise en place d'un ou plusieurs ventilateurs. Leur vitesse est généralement contrôlée par un PWM (_Pulser-Width Modulation_) en agissant soit sur la fréquence (_frequency_), soit sur le rapport de cycle (_duty cycle_).
+L'évacuation de la chaleur produite par le processeur et ses périphériques est un aspect essentiel à considérer lors de la conception de systèmes embarqués. Un refroidissement par convection naturelle est idéal. Cependant, il n'est pas toujours suffisant. Dans de tels cas, un système de refroidissement forcé (_forced cooling_) complète et garantit le bon fonctionnement de l'équipement. Un refroidissement forcé passe par la mise en place d'un ou plusieurs ventilateurs. Leur vitesse est généralement contrôlée par un PWM (_Pulser-Width Modulation_) en agissant soit sur la fréquence (_frequency_), soit sur le rapport de cycle (_duty cycle_).
 
 Notre cible ne dispose pas de ventilateur. Quant au PWM, il n'est pas disponible, car son signal de sortie est multiplexé avec le signal RX de l'interface série de la console système. Afin de simuler cette infrastructure, nous allons simplement utiliser le clignotement de la LED _Status_ en guise de ventilateur et un timer pour la génération de la fréquence de clignotement de cette LED.
 
@@ -51,11 +51,11 @@ Cette application réalisera la fonctionnalité minimale suivante :
     Ce daemon proposera deux interfaces de gestion distinctes, soit :
 
     1. Interface physique via les boutons poussoir et LED _Power_ de la carte d'extension
-        1. S1 pour augmenter la vitesse de rotation du ventilateur, la pression du S1
+        1. _S1_ pour augmenter la vitesse de rotation du ventilateur, la pression du S1
            devra être signalisée sur la LED _Power_
-        2. S2 pour diminuer la vitesse de rotation du ventilateur, la pression du S2
+        2. _S2_ pour diminuer la vitesse de rotation du ventilateur, la pression du S2
            devra être signalisée sur la LED _Power_
-        3. S3 pour changer du mode automatique au mode manuel et vice versa.
+        3. _S3_ pour changer du mode automatique au mode manuel et vice versa.
     2. **Interface IPC**, au choix du développeur, permettant de dialoguer
        avec une application pour choisir le mode de fonctionnement et
        spécifier la fréquence de clignotement
@@ -101,7 +101,7 @@ Cette application réalisera la fonctionnalité minimale suivante :
     <figcaption>Demo de l'écran OLED</figcaption>
     </figure>
     La documentation du contrôleur de l'écran OLED est disponible
-    sur [le site du cours](https://mse-csel.github.io/website/documentation/nanopi/).
+    sur [le site du cours](../documentation/nanopi.md).
     Il est important de noter que l'écran est interfacé au
     microprocesseur via un bus I^2^C. Dans la configuration actuelle du noyau,
     effectuée par le _Device Tree_, les bus I^2^C ne sont pas
