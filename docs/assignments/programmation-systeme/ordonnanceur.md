@@ -20,10 +20,15 @@ week: 9
 processus enfant devra émettre quelques messages sous forme de texte
 vers le processus parent, lequel les affichera sur la console. Le
 message `exit` permettra de terminer l'application. Cette application
-devra impérativement capturer tous les signaux et les ignorer. Seul un
-message d'information sera affiché sur la console. Chacun des processus
-devra utiliser son propre cœur, par exemple _core 0_ pour le parent, et _core 1_
-pour l'enfant.
+devra impérativement capturer les signaux
+`SIGHUP`,
+`SIGINT`,
+`SIGQUIT`,
+`SIGABRT` et
+`SIGTERM`
+et les ignorer. Seul un message d'information sera affiché sur la
+console. Chacun des processus devra utiliser son propre cœur, par
+exemple _core 0_ pour le parent, et _core 1_ pour l'enfant.
 
 ## CGroups
 
