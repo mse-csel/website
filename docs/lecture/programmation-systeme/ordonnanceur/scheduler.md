@@ -228,7 +228,7 @@ int sched_setaffinity(pid_t pid, size_t setsize, const cpu_set_t *set);
 
 ```c
 cpu_set_t set;
-CPU_ZERO(set);
+CPU_ZERO(&set);
 CPU_SET(1, &set);
 int ret = sched_setaffinity(0, sizeof(set), &set);
 if (ret == -1)
