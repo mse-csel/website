@@ -4,8 +4,8 @@ title: Machines virtuelles
 
 ## Introduction
 
-L'instrumentation d'une application peut s'effectuer à l'aide d'une machine
-virtuelle (ou d'un containeur Docker)
+L'instrumentation d'une application peut s'effectuer à l'aide d'une _machine
+virtuelle_.
 
 - Le fichier exécutable est lancé dans la machine virtuelle
 - La machine virtuelle intercepte le code avant qu'il soit exécuté sur le CPU

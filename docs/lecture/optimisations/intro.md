@@ -35,17 +35,17 @@ savoir quelle partie optimiser
 
 On cherche à identifier les «hot spots»
 
-On s'intéresse principalement à connaître
+On s'intéresse principalement à connaître :
 
 - Le temps d'exécution : _où notre programme passe le plus de temps ?_
 - Le nombre d'exécutions : _quelles fonctions sont exécutées le plus souvent ?_
-- L'arbre d'appel des fonctions (call-graph) : _quelle fonction appelle quelle fonction ?_
+- L'arbre d'appel des fonctions (_call-graph_) : _quelle fonction appelle quelle fonction ?_
 
 ## Granularité
 
 Avec quelle granularité souhaite-t-on effectuer la mesure?
 
-Niveaux de mesure possible
+Niveaux de mesure possibles :
 
 - Application
 - Méthode/fonction
@@ -58,29 +58,29 @@ Niveaux de mesure possible
 
 ## Stratégies
 
-Différentes stratégies peuvent être mises en place
+Différentes stratégies peuvent être mises en place :
 
 - Instrumentation
 - Statistique
 
-Instrumentation
+Instrumentation :
 
 - Utilisation des outils du système d'exploitation et du compilateur
 - Mesure manuelle du temps avec la lecture d'horloges haute résolution
 - Mesure manuelle du temps avec un oscilloscope
-- Instrumentation dans une «machine virtuelle»
+- Instrumentation dans une _machine virtuelle_
 
-Statistique
+Statistique :
 
 - Le programme fonctionne sans modification
-- Un outil va l'échantillonné à intervalle régulier :
+- Un outil échantillonne l'exécution du programme à intervalle régulier :
     - En utilisant les propriétés du microprocesseur
     - En échantillonnant sa pile d'appels
 
 ## Optimisation
 
-Une fois les « hot-spots » identifiés, plusieurs pistes peuvent être suivies pour
-optimiser les performances de l'application
+Une fois les _hot-spots_ identifiés, plusieurs pistes peuvent être suivies pour
+optimiser les performances de l'application :
 
 - Choix d'algorithmes plus appropriés
 - Emploi plus judicieux des bibliothèques à disposition

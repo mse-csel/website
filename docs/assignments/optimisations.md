@@ -163,16 +163,18 @@ utilisant la commande `perf stat`
 # perf stat ./ex1
 ```
 
-_Sans options spécifiques, la commande mesure par défaut un certain nombre de compteurs. Relevez
-par exemple les compteurs du nombre de context-switches et d'instructions ainsi que le temps
-d'exécution._
+!!! todo "À faire"
+    Sans options spécifiques, la commande mesure par défaut un certain nombre de compteurs. Relevez
+    par exemple les compteurs du nombre de context-switches et d'instructions ainsi que le temps
+    d'exécution.
 
 ### Etude du code source
 
 Ouvrez maintenant le fichier `main.c` et analysez le code.
 
-_Ce programme contient une erreur triviale qui empêche une utilisation optimale du cache. De quelle
-erreur s'agit-il ?_
+!!! question "Question"
+    Ce programme contient une erreur triviale qui empêche une utilisation optimale du cache. De quelle
+    erreur s'agit-il ?
 
 Si vous ne voyez pas l'erreur, essayez encore une fois, mais avec la commande
 
@@ -182,8 +184,9 @@ Si vous ne voyez pas l'erreur, essayez encore une fois, mais avec la commande
 
 ### Correction de bug
 
-_Corrigez "l'erreur", recompilez et mesurez à nouveau le temps d'exécution (soit avec perf stat, soit
-avec la commande time). Quelle amélioration constatez-vous ?_
+!!! question "Question"
+    Corrigez _l'erreur_, recompilez et mesurez à nouveau le temps d'exécution (soit avec perf stat, soit
+    avec la commande time). Quelle amélioration constatez-vous ?
 
 ### Validation
 
@@ -191,29 +194,32 @@ Grâce à `perf`, nous pouvons mesurer l'effet de notre modification, en utilisa
 L1-dcache-load-misses. Celui-ci peut s'activer en passant le paramètre `-e L1-dcache-load-misses`
 à la commande `perf stat`.
 
-Relevez les valeurs du compteur _L1-dcache-load-misses_ pour les deux versions de l'application. Quel
-facteur constatez-vous entre les deux valeurs ?
+!!! question "Question"
+    Relevez les valeurs du compteur _L1-dcache-load-misses_ pour les deux versions de l'application. Quel
+    facteur constatez-vous entre les deux valeurs ?
 
-```
-# perf stat -e L1-dcache-load-misses ./ex1
-```
+    ```
+    # perf stat -e L1-dcache-load-misses ./ex1
+    ```
 
-### Analyse des évènements "capturables"
+### Analyse des évènements _capturables_
 
-_Décrivez brièvement ce que sont les évènements suivants :_
+!!! todo "À faire"
+    Décrivez brièvement ce que sont les évènements suivants :
 
-- instructions
-- cache-misses
-- branch-misses
-- L1-dcache-load-misses
-- cpu-migrations
-- context-switches
+    - instructions
+    - cache-misses
+    - branch-misses
+    - L1-dcache-load-misses
+    - cpu-migrations
+    - context-switches
 
 ### Mesure de l'impact sur la performance
 
-_Lors de la présentation de l'outil `perf`, on a vu que celui-ci permettait de profiler une application avec
-très peu d'impacts sur les performances. En utilisant la commande time, mesurez le temps d'exécution
-de notre application ex1 avec et sans la commande `perf stat`._
+!!! todo "À faire"
+    Lors de la présentation de l'outil `perf`, on a vu que celui-ci permettait de profiler une application avec
+    très peu d'impacts sur les performances. En utilisant la commande time, mesurez le temps d'exécution
+    de notre application `ex1` avec et sans la commande `perf stat`.
 
 
 ## Analyse et optimisation d'un programme
@@ -223,13 +229,16 @@ Sur la base du programme situé dans le dossier
 
 ### Analyse du code source
 
-_Décrivez en quelques mots ce que fait ce programme._
+
+!!! todo "À faire"
+    Décrivez en quelques mots ce que fait ce programme.
 
 ### Mesure du temps d'exécution
 
 Compilez le programme à l'aide du `Makefile` joint.
 
-_Mesurez le temps d'exécution_
+!!! todo "À faire"
+    Mesurez le temps d'exécution
 
 ### Optimisation
 
@@ -251,13 +260,16 @@ Avant `long long sum = 0;`, ajoutez le code suivant :
 qsort(data, SIZE, sizeof(data[0]), compare);
 ```
 
-_Compilez et mesurez le temps d'exécution de la version modifiée._
+!!! todo "À faire"
+    Compilez et mesurez le temps d'exécution de la version modifiée.
 
 ### Mesures
 
 Vous observez sans doute une nette amélioration sur le temps d'exécution.
-À l'aide de l'outil `perf` et de sa sous-commande `stat`, en utilisant différents compteurs déterminez
-pourquoi le programme modifié s'exécute plus rapidement.
+
+!!! question "Question"
+    À l'aide de l'outil `perf` et de sa sous-commande `stat`, en utilisant différents compteurs déterminez
+    pourquoi le programme modifié s'exécute plus rapidement.
 
 ## Parsing de logs apache
 
@@ -285,11 +297,13 @@ Conseil : pour exécuter l'application non optimisée, utilisez le fichier `acce
 
 ### Compilation et instrumentalisation du programme
 
-Compilez l'application et profilez l'application avec `perf record` :
+!!! todo "À faire"
+    Compilez l'application et profilez l'application avec `perf record` :
 
-```
-# perf record --call-graph dwarf -e cpu-clock -F 75 ./read-apache-logs access_log_NASA_Jul95_samples
-```
+    ```
+    # perf record --call-graph dwarf -e cpu-clock -F 75 \
+        ./read-apache-logs access_log_NASA_Jul95_samples
+    ```
 
 L'exécution de cette commande doit produire un fichier de résultat perf, nommé `perf.data`. Si l'on
 exécute une nouvelle fois la commande, ce fichier sera copié vers `perf.data.old` et un nouveau
@@ -313,16 +327,18 @@ Sur la capture ci-dessus, on voit par exemple que la majorité des cycles de l'a
 dans la fonction `std::operator==<char>` qui est contenue dans la librairie standard. Il nous manque
 cependant une information capitale : quelle fonction de notre application fait appel à cette fonction ?
 
-_Avec les instructions précédentes, déterminez quelle fonction de notre application fait (indirectement)
-appel à `std::operator==<char>`._
+!!! question "Question"
+    Avec les instructions précédentes, déterminez quelle fonction de notre application fait (indirectement)
+    appel à `std::operator==<char>`.
 
 ### Optimisation algorithmique
 
-Maintenant que vous savez quelle fonction utilise le plus de ressources CPU, trouvez une optimisation
-du code permettant de réduire drastiquement le temps d'exécution (vous devriez arriver à quelques
-dixièmes de secondes pour le fichier sample).
-
-Indice : rappelez-vous vos cours d'algorithmique...
+!!! todo "À faire"
+    Maintenant que vous savez quelle fonction utilise le plus de ressources CPU, trouvez une optimisation
+    du code permettant de réduire drastiquement le temps d'exécution (vous devriez arriver à quelques
+    dixièmes de secondes pour le fichier sample).
+    
+    Indice : rappelez-vous vos cours d'algorithmique...
 
 ### Implémentation de l'optimisation
 
@@ -371,8 +387,9 @@ modifications :
 
 ## Mesure de la latence et de la gigue (_jitter_)
 
-Décrivez comment devrait-on procéder pour mesurer la latence et la gigue d'interruption, ceci aussi
-bien au niveau du noyau (_kernel space_) que de l'application (_user space_).
+!!! todo "À faire"
+    Décrivez comment devrait-on procéder pour mesurer la latence et la gigue d'interruption, ceci aussi
+    bien au niveau du noyau (_kernel space_) que de l'application (_user space_).
 
 
 ---

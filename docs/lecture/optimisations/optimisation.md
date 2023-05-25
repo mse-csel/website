@@ -9,12 +9,12 @@ Le choix des bons algorithmes et des bonnes bibliothèques mis en œuvre par
 une application a un impact majeur sur le comportement et les performances
 de cette dernière.
 
-- Il est impératif que la complexité et évolutivité (scalability) des algorithmes soient
+- Il est impératif que la complexité (_Big-O_) et l'évolutivité (_scalability_) des algorithmes soient
   en adéquation avec les contraintes imposées au système,
-- If faut contrôler la notation Big-O. L'emploi d'un container de type vecteur est tout
+- Il faut choisir la bonne structure de données. L'emploi d'une collection de type _vecteur_ est tout
   à fait approprié pour des accès avec indices, mais peut s'avérer catastrophique si
-  l'on doit faire des recherches aléatoires. Dans ce cas, un container de type set ou
-  map serait probablement plus approprié.
+  l'on doit faire des recherches aléatoires. Dans ce cas, un container de type _set_ ou
+  _map_ serait probablement plus approprié.
 
 Lors d'utilisation de boucles, il est également important de bien choisir le type
 de boucle ainsi que l'ordre d'évaluation des conditions, par exemple :
@@ -53,7 +53,7 @@ d'optimisation, mais ne pas trop péjorer le débogage.
 
 ## Optimisation - microprocesseur
 
-Les compilateurs génèrent normalement un code excessivement performant
+Les compilateurs génèrent normalement un code extrèmement performant
 pour les diverses architectures de processeurs. Cependant dans certaines
 parties critiques du système il peut s'avérer très important de bien
 connaître les caractéristiques du microprocesseur et les conventions d'appel de
@@ -67,7 +67,7 @@ de 32 bits est plus performant que celui 16 ou 8 bits.
 </figure>
 
 Les accès à la mémoire principale et à la mémoire cache ainsi que
-l'utilisation du pipeline vont également influencer les performances du
+l'utilisation du pipeline influencent également les performances du
 système.
 
 ## Optimisation - microprocesseur vs SoC

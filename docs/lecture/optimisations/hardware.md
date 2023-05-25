@@ -4,9 +4,9 @@ title: Matériel et microprocesseur
 
 ## Introduction
 
-Les processeurs modernes offrent une batterie de compteurs (hardware
-events counters) permettant de collecter et capturer de toute une série
-d'informations et d'événements de profiling
+Les processeurs modernes offrent une batterie de compteurs (_hardware
+events counters_) permettant de collecter et capturer de toute une série
+d'informations et d'événements de _profiling_ :
 
 - Les instructions exécutés
 - Les _cache misses_ (data, instruction)
@@ -16,7 +16,7 @@ d'informations et d'événements de profiling
 
 Comme ces informations sont collectées et stockées par le microprocesseur, elles offrent
 une solution avec un très faible impact sur les performances globales des
-applications
+applications.
 
 ## Performance Monitor Unit (PMU)
 
@@ -34,7 +34,7 @@ d'événements
 
 - Des instructions permettent d'activer les compteurs
 - Une fois le compteur activé, celui-ci commence à collecter les événements
-- Il suffit ensuite d'aller lire la valeur du compteur
+- Il suffit ensuite de lire la valeur du compteur
 - Sur ARM, le PMU s'accède et se configure via le coprocesseur _CP15_, donc avec
   les instructions `MCR` / `MRC`
 

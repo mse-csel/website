@@ -8,8 +8,8 @@ endif
 CFLAGS=-Wall -Wextra -g -c -O1 -MD -std=gnu11 -D_GNU_SOURCE
 
 ifeq ($(target),nano)
-TOOLCHAIN_PATH=~/workspace/nano/buildroot/output/host/usr/bin/
-TOOLCHAIN=$(TOOLCHAIN_PATH)aarch64-none-linux-gnu-
+TOOLCHAIN_PATH=/buildroot/output/host/usr/bin/
+TOOLCHAIN=$(TOOLCHAIN_PATH)aarch64-linux-
 CFLAGS+=-mcpu=cortex-a53 -funwind-tables
 ##CFLAGS+=-O2 -fno-omit-frame-pointer
 OBJDIR=.obj/nano
@@ -18,15 +18,6 @@ endif
 
 ifeq ($(target),host)
 EXEC=$(EXE)_h
-endif
-
-ifeq ($(target),xu3)
-TOOLCHAIN_PATH=~/workspace/xu3/buildroot/output/host/usr/bin/
-TOOLCHAIN=$(TOOLCHAIN_PATH)arm-linux-gnueabihf-
-CFLAGS+=-mcpu=cortex-a15.cortex-a7 -funwind-tables
-##CFLAGS+=-O2 -fno-omit-frame-pointer
-OBJDIR=.obj/xu3
-EXEC=$(EXE)_a
 endif
 
 CC=$(TOOLCHAIN)gcc

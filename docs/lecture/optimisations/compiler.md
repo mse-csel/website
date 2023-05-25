@@ -6,12 +6,12 @@ title: Compilateur
 
 Les compilateurs disposent d'options pour le profiling
 
-Ces options vont ajouter des instructions dans le fichier exécutable compilé
+Ces options ajoutent des instructions dans le fichier exécutable compilé
 
 Lors de l'exécution de l'application spécialement compilée, des données de
-profiling seront enregistrées dans des fichiers
+profiling sont enregistrées dans des fichiers
 
-Des outils spécifiques permettront ensuite de traiter ces données
+Des outils spécifiques permettent ensuite de traiter ces données
 
 Avantages :
 
@@ -28,7 +28,7 @@ _Gcov_ est intégré au compilateur GCC de GNU
 
 
 !!! warning "Info"
-    Ne fonctionne pas sur la cible, doit impérativement être testé sur le container docker.
+    Ne fonctionne pas sur la cible. Par contre vous pouvez le tester dans le container docker.
 
 Il permet de mesurer la couverture de code :
 

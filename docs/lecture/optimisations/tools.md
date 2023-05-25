@@ -153,17 +153,17 @@ L'utilisation de `ftrace` passe par les étapes suivantes :
 - Sélectionner un traceur indiquant la fonctionnalité à tracer dans le noyau
 - Définir un filtre pour limiter les traces produites
   (exemple: le nom de la fonction à tracer)
-- Activer la `trace` en effectuant la commande :
+- Activer la _trace_ en effectuant la commande :
   ```bash
   echo 1 > /proc/sys/kernel/ftrace_enabled
   ```
-- Après enregistrement, désactiver la trace afin de limiter la taille des données par :
+- Après enregistrement, désactiver la _trace_ afin de limiter la taille des données par :
   ```bash
   echo 0 > /proc/sys/kernel/ftrace_enabled
   ```
 - Exploiter les résultats
 
-L'utilisation de ftrace nécessite d'activer la fonctionnalité debugfs
+L'utilisation de `ftrace` nécessite d'activer la fonctionnalité _debugfs_
 
 ```bash
 mount -t debugfs none /sys/kernel/debug

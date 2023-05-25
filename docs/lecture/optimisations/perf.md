@@ -40,7 +40,7 @@ _Perf_ est capable d'activer les tracepoints :
 
 - Si le _tracepoint_ est désactivé, celui-ci ne fera rien (si ce n'est gaspiller quelques
   cycles pour tester s'il est activé et utiliser quelques bytes dans l'exécutable)
-- S'il est activé, le `tracepoint` va notifier celui qui l'a configuré
+- S'il est activé, le `tracepoint` notifie celui qui l'a configuré
 
 Les _tracepoints_ permettent de tracer :
 
@@ -185,14 +185,14 @@ Par exemple, le compteur _cycles_ est mappé :
 Perf est basé sur un échantillonnage par événement _event-based sampling_
 
 - Cela signifie que seulement une partie des événements (et donc des
-  instructions) sont enregistrés (dès que le compteur génère un overflow)
+  instructions) sont enregistrés (dès que le compteur génère une interruption)
 - On peut configurer l'échantillonnage de deux manières, en spécifiant:
     - le nombre d'occurrences d'événements (période) --> option `-c`
     - le nombre de échantillons / secondes (fréquence) --> option `-F`
 - À cause de l'échantillonnage, on peut avoir des cas spéciaux ou notre application
   se trouve synchronisée avec la collecte d'événements de `perf`
     - On aura ainsi des résultats faussés, ce sera toujours la même instruction qui
-      sera enregistrée au moment de l'_overflow_ du compteur.
+      sera enregistrée au moment de l'interruption du compteur.
 
 De plus, le nombre de compteurs est limité par l'architecture
 

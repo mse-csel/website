@@ -4,7 +4,7 @@ title: Mesure du temps
 
 ## Unix times
 
-time est un outil Linux très simple permettant d'indiquer le temps d'exécution
+`time` est un outil Linux très simple permettant d'indiquer le temps d'exécution
 d'une application.
 
 **Exemple** :
@@ -77,7 +77,7 @@ int main() {
 
 ## Horloges - Interface
 
-Sous Linux la bibliothèque `<time.h>` propose 3 horloges distinctes
+Sous Linux, la bibliothèque `<time.h>` propose 3 horloges distinctes
 
 - `CLOCK_REALTIME` : Temps actuel synchronisé avec NTP
 - `CLOCK_MONOTONIC` : Temps monotone, temps absolu depuis un point de départ non fixé
@@ -120,7 +120,7 @@ l'horloge :
 ![](img/cost.svg)
 </figure>
 
-Dans le cas du NanoPi Neo Plus2 ~ 42 ns (réellement une horloge à 24MHz)
+Dans le cas du NanoPi Neo Plus2: horloge à $24\, \mathsf{MHz} \rightarrow \frac{1}{24\cdot 10^{6}}\, \mathsf{s} = 41.\overline{6}\, \mathsf{ns}$.
 
 ## Oscilloscope
 
@@ -147,9 +147,9 @@ d'entrées/sorties du microprocesseur
 
 2 chemins disponibles :
 
-- Utilisation des GPIO disponibles dans le sysfs (`/sys/class/gpio/...`) :
+- Utilisation des GPIO disponibles dans le _sysfs_ (`/sys/class/gpio/...`) :
   _Simple à mettre en œuvre, mais peut être trop lent (nécessite un accès aux
   routines du noyau)_
 - Accès direct aux modules GPIO en mappant les contrôleurs en espace utilisateur
-  (méthode mmap) : _Peu d'impacte sur le comportement du logiciel (que quelques cycles d'horloge),
+  (méthode `mmap`) : _Peu d'impacte sur le comportement du logiciel (que quelques cycles d'horloge),
   mais nécessite une très bonne compréhension du hardware_
