@@ -2,6 +2,8 @@
 title: "Modules noyaux"
 tpno: 2
 ---
+{% set show_sol_a = cal.tp2_sol_a %}
+{% set show_sol_b = cal.tp2_sol_b %}
 
 {% set exno = namespace(no=1) %}
 {% macro ex() -%}
@@ -29,16 +31,16 @@ tpno: 2
 votre choix. Ces paramètres seront affichés dans la console. Adaptez également le _rootfs_ afin de
 pouvoir utiliser la commande `modprobe`.
 
-{% if assignment_show_solution >= page.meta.tpno %}
+{% if show_sol_a %}
 ??? success "Solution"
     ```text title="/workspace/src/kernel_settings"
-    {! include "modules/src/kernel_settings" !}
+    {! include "./modules/src/kernel_settings" !}
     ```
     ```makefile title="/workspace/src/02_modules/exercice01/Makefile"
-    {! include "modules/src/exercice01/Makefile" !}
+    {! include "./modules/src/exercice01/Makefile" !}
     ```
     ```c title="/workspace/src/02_modules/exercice01/skeleton.c"
-    {! include "modules/src/exercice01/skeleton.c" !}
+    {! include "./modules/src/exercice01/skeleton.c" !}
     ```
 {% endif %}
 
@@ -54,13 +56,13 @@ numéro unique. Les éléments seront créés lors de l'installation du module e
 liste. Ces éléments seront détruits lors de la désinstallation du module. Des messages
 d'information seront émis afin de permettre le debugging du module.
 
-{% if assignment_show_solution >= page.meta.tpno %}
+{% if show_sol_a %}
 ??? success "Solution"
     ```makefile title="/workspace/src/02_modules/exercice04/Makefile"
-    {! include "modules/src/exercice04/Makefile" !}
+    {include "./modules/src/exercice04/Makefile" !}
     ```
     ```c title="/workspace/src/02_modules/exercice04/skeleton.c"
-    {! include "modules/src/exercice04/skeleton.c" !}
+    {include "./modules/src/exercice04/skeleton.c" !}
     ```
 {% endif %}
 
@@ -85,10 +87,10 @@ La commande `cat /sys/class/thermal/thermal_zone0/temp` permet de valider la bon
 de la température. La commande `ifconfig` permet de valider la bonne lecture de la _MAC
 adresse_.
 
-{% if assignment_show_solution >= page.meta.tpno + 0.5 %}
+{% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/02_modules/exercice04/skeleton.c"
-    {! include "modules/src/exercice05/skeleton.c" !}
+    {include "./modules/src/exercice05/skeleton.c" !}
     ```
 {% endif %}
 
@@ -98,10 +100,10 @@ adresse_.
 un message toutes les 5 secondes. Il pourra être mis en sommeil durant ces 5 secondes à l'aide de
 la fonction `ssleep(5)` provenant de l'interface `<linux/delay.h>`.
 
-{% if assignment_show_solution >= page.meta.tpno + 0.5 %}
+{% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice04/skeleton.c"
-    {! include "modules/src/exercice06/skeleton.c" !}
+    {include "./modules/src/exercice06/skeleton.c" !}
     ```
 {% endif %}
 
@@ -113,10 +115,10 @@ thread enverra cette notification toutes les 5 secondes et se rendormira. On uti
 _waitqueues_ pour les mises en sommeil. Afin de permettre le debugging du module, chaque thread
 affichera un petit message à chaque réveil.
 
-{% if assignment_show_solution >= page.meta.tpno + 0.5 %}
+{% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice04/skeleton.c"
-    {! include "modules/src/exercice07/skeleton.c" !}
+    {include "./modules/src/exercice07/skeleton.c" !}
     ```
 {% endif %}
 
@@ -137,10 +139,10 @@ Quelques informations pour la réalisation du module :
     - k2 - `gpio`: A, `pin_nr`=2, `io_nr`=2
     - k3 - `gpio`: A, `pin_nr`=3, `io_nr`=3
 
-{% if assignment_show_solution >= page.meta.tpno + 0.5 %}
+{% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice08/skeleton.c"
-    {! include "modules/src/exercice08/skeleton.c" !}
+    {include "./modules/src/exercice08/skeleton.c" !}
     ```
 {% endif %}
 

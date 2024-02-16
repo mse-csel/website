@@ -365,11 +365,11 @@ partition vfat `boot`. Pour créer ce fichier, il faut tout d'abord
 - Ouvrir/créer le fichier de commandes `boot_cifs.cmd` et l'ouvrir avec VS-Code
 - Entrer le contenu suivant :
   ``` plain
-  {! include "environnement/inc/boot_cifs.cmd" !}
+  {! include "./environnement/inc/boot_cifs.cmd" !}
   ```
 - Ecrire aussi le `Makefile` suivant:
   ``` makefile
-  {! include "environnement/inc/makefile" !}
+  {! include "./environnement/inc/makefile" !}
   ```
 - Dans un terminal, entrer dans le dossier `boot-scripts` et taper la
   command `make` Vous devriez obtenir le fichier `boot.cifs` dans le

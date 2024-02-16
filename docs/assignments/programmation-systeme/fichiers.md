@@ -26,7 +26,7 @@ avec `top`).
 
 ??? example "silly_led_control.c"
     ```c
-    {! include "fichiers/silly_led_control.c" !}
+    {include "./fichiers/silly_led_control.c" !}
     ```
 
 Concevez une application permettant de gérer la fréquence de clignotement de la LED `status` de la

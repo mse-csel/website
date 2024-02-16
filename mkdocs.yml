@@ -1,0 +1,163 @@
+site_url: https://mse-csel.github.io/website
+site_name: Construction de systèmes embarqués sous Linux
+site_description: Construction de systèmes embarqués sous Linux
+copyright: "Copyright &copy; {{ cal.today.year }} Haute école d'ingénierie et d'architecture of Fribourg"
+
+extra:
+  show_page_revision_on_all_pages: false
+  teacher_name: "Jacques Supcik"
+  year: "2023-2024"
+  teams_code: 3ntp89k
+  info:
+    students_count: 9
+    students_cs: 7
+    students_eie: 1
+    students_enen: 1
+    students_ft: 2
+    students_pt: 7
+
+  pdf_to_jpg: programmation-noyau/modules/assets/sp.03.1_mas_csel_noyau_modules.pdf
+
+  social:
+    - icon: material/web
+      link: https://www.msengineering.ch/
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/hesso/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/hes_so
+    - icon: fontawesome/brands/linkedin
+      link: https://ch.linkedin.com/school/university-of-applied-sciences-western-switzerland/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/hessoeducation/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/hessofilms
+
+  calendar_plugin:
+    start: 2024-02-19
+    end: 2024-06-07
+    week_names: [
+        SP-1,
+        SP-2,
+        SP-3,
+        SP-4,
+        SP-5,
+        SP-6,
+        null,
+        SP-7,
+        SP-8,
+        SP-9,
+        SP-10,
+        SP-11,
+        SP-12,
+        SP-13,
+        SP-14
+        SP-15,
+      ]
+    plan:
+      SP-1: [lecture1, tp1]
+      SP-2: [tp1_sol]
+      SP-3: [lecture2, tp2]
+      SP-4: [tp2_sola]
+      SP-5: [tp2b]
+      SP-6: [tp2_solb]
+      SP-7: [lecture3, tp3]
+      SP-8: [tp3_sola]
+      SP-9: [tp3b]
+      SP-10: [tp3_solb, tp5]
+      SP-11: [lecture4, tp4]
+      SP-12: [tp4_sol]
+      SP-13: []
+      SP-14: []
+      SP-15: []
+
+theme:
+  name: material
+  language: "fr"
+  palette:
+    # Palette toggle for light mode
+    - scheme: hesso
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: "Roboto"
+    code: "IBM Plex Mono"
+  custom_dir: "overrides/"
+  icon:
+    logo: material/school
+  favicon: "assets/images/favicon.ico"
+  features:
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.tracking
+    - content.tabs.link
+    - content.code.copy
+
+extra_css:
+  - "stylesheets/extra.css"
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  admonition: {}
+  extra: {}
+  smarty:
+    smart_angled_quotes: true
+    substitutions:
+      left-angle-quote: "&laquo;&#xA0;"
+      right-angle-quote: "&#xA0;&raquo;"
+  mkdcomments: {}
+  footnotes: {}
+  codehilite: {}
+  pymdownx.arithmatex:
+    generic: true
+  pymdownx.betterem:
+    smart_enable: all
+  pymdownx.highlight: {}
+  pymdownx.caret: {}
+  pymdownx.critic: {}
+  pymdownx.details: {}
+  pymdownx.keys: {}
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  pymdownx.inlinehilite: {}
+  pymdownx.magiclink: {}
+  pymdownx.mark: {}
+  pymdownx.smartsymbols: {}
+  pymdownx.superfences: {}
+  pymdownx.tabbed:
+    alternate_style: true
+  pymdownx.tasklist:
+    custom_checkbox: true
+  pymdownx.tilde: {}
+  mdx_math: {}
+  attr_list: {}
+  md_in_html: {}
+
+plugins:
+  - search
+  - exclude-search:
+      exclude_unreferenced: true
+  - git-revision-date-localized
+  - open-in-new-tab
+  - calendar
+  - jconfig:
+      items:
+        - copyright
+  - include-markdown:
+      opening_tag: "{!"
+      closing_tag: "!}"
+  - awesome-pages
+  - macros
+  - pages-j2

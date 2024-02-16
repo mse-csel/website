@@ -2,9 +2,9 @@ nav:
     - index.md
     - organisation
     - documentation
-{%- if env.LECTURE_SHOW | float > 0 %}
+{%- if cal.lecture1 %}
     - lecture
 {% endif %}
-{%- if env.ASSIGNMENT_SHOW_DATA | float > 0 %}
+{%- if cal.tp1 %}
     - assignments
 {% endif %}

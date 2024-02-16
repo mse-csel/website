@@ -1,9 +1,25 @@
 /* https://material.io/resources/color */
-:root {
+/* https://material.io/resources/color */
+[data-md-color-scheme="hesso"] {
     --md-primary-fg-color:        #df0019;
     --md-primary-fg-color--light: #ff5343;
     --md-primary-fg-color--dark:  #a40000;
-    --md-accent-fg-color: #007CB7;
+    --md-accent-fg-color:         #007CB7;
+}
+
+[data-md-color-scheme="isc"] {
+    --md-primary-fg-color:        #C32823;
+    --md-primary-fg-color--light: #fd5e4c;
+    --md-primary-fg-color--dark:  #8b0000;
+    --md-accent-fg-color:         #007CB7;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #C32823;
+    --md-primary-fg-color--light: #fd5e4c;
+    --md-primary-fg-color--dark:  #8b0000;
+    --md-accent-fg-color:         #007CB7;
+    --md-typeset-a-color:         #fd5e4c;
 }
 
 .md-content a {
@@ -17,6 +33,10 @@ img.shadow {
     border-style: solid;
 }
 
+img.screen {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .row-of-two {
     display: flex;
 }
@@ -28,3 +48,49 @@ img.shadow {
 .md-decimal-list ol li {
     list-style-type: decimal !important;
 }
+
+/* ----- BEGIN Syllabus ----- */
+
+table.htable {
+    min-width: 100%;
+    border: .05rem solid var(--md-typeset-table-color);
+    border-radius: 0.1rem;
+}
+
+.htable tr {
+    text-align: left;
+}
+
+.htable th {
+    padding: 0.3em 0.7em;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+.htable td {
+    padding: 0.3em 0.7em 0.3em 0em;
+    vertical-align: middle;
+}
+
+.htable tr:not(:first-child) th {
+    border-top: 0.05rem solid var(--md-typeset-table-color);
+}
+
+.htable tr:not(:first-child) td {
+    border-top: 0.05rem solid var(--md-typeset-table-color);
+}
+
+.htable th:not(:first-child) {
+    border-left: 0.05rem solid var(--md-typeset-table-color);
+}
+
+.fulltable table {
+    display:table !important;
+    font-size: .8rem !important;
+}
+
+.fulltable div {
+    min-width: 100%;
+}
+
+/* ----- END Syllabus ----- */

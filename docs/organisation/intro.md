@@ -9,16 +9,19 @@ title: "Introduction"
     - Jacques Supcik (HEIA-FR / ISC)<br/><jacques.supcik@hefr.ch>
 - {{ info.students_count }} étudiants inscrits
     {%- if info.students_cs  > 0 %}
-    - {{ info.students_cs }} étudiant{% if info.students_cs  > 0 %}s{% endif %} CS
+    - {{ info.students_cs }} étudiant{% if info.students_cs  > 1 %}s{% endif %} CS
     {%- endif %}
-    {%- if info.students_cs  > 0 %}
-    - {{ info.students_ds }} étudiant{% if info.students_ds  > 0 %}s{% endif %} DS
+    {%- if info.students_eie  > 0 %}
+    - {{ info.students_eie }} étudiant{% if info.students_eie  > 1 %}s{% endif %} EIE
+    {%- endif %}
+    {%- if info.students_enen  > 0 %}
+    - {{ info.students_enen }} étudiant{% if info.students_enen  > 1 %}s{% endif %} EnEn
     {%- endif %}
     {%- if info.students_ft  > 0 %}
-    - {{ info.students_ft }} étudiant{% if info.students_ft  > 0 %}s{% endif %} plein temps
+    - {{ info.students_ft }} étudiant{% if info.students_ft  > 1 %}s{% endif %} plein temps
     {%- endif %}
     {%- if info.students_pt  > 0 %}
-    - {{ info.students_pt }} étudiant{% if info.students_pt  > 0 %}s{% endif %} temps partiel
+    - {{ info.students_pt }} étudiant{% if info.students_pt  > 1 %}s{% endif %} temps partiel
     {%- endif %}
     
 ## Groupe Microsoft Teams
@@ -38,24 +41,27 @@ code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
 - Horaire : 15:**10** - 17:**55**
 - Salle de classe : HEIA-FR / C00.16
 
-| Semaine  | Date      | Thème                          |
-|:---------|:----------|:-------------------------------|
-| 8/SP-1   | 24.2.2023 | Environnement Linux embarqué 1 |
-| 9/SP-2   | 3.3.2023  | Environnement Linux embarqué 2 |
-| 10/SP-3  | 10.3.2023 | Programmation noyau Linux 1    |
-| 11/SP-4  | 17.3.2023 | Programmation noyau Linux 2    |
-| 12/SP-5  | 24.3.2023 | Programmation noyau Linux 3    |
-| 13/SP-6  | 31.3.2023 | Programmation noyau Linux 4    |
-| 14/SP-7  | 7.4.2023  | Vendredi Saint                 |
-| 15       |           | Pâques                         |
-| 16/SP-8  | 21.4.2023 | Programmation système Linux 1  |
-| 17/SP-9  | 28.4.2023 | Programmation système Linux 2  |
-| 18/SP-10 | 5.5.2023  | Programmation système Linux 3  |
-| 19/SP-11 | 12.5.2023 | Programmation système Linux 4  |
-| 20/SP-12 | 19.5.2023 | Pont de l'Ascension            |
-| 21/SP-13 | 26.5.2023 | Optimisation système Linux     |
-| 22/SP-14 | 2.6.2023  | Mini projet intégré 1          |
-| 23       | 9.6.2023  | Mini projet intégré 2          |
+{% set week_no = 8 %}
+{% set i = 0 %}
+
+| Semaine                          | Date                    | Thème                          |
+|:---------------------------------|:------------------------|:-------------------------------|
+| {{ week_no + i  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Environnement Linux embarqué 1 | {% set i = i + 1 %}
+| {{ week_no + i  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Environnement Linux embarqué 2 | {% set i = i + 1 %}
+| {{ week_no + 2  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 1    | {% set i = i + 1 %}
+| {{ week_no + 3  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 2    | {% set i = i + 1 %}
+| {{ week_no + 4  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 3    | {% set i = i + 1 %}
+| {{ week_no + 5  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | **Vendredi Saint**             | {% set i = i + 1 %}
+| {{ week_no + 6  }}               |                         | **Pâques**                     | {% set i = i + 1 %}
+| {{ week_no + 7  }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation noyau Linux 4    | {% set i = i + 1 %}
+| {{ week_no + 8  }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 1  | {% set i = i + 1 %}
+| {{ week_no + 9  }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 2  | {% set i = i + 1 %}
+| {{ week_no + 10 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 3  | {% set i = i + 1 %}
+| {{ week_no + 11 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | **Pont de l'Ascension**        | {% set i = i + 1 %}
+| {{ week_no + 12 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 4  | {% set i = i + 1 %}
+| {{ week_no + 13 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Optimisation système Linux     | {% set i = i + 1 %}
+| {{ week_no + 14 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Mini projet intégré 1          | {% set i = i + 1 %}
+| {{ week_no + 15  }}              | {{ cal.start | ld(i) }} | Mini projet intégré 2          | {% set i = i + 1 %}
 
 ## Déroulement des cours
 
@@ -131,9 +137,9 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 ### Rapport
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
-    - 16.4.2023 : Environnement Linux embarqué et programmation noyau Linux 
-    - 2.6.2023 : Programmation système Linux et optimisation système Linux
-    - 16.6.2023 : Mini projet intégré
+    - {{  cal.start | add_week(8) | dow(3) | euro_day }} : Environnement Linux embarqué et programmation noyau Linux 
+    - {{  cal.start | add_week(14) | dow(3) | euro_day }} : Programmation système Linux et optimisation système Linux
+    - {{  cal.start | add_week(16) | dow(4) | euro_day }} : Mini projet intégré
 - Format : fichier PDF avec les annexes dans un fichier .tar
 - Langue : français, allemand ou anglais
 

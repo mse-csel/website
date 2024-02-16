@@ -1,17 +1,17 @@
 title: Travaux pratiques
 nav:
-{%- if env.ASSIGNMENT_SHOW_DATA | float >= 1 %}
+{%- if cal.tp1 %}
     - environnement.md
 {%- endif %}
-{%- if env.ASSIGNMENT_SHOW_DATA | float >= 2 %}
+{%- if cal.tp2 %}
     - programmation-noyau
 {%- endif %}
-{%- if env.ASSIGNMENT_SHOW_DATA | float >= 4 %}
+{%- if cal.tp3 %}
     - programmation-systeme
 {%- endif %}
-{%- if env.ASSIGNMENT_SHOW_DATA | float >= 6 %}
+{%- if cal.tp4 %}
     - optimisations.md
 {%- endif %}
-{%- if env.ASSIGNMENT_SHOW_DATA | float >= 4 %}
+{%- if cal.tp5 %}
     - mini-projet.md
 {%- endif %}
