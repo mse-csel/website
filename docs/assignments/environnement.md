@@ -88,6 +88,11 @@ Ouvrez maintenant un terminal dans VSCode et téléchargez "buildroot" avec la c
 get-buildroot.sh 
 ```
 
+<figure markdown>
+![Etcher](environnement/get_buildroot.png)
+<figcaption>Téléchargement de Buildroot</figcaption>
+</figure>
+
 Pour votre culture générale, étudiez le script `get-buildroot.sh` dans `/usr/local/bin/`.
 
 ### Génération et installation de l'environnement
@@ -98,12 +103,25 @@ Vous pouvez modifier la configuration du noyau ou du rootfs avec la commande sui
 cd /buildroot
 make menuconfig
 ```
+
+<figure markdown>
+![Etcher](environnement/menuconfig.png)
+<figcaption>make menuconfig</figcaption>
+</figure>
+
+
 Générez ensuite les différents packages et créez les images. 
 
 ``` bash
 cd /buildroot
 make
 ```
+
+<figure markdown>
+![Etcher](environnement/make_done.png)
+<figcaption>make</figcaption>
+</figure>
+
 
 !!! attention "Attention"
     La construction du système prend entre 30 et 60 minutes selon la
