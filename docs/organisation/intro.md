@@ -142,12 +142,21 @@ Au terme de ce module, les étudiant-e-s seront capable de :
     - {{  cal.start | add_week(8) | dow(3) | euro_day }} : Environnement Linux embarqué et programmation noyau Linux 
     - {{  cal.start | add_week(14) | dow(3) | euro_day }} : Programmation système Linux et optimisation système Linux
     - {{  cal.start | add_week(16) | dow(4) | euro_day }} : Mini projet intégré
-- Format : fichier PDF avec les annexes dans un fichier .tar
+- Format : fichier PDF à déposer dans l'_assignment_ de Teams. Le nom du fichier doit être : <br/>
+  `CSEL1-<groupe>-<sujet>.pdf`
 - Langue : français, allemand ou anglais
 
 ### Contenu (indicatif)
 
-- En-tête (logos, établissement, titre, auteur, lieu et date, ...)
+- En-tête
+    - logos
+    - établissement
+    - titre
+    - auteur
+    - **lien vers un dépôt git** (github, gitlab, bitbucket, ...)
+    - lieu
+    - date
+    - version
 - Par journée de cours (sujet / thème) entre 1 et 4 pages
     - Résumé du laboratoire
     - Réponse aux questions
