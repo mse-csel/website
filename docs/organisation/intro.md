@@ -63,6 +63,8 @@ code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
 | {{ week_no + 14 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Mini projet intégré 1          | {% set i = i + 1 %}
 | {{ week_no + 15  }}              | {{ cal.start | ld(i) }} | Mini projet intégré 2          | {% set i = i + 1 %}
 
+[Calendrier MSE {{ year }}](assets/AY23-24_CalendrierAcademique_MSE_Reg-F.pdf)
+
 ## Déroulement des cours
 
 ### Déroulement
