@@ -90,7 +90,7 @@ objdump -d -S -C fibonacci.o
 **désassmblage de l'application**
 
 ``` bash
-objdump -d -S -C fiboneacci
+objdump -d -S -C fibonacci
 ```
 
 **élimination ses symboles de debugging** (pour rendre le code plus léger)
