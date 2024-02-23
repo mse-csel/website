@@ -61,7 +61,7 @@ Ci-dessous quelques facteurs à considérer lors du choix :
 
 ## Das U-Boot
 
-Dans les systèmes embarqués, «Das U-Boot» est probablement l'un des
+Dans les systèmes embarqués, «[Das U-Boot](https://docs.u-boot.org/en/latest/)» est probablement l'un des
 bootloaders des plus populaires.
 
 Il est développé et maintenu par la maison DENX Software Engineering à

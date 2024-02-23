@@ -271,28 +271,6 @@ Alternatives :
     - Solution offrant des services de configuration (version, composants, ...)
     - Solution permettant de patches les composants
 
-## Chaînes d'outils précompilées
-
-**Linaro**
-
-- Référence https://wiki.linaro.org/
-- Linaro contribue à améliorer le compilateur GCC pour ARM
-
-<figure markdown>
-![](img/distribution/linaro.png)
-</figure>
-
-**CodeSourcery**
-
-- Référence http://www.codesourcery.com/
-- Compagnie avec une grande expertise sur les chaînes d'outils libres
-- Ces chaînes d'outils sont disponibles pour ARM, MIPS, PowerPC, SuperH, ...
-- Egalement possible d'acheter ces outils avec du support
-
-<figure markdown>
-![](img/distribution/code-sourcery.png)
-</figure>
-
 **Autres distributions**
 
 - Références http://elinux.org/Toolchains
@@ -328,12 +306,6 @@ Alternatives :
 <figure markdown>
 ![](img/distribution/pengutronix.png)
 </figure>
-
-**ELDK (Embedded Linux Development Kit)**
-
-- Référence http://www.denx.de/wiki/ELDK-5/WebHome
-- Système basé sur le projet Yocto (http://www.yoctoproject.org/)
-- Développé et maintenu par la maison Denx
 
 ## Buildroot
 
@@ -386,6 +358,17 @@ Communauté très active avec une release tous les 3 mois
 
 <figure markdown>
 ![](img/distribution/ubuntu.png)
+</figure>
+
+
+**Ubuntu Core**
+
+- Référence https://ubuntu.com/core
+- Système d'exploitation optimisé pour l'IoT et l'Edge
+- Disponible poir Intel et ARM
+
+<figure markdown>
+![](img/distribution/UC.webp){width=300}
 </figure>
 
 **Fedora**
