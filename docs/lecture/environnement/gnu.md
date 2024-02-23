@@ -28,7 +28,7 @@ Avec la chaîne d'outils GNU sous Linux
 _compilation de l'application pour le debugging_
 
 ``` text
-gcc -g -c -Wall -Wextra -O2 -std=gnu11 -o fibonacci.o fibonnaci.c
+gcc -g -c -Wall -Wextra -O2 -std=gnu11 -o fibonacci.o fibonacci.c
 ```
 
 - `-g` --> enclenche les options pour le debugging
@@ -61,7 +61,7 @@ il est également possible de compiler et de _linker_
 l'application en une seule commande:
 
 ``` bash
-gcc -g -Wall -Wextra -O2 -std=gnu11 -o fibonacci fibonnaci.c
+gcc -g -Wall -Wextra -O2 -std=gnu11 -o fibonacci fibonacci.c
 ```
 
 - `-o` --> spécifie le nom de l'exécutable
