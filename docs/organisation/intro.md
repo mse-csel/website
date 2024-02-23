@@ -38,7 +38,7 @@ code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
 
 ## Programme des cours
 
-- Horaire : 15:**10** - 17:**55**
+- Horaire : 14:35 - 17:00
 - Salle de classe : HEIA-FR / C00.16
 
 {% set week_no = 8 %}

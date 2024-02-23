@@ -9,12 +9,12 @@ extra:
   year: "2023-2024"
   teams_code: 3ntp89k
   info:
-    students_count: 9
-    students_cs: 7
+    students_count: 8
+    students_cs: 6
     students_eie: 1
     students_enen: 1
     students_ft: 2
-    students_pt: 7
+    students_pt: 6
 
   pdf_to_jpg: programmation-noyau/modules/assets/sp.03.1_mas_csel_noyau_modules.pdf
 
