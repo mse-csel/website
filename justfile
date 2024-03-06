@@ -9,10 +9,10 @@ serve-all:
     set -euxo pipefail
     CALENDAR_TODAY="today in 10 year" poetry run mkdocs serve
 
-archive:
+archive YEAR:
     #!/usr/bin/env bash
     set -euxo pipefail
-    target="csel-website-2023-2024.wzip"
+    target="csel-website-{{ YEAR }}.wzip"
     rm -Rf public
     rm $target || true
     CALENDAR_TODAY="today in 10 year" poetry run mkdocs build -d public -f mkdocs.yml
