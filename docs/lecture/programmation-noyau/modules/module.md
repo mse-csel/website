@@ -34,7 +34,7 @@ Des applications nécessitant un accès au matériel ou devant traiter une très
   de l'image du noyau Linux au minimum_
 - Chargement de pilotes de périphériques que si le système les reconnaît :
   _Si le système ne connaît pas quels périphériques sont attachés au
-  système avant son démarrage ou si les périphériques ne sont
+  système avant son démarrage ou si les périphériques ne sont pas
   systématiquement utilisés par les applications, alors ceux-ci ne seront
   pas chargés dans le noyau Linux_
 - Diminution du temps de démarrage des cibles : _Aucun temps n'est perdu
