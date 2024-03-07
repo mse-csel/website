@@ -8,6 +8,7 @@ extra:
   teacher_name: "Jacques Supcik"
   year: "2023-2024"
   teams_code: 3ntp89k
+  kver: 5.15.148
   info:
     students_count: 8
     students_cs: 6
@@ -57,9 +58,9 @@ extra:
       SP-1: [lecture1, tp1]
       SP-2: [tp1_sol]
       SP-3: [lecture2, tp2]
-      SP-4: [tp2_sola]
+      SP-4: [tp2_sol_a]
       SP-5: [tp2b]
-      SP-6: [tp2_solb]
+      SP-6: [tp2_sol_b]
       SP-7: [lecture3, tp3]
       SP-8: [tp3_sola]
       SP-9: [tp3b]

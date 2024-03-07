@@ -23,7 +23,7 @@ Les modules Linux doivent être générés par l'intermédiaire d'un Makefile.
 Par exemple :
 
 ``` Makefile
-{include "./src/gen.mk" !}
+{! include "./src/gen.mk" !}
 ```
 
 - La commande `make` génère le module pour la machine cible.

@@ -93,7 +93,7 @@ rm -Rf /rootfs_new/
 Générez ensuite une nouvelle version de `perf` avec les commandes suivantes :
 
 ```bash
-$ cd /buildroot/output/build/linux-5.15.21/tools/perf/
+$ cd /buildroot/output/build/linux-{{ kver }}/tools/perf/
 $ make clean
 $ make ARCH=arm64 CROSS_COMPILE=/buildroot/output/host/bin/aarch64-linux-
 ```

@@ -59,10 +59,10 @@ d'information seront émis afin de permettre le debugging du module.
 {% if show_sol_a %}
 ??? success "Solution"
     ```makefile title="/workspace/src/02_modules/exercice04/Makefile"
-    {include "./modules/src/exercice04/Makefile" !}
+    {! include "./modules/src/exercice04/Makefile" !}
     ```
     ```c title="/workspace/src/02_modules/exercice04/skeleton.c"
-    {include "./modules/src/exercice04/skeleton.c" !}
+    {! include "./modules/src/exercice04/skeleton.c" !}
     ```
 {% endif %}
 
@@ -90,7 +90,7 @@ adresse_.
 {% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/02_modules/exercice04/skeleton.c"
-    {include "./modules/src/exercice05/skeleton.c" !}
+    {! include "./modules/src/exercice05/skeleton.c" !}
     ```
 {% endif %}
 
@@ -103,7 +103,7 @@ la fonction `ssleep(5)` provenant de l'interface `<linux/delay.h>`.
 {% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice04/skeleton.c"
-    {include "./modules/src/exercice06/skeleton.c" !}
+    {! include "./modules/src/exercice06/skeleton.c" !}
     ```
 {% endif %}
 
@@ -118,7 +118,7 @@ affichera un petit message à chaque réveil.
 {% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice04/skeleton.c"
-    {include "./modules/src/exercice07/skeleton.c" !}
+    {! include "./modules/src/exercice07/skeleton.c" !}
     ```
 {% endif %}
 
@@ -142,7 +142,7 @@ Quelques informations pour la réalisation du module :
 {% if show_sol_b %}
 ??? success "Solution"
     ```c title="/workspace/src/exercice08/skeleton.c"
-    {include "./modules/src/exercice08/skeleton.c" !}
+    {! include "./modules/src/exercice08/skeleton.c" !}
     ```
 {% endif %}
 

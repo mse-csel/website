@@ -7,7 +7,7 @@ CFLAGS_skeleton := -DDEBUG   ## to enable printing of debugging messages
 # Part executed when called from standard make in the module source directory
 else
 CPU := arm64
-KDIR := /buildroot/output/build/linux-5.15.21/
+KDIR := /buildroot/output/build/linux-{{ kver }}/
 TOOLS := /buildroot/output/host/usr/bin/aarch64-linux-gnu-
 PWD := $(shell pwd)
 

@@ -274,7 +274,7 @@ Vous êtes maintenant connecté! Tapez la commande `uname -a` pour voir le syst�
 
 ``` plain
 # uname -a
-Linux csel 5.15.21 #1 SMP PREEMPT Sat Feb 12 19:26:27 UTC 2022 aarch64 GNU/Linux
+Linux csel {{ kver }} #1 SMP PREEMPT Sat Feb 12 19:26:27 UTC 2022 aarch64 GNU/Linux
 ```
 
 ## Mise en place de l'espace de travail (_workspace_) sous CIFS/SMB

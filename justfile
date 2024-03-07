@@ -9,6 +9,14 @@ serve-all:
     set -euxo pipefail
     CALENDAR_TODAY="today in 10 year" poetry run mkdocs serve
 
+build-all:
+    #!/usr/bin/env bash
+    CALENDAR_TODAY="today in 10 year" poetry run mkdocs build -d public -f mkdocs.yml
+
+clean:
+    #!/usr/bin/env bash
+    rm -Rf public
+
 archive YEAR:
     #!/usr/bin/env bash
     set -euxo pipefail

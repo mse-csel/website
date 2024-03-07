@@ -21,10 +21,10 @@ tpno: 3
 {% if show_sol_a %}
 ??? success "Solution"
     ```makefile title="Makefile"
-    {include "./pilotes/src/exercice01/Makefile" !}
+    {! include "./pilotes/src/exercice01/Makefile" !}
     ```
     ```c title="main.c"
-    {include "./pilotes/src/exercice01/main.c" !}
+    {! include "./pilotes/src/exercice01/main.c" !}
     ```
 {% endif %}
 
@@ -35,16 +35,16 @@ tpno: 3
 {% if show_sol_a %}
 ??? success "Solution"
     ```makefile title="Makefile"
-    {include "./pilotes/src/exercice02/Makefile" !}
+    {! include "./pilotes/src/exercice02/Makefile" !}
     ```
     ```makefile title="../../buildroot_path"
-    {include "./pilotes/src/exercice02/buildroot_path" !}
+    {! include "./pilotes/src/exercice02/buildroot_path" !}
     ```
     ```text title="../../kernel_settings"
-    {include "./pilotes/src/exercice02/kernel_settings" !}
+    {! include "./pilotes/src/exercice02/kernel_settings" !}
     ```
     ```c title="skeleton.c"
-    {include "./pilotes/src/exercice02/skeleton.c" !}
+    {! include "./pilotes/src/exercice02/skeleton.c" !}
     ```
 {% endif %}
 
@@ -53,7 +53,7 @@ tpno: 3
 {% if show_sol_a %}
 ??? success "Solution"
     ```c title="skeleton.c"
-    {include "./pilotes/src/exercice03/skeleton.c" !}
+    {! include "./pilotes/src/exercice03/skeleton.c" !}
     ```
 {% endif %}
 
@@ -62,7 +62,7 @@ tpno: 3
 {% if show_sol_a %}
 ??? success "Solution"
     ```c title="main.c"
-    {include "./pilotes/src/exercice04/main.c" !}
+    {! include "./pilotes/src/exercice04/main.c" !}
     ```
 {% endif %}
 
@@ -75,7 +75,7 @@ Dans un premier temps, implémentez juste ce qu'il faut pour créer une nouvelle
 {% if show_sol_a %}
 ??? success "Solution"
     ```c title="skeleton.c" hl_lines="115"
-    {include "./pilotes/src/exercice05/skeleton.c" !}
+    {! include "./pilotes/src/exercice05/skeleton.c" !}
     ```
 {% endif %}
 
@@ -86,7 +86,7 @@ comme dans l'exercice précédent, ou vous pouvez utiliser un `platform_device`,
 {% if show_sol_b %}
 ??? success "Solution"
     ```c title="skeleton.c" hl_lines="157 198 209"
-    {include "./pilotes/src/exercice051/skeleton.c" !}
+    {! include "./pilotes/src/exercice051/skeleton.c" !}
     ```
 {% endif %}
 
@@ -98,16 +98,16 @@ Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise u
 {% if show_sol_a %}
 ??? success "Solution"
     ```makefile title="Makefile"
-    {include "./pilotes/src/exercice06/Makefile" !}
+    {! include "./pilotes/src/exercice06/Makefile" !}
     ```
     ```c title="skeleton.c"
-    {include "./pilotes/src/exercice06/skeleton.c" !}
+    {! include "./pilotes/src/exercice06/skeleton.c" !}
     ```
     ```text title="mydt.dts"
-    {include "./pilotes/src/exercice06/mydt.dts" !}
+    {! include "./pilotes/src/exercice06/mydt.dts" !}
     ```
     ```text title="boot.cmd"
-    {include "./pilotes/src/exercice06/boot.cmd" !}
+    {! include "./pilotes/src/exercice06/boot.cmd" !}
     ```
 {% endif %}
 
@@ -124,15 +124,15 @@ Adapter l'implémentation de l'exercice #3 ci-dessus afin que celui-ci utilise u
 ??? success "Solution"
     **Device Driver :**
     ```c title="drv/skeleton.c"
-    {include "./pilotes/src/exercice07/drv/skeleton.c" !}
+    {! include "./pilotes/src/exercice07/drv/skeleton.c" !}
     ```
 
     **Application :**
     ```makefile title="app/Makefile"
-    {include "./pilotes/src/exercice07/app/Makefile" !}
+    {! include "./pilotes/src/exercice07/app/Makefile" !}
     ```
     ```c title="app/main.c"
-    {include "./pilotes/src/exercice07/app/main.c" !}
+    {! include "./pilotes/src/exercice07/app/main.c" !}
     ```
 {% endif %}
 
@@ -148,12 +148,12 @@ Le driver orienté mémoire sera ensuite adapté à cette nouvelle interface.
 ??? success "Solution"
     **Device Driver :**
     ```c title="drv/skeleton.c"
-    {include "./pilotes/src/exercice08/drv/skeleton.c" !}
+    {! include "./pilotes/src/exercice08/drv/skeleton.c" !}
     ```
 
     **Application :**
     ```c title="app/main.c"
-    {include "./pilotes/src/exercice08/app/main.c" !}
+    {! include "./pilotes/src/exercice08/app/main.c" !}
     ```
 {% endif %}
 
@@ -171,15 +171,15 @@ Afin de valider le pilote, développer une petite application permettant d'effec
 ??? success "Solution"
     **Device Driver :**
     ```c title="drv/skeleton.h"
-    {include "./pilotes/src/exercice09/drv/skeleton.h" !}
+    {! include "./pilotes/src/exercice09/drv/skeleton.h" !}
     ```
     ```c title="drv/skeleton.c"
-    {include "./pilotes/src/exercice09/drv/skeleton.c" !}
+    {! include "./pilotes/src/exercice09/drv/skeleton.c" !}
     ```
 
     **Application :**
     ```c title="app/main.c"
-    {include "./pilotes/src/exercice09/app/main.c" !}
+    {! include "./pilotes/src/exercice09/app/main.c" !}
     ```
 {% endif %}
 
@@ -190,7 +190,7 @@ Afin de valider le pilote, développer une petite application permettant d'effec
 {% if show_sol_a %}
 ??? success "Solution"
     ```c title="skeleton.c"
-    {include "./pilotes/src/exercice10/skeleton.c" !}
+    {! include "./pilotes/src/exercice10/skeleton.c" !}
     ```
 {% endif %}
 
