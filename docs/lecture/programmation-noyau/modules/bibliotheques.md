@@ -4,7 +4,7 @@ title: Bibliothèques et fonctions utiles
 
 ## Bibliothèques
 
-A l'intérieur du noyau Linux on ne dispose pas des bibliothèques standard C. Par contre, le noyau fournit toute une série de bibliothèques et de fonctions fort utile...
+À l'intérieur du noyau Linux on ne dispose pas des bibliothèques standard C. Par contre, le noyau fournit toute une série de bibliothèques et de fonctions fort utiles.
 
 **`String` dans `<linux/string.h>`**
 
