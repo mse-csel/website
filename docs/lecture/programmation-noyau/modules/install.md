@@ -11,7 +11,7 @@ Linux propose plusieurs outils pour la gestion des modules noyaux
 
 - La commande `modinfo <module_name>.ko` nous renseigne sur le module:
   paramètres, licence, description, dépendances, ...
-- Pour installer un module dans le noyau, peut utiliser la commande `insmod`, par exemple
+- Pour installer un module dans le noyau, on peut utiliser la commande `insmod`. Par exemple
   ``` bash
   insmod mymodule.ko
   ```
@@ -40,12 +40,17 @@ très intéressante aux commandes précédentes.
   propre module dans ce fichier, il suffit de compléter le `Makefile` du
   module avec l'instruction suivante, par exemple
   ``` Makefile
-  MODPATH := /buildroot/output/target # production mode install:
+  MODPATH := /buildroot/output/target # production mode
+  install:
       $(MAKE) -C $(KDIR) M=$(PWD) INSTALL_MOD_PATH=$(MODPATH) modules_install
   ```
 - La variable `INSTALL_MOD_PATH` indique le chemin du répertoire où est placé le root file system
 - En mode de développement sous CIFS:
   ``` bash
   MODPATH := /rootfs
+  ...
+  ```
+- Pour installer le module dans le root file system, il suffit de taper
+  ``` bash
   sudo make install
   ```
