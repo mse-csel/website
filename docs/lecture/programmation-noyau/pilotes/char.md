@@ -22,18 +22,21 @@ du système de fichiers virtuels
 L'implémentation d'un pilote orienté caractère peut être décomposer en
 5 étapes principales :
 
-1. Implémentation des opérations sur les fichiers (_handler_) correspondantes aux
+1. Implémentation des opérations sur les fichiers (_handler_) correspondant aux
    appels système qu'une application en espace utilisateur pourra utiliser
-1. Définition de la structure `struct file_operations` (appelée `fops`) permettant
+1. Définition de la structure [`struct file_operations`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2054)
+   (souvent appelée `fops`) permettant
    d'associer les opérations à leur implémentation dans le pilote
-1. Réservation du numéro de pilote (numéro majeur et numéro mineur) permettant
+3. Réservation du numéro de pilote (numéro majeur et numéro mineur) permettant
    d'identifier le pilote et le périphérique dans le noyau
-1. Association des opérations sur le fichier au numéro de pilote dans le noyau Linux
-1. Intégration du code du pilote de périphérique dans le squelette d'un module noyau
+4. Association des opérations sur le fichier au numéro de pilote dans le noyau Linux
+5. Intégration du code du pilote de périphérique dans le squelette d'un module noyau
+   (pour faire tourner votre code dans l'espace noyau)
 
 ## Opérations
 
-La structure `struct file_operations` est générique à tous les fichiers
+La structure [`struct file_operations`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2054)
+est générique à tous les fichiers
 traités par le noyau Linux. Elle contient énormément d'opérations, mais il n'est
 pas nécessaire de toutes les implémenter pour un pilote orienté caractère.
 
@@ -66,17 +69,19 @@ int (*open) (struct inode* i, struct file* f);
 La fonction  `open` est appelée quand l'application en espace
 utilisateur ouvre le fichier correspondant au périphérique
 
-- `i` pointe sur la structure `struct inode` qui représentent de façon unique un
+- `i` pointe sur la structure [`struct inode`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L624)
+  qui représentent de façon unique un
   fichier dans le noyau Linux (que ce soit un fichier régulier, un répertoire, un lien
   symbolique, un pilote de périphérique orienté caractère ou bloc, etc.)
-- `f` pointe sur la structure de fichier `struct file` qui est créée à chaque fois
+- `f` pointe sur la structure de fichier [`struct file`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L966)
+  qui est créée à chaque fois
   qu'un fichier est ouvert. Il peut exister plusieurs structures de fichiers attachées au
   même _inode_.
     - Elle contient des informations telles que la position actuelle dans le fichier ou
       le mode d'ouverture
-    - Elle contient également un pointeur `void * private_data` que l'on peut
-      utiliser librement. Cet attribut est passé à toutes les autres opérations sur les
-      fichiers
+    - Elle contient également un pointeur [`void *private_data`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L995)
+      que l'on peut utiliser librement. Cet attribut est passé à toutes
+      les autres opérations sur les fichiers
 
 ### Release
 
@@ -122,18 +127,22 @@ L'échange de données entre l'application en espace utilisateur et le pilote de
 périphérique en espace noyau n'est généralement pas autorisé avec un accès
 direct basé sur la déréférenciation du pointeur `buf`. Pour garder le code portable
 sur différentes architectures, on préférera utiliser les services du noyau disponible
-dans l'interface `<linux/uaccess.h>`.
+dans l'interface [`<linux/uaccess.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/uaccess.h).
 
 Pour copier une seule valeur :
 
-- `int get_user (v, p)` permet de copier dans la variable `v`
+- [`int get_user (v, p)`](https://elixir.bootlin.com/linux/v5.15.148/source/tools/virtio/linux/uaccess.h#L22)
+  permet de copier dans la variable `v`
   du noyau le contenu pointé par `p` en espace utilisateur.
-- `int put_user (v, p)` permet de copier le contenu de
+- [`int put_user (v, p)`](https://elixir.bootlin.com/linux/v5.15.148/source/tools/virtio/linux/uaccess.h#L14)
+  permet de copier le contenu de
   la variable `v` du noyau vers l'espace utilisateur pointé par `p`
 - Ces méthodes retournent zéro (`0`) en cas de succès
   ou `-EFAULT` en cas d'erreur
 
-Pour copier une grande quantité de données :
+Pour copier une grande quantité de données, on utilisera les méthodes
+[`copy_to_user`](https://elixir.bootlin.com/linux/v5.15.148/source/tools/virtio/linux/uaccess.h#L45)
+et [`copy_from_user`](https://elixir.bootlin.com/linux/v5.15.148/source/tools/virtio/linux/uaccess.h#L37) :
 
 ```c
 unsigned long copy_to_user (void __user* to, const void* from, unsigned long n);
@@ -154,7 +163,6 @@ unsigned long copy_from_user (void* to, const void __user* from, unsigned long n
 int (*mmap)(struct file *f, struct vm_area_struct *vma)
 ```
 
-
 La fonction `mmap` permet de mapper dans l'espace utilisateur une zone mémoire ou les registres
 d'un périphérique. Elle est appelée quand l'application en espace utilisateur
 utilise la méthode `mmap()`.
@@ -162,8 +170,8 @@ utilise la méthode `mmap()`.
 - `f` est le pointeur sur la structure de fichier qui a été passé lors de l'opération `open()`
 - `vma` est un pointeur sur la structure de la mémoire virtuelle d'un processus
   
-Pour mapper en la zone souhaitée on utilisera la fonction `remap_pfn_range`
-disponible dans l'interface `<linux/mm.h>`
+Pour mapper en la zone souhaitée on utilisera la fonction [`remap_pfn_range`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/mm.h#L2800)
+disponible dans l'interface [`<linux/mm.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/mm.h)
 
 ```c
 int remap_pfn_range (
@@ -182,9 +190,10 @@ pfn = <PHY_ADDR> >> PAGE_SHIFT;
 
 ## Définition de la structure de fichier
 
-La structure `struct file_operations` permettant de définir les opérations
+La structure [`struct file_operations`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2054)
+permettant de définir les opérations
 supportées par le pilote de périphérique est disponible depuis l'interface
-`<linux/fs.h>`. Les opérations sont déclarées comme pointeurs de fonction.
+[`<linux/fs.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h). Les opérations sont déclarées comme pointeurs de fonction.
 
 Pour définir les opérations du pilote, il suffit de fournir seulement les méthodes
 qui ont été implémentées.
@@ -204,15 +213,19 @@ L'attribut `owner` doit impérativement être initialisé à l'aide de la macro
 
 ## Le numéro de pilote
 
-Le type `dev_t` permettant de définir le numéro de pilote est disponible dans
-l'interface `<linux/kdev_t.h>`.
+Le type [`dev_t`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/types.h#L16)
+permettant de définir le numéro de pilote est disponible dans l'interface [`<linux/types.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/types.h). L'interface [`<linux/kdev_t.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/kdev_t.h)
+permet de manipuler ce type.
 
 - Le numéro de pilote est constitué
     - d'un numéro majeur (12 bits) et
     - d'un numéro mineur (20 bits)
-- La macro `MKDEV (int major, int minor)` permet d'initialiser la variable
+- La macro [`MKDEV (int major, int minor)`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/kdev_t.h#L12)
+  permet d'initialiser la variable
   contenant le numéro de pilote
-- Les macros `MAJOR(dev_t dev)` et `MINOR(dev_t dev)` permettent d'extraire
+- Les macros [`MAJOR(dev_t dev)`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/kdev_t.h#L10)
+  et [`MINOR(dev_t dev)`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/kdev_t.h#L11)
+  permettent d'extraire
   le numéro majeur et respectivement le numéro mineur de cette variable
 
 En espace utilisateur, on peut obtenir la valeur du numéro majeur à l'aide
@@ -234,7 +247,7 @@ Character devices:
 ## Réservation statique du numéro de pilote
 
 Une fois défini, le numéro de pilote doit être enregistré dans le noyau à l'aide
-de la méthode
+de la méthode [`register_chrdev_region`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2793) :
 
 ```c
 int register_chrdev_region (
@@ -251,8 +264,8 @@ int register_chrdev_region (
 
 ## Réservation dynamique du numéro de pilote
 
-Linux offre également le service `alloc_chrdev_region` permettant d'allouer
-dynamiquement les numéros de pilote
+Linux offre également le service [`alloc_chrdev_region`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2792)
+permettant d'allouer dynamiquement les numéros de pilote
 
 ```c
 int alloc_chrdev_region (
@@ -273,11 +286,12 @@ int alloc_chrdev_region (
 ## Enregistrement du pilote
 
 Un pilote orienté caractère est représenté dans le noyau à l'aide de la structure
-`struct cdev` laquelle est disponible dans l'interface `<linux/cdev.h>`
+[`struct cdev`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/cdev.h#L14)
+laquelle est disponible dans l'interface [`<linux/cdev.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/cdev.h)
 
 - Cette structure doit être déclarée globalement dans le module
   `static struct cdev skeleton_cdev;`
-- Elle doit ensuite être initialisée à l'aide de la méthode `cdev_init`
+- Elle doit ensuite être initialisée à l'aide de la méthode [`cdev_init`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/cdev.h#L14)
   ```c
   cdev_init (&skeleton_cdev, &skeleton_fops);
   ```
@@ -286,7 +300,8 @@ Un pilote orienté caractère est représenté dans le noyau à l'aide de la str
   skeleton_cdev.owner = THIS_MODULE;
   ```
 
-Le pilote doit ensuite être enregistré dans le noyau
+Le pilote doit ensuite être enregistré dans le noyau à l'aide de la méthode
+[`cdev_add`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/cdev.h#L29)
 
 ```c
 int cdev_add (stuct cdev *p, dev_t dev, unsigned count);
@@ -305,11 +320,12 @@ pilote. Le pilote est finalement prêt à être opéré depuis l'espace utilisat
 
 La libération d'un pilote se fait en deux étapes
 
-1. Elimination du pilote dans le noyau
+1. Elimination du pilote dans le noyau avec la méthode [`cdev_del`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/cdev.h#L35)
   ```c
   void cdev_del (struct cdev* p);
   ```
-2. Libération des numéros de pilote
+1. Libération des numéros de pilote à l'aide de la méthode
+  [`unregister_chrdev_region`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2799)
   ```c
   void unregister_chrdev_region (dev_t from, unsigned count);
   ```
@@ -317,7 +333,8 @@ La libération d'un pilote se fait en deux étapes
 ## Fichier d'accès
 
 La création du fichier d'accès dans le répertoire `/dev` n'est pas automatique.
-Celle-ci doit être effectuée en utilisant la commande `mknod` en mode `root`, par exemple :
+Celle-ci doit être effectuée en utilisant la commande [`mknod`](https://man7.org/linux/man-pages/man2/mknod.2.html)
+en mode `root`, par exemple :
 
 ```shell
 $ mknod /dev/mymodule c 511 0
@@ -329,6 +346,6 @@ $ mknod /dev/mymodule c 511 0
 
 Si beaucoup de périphériques doivent être créés, l'utilisation de la commande
 ci-dessus n'est que très peu efficace. Dès la version 2.6.13, le noyau Linux a
-introduit un nouvel utilitaire `udev` pour la gestion des périphériques. Sous
+introduit un nouvel utilitaire [`udev`](https://man7.org/linux/man-pages/man7/udev.7.html) pour la gestion des périphériques. Sous
 les systèmes équipés de _BusyBox_, `udev` est remplacé par une version plus
 simple, `mdev`.

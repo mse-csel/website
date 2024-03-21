@@ -18,12 +18,13 @@ Linux distingue deux types principaux de pilotes de périphériques
 
 Cette liste peut être complétée par deux types supplémentaires
 
-- Pilotes réseau (**network device driver**), visible avec ifconfig
+- Pilotes réseau (**network device driver**), visible avec `ifconfig`
     - Accès aux interfaces réseau (Ethernet, ...)
     - Accès aux piles de protocoles
 - Pilotes orientés mémoire (**uio device driver**)
     - Accès aux périphériques très simples avec accès aux registres
       mémoires (**memory mapped devices**)
+    - Accès depuis l'espace utilisateur (uio = user space I/O)
 
 ## Device Model
 
@@ -47,8 +48,8 @@ hardware
 
 ## Interface utilisateur
 
-L'accès aux pilotes de périphériques se fait par l'intermédiaire de fichiers
-virtuels
+L'accès aux pilotes de périphériques se fait par l'intermédiaire de _fichiers
+virtuels_.
 
 **Espace utilisateur**
 
@@ -60,9 +61,9 @@ virtuels
 
 - Pour connaître, le pilote en charge de traiter les requêtes de
   l'application en espace utilisateur, le noyau utilise un numéro de
-  périphérique (device number) associé au nom du fichier. Celui-ci est
-  composé d'un numéro majeur associé au pilote (le code) et d'un numéro
-  mineur associé au périphérique (instance du pilote)
+  périphérique (_device number_) associé au nom du fichier. Celui-ci est
+  composé d'un numéro **majeur** associé au pilote (le code) et d'un numéro
+  **mineur** associé au périphérique (instance du pilote)
 - Pour chaque opération en espace utilisateur, le pilote de périphérique
   implémente une méthode correspondante (handler) dans le noyau
 

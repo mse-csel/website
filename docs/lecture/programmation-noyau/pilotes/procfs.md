@@ -21,13 +21,15 @@ fonctionnalité sous `sysfs` que sous `procfs`.
 
 ## Méthodes d'accès et leur installation
 
-Au niveau du noyau, l'interface `<linux/proc_fs.h>` offre une série de
-méthodes permettant au pilote d'instancier des méthodes de lecture et d'écriture.
+Au niveau du noyau, l'interface
+[`<linux/proc_fs.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/proc_fs.h)
+offre une série de méthodes permettant au pilote d'instancier des méthodes de lecture et d'écriture.
 
 Depuis la version 3.10 du noyau, _procfs_ utilise les `fops` employés par les
 méthodes d'accès aux pilotes de périphériques devront être utilisées.
 
 Pour installer les méthodes d'accès dans _procfs_, on utilisera la fonction
+[`proc_create`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/proc_fs.h#L110) :
 
 ```c
 struct proc_dir_entry *proc_create (const char *name, mode_t mode,
@@ -35,13 +37,13 @@ struct proc_dir_entry *proc_create (const char *name, mode_t mode,
 ```
 
 Si l'on désire créer des sous-répertoires, on utilisera la méthode
-
+[`proc_mkdir`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/proc_fs.h#L85) :
 ```c
 struct proc_dir_entry *proc_mkdir (const char *name,
     struct proc_dir_entry *parent);
 ```
 
-Pour éliminer une entrée dans procfs, on utilisera la méthode
+Pour éliminer une entrée dans procfs, on utilisera la méthode [`remove_proc_entry`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/proc_fs.h#L116) :
 
 ```c
 void remove_proc_entry (const char *name,

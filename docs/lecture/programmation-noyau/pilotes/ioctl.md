@@ -4,12 +4,12 @@ title: "ioctl : input/output control"
 
 ## Principe
 
-_ioctl_ (_Input/Output Control_) a été introduit dans les systèmes Unix vers la fin
+`ioctl` (_Input/Output Control_) a été introduit dans les systèmes Unix vers la fin
 des années 1970. Elle est supportée par la plupart des systèmes Unix, dont
 Linux et Mac OS X. Windows fournit une interface similaire connue sous le
 nom de _DeviceIoControl_.
 
-_ioctl_ fournit au niveau du mode utilisateur la méthode `ioctl` avec le
+`ioctl` fournit au niveau du mode utilisateur la méthode [`ioctl`](https://man7.org/linux/man-pages/man2/ioctl.2.html) avec le
 prototype suivant:
 
 ```c
@@ -22,7 +22,9 @@ int ioctl (int fd, unsigned long cmd, ...);
 - _return_ : valeur de retour si positif, sinon erreur
   `-EINVAL` (invalid argument)
 
-La fonction `unlocked_ioctl` est appelée quand l'application en espace utilisateur utilise
+La fonction [`unlocked_ioctl`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2065)
+de la [`struct file_operations`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/fs.h#L2054)
+est appelée quand l'application en espace utilisateur utilise
 la méthode `ioctl()` sur le fichier correspondant au pilote
 
 ```c
@@ -45,30 +47,31 @@ permettant d'identifier les opérations que le driver devra exécuter.
 Le mot de commande a la structure suivante:
 
 - `type` : nombre magique unique (magic number) codé sur 8 bits, lequel doit est
-  défini après consultation de la liste `Documentation/userspace-api/ioctl/ioctl-number.rst` fournie dans
-  la documentation de Linux
+  défini après consultation de la liste
+  [`Documentation/userspace-api/ioctl/ioctl-number.rst`](https://elixir.bootlin.com/linux/v5.15.148/source/Documentation/userspace-api/ioctl/ioctl-number.rst)
+  fournie dans la documentation de Linux
 - `number` : numéro de la commande/opération codé sur 8 bits.
 - `direction` : définit le type d'opération devant être exécutée
-    - `__IOC_NONE` : pour une commande
-    - `__IOC_READ` : pour une lecture de données du pilote vers l'application
-    - `__IOC_WRITE` : pour une écriture de données de l'application vers le pilote
-    - `__IOC_READ | __IOC_WRITE` : pour une écriture et lecture
+    - `_IOC_NONE` : pour une commande
+    - `_IOC_READ` : pour une lecture de données du pilote vers l'application
+    - `_IOC_WRITE` : pour une écriture de données de l'application vers le pilote
+    - `_IOC_READ | _IOC_WRITE` : pour une écriture et lecture
 - `size` : taille des données de l'utilisateur impliquées dans l'opération (13 ou 14 bits)
 
-L'interface` <linux/ioctl.h>` fournit une série de macros facilitant la
+L'interface [`<uapi/asm-generic/ioctl.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/uapi/asm-generic/ioctl.h) fournit une série de macros facilitant la
 définition des numéros de commande
 
-- `__IO (type, nr)` pour une commande
-- `__IOR (type, nr, datatype)` pour une opération de lecture
-- `__IOW (type, nr, datatype)` pour une opération d'écriture
-- `__IOWR (type, nr, datatype)` pour une opération d'écriture et lecture
+- `_IO (type, nr)` pour une commande
+- `_IOR (type, nr, datatype)` pour une opération de lecture
+- `_IOW (type, nr, datatype)` pour une opération d'écriture
+- `_IOWR (type, nr, datatype)` pour une opération d'écriture et lecture
 
 Pour décoder une commande, l'interface fournit des macros
 
-- `__IOC_DIR (cmd)` pour la direction
-- `__IOC_TYPE (cmd)` pour le type (magic number)
-- `__IOC_NR (cmd)` pour le numéro de la commande/opération
-- `__IOC_SIZE (cmd)` pour la taille des données
+- `_IOC_DIR (cmd)` pour la direction
+- `_IOC_TYPE (cmd)` pour le type (magic number)
+- `_IOC_NR (cmd)` pour le numéro de la commande/opération
+- `_IOC_SIZE (cmd)` pour la taille des données
 
 Exemples :
 
@@ -90,13 +93,14 @@ Le paramètre est passé au pilote sous la forme d'un `unsigned long`. Celui-ci
 peut aussi bien représenter une valeur entière qu'un pointeur.
 
 Si les données sont passées par référence (pointeur), celles-ci doivent être
-copiées à l'aide des méthodes définies dans l'interface `<linux/uaccess.h>`
+copiées à l'aide des méthodes définies dans l'interface
+[`<linux/uaccess.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/uaccess.h)
 
-- `copy_from_user`
-- `copy_to_user`
+- [`copy_from_user`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/uaccess.h#L189)
+- [`copy_to_user`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/uaccess.h#L197)
 
-Il existe également d'autres méthodes pour effectuer le transfert:
+Il existe également d'autres macros pour effectuer le transfert:
 
-- `acces_ok` : pour vérifier la validité de l'adresse (impératif)
-- `put_user` : pour transférer des données du pilote vers l'utilisateur
-- `get_user` : pour transférer des données de l'utilisateur vers le pilote
+- [`acces_ok`](https://elixir.bootlin.com/linux/v5.15.148/source/include/asm-generic/uaccess.h#L129) : pour vérifier la validité de l'adresse (impératif)
+- [`put_user`](https://elixir.bootlin.com/linux/v5.15.148/source/include/asm-generic/uaccess.h#L168) : pour transférer des données du pilote vers l'utilisateur
+- [`get_user`](https://elixir.bootlin.com/linux/v5.15.148/source/include/asm-generic/uaccess.h#L230) : pour transférer des données de l'utilisateur vers le pilote

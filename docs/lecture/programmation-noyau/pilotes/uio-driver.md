@@ -13,7 +13,7 @@ Les pilotes orientés mémoire permettent de mapper dans l'espace virtuel
 du processus d'application les registres et zones mémoire nécessaires au
 pilotage du périphérique
 
-- Ce mapping est réalisé par l'appel de l'opération `mmap`
+- Ce mapping est réalisé par l'appel de l'opération [`mmap`](https://man7.org/linux/man-pages/man2/mmap.2.html)
 - Le fichier `/dev/mem` offre ce service par défaut
 - Il est possible d'implémenter ce service avec un son propre pilote
 
@@ -45,7 +45,9 @@ lorsque l'interface avec les périphériques à gérer est simple
 ## Implémentation du pilote dans l'espace utilisateur
 
 L'implémentation d'un pilote de périphériques orientés mémoire s'implémente à
-l'aide de 5 opérations (`#include <sys/mman.h>`)
+l'aide de 5 opérations (`#include <sys/mman.h>`)[^1]
+
+[^1]: C'est bien `mman.h` et pas `mmap.h`. `mman` est une abréviation de _memory management_.
 
 1. Ouverture du fichier correspondant au pilote
    ```c
@@ -56,11 +58,14 @@ l'aide de 5 opérations (`#include <sys/mman.h>`)
   ``` c
   void* mmap (
      void* addr,    // généralement NULL, adresse de départ en mémoire virtuelle
-     size_t length, // taille de la zone à placer en mémoire virtuelle
+     size_t length, // taille de la zone à placer en mémoire virtuelle (souvent
+                    // un multiple de la taille de page)
      int prot,      // droits d'accès à la mémoire: read, write, execute
-     int flags,     // visibilité de la page pour d'autres processus: shared, private
+     int flags,     // visibilité de la page pour d'autres processus: shared,
+                    // private
      int fd,        // descripteur du fichier correspondant au pilote
-     off_t offset); // offset des registres en mémoire
+     off_t offset); // offset des registres en mémoire physique. Souvent
+                    // un multiple de la taille de page
   ```
 1. Opérations sur le périphérique à l'aide de l'adresse virtuelle retournée par
   l'opération `mmap`

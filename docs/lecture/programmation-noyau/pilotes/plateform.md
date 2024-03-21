@@ -8,14 +8,15 @@ Pour les périphériques, le noyau Linux a développé un bus _plateforme_, lequ
 supporte des pilotes pour la gestion de ces périphériques ne faisant pas partie
 d'un type de bus avec une détection dynamique.
 
-L'interface `<linux/platform_device.h>` offre des méthodes/services pour
+L'interface [`<linux/platform_device.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h)
+offre des méthodes/services pour
 créer simplement des fichiers d'accès aux attributs des pilotes et
 périphériques
 
 ## les pilotes (driver)
 
-La structure `struct platform_driver` permet de spécifier les méthodes et
-services d'un pilote plateforme
+La structure [`struct platform_driver`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h#L208)
+permet de spécifier les méthodes et services d'un pilote plateforme
 
 ```c
 struct platform_driver {
@@ -42,7 +43,8 @@ réveil du pilote.
     - `name` attribut pour spécifier le nom du pilote, lequel sera visible sous `/sys`
     - `of_match_table` pointe sur la table des strings de compatibilité
 
-Les deux méthodes ci-dessous permettent d'enregistrer/de libérer le pilote.
+La macro [platform_driver_register](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h#L236) et
+la méthode [platform_driver_unregister](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h#L240) permettent d'enregistrer/de libérer le pilote.
 
 ```c
 int platform_driver_register (struct platform_driver *);
@@ -54,8 +56,11 @@ du module.
 
 ## Les périphériques (device)
 
-Dans le cas d'un périphérique appartenant à la plateforme, on peut utiliser les
-méthodes de l'interface `<linux/platform_device.h>`
+Dans le cas d'un périphérique appartenant à la plateforme, on peut également utiliser les
+méthodes de l'interface [`<linux/platform_device.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h)
+
+La structure [`struct platform_device`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h#L23)
+permet de spécifier les attributs du périphérique :
 
 ```c
 struct platform_device {
@@ -75,7 +80,8 @@ struct platform_device {
   l'attribut `.dev.devt`. Cette opération permettra au noyau Linux de créer le fichier
   d'accès dans `/dev`
 
-Les deux méthodes ci-dessous d'enregistrer/de libérer le périphérique.
+Les méthodes [`platform_device_register`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h#L52) et
+[`platform_device_unregister`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/platform_device.h#L53) permettent d'enregistrer/de libérer le périphérique.
 
 ```c
 int platform_device_register (struct platform_device *);
@@ -84,7 +90,9 @@ void platform_device_unregister (struct platform_device *);
 
 ## Miscdevice
 
-La structure `struct miscdevice` simplifie l'instanciation du périphérique avec la
+La structure [`struct miscdevice`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/miscdevice.h#L79) 
+définie dans l'interface [`<linux/miscdevice.h>`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/miscdevice.h)
+simplifie l'instanciation du périphérique avec la
 création d'un fichier d'accès sous `/dev`.
 
 ```c
@@ -105,9 +113,9 @@ struct miscdevice {
   (`struct file_operations`)
 - `mode` définit les droits sur fichier d'accès sous /dev
 
-Les deux méthodes ci-dessous d'enregistrer/de libérer le périphérique :
+Les méthodes [`misc_register`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/miscdevice.h#L91) et [`misc_deregister`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/miscdevice.h#L92) permettent d'enregistrer/de libérer le périphérique :
 
 ```c
 int misc_register (struct miscdevice *);
-void misc_unregister (struct miscdevice *);
+void misc_deregister (struct miscdevice *);
 ```
