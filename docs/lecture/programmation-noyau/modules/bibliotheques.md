@@ -51,7 +51,7 @@ static LIST_HEAD (my_list);
 
 // allocate on element and add it at the tail of the list
 void alloc_ele () {
-    struct element* ele
+    struct element* ele;
     // create a new element
     ele = kzalloc(sizeof(*ele), GFP_KERNEL); 
     if (ele != NULL)
