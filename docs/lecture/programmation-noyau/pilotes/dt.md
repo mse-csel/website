@@ -106,8 +106,8 @@ Exemple :
 ## String de compatibilité
 
 Le lien entre le pilote traitant un périphérique dans le noyau Linux et la
-description dans le _Device Tree_ est garanti par le _string_ de compatibilité,
-mot clef `.compatible`
+description dans le _Device Tree_ est garanti par le _string_ de compatibilité
+(mot clef `.compatible`).
 
 ```c
 static const struct of_device_id of_ths_match[] = {
