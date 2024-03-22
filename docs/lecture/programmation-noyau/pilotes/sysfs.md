@@ -45,10 +45,10 @@ _sysfs_ est construit sous forme d'arborescence :
 
 Ceci permet de voir le système sous différents points de vue, par exemple
 
-- Depuis les périphériques existants dans le système `/sys/devices`
-- Depuis la structure du bus système `/sys/bus`
-- Depuis les pilotes disponibles `/sys/module`
-- Depuis différentes "classes" de périphériques `/sys/class`
+- Depuis les périphériques existants dans le système `/sys/devices` (par exemple `/sys/devices/virtual/mem/random`)
+- Depuis la structure du bus système `/sys/bus` (par exemple `/sys/bus/i2c` ou `/sys/bus/serial`)
+- Depuis les pilotes disponibles `/sys/module` (par exemple `/sys/module/random`)
+- Depuis différentes "classes" de périphériques `/sys/class` (par exemple `/sys/class/tty`)
 
 La documentation est disponible dans les sources du noyau sous
 [Documentation/filesystems/sysfs.txt](https://www.kernel.org/doc/Documentation/filesystems/sysfs.txt)
