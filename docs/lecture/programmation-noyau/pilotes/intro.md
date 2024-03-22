@@ -34,12 +34,15 @@ hardware
 
 3 structures importantes :
 
-- `struct device` : périphérique dans le système et généralement associé
+- [`struct device`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device.h#L473) :
+  périphérique dans le système et généralement associé
   à un bus. Il est découvert de différentes manières (hot-plug, pilote
   de périphérique (driver), initialisation)
-- `struct device_driver` : entité logicielle associée au périphérique et
+- [`struct device_driver`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device/driver.h#L95) :
+  entité logicielle associée au périphérique et
   permettant d'effectuer des opérations sur ce dernier
-- `struct bus_type` : canal de communication entre le microprocesseur et le
+- [`struct bus_type`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device/bus.h#L82) :
+  canal de communication entre le microprocesseur et le
   périphérique d'entrée/sortie (quelques bus: I2C, SPI, USB, PCI,...)
 
 <figure markdown>
