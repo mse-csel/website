@@ -144,5 +144,3 @@ Cette compatibilité est contrôlée lors de l'instanciation du pilote.
 - [The Device Tree kernel mailing list](http://dir.gmane.org/gmane.linux.drivers.devicetree)
 - [Device Tree Reference](https://elinux.org/Device_Tree_Reference)
 - [Device Tree Usage](https://elinux.org/Device_Tree_Usage)
-
- 
