@@ -119,7 +119,7 @@ static const struct of_device_id of_ths_match[] = {
 MODULE_DEVICE_TABLE(of, of_ths_match);
 ```
 
-L'attribut `.of_match_table` de la structure `struct device_driver`
+L'attribut `.of_match_table` de la structure [`struct device_driver`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device/driver.h#L95)
 contient la liste des _strings_ compatibles avec le pilote.
 
 ```c
