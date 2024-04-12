@@ -193,6 +193,7 @@ attacher les fichiers d'accès aux attributs d'un device.
   struct device* device_create (struct class *class,
                                 struct device *parent,
                                 dev_t devt,
+                                void *drvdata,
                                 const char *fmt, ...);
   ```
 - Destruction du `device` avec la méthode [`device_destroy`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device.h#L904)
