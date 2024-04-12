@@ -14,7 +14,7 @@ noyau. Par exemple :
 
 Les pilotes désirant échanger des données avec des applications, le font
 simplement en exportant des fichiers virtuels sous `/proc`. Ceux-ci permettent
-l'échange de ces informations sous forme _ascii_.
+l'échange de ces informations sous forme _ASCII_.
 
 Cependant aujourd'hui, il est plutôt recommandé d'implémenter cette
 fonctionnalité sous `sysfs` que sous `procfs`.

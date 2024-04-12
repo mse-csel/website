@@ -9,15 +9,15 @@ Les fichiers jouent un grand rôle sous Linux (_Everything is a file!_)
 Les fichiers spéciaux offrent l'accès aux :
 
 - Données des périphériques d'entrées/sorties
-    - Accès séquentiel aux données des périphériques (binaire ou ASCII)
+    - Accès séquentiel aux données des périphériques (binaire ou _ASCII_)
     - Fichiers d'accès placés sous `/dev` (_devfs_)
     - Configuration du pilote et du périphérique
 - Informations des périphériques, de leur pilote et des modules noyau
-    - Accès séquentiel aux données (ASCII)
+    - Accès séquentiel aux données (_ASCII_)
     - Fichiers d'accès placés sous l'arborescence `/sys` (_sysfs_)
     - Configuration et monitoring des pilotes de périphériques et des modules noyau
 - Informations des processus et du noyau Linux
-    - Accès séquentiel aux données (ASCII)
+    - Accès séquentiel aux données (_ASCII_)
     - Fichiers d'accès placés sous l'arborescence `/proc` (_procfs_)
     - Configuration et monitoring des processus et du noyau Linux
 
@@ -106,7 +106,7 @@ _Sysfs_ est un système de fichiers virtuels créé pour faciliter la configurat
 le monitoring de pilotes de périphériques. Des outils, tels que `cat` ou `echo`,
 permettent d'accéder simplement aux informations stockées dans le _sysfs_.
 
-L'échange d'information avec les fichiers sous _sysfs_ se fait sous forme ASCII.
+L'échange d'information avec les fichiers sous _sysfs_ se fait sous forme _ASCII_.
 
 Opérations principales supportées par _File-I/O_ :
 

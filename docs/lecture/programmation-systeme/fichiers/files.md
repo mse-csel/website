@@ -459,7 +459,7 @@ appels système (moins de changements de contexte entre espaces utilisateur
 ## Standard I/O : Fonctions principales
 
 La bibliothèque standard C `<stdio.h>` propose toute une série de méthodes
-pour l'accès aux fichiers au format ASCII ou binaire.
+pour l'accès aux fichiers au format _ASCII_ ou binaire.
 
 ```c
 /* functions to open, close, rename and remove files */
@@ -489,7 +489,7 @@ int feof (FILE* stream);
 ## Utilisation
 
 L'utilisation des bibliothèques _Standard I/O_ est recommandée lors de
-manipulation de fichiers avec de petites quantités de données à la fois (ASCII
+manipulation de fichiers avec de petites quantités de données à la fois (_ASCII_
 ou binaire) ou accès aux données orienté caractère ou ligne.
 
 Elles offrent:

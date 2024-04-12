@@ -19,7 +19,7 @@ relations les uns envers les autres, comme suit
 | Relations entre objets | Liens symboliques  |
 
 Des outils très simple, tels que `ls`, `cat` ou `echo`, offrent un moyen pour
-accéder aux informations stockées dans le _sysfs_ sous forme ascii, par exemple :
+accéder aux informations stockées dans le _sysfs_ sous forme _ASCII_, par exemple :
 
 ```shell
 cat /sys/class/tty/ttyS0/dev
@@ -93,7 +93,7 @@ struct driver_attribute {
 
 - Il est impératif de créer/instancier, pour chaque attribut du pilote, une telle
 structure avec des méthodes d'accès propre.
-- Les valeurs de l'attribut sont passées sous forme _ascii_ par l'intermédiaire de
+- Les valeurs de l'attribut sont passées sous forme _ASCII_ par l'intermédiaire de
 l'argument `buf`.
 
 Les macro [`DRIVER_ATTR_xx`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device.h#L125)
@@ -141,7 +141,7 @@ struct device_attribute {
 - Il est impératif de créer/instancier, pour chaque attribut d'un périphérique, une
 telle structure avec des méthodes d'accès propre.
 
-- Les valeurs de l'attribut sont passées sous forme _ascii_ par l'intermédiaire de
+- Les valeurs de l'attribut sont passées sous forme _ASCII_ par l'intermédiaire de
 l'argument `buf`.
 
 La macro [`DEVICE_ATTR`](https://elixir.bootlin.com/linux/v5.15.148/source/include/linux/device.h#L125)
