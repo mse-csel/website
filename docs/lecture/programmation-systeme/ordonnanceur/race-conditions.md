@@ -15,7 +15,7 @@ condition_).
 </figure>
 
 Si cette situation est mal gérée, elle peut déboucher à des résultats différents
-selon l'ordre dans lequel les différentes tâches vont agir sur le système. Dans
+selon l'ordre dans lequel les différentes tâches agissent sur le système. Dans
 des situations extrêmes cela peut même mener à des résultats erronés.
 
 Par leur nature aléatoire, les _situations de compétition_ sont des problèmes

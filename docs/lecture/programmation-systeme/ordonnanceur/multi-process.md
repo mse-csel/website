@@ -216,7 +216,7 @@ else
 
 ## Copy on Write
 
-Lors du clonage d'un processus, le noyau Linux crèe un nouvel espace virtuel
+Lors du clonage d'un processus, le noyau Linux crée un nouvel espace virtuel
 pour le nouveau processus (processus enfant).
 
 A quelques exceptions près (voir les [man pages](https://man7.org/linux/man-pages/man2/clone.2.html)), toutes les données sont
