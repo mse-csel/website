@@ -60,6 +60,9 @@ Commandes pour afficher la liste des threads :
 
 ```bash
 ps -eLf
+```
+
+```bash
 ps H -o user,ppid,pid,tid,stat,cmd,comm,wchan
 ```
 
