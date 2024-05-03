@@ -85,7 +85,8 @@ divers services.
 ## Gestion de la _policy_ d'un processus
 
 Linux propose deux services pour la gestion de la _policy_ d'un processus,
-soit l'appel système `sched_getscheduler()` et `sched_setscheduler()`.
+soit l'appel système [`sched_getscheduler()`](https://man7.org/linux/man-pages/man3/sched_getscheduler.3p.html)
+et [`sched_setscheduler()`](https://man7.org/linux/man-pages/man3/sched_setscheduler.3p.html).
 
 ```c
 #include <sched.h>
@@ -115,7 +116,7 @@ if (ret == -1)
 ## CFS - Operations
 
 Pour gérer les priorités des processus normaux de l'ordonnanceur CFS, Linux
-propose divers services.
+propose [divers services](https://man7.org/linux/man-pages/man7/sched.7.html).
 
 | Opérations                        | syscall        |
 |-----------------------------------|----------------|
@@ -126,7 +127,8 @@ propose divers services.
 ## CFS - Gestion des priorités _nice_
 
 Un processus placé dans la catégorie des processus normaux peut gérer son
-taux d'affectation du microprocesseur à l'aide de l'appel système `nice()`.
+taux d'affectation du microprocesseur à l'aide de [l'appel système](https://man7.org/linux/man-pages/man2/nice.2.html)
+[`nice()`](https://man7.org/linux/man-pages/man3/nice.3p.html).
 
 ```c
 #include <unistd.h>
@@ -160,7 +162,8 @@ if (prio == -1 && errno != 0)
 ## CFS - Gestion du niveau de priorité
 
 Linux propose deux services pour la gestion du niveau de priorité d'un
-processus, soit l'appel système `getpriority()` et `setpriority()`.
+processus, soit l'appel système [`getpriority()`](https://man7.org/linux/man-pages/man3/getpriority.3p.html)
+et [`setpriority()`](https://man7.org/linux/man-pages/man3/setpriority.3p.html).
 
 ```c
 #include <sys/time.h>
@@ -196,10 +199,11 @@ des applications il soit utile et nécessaire d'attribuer un ou plusieurs CPU à
 un processus ou groupe de processus. A cet effet, Linux propose une série
 de macros et services.
 
-| Opérations                          | syscall             |
-|-------------------------------------|---------------------|
-| Lecture de l'affectation d'un CPU   | `sched_getaffinity` |
-| Affectation d'un CPU à un processus | `sched_setaffinity` |
+| Opérations                          | syscall                                                                               |
+|-------------------------------------|---------------------------------------------------------------------------------------|
+| Lecture de l'affectation d'un CPU   | [`sched_getaffinity`](https://man7.org/linux/man-pages/man2/sched_setaffinity.2.html) |
+| Affectation d'un CPU à un processus | `sched_setaffinity`                                                                   |
+
 
 Les methodes ci-dessous permettent de définir un ensemble de CPU à
 affecter à un processus

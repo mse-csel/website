@@ -42,7 +42,7 @@ servent souvent également de mécanisme de synchronisation.
 
 ## Pipes
 
-Les pipes implémentent un canal de communication unidirectionnel entre 2
+Les [pipes](https://man7.org/linux/man-pages/man2/pipe.2.html) implémentent un canal de communication unidirectionnel entre 2
 processus.
 
 Ce canal est accessible par l'intermédiaire de 2 descripteurs de fichiers
@@ -119,11 +119,11 @@ Avant de pouvoir utiliser un FIFO, celui-ci doit être créé soit avant le
 lancement des applications le mettant en œuvre soit par les applications
 elles-mêmes.
 
-- Création d'un FIFO à l'aide de commandes utilisateur
+- Création d'un FIFO à l'aide de [commandes utilisateur](https://man7.org/linux/man-pages/man1/mkfifo.1.html)
   ```bash
   mkfifo [--mode=MODE] FIFO_NAME
   ```
-- Création d'un FIFO par l'application
+- Création d'un FIFO [par l'application](https://man7.org/linux/man-pages/man3/mkfifo.3.html)
   ```c
   #include <sys/types.h>
   #include <sys/stat.h>
@@ -143,7 +143,7 @@ ordinaux
 
 ## Message Queues
 
-Les files d'attente de messages (_message queues_) offrent un canal de
+Les files d'attente de messages ([_message queues_](https://man7.org/linux/man-pages/man7/mq_overview.7.html)) offrent un canal de
 communication unidirectionnel généralement entre un processus récepteur et
 un ou plusieurs processus émetteurs.
 
@@ -172,7 +172,7 @@ une série de méthodes spécifiques avec la bibliothèque `<mqueue.h>`.
 | Destruction d'une file d'attente           | `mq_unlink`  |
 | Lecture des attributs d'une file d'attente | `mq_getattr` |
 
-La `struct mq_attr` permet de décrire les caractérisques d'une file d'attente
+La [`struct mq_attr`](https://man7.org/linux/man-pages/man3/mq_getattr.3.html) permet de décrire les caractérisques d'une file d'attente
 
 ```c
 struct mq_attr {
@@ -185,7 +185,7 @@ struct mq_attr {
 
 ## Sockets
 
-Les sockets ont été conçus par l'université de Berkeley au début des années
+Les [sockets](https://man7.org/linux/man-pages/man7/socket.7.html) ont été conçus par l'université de Berkeley au début des années
 1980. Ils proposent un ensemble de services normalisés pour l'échange
 d'information entre processus locaux ou distants.
 
@@ -233,7 +233,7 @@ if (err == -1)
 **Comportement**
 
 - La fonction `socketpair()` crée un canal de communication bidirectionnelle
-  sous la forme d'un socket Unix (le seul supporté par Linux) et retourne deux
+  sous la forme d'un [socket Unix](https://man7.org/linux/man-pages/man7/unix.7.html) (le seul supporté par Linux) et retourne deux
   descripteurs, le 1^er^ `fd[0]` pour un processus et le 2^e^ `fd[1]` pour le deuxième
   processus. Ces descripteurs permettent d'émettre des données avec la méthode
   `write()` et d'en recevoir avec la méthode `read()`.
