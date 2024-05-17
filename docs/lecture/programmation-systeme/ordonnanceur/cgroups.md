@@ -4,7 +4,7 @@ title: Control Groups (CGroups)
 
 ## Introduction
 
-La gestion des ressources des microprocesseur pour les différentes tâches que le système
+La gestion des ressources des microprocesseurs pour les différentes tâches que le système
 doit assurer est un problème récurrent sur les systèmes embarqués.
 
 Les groupes de contrôle (_CGroups_) offrent un mécanisme puissant pour
@@ -12,7 +12,7 @@ limiter, compter et isoler les ressources du microprocesseur, par exemple les c�
 utilisation des I/O.
 
 Les _CGroups_ permettent de partitionner le système en différentes activités.
-Ces dernières seront ensuite agrégées dans des groupes hiérarchiques avec
+Ces dernières sont ensuite agrégées dans des groupes hiérarchiques avec
 des comportements spécialisés.
 
 <figure markdown>
@@ -28,7 +28,7 @@ Les _CGroups_ proposent :
 
 - `cpuset` : pour assigner des CPU individuels (multi-cœurs) et des nœuds de mémoire à
   des tâches dans un groupe de contrôle
-- `cpu` : pour fournir aux tâches des groupes de contrôle accès au CPU
+- `cpu` : pour fournir aux tâches des groupes de contrôle d'accès au CPU
 - `memory` : pour établir les limites d'utilisation de la mémoire par les tâches d'un groupe
   de contrôle et pour générer des rapports automatiques sur les ressources mémoire
   utilisées
@@ -77,7 +77,7 @@ mount -t cgroup -o memory,cpu,cpuset cgroups /sys/fs/cgroup/set
 ```
 
 L'option `-o` permet de choisir les sous-systèmes que l'on souhaite exporter. Si
-aucune option n'est spécifiée, l'ensemble des sous-systèmes seront visibles.
+aucune option n'est spécifiée, l'ensemble des sous-systèmes sont visibles.
 
 Ensuite il suffit de créer la hiérarchie souhaitée, de configurer les ressources
 allouées à ces différents groupes de contrôle et de placer les différents

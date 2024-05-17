@@ -118,11 +118,11 @@ if (ret == -1)
 Pour gérer les priorités des processus normaux de l'ordonnanceur CFS, Linux
 propose [divers services](https://man7.org/linux/man-pages/man7/sched.7.html).
 
-| Opérations                        | syscall        |
-|-----------------------------------|----------------|
-| Gestion des priorités _nice_      | `nice`         |
-| Lecture du niveau de priorité     | `getpriority`  |
-| Affectation du niveau de priorité | `setpriority)` |
+| Opérations                        | syscall       |
+|-----------------------------------|---------------|
+| Gestion des priorités _nice_      | `nice`        |
+| Lecture du niveau de priorité     | `getpriority` |
+| Affectation du niveau de priorité | `setpriority` |
 
 ## CFS - Gestion des priorités _nice_
 

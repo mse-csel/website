@@ -45,7 +45,7 @@ Les états principaux d'un processus:
 
 1. L'ordonnanceur passe la main à un autre processus
 2. L'ordonnanceur donne la main au processus
-3. Le processus est bloqué en attende d'un événement, par exemple des entrées/sorties
+3. Le processus est bloqué en attente d'un événement, par exemple des entrées/sorties
 4. L'événement sur lequel le processus était en attente est survenu
 
 ## Etats sous Linux

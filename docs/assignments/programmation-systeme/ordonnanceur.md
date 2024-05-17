@@ -67,7 +67,7 @@ processeur.
 
 ### Quelques indications pour monter les CGroups :
 
-- Si pas déjà effectuer, monter le _cgroup_ de l'exercice précédent.
+- Si ce n'est pas déjà effectué, monter le _cgroup_ de l'exercice précédent.
 - `$ mkdir /sys/fs/cgroup/cpuset`
 - `$ mount -t cgroup -o cpu,cpuset cpuset /sys/fs/cgroup/cpuset`
 - `$ mkdir /sys/fs/cgroup/cpuset/high`

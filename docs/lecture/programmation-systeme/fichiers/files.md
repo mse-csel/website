@@ -205,7 +205,7 @@ Exemple
 
 ```c
 const char* buf = "data to be written";
-size_t len = strlen(buf)
+size_t len = strlen(buf);
 ssize_t count = write (fd, buf, len);
 if (count == -1)
     /* error, check errno */
