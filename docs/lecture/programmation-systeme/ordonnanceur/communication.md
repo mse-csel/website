@@ -147,12 +147,12 @@ Les files d'attente de messages ([_message queues_](https://man7.org/linux/man-p
 communication unidirectionnel généralement entre un processus récepteur et
 un ou plusieurs processus émetteurs.
 
-Contrairement aux _pipes_ et aux _FIFO_, les files d'attende de messages sont de
+Contrairement aux _pipes_ et aux _FIFO_, les files d'attente de messages sont de
 type _datagramme_, c'est à dire chaque message ou paquet est stocké de façon
 indépendante dans la file d'attente.
 
 La taille maximale d'un message ainsi que le nombre de messages pouvant
-être stockés dans la file d'attende sont déterminés lors de sa création.
+être stockés dans la file d'attente sont déterminés lors de sa création.
 
 <figure markdown>
 ![](img/msg-queue.drawio.svg)
@@ -160,12 +160,12 @@ La taille maximale d'un message ainsi que le nombre de messages pouvant
 
 ## Message Queues - Opérations
 
-Pour accéder aux services des files d'attende de messages, Linux propose
+Pour accéder aux services des files d'attente de messages, Linux propose
 une série de méthodes spécifiques avec la bibliothèque `<mqueue.h>`.
 
 | Opération                                  | syscall      |
 |--------------------------------------------|--------------|
-| Ouverture et création d'une file d'attende | `mq_open`    |
+| Ouverture et création d'une file d'attente | `mq_open`    |
 | Lecture d'un message d'une file            | `mq_receive` |
 | Ecriture d'un message dans une file        | `mq_send`    |
 | Fermeture d'une file d'attente             | `mq_close`   |
