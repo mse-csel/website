@@ -140,7 +140,7 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
     - {{  cal.start | add_week(8) | dow(3) | euro_day }} : Environnement Linux embarqué et programmation noyau Linux 
-    - {{  cal.start | add_week(14) | dow(3) | euro_day }} : Programmation système Linux et optimisation système Linux
+    - {{  cal.start | add_week(15) | dow(0) | euro_day }} : Programmation système Linux et optimisation système Linux
     - {{  cal.start | add_week(16) | dow(4) | euro_day }} : Mini projet intégré
 - Format : fichier PDF à déposer dans l'_assignment_ de Teams. Le nom du fichier doit être : <br/>
   `CSEL1-<groupe>-<sujet>.pdf`
