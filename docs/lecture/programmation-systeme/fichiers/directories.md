@@ -7,7 +7,7 @@ title: Gestion des répertoires
 La gestion des fichiers et des répertoires est un aspect important pour un
 système d'exploitation. Linux propose divers services à cet effet.
 
-Horsmis les services pour créer et échanger des données avec des fichiers,
+Hormis les services pour créer et échanger des données avec des fichiers,
 Linux, via les bibliothèques `<unistd.h>` et `<dirent.h>`, nous offre des
 fonctions pour:
 
