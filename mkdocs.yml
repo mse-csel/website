@@ -34,7 +34,7 @@ extra:
       link: https://www.youtube.com/hessofilms
 
   calendar_plugin:
-    start: 2025-02-16
+    start: 2025-02-21
     end: 2025-06-06
     week_names: [
         SP-1,

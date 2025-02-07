@@ -46,24 +46,24 @@ code pour rejoindre l'équipe : <b>{{ teams_code }}</b>
 
 | Semaine                          | Date                    | Thème                          |
 |:---------------------------------|:------------------------|:-------------------------------|
-| {{ week_no + i  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Environnement Linux embarqué 1 | {% set i = i + 1 %}
-| {{ week_no + i  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Environnement Linux embarqué 2 | {% set i = i + 1 %}
-| {{ week_no + 2  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 1    | {% set i = i + 1 %}
-| {{ week_no + 3  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 2    | {% set i = i + 1 %}
-| {{ week_no + 4  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 3    | {% set i = i + 1 %}
-| {{ week_no + 5  }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | **Vendredi Saint**             | {% set i = i + 1 %}
-| {{ week_no + 6  }}               |                         | **Pâques**                     | {% set i = i + 1 %}
-| {{ week_no + 7  }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation noyau Linux 4    | {% set i = i + 1 %}
-| {{ week_no + 8  }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 1  | {% set i = i + 1 %}
-| {{ week_no + 9  }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 2  | {% set i = i + 1 %}
-| {{ week_no + 10 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 3  | {% set i = i + 1 %}
-| {{ week_no + 11 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | **Pont de l'Ascension**        | {% set i = i + 1 %}
-| {{ week_no + 12 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 4  | {% set i = i + 1 %}
-| {{ week_no + 13 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Optimisation système Linux     | {% set i = i + 1 %}
-| {{ week_no + 14 }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Mini projet intégré 1          | {% set i = i + 1 %}
-| {{ week_no + 15  }}              | {{ cal.start | ld(i) }} | Mini projet intégré 2          | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Environnement Linux embarqué 1 | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Environnement Linux embarqué 2 | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 1    | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 2    | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 3    | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation noyau Linux 4    | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation système Linux 1  | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | Programmation système Linux 2  | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i+1 }}  | {{ cal.start | ld(i) }} | **Vendredi Saint**             | {% set i = i + 1 %}
+| {{ week_no + i }}               |                         | **Pâques**                     | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 3  | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Programmation système Linux 4  | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Optimisation système Linux     | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | Mini projet intégré 1          | {% set i = i + 1 %}
+| {{ week_no + i }}/SP-{{ i }}    | {{ cal.start | ld(i) }} | **Pont de l'Ascension**        | {% set i = i + 1 %}
+| {{ week_no + i  }}              | {{ cal.start | ld(i) }} | Mini projet intégré 2          | {% set i = i + 1 %}
 
-[Calendrier MSE {{ year }}](assets/AY23-24_CalendrierAcademique_MSE_Reg-F.pdf)
+[Calendrier MSE {{ year }}](assets/AY24-25_CalendrierAcademique_MSE_Reg-F.pdf)
 
 ## Déroulement des cours
 
@@ -139,9 +139,9 @@ Au terme de ce module, les étudiant-e-s seront capable de :
 ### Rapport
 
 - Rapports de laboratoire par groupe de 2 étudiants, à rendre
-    - {{  cal.start | add_week(8) | dow(3) | euro_day }} : Environnement Linux embarqué et programmation noyau Linux 
-    - {{  cal.start | add_week(15) | dow(0) | euro_day }} : Programmation système Linux et optimisation système Linux
-    - {{  cal.start | add_week(16) | dow(4) | euro_day }} : Mini projet intégré
+    - {{  cal.start | add_week(6) | dow(3) | euro_day }} : Environnement Linux embarqué et programmation noyau Linux 
+    - {{  cal.start | add_week(13) | dow(3) | euro_day }} : Programmation système Linux et optimisation système Linux
+    - {{  cal.start | add_week(15) | dow(0) | euro_day }} : Mini projet intégré
 - Format : fichier PDF à déposer dans l'_assignment_ de Teams. Le nom du fichier doit être : <br/>
   `CSEL1-<groupe>-<sujet>.pdf`
 - Langue : français, allemand ou anglais
