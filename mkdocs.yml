@@ -10,12 +10,12 @@ extra:
   teams_code: s3y9d5l
   kver: 5.15.148
   info:
-    students_count: 0
-    students_cs: 0
-    students_eie: 0
+    students_count: 9
+    students_cs: 7
+    students_eie: 2
     students_enen: 0
-    students_ft: 0
-    students_pt: 0
+    students_ft: 4
+    students_pt: 5
 
   pdf_to_jpg: programmation-noyau/modules/assets/sp.03.1_mas_csel_noyau_modules.pdf
 
